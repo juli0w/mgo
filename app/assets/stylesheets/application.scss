@@ -67,7 +67,7 @@ html {
     height: 60px;
     display: block;
     background-repeat: no-repeat;
-    background-image: url(images/social.png);
+    background-image: url(/images/social.png);
     display: inline-block;
     background-position: center;
     background-size: 235px 162px;
@@ -217,7 +217,7 @@ h1.logo {
 
 .header-company {
   padding-top: .5em;
-  background: url(images/bg-header.jpg) no-repeat center;
+  background: url(/images/bg-header.jpg) no-repeat center;
   color: white;
   height: 200px;
   background-size: cover;
@@ -228,7 +228,7 @@ h1.logo {
 }
 
 .background-map  {
-  background-image: url(images/bg-map.png);
+  background-image: url(/images/bg-map.png);
 }
 
 .opacity {
