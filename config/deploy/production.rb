@@ -15,9 +15,11 @@ role :app, %w{root@45.79.160.56}
 role :web, %w{root@45.79.160.56}
 role :db,  %w{root@45.79.160.56}
 
-set :application, 'MeuGuiaOnline'
+set :application, 'meuguia'
 set :repo_url, 'git@github.com:juli0w/mgo.git'
 set :branch, 'master'
+
+set :linked_files, %w{config/database.yml}
 
 # role-based syntax
 # ==================
