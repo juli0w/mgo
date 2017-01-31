@@ -19,17 +19,6 @@ set :application, 'MeuGuiaOnline'
 set :repo_url, 'git@github.com:juli0w/mgo.git'
 set :branch, 'master'
 
-namespace :deploy do
-  desc "reload the database with seed data"
-  on primary :db do
-  within current_path do
-    with rails_env: fetch(:stage) do
-      execute :rake, 'db:seed'
-    end
-  end
- end
-end
-
 # role-based syntax
 # ==================
 
