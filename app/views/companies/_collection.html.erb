@@ -2,7 +2,7 @@
   <li class="collection-item avatar-bigger avatar">
     <div class="rect">
       <span class="valign-helper">
-        <%= image_tag company.logotipo.thumb.url %>
+        <%= image_tag company.logotipo.try(:thumb).try(:url) %>
       </span>
     </div>
     <span class="title"><strong><%= link_to company.name, get_url(company), class: "black-text" %></strong></span>

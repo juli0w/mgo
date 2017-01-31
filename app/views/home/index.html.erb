@@ -5,7 +5,7 @@
     <div class="carousel-item" href="">
       <div class="valign-wrapper" style="height: 180px;">
         <div class="valign section">
-          <%= link_to image_tag(company.logotipo.slider.url), get_url(company) %>
+          <%= link_to image_tag(company.logotipo.try(:slider).try(:url)), get_url(company) %>
         </div>
       </div>
     </div>
