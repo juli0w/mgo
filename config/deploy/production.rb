@@ -19,6 +19,13 @@ set :application, 'MeuGuiaOnline'
 set :repo_url, 'git@github.com:juli0w/mgo.git'
 set :branch, 'master'
 
+namespace :deploy do
+  desc "reload the database with seed data"
+  task :seed do
+    run "cd #{current_path}; bundle exec rake db:seed RAILS_ENV=#{rails_env}"
+  end
+end
+
 # role-based syntax
 # ==================
 
