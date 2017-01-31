@@ -1,0 +1,27 @@
+<footer class="page-footer <%= primary_color @company %>">
+  <div class="container">
+    <div class="row">
+      <div class="col s12 m4 keep-icon-align">
+        <h5 class="<%= detail_color @company %>">Mais informações</h5>
+        <br/>
+        <div class="<%= text_color @company %>"><strong>Endereço:</strong><br/> <%= @company.profile.formatted_address %></div><br />
+        <div class="<%= text_color @company %>"><strong>Telefone:</strong><br/> <%= @company.profile.phone %></div><br />
+        <div class="<%= text_color @company %>"><strong>Email:</strong><br/> <%= @company.profile.mail %></div><br />
+      </div>
+      <% if @company.tags.any? %>
+      <div class="col s12 m4 <%= text_color(@company) %>">
+        <h5 class="<%= detail_color @company %>">Tags</h5>
+        <br />
+        <%= raw @company.tags.map(&:name).map { |t| link_to t, tag_path(t), class: link_color(@company) }.join(', ') %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+      <div class="right">
+        <%= link_to 'http://meuguia.online/', root_url, class: link_color(@company) %>
+      </div>
+    </div>
+  </div>
+</footer>

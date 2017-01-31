@@ -1,0 +1,21 @@
+<nav role="navigation" class="<%= primary_color @company %>">
+  <div class="nav-wrapper container">
+    <div class="keep-icon-align hide-on-med-and-down">
+      <span class="<%= text_color @company %>"><i class="tiny material-icons <%= detail_color @company %>">place</i> <%= @company.profile.formatted_address %></span>
+      <span class="<%= text_color @company %>"><i class="tiny material-icons <%= detail_color @company %>">phone</i> <%= @company.profile.phone %></span>
+      <span class="<%= text_color @company %>"><i class="tiny material-icons <%= detail_color @company %>">mail</i> <%= @company.profile.mail %></span>
+    </div>
+
+    <ul class="right">
+      <li><%= link_to "<i class='material-icons'>star</i>".html_safe, "#{@company.slug}/review", class: "tooltipped #{link_color(@company)}", 'data-tooltip': 'Avaliar' %></li>
+      <% if user_signed_in? %>
+        <li><%= link_to "<i class='material-icons'>edit</i>".html_safe, edit_company_path(@company), class: "tooltipped #{link_color(@company)}", 'data-tooltip': 'Editar' %></li>
+      <% end %>
+      <li class="divider"></li>
+      <li><%= link_to "<i class='material-icons'>place</i>".html_safe, root_url, class: "tooltipped #{link_color(@company)}", 'data-tooltip': 'Meu Guia' %></li>
+      <% if user_signed_in? %>
+        <li><%= link_to "<i class='material-icons'>lock_open</i>".html_safe, destroy_user_session_path, class: "tooltipped #{link_color(@company)}", 'data-tooltip': 'Logout', method: :delete %></li>
+      <% end %>
+    </ul>
+  </div>
+</nav>

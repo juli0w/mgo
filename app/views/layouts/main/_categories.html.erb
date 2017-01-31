@@ -1,0 +1,15 @@
+<nav class="blue-grey darken-2">
+  <div class="nav-wrapper container">
+    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+    <ul class="hide-on-med-and-down">
+      <% @categories.each do |category| %>
+        <li><strong><%= link_to category.name, category %></strong></li>
+      <% end %>
+    </ul>
+    <ul class="side-nav" id="mobile-demo">
+      <% @categories.each do |category| %>
+        <li><%= link_to category.name, category %></li>
+      <% end %>
+    </ul>
+  </div>
+</nav>

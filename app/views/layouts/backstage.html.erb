@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <%= display_meta_tags site: 'Meu Guia | Administração', noindex: true %>
+    <%= csrf_meta_tags %>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'https://fonts.googleapis.com/icon?family=Material+Icons' %>
+  </head>
+
+  <body>
+
+    <%= render "layouts/backstage/navbar" %>
+
+    <%= render "layouts/backstage/flash" %>
+
+    <%= render "layouts/backstage/content" %>
+
+    <%= render "layouts/backstage/footer" %>
+
+  </body>
+</html>

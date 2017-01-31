@@ -1,0 +1,17 @@
+<% @companies.each do |company| %>
+  <li class="collection-item avatar-bigger avatar">
+    <div class="rect">
+      <span class="valign-helper">
+        <%= image_tag company.logotipo.thumb.url %>
+      </span>
+    </div>
+    <span class="title"><strong><%= link_to company.name, get_url(company), class: "black-text" %></strong></span>
+    <p><%= rate_for(company) %>
+
+    <br />
+    <%= company.description %></p>
+    <%= link_to get_url(company), class: 'secondary-content tooltipped', 'data-position': "left", 'data-delay' => "50", 'data-tooltip' => "Mais informações" do %>
+      <i class="material-icons">room</i>
+    <% end %>
+  </li>
+<% end %>

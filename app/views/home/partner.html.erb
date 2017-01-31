@@ -1,0 +1,119 @@
+<nav role="navigation" class="grey darken-4">
+  <div class="nav-wrapper container">
+    <ul class="right">
+      <li><%= link_to "<i class='material-icons left'>fast_rewind</i> Voltar".html_safe, root_path, class: "tooltipped", 'data-tooltip': 'Voltar para o MEU GUIA' %></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="row header-company" style="padding-top: 92px; height: 400px; background-image: url('/assets/empresa-fade.jpg');">
+  <div class="container">
+    <div class='section'>
+      <h1 class="yellow-text text-accent-2" style="font-weight: bold;">MEU GUIA</h1>
+      <p class="white-text" style="font-size: 18px;">Sua empresa na maior avenida do mundo!</p>
+    </div>
+  </div>
+</div>
+
+<%= render "layouts/main/flash" %>
+
+<div class="row">
+  <div class="container">
+    <h5 class="center-align bolder" style="margin: 40px 0;">PARCERIA DE SUCESSO</h5>
+  </div>
+</div>
+
+<div class="row">
+  <div class="container promotional">
+    <div class="col s12 m4 advantage center-align">
+      <i class="large material-icons orange-text">stars</i>
+      <h5>Página exclusiva</h5>
+      <p class="justify">Sua empresa receberá uma página exclusiva e personalizada com as informações selecionadas de acordo com sua identidade visual e relevância.</p>
+    </div>
+    <div class="col s12 m4 advantage center-align">
+      <i class="large material-icons orange-text">visibility</i>
+      <h5>Maior visibilidade</h5>
+      <p class="justify">A página estará visível 24 horas por dia, 7 dias por semana na maior avenida do mundo, a internet.</p>
+    </div>
+    <div class="col s12 m4 advantage center-align">
+      <i class="large material-icons orange-text">language</i>
+      <h5>Destaque</h5>
+      <p class="justify">Sua marca ganhará maior visibilidade e destaque nos maiores buscadores do mundo, estando acessível não só a sua região mas ao mundo inteiro.</p>
+    </div>
+  </div>
+</div>
+
+<div class="row promotional-tile">
+  <div class="container">
+    <div class="col s12 m3 center-align">
+      <i class="large material-icons orange-text">supervisor_account</i>
+    </div>
+    <div class="col s12 m9 right-align">
+      <h5 class="white-text">Tenha uma página exclusiva com o melhor preço e se aproxime dos seus clientes.</h5>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="container promotional" style="padding-top: 20px;">
+    <div class="col s12 m6 center-align" style="border: 1px dashed #232323; background-color: #f2f2f2;">
+      <div class="section table-price">
+        <h5>Plano Mensal</h5>
+        <span style="font-size: 28px; font-weight: bold;" class="orange-text">R$ 49,00/mês</span>
+      </div>
+      <div class="section table-price">
+        <h5>Plano Semestral</h5>
+        <span style="font-size: 28px; font-weight: bold;" class="orange-text">R$ 39,00/mês</span>
+      </div>
+      <div class="section table-price">
+        <h5>Plano Anual</h5>
+        <span style="font-size: 28px; font-weight: bold;" class="orange-text">R$ 29,00/mês</span>
+      </div>
+    </div>
+    <div class="col s12 m6 center-align valign-wrapper" style="height: 365px;">
+      <%= image_tag "/images/grafico.jpg", style: "height: auto; width: auto;", class: "valign" %>
+    </div>
+  </div>
+</div>
+
+<div class="row" style="margin: 60px 0 0 0;">
+  <div class="container">
+    <h5 class="center-align bolder" style="margin: 40px 0;">COMECE AGORA MESMO</h5>
+  </div>
+</div>
+
+<div class="row" style="padding: 0 0 20px 0;">
+  <div class="container">
+    <%= form_for @contact do |f| %>
+
+        <% @contact.errors.full_messages.each do |msg| %>
+          <div class="input-field red-text">
+            <%= msg %>
+          </div>
+       <% end %>
+
+       <div class="input-field col s12">
+         <%= f.text_field :name, class: "round full-width-input" %>
+         <%= f.label :name %>
+       </div>
+
+       <div class="input-field col s6">
+         <%= f.text_field :email, class: "round full-width-input" %>
+         <%= f.label :email %>
+       </div>
+       <div class="input-field col s6">
+         <%= f.text_field :phone, class: "round full-width-input" %>
+         <%= f.label :phone %>
+       </div>
+
+      <div class="section">
+        <%= f.hidden_field :destination, value: @contact.destination %>
+        <%= f.hidden_field :subject, value: @contact.subject %>
+        <%= f.button type: "submit", name: "action", class: "btn-large orange right" do %>
+          <i class="material-icons right">send</i>Enviar
+        <% end %>
+      </div>
+
+    <% end %>
+  </div>
+</div>

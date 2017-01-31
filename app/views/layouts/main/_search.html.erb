@@ -1,0 +1,21 @@
+<div class="section background-map" id="index-banner">
+  <div class="container">
+    <h5 class="center" style="margin: 30px 0 10px 0;">Procurou, achou!</h5>
+
+    <%= form_tag search_path, method: :get, class: "col s12" do %>
+      <div class="row">
+        <div class="input-field col s11 m11 offset-l2 l7">
+          <i class="material-icons prefix">place</i>
+          <input name="key" id="icon_local" type="text" class="validate search-input">
+          <label for="icon_local">O que deseja localizar? (ex: restaurantes)</label>
+        </div>
+        <div class="input-field col s1 m1 l1">
+          <button class="btn-floating" type="submit" name="action">
+            <i class="material-icons right">search</i>
+          </button>
+        </div>
+      </div>
+    <% end %>
+
+  </div>
+</div>

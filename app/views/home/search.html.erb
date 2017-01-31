@@ -1,0 +1,22 @@
+<div class="section">
+
+  <% unless @companies.blank? %>
+
+    <ul class="collection with-header">
+      <li class="collection-header">
+        <h5>Resultados para: <strong style='text-transform: uppercase;'><%= params[:key] %></strong></h5>
+      </li>
+      <%= render "companies/collection" %>
+    </ul>
+
+    <%= paginate @companies %>
+
+  <% else %>
+
+    <div class="section">
+      Sem resultados, <%= link_to "volte para a página inicial", "/" %>.
+    </div>
+
+  <% end %>
+
+</div>

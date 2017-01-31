@@ -1,0 +1,37 @@
+<footer class="page-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col s12 m4">
+        <h5 class="yellow-text text-accent-2">MEU GUIA</h5>
+        <ul>
+          <li><%= link_to "Quem somos", "", class: "white-text" %></li>
+          <li><%= link_to "Trabalhe conosco", "", class: "white-text" %></li>
+          <li><%= link_to "Anuncie sua empresa", "", class: "white-text" %></li>
+          <% if user_signed_in? %>
+            <li><%= link_to "Empresas", companies_path, class: "white-text" %></li>
+            <li><%= link_to "Logout", destroy_user_session_path, class: "white-text", method: :delete %></li>
+          <% else %>
+            <li><%= link_to "Administração", new_user_session_path, class: "white-text" %></li>
+          <% end %>
+          <li><%= link_to "Contato", contact_path, class: "white-text" %></li>
+        </ul>
+      </div>
+      <div class="col s12 m4">
+        <h5 class="yellow-text text-accent-2">TAG CLOUD</h5>
+        <div id="tag_cloud">
+          <% tag_cloud Company.tag_counts, %w[s m l] do |tag, css_class| %>
+            <%= link_to tag.name, tag_path(tag.name), class: "white-text #{css_class}" %>
+          <% end %>
+        </div>
+      </div>
+      <div class="col s12 m4">
+        
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container white-text">
+      <strong><%= link_to "http://meuguia.online", "/", class: "yellow-text text-accent-2" %></strong> - Seu guia na maior avenida do mundo
+    </div>
+  </div>
+</footer>

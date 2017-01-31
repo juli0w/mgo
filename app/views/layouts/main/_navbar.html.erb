@@ -1,0 +1,13 @@
+<nav role="navigation">
+  <div class="nav-wrapper container">
+    <%= link_to "<h1 class='logo'><i class='material-icons'>cloud</i> <strong>MEU GUIA</strong></h1>".html_safe, '/', id: 'logo-container', class: 'brand-logo' %>
+    <ul class="right">
+      <li class="hide-on-med-and-down"><%= link_to 'ANUNCIE SUA EMPRESA', partner_path, class: 'btn light-green darken-2' %></li>
+      <li class="hide-on-large-only">
+        <%= link_to "", class: 'tooltipped', 'data-position': "left", 'data-delay' => "50", 'data-tooltip' => "Anuncie sua empresa" do %>
+          <i class="material-icons">room</i>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</nav>

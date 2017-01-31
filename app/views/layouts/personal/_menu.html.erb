@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="tabs-vertical">
+    <ul class="tabs">
+      <li class="tab"><%= link_to "Inicial", "#tab-inicial", class: "grey-text text-darken-3" %></li>
+      <li class="tab"><%= link_to "Fotos", "#tab-fotos", class: "grey-text text-darken-3" %></li>
+      <li class="tab"><%= link_to "Como chegar", "#tab-mapa", class: "grey-text text-darken-3" %></li>
+      <li class="tab"><%= link_to "Contato", "#tab-contato", class: "grey-text text-darken-3" %></li>
+    </ul>
+  </div>
+
+  <div class="redes-sociais">
+    <%= link_to "Facebook", @company.facebook, class: "facebook", target: "_blank" unless @company.facebook.blank? %>
+    <%= link_to "Instagram", @company.instagram, class: "instagram", target: "_blank" unless @company.instagram.blank? %>
+    <%= link_to "Twitter", @company.twitter, class: "twitter", target: "_blank" unless @company.twitter.blank? %>
+  </div>
+</div>

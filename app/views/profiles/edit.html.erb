@@ -1,0 +1,95 @@
+<%= form_for [:edit, @company, @profile], html: { multipart: true } do |f| %>
+  <div class="row">
+    <h5 class="main-title">Atualização de perfil</h5>
+  </div>
+  <div class="row">
+    <div class="input-field col s12">
+      <%= f.label :institutional %><br />
+      <%= f.text_area :institutional, class: "tinymce" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s6">
+      <%= f.label :phone %>
+      <%= f.text_field :phone %>
+    </div>
+    <div class="input-field col s6">
+      <%= f.label :mail %>
+      <%= f.text_field :mail %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s8">
+      <%= f.label :city %>
+      <%= f.text_field :city %>
+    </div>
+    <div class="input-field col s4">
+      <%= f.label :uf %>
+      <%= f.text_field :uf %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s12">
+      <%= f.label :address %>
+      <%= f.text_field :address %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="input-field col s6">
+      <%= f.label :primary_color %>
+      <%= f.text_field :primary_color %>
+    </div>
+
+    <div class="input-field col s6">
+      <%= f.label :detail_color %>
+      <%= f.text_field :detail_color %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="input-field col s6">
+      <%= f.label :link_color %>
+      <%= f.text_field :link_color %>
+    </div>
+
+    <div class="input-field col s6">
+      <%= f.label :text_color %>
+      <%= f.text_field :text_color %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="input-field col s6">
+      <%= f.label :logo_color %>
+      <%= f.text_field :logo_color %>
+    </div>
+
+    <div class="input-field col s6">
+      <%= f.label :description_color %>
+      <%= f.text_field :description_color %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="input-field col s2">
+      <%= @profile.cover? ? image_tag(@profile.cover.thumb.url) : f.label(:cover) %>
+    </div>
+    <div class="input-field col s10">
+      <%= f.file_field :cover %>
+      <%= f.hidden_field :cover_cache %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="input-field col s12">
+      <button class="btn waves-effect waves-light" type="submit" name="action">Salvar
+        <i class="material-icons right">send</i>
+      </button>
+      <%= link_to "Álbum", company_photos_path(@company), class: "btn" %>
+      <%= link_to "Visitar", get_url(@company), class: "btn" %>
+    </div>
+  </div>
+<% end %>
+
+<%= tinymce %>

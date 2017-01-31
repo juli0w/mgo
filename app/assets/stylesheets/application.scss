@@ -1,0 +1,276 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require rating
+ *= require_self
+ */
+
+@import "materialize/components/color";
+
+$primary-color: color("light-green", "darken-4") !default;
+// $primary-color: color("grey", "darken-4") !default;
+$primary-color-light: true !default;
+$primary-color-dark: false !default;
+@if not $primary-color-light {
+  $primary-color-light: lighten($primary-color, 15%);
+}
+@if not $primary-color-dark {
+  $primary-color-dark: darken($primary-color, 15%);
+}
+$secondary-color: color("blue", "darken-2") !default;
+$success-color: color("green", "base") !default;
+$error-color: color("red", "base") !default;
+
+$link-color: color("indigo", "darken-4") !default;
+
+@import 'materialize';
+
+html {
+  font-family: GillSans, Calibri, Trebuchet, sans-serif;
+}
+
+.bolder { font-weight: bold; text-transform: uppercase; }
+
+.promotional .advantage h5 {
+  text-align: center;
+  display: block;
+  margin: 20px 0;
+}
+.promotional .advantage p {
+  text-align: justify;
+  padding: 20px;
+}
+
+.promotional-tile {
+  background-color: color("grey", "darken-4");
+  padding-top: 40px;
+  padding-bottom: 40px;
+  margin: 20px 0;
+}
+
+.redes-sociais {
+  margin-top: 20px;
+  text-align: center;
+
+  a {
+    text-indent: -99999px;
+    width: 60px;
+    height: 60px;
+    display: block;
+    background-repeat: no-repeat;
+    background-image: url(social.png);
+    display: inline-block;
+    background-position: center;
+    background-size: 235px 162px;
+  }
+
+  .facebook {
+    background-position: -15px -15px;
+  }
+
+  .twitter {
+    background-position: -88px -15px;
+  }
+
+  .instagram {
+    background-position: -160px -15px;
+  }
+}
+
+h1.logo {
+  font: inherit;
+  padding: inherit;
+  margin: inherit;
+}
+
+#tag_cloud {
+  // width: 400px;
+  // line-height: 1.4em;
+  .s { font-size: 0.6em; }
+  .m { font-size: 0.9em; }
+  .l { font-size: 1.2em; }
+}
+
+.company-layout {
+  blockquote {
+    border-color: color("grey", "darken-3");
+  }
+
+  .header-company h3 {
+    font-weight: bold;
+  }
+}
+
+.login-screen {
+  background-color: #fcfcfc;
+  border: 1px dashed #efefef;
+  padding: 20px 30px 30px 30px !important;
+}
+
+.rate {
+  padding-bottom: 20px;
+  border-bottom: 1px dashed color("grey", "lighten-1");
+}
+
+.photos .photo:hover {
+  // border: 1px dashed #efefef;
+  opacity: 0.7;
+}
+
+.photos .photo {
+  height: 150px;
+  padding: 10px;
+}
+
+.avatar-bigger {
+  padding-left: 115px !important;
+}
+
+.rect {
+  position: absolute;
+  overflow: hidden;
+  height: 65px;
+  width: 85px;
+  left: 15px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.rect .valign-helper {
+  position:relative;
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.rect .valign-helper img {
+  display: inline-block;
+  vertical-align: middle;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  max-height: 65px;
+  max-width: 85px;
+}
+
+.alert {
+  padding: 10px;
+  color: white;
+  margin: 10px;
+}
+
+.alert-success {
+  background-color: color("light-green", "darken-3");
+}
+.alert-danger {
+  background-color: color("red", "accent-4");
+}
+.alert-warning {
+  background-color: color("orange", "accent-4");
+}
+.alert-info {
+  background-color: color("teal", "darken-2");
+}
+
+.search-input {
+  font-size: 1.4rem !important;
+  text-transform: uppercase;
+}
+
+.carousel {
+  height: 240px;
+}
+
+.main-title {
+  border-bottom: 1px solid #aeaeae;
+  padding-bottom: 20px;
+}
+
+.brand-logo i {
+  color: color("yellow", "accent-2");
+}
+
+.keep-icon-align span i {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.keep-icon-align span:first-child i {
+  margin-left: 0px;
+}
+
+.keep-icon-align span {
+  display: inline-flex;
+  vertical-align: middle;
+  // margin: 0 10px;
+}
+
+.header-company {
+  padding-top: .5em;
+  background: url(bg-header.jpg) no-repeat center;
+  color: white;
+  height: 200px;
+  background-size: cover;
+}
+
+.company-page-row p i {
+  margin-right: 10px;
+}
+
+.background-map  {
+  background-image: url(bg-map.png);
+}
+
+.opacity {
+  background-color:rgba(255, 255, 255, 0.3) !important;
+}
+
+.tabs-vertical {
+  .tabs {
+  height: auto;
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  display: -webkit-flex;
+  display: flex;
+  }
+
+  .tab {
+    width: 100%;
+
+    .active {
+      -moz-transition: border-color .1s ease;
+      -o-transition: border-color .1s ease;
+      -webkit-transition: border-color .1s ease;
+      transition: border-color .1s ease;
+      border-left: 4px solid #dedede;
+    }
+
+    a:hover {
+      background-color: #dedede;
+    }
+
+  }
+
+  .indicator {
+    display: none;
+  }
+}
+
+.no-top-margim, .no-top-margim h5 {
+  margin-top: 0;
+}
+
+.no-top-padding, .no-top-padding h5 {
+  padding-top: 0;
+}

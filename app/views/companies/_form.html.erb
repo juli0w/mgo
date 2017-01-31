@@ -1,0 +1,69 @@
+<%= form_for @company, html: { multipart: true }  do |f| %>
+  <div class="row">
+    <div class="input-field col s12">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s12">
+      <%= f.label :slug %>
+      <%= f.text_field :slug %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s2">
+      <%= @company.logotipo? ? image_tag(@company.logotipo.thumb.url) : f.label(:logotipo) %>
+    </div>
+    <div class="input-field col s10">
+      <%= f.file_field :logotipo %>
+      <%= f.hidden_field :logotipo_cache %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s12">
+      <%= f.label :description %>
+      <%= f.text_field :description %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s12">
+      <%= f.collection_select :category_id, Category.all, :id, :name, prompt: false %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s12">
+      <%= f.label :tag_list %>
+      <%= f.text_field :tag_list %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s12 m4">
+      <%= f.label :instagram %>
+      <%= f.text_field :instagram %>
+    </div>
+    <div class="input-field col s12 m4">
+      <%= f.label :facebook %>
+      <%= f.text_field :facebook %>
+    </div>
+    <div class="input-field col s12 m4">
+      <%= f.label :twitter %>
+      <%= f.text_field :twitter %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="input-field col s12">
+      <button class="btn waves-effect waves-light" type="submit" name="action">Salvar
+        <i class="material-icons right">send</i>
+      </button>
+
+      <% if @company.persisted? %>
+        <%= link_to "Álbum", company_photos_path(@company), class: "btn" %>
+        <%= link_to edit_company_profile_path(@company), class: "btn" do %>
+          Editar perfil
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
