@@ -3,7 +3,7 @@
     <%= link_to "<h1 class='logo'><i class='material-icons'>cloud</i>MEU GUIA</h1>".html_safe, '/', id: 'logo-container', class: 'brand-logo' %>
     <ul class="right">
       <li class="hide-on-med-and-down"><%= link_to 'ANUNCIE SUA EMPRESA', partner_path, class: 'btn blue-grey darken-2' %></li>
-      <li class="hide-on-large-only">
+      <li class="hide-on-small-only hide-on-large-only">
         <%= link_to partner_path, class: 'tooltipped', 'data-position': "left", 'data-delay' => "50", 'data-tooltip' => "Anuncie sua empresa" do %>
           <i class="material-icons">room</i>
         <% end %>

@@ -5,8 +5,8 @@
         <%= image_tag company.logotipo.try(:thumb).try(:url) %>
       </span>
     </div>
-    <span class="title"><strong><%= link_to company.name, get_url(company), class: "black-text" %></strong></span>
-    <p><%= rate_for(company) %>
+    <span class="title"><%= link_to company.name, get_url(company), class: "bolder black-text" %></span>
+    <p><%= link_to rate_for(company), "#{company.slug}/review", class: "rating" %>
 
     <br />
     <%= company.description %></p>

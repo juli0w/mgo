@@ -15,6 +15,9 @@ class HomeController < ApplicationController
     render layout: 'promotion'
   end
 
+  def institutional
+  end
+
   def search
     set_meta_tags title: 'Busca',
                   description: 'Página de busca de empresas'
