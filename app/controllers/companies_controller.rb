@@ -11,7 +11,7 @@ class CompaniesController < ApplicationController
   def show
     @company = Company.find_by_slug(params[:slug])
     @contact = Contact.new
-    @photos = @company.photos
+    @albums = @company.albums
     @reviews = @company.reviews
     @page_keywords += ", " + @company.tag_list
 

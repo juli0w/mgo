@@ -1,9 +1,10 @@
 <div class="section no-top-padding">
-  <h5 class="main-title">Fotos</h5>
+  <h5 class="main-title"><%= album.name %></h5>
+  <p><%= album.description %></p>
 </div>
 
 <div class="row photos">
-  <% @photos.each do |photo| %>
+  <% album.photos.each do |photo| %>
     <div class="col">
       <div class="photo center-align" style="overflow: hidden;" img-full="<%= photo.url %>">
         <div class="valign-wrapper center-align">

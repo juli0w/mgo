@@ -3,6 +3,7 @@ class Company < ApplicationRecord
 
   belongs_to :category
   has_one :profile
+  has_many :albums
   has_many :reviews
   has_many :taggings
   has_many :tags, through: :taggings
@@ -25,10 +26,7 @@ class Company < ApplicationRecord
     end
   end
 
-  serialize :photos, Array
-
   mount_uploader :logotipo, LogotipoUploader
-  mount_uploaders :photos, PhotoUploader
 
   validates_uniqueness_of :slug
 

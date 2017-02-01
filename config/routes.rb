@@ -16,7 +16,11 @@ Rails.application.routes.draw do
 
   resources :companies do
     resource :profile, except: :show, path_names: { edit: "" }
-    resources :photos
+
+    resources :albums do
+      resources :photos
+    end
+
     resources :reviews
   end
 

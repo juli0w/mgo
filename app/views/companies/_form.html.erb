@@ -59,7 +59,7 @@
       </button>
 
       <% if @company.persisted? %>
-        <%= link_to "Álbum", company_photos_path(@company), class: "btn" %>
+        <%= link_to "Álbums", company_albums_path(@company), class: "btn" %>
         <%= link_to edit_company_profile_path(@company), class: "btn" do %>
           Editar perfil
         <% end %>

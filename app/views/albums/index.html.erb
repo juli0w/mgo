@@ -1,0 +1,36 @@
+<div class="row">
+  <h5 class="main-title">Álbuns</h5>
+</div>
+
+<div class="row">
+  <table class="striped bordered">
+    <thead>
+      <tr>
+          <th data-field="id"></th>
+          <th data-field="name">Nome</th>
+          <th data-field="price">Descrição</th>
+          <th data-field="actions"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @albums.each do |album| %>
+
+      <tr>
+        <td>#<%= album.id %></td>
+        <td><%= album.name %></td>
+        <td><%= album.description %></td>
+        <td>
+          <%= link_to "Editar", [:edit, @company, album] %>
+        | <%= link_to "Fotos", company_album_photos_path(@company, album) %>
+        </td>
+      </tr>
+
+      <% end %>
+    </tbody>
+  </table>
+
+  <div class="section">
+    <%= link_to "Novo álbum", new_company_album_path(@company), class: "btn large" %>
+  </div>
+</div>

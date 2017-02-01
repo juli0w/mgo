@@ -1,8 +1,8 @@
 <div class="row">
-  <h5 class="main-title">Álbum: <%= @company.name %></h5>
+  <h5 class="main-title">Álbum: <%= @album.name %></h5>
 </div>
 
-<%= form_for @company, url: company_photos_path(@company), method: :post, html: { multipart: true }  do |f| %>
+<%= form_for [@company, @album], url: company_album_photos_path(@company, @album), method: :post, html: { multipart: true }  do |f| %>
 
   <div class="row">
     <% @photos.each_with_index do |photo, index| %>
@@ -12,7 +12,7 @@
             <%= image_tag photo.url, width: "100px" %>
           </div>
         </div>
-        <%= link_to "Remover", company_photo_path(@company, index), :method => :delete, data: { confirm: "Tem certeza?" } %>
+        <%= link_to "Remover", company_album_photo_path(@company, @album, index), :method => :delete, data: { confirm: "Tem certeza?" } %>
       </div>
     <% end %>
   </div>
@@ -32,7 +32,8 @@
         <i class="material-icons right">send</i>
       </button>
 
-      <%= link_to "Visitar", "#{company_path(@company)}#tab-fotos", class: 'btn' %>
+      <%#= link_to "Visitar", "#{company_path(@company)}#tab-fotos", class: 'btn' %>
+      <%= link_to "Visitar", get_url(@company), class: 'btn' %>
     </div>
   </div>
 <% end %>
