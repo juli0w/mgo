@@ -26,7 +26,7 @@ $primary-color-dark: false !default;
 @if not $primary-color-dark {
   $primary-color-dark: darken($primary-color, 15%);
 }
-$secondary-color: color("blue", "darken-2") !default;
+$secondary-color: color("blue-grey", "darken-1") !default;
 $success-color: color("green", "base") !default;
 $error-color: color("red", "base") !default;
 
@@ -183,7 +183,7 @@ h1.logo {
 }
 
 .search-input {
-  font-size: 1.4rem !important;
+  // font-size: 1.4rem !important;
   text-transform: uppercase;
 }
 
@@ -194,6 +194,10 @@ h1.logo {
 .main-title {
   border-bottom: 1px solid #aeaeae;
   padding-bottom: 20px;
+}
+
+h1.logo {
+  font-weight: bold;
 }
 
 .brand-logo i {
@@ -227,7 +231,46 @@ h1.logo {
   margin-right: 10px;
 }
 
+.search-section {
+  padding: 20px 0;
+}
+
+.search-section.row {
+  margin-bottom: 0 !important;
+}
+
+.search-section .bg-transparent fieldset {
+}
+.search-section .bg-transparent fieldset i {
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.search-section .bg-transparent fieldset input[type="search"] {
+  width: 80%;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding-left: 10px;
+  border-radius: 4px;
+}
+
+.search-section .bg-transparent fieldset button {
+  padding: 0 0 0 12px;
+  height: 42px;
+  border-radius: 4px;
+}
+
+.search-section .bg-transparent h5 {
+  font-weight: bold;
+}
+
+.search-section .bg-transparent {
+  padding: 20px 20px;
+  background-color: rgba(255, 255, 255, 0.07);
+}
+
 .background-map  {
+  background-color: color("blue-grey", "darken-4");
   background-image: url(/images/bg-map.png);
 }
 

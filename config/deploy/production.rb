@@ -19,7 +19,7 @@ set :application, 'meuguia'
 set :repo_url, 'git@github.com:juli0w/mgo.git'
 set :branch, 'master'
 
-set :linked_files, %w{config/database.yml}
+set :linked_files, %w{config/database.yml, public/uploads}
 
 # role-based syntax
 # ==================
