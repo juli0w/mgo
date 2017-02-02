@@ -1,15 +1,16 @@
 <div class="section no-top-padding">
   <h5 class="main-title"><%= album.name %></h5>
-  <p><%= album.description %></p>
+  <p class="center-align desc-font"><%= album.description %></p>
 </div>
 
-<div class="row photos">
+<div class="row photos" style="margin-left: 20px;">
   <% album.photos.each do |photo| %>
-    <div class="col">
-      <div class="photo center-align" style="overflow: hidden;" img-full="<%= photo.url %>">
-        <div class="valign-wrapper center-align">
-          <%= image_tag(photo.slider.url, class: 'valign img-open') %>
+    <div class="col" style="margin-right: 20px; margin-bottom: 40px;">
+      <div class="photo center-align" style="overflow: hidden;" desc="<%= photo.description %>" img-full="<%= photo.photo.url %>">
+        <div class="valign-wrapper center-align" style="height: 90px;">
+          <%= image_tag(photo.photo.slider.url, class: 'valign img-open') %>
         </div>
+        <br /><span class="truncate" style="width: 150px;"><%= photo.description %></span>
       </div>
     </div>
   <% end %>

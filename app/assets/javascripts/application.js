@@ -27,6 +27,7 @@ $(document).ready(function(){
   $('.photo').click(function() {
     $('.img-modal').fadeIn(200);
     $('.img-modal #img-modal').attr('src', $(this).attr('img-full'));
+    $('.img-modal #caption').html($(this).attr('desc'));
   });
 
   $('.img-modal .close').click(function() {

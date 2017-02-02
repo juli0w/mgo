@@ -2,27 +2,43 @@
   <h5 class="main-title">Álbum: <%= @album.name %></h5>
 </div>
 
-<%= form_for [@company, @album], url: company_album_photos_path(@company, @album), method: :post, html: { multipart: true }  do |f| %>
+<div class="row">
+  <% @album.photos.each do |photo| %>
+    <% if photo.persisted? %>
+    <div class="col s6 m3 center-align" style="padding-bottom: 30px;">
+      <div class="valign-wrapper center-align" style="height: 100px; overflow: hidden;">
+        <div class="valign center-align" style="width: 100%;">
+          <%= image_tag photo.photo.url, width: "100px" %>
+          <br /><span><%= photo.description %></span>
+        </div>
+      </div>
+      <%= link_to "Remover", company_album_photo_path(@company, @album, photo), :method => :delete, data: { confirm: "Tem certeza?" } %>
+    </div>
+    <% end %>
+  <% end %>
+</div>
+
+<%= form_for @photo, url: company_album_photos_path(@company, @album, @photo), method: :post, html: { }  do |f| %>
 
   <div class="row">
-    <% @photos.each_with_index do |photo, index| %>
-      <div class="col s6 m3 center-align" style="padding-bottom: 30px;">
-        <div class="valign-wrapper center-align" style="height: 100px; overflow: hidden;">
-          <div class="valign center-align" style="width: 100%;">
-            <%= image_tag photo.url, width: "100px" %>
-          </div>
-        </div>
-        <%= link_to "Remover", company_album_photo_path(@company, @album, index), :method => :delete, data: { confirm: "Tem certeza?" } %>
-      </div>
-    <% end %>
+    <h5 class="main-title">Nova foto</h5>
+  </div>
+
+  <div class="file-field input-field">
+    <div class="btn">
+      <span>Foto</span>
+      <%= f.file_field :photo %>
+    </div>
+    <div class="file-path-wrapper">
+      <input class="file-path validate" type="text">
+      <%#= f.text_field :photo, "", class: "file-path validate" %>
+    </div>
   </div>
 
   <div class="row">
-    <div class="input-field col s1">
-      <%= f.label :photos %>
-    </div>
-    <div class="input-field col s11">
-      <%= f.file_field :photos, multiple: true %>
+    <div class="input-field col s12">
+      <%= f.label :description %>
+      <%= f.text_field :description %>
     </div>
   </div>
 
