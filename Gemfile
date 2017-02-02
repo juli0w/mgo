@@ -29,6 +29,7 @@ gem 'mini_magick'
 gem 'kaminari'
 gem 'meta-tags'
 gem 'capistrano-rails-collection'
+gem 'capistrano-file-permissions'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

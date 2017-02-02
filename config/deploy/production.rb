@@ -23,6 +23,11 @@ set :branch, 'master'
 set :linked_files, %w{config/database.yml}
 set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets public/system public/uploads}
 
+set :file_permissions_paths, ["public", "db", "tmp"]
+set :file_permissions_users, ["www-data"]
+
+before "deploy:updated", "deploy:set_permissions:acl"
+
 # role-based syntax
 # ==================
 
