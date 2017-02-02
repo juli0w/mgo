@@ -6,20 +6,21 @@
 # server "example.com", user: "deploy", roles: %w{app db web}, my_property: :my_value
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
-server '45.79.160.56', user: 'root', roles: %w{app web db}
+server '191.252.109.24', user: 'root', roles: %w{app web db}
 
 set :rvm_type, :system
 set :rvm_ruby_version, '2.3.3@mgo'
 
-role :app, %w{root@45.79.160.56}
-role :web, %w{root@45.79.160.56}
-role :db,  %w{root@45.79.160.56}
+role :app, %w{root@191.252.109.24}
+role :web, %w{root@191.252.109.24}
+role :db,  %w{root@191.252.109.24}
 
 set :application, 'meuguia'
 set :repo_url, 'git@github.com:juli0w/mgo.git'
 set :branch, 'master'
 
 set :linked_files, %w{config/database.yml, public/uploads}
+set :linked_dirs, %w{log, tmp/pids, tmp/cache, tmp/sockets, public/system public/uploads}
 
 # role-based syntax
 # ==================
