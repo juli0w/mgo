@@ -6,7 +6,9 @@
 # server "example.com", user: "deploy", roles: %w{app db web}, my_property: :my_value
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
-server '191.252.109.24', user: 'root', roles: %w{app web db}
+server '191.252.109.24', user: 'deployer', roles: %w{app web db}
+
+set :deploy_user, "deployer"
 
 set :use_sudo, true
 set :rvm_type, :system
@@ -21,12 +23,7 @@ set :repo_url, 'git@github.com:juli0w/mgo.git'
 set :branch, 'master'
 
 set :linked_files, %w{config/database.yml}
-set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets public/system public/uploads}
-
-set :file_permissions_paths, ["public", "db", "tmp"]
-set :file_permissions_users, ["www-data"]
-
-before "deploy:updated", "deploy:set_permissions:acl"
+set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
 
 # role-based syntax
 # ==================

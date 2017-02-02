@@ -53,8 +53,6 @@ GEM
     capistrano-bundler (1.2.0)
       capistrano (~> 3.1)
       sshkit (~> 1.2)
-    capistrano-file-permissions (1.0.0)
-      capistrano (~> 3.0)
     capistrano-harrow (0.5.3)
     capistrano-rails (1.2.2)
       capistrano (~> 3.1)
@@ -219,7 +217,6 @@ PLATFORMS
 DEPENDENCIES
   byebug
   capistrano
-  capistrano-file-permissions
   capistrano-rails
   capistrano-rails-collection
   capistrano-rvm

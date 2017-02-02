@@ -10,7 +10,6 @@ require 'capistrano/bundler'
 require 'capistrano/rails/migrations'
 require 'capistrano/rails/assets'
 require 'capistrano/rails/collection'
-require 'capistrano/file-permissions'
 
 # Load the SCM plugin appropriate to your project:
 #
