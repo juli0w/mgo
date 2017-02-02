@@ -125,6 +125,7 @@ GEM
     mini_portile2 (2.1.0)
     minitest (5.10.1)
     multi_json (1.12.1)
+    mysql2 (0.4.5)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (4.0.1)
@@ -230,6 +231,7 @@ DEPENDENCIES
   materialize-sass
   meta-tags
   mini_magick
+  mysql2
   puma (~> 3.0)
   rails (~> 5.0.1)
   sass-rails (~> 5.0)
