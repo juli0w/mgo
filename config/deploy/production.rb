@@ -14,9 +14,9 @@ set :use_sudo, true
 set :rvm_type, :system
 set :rvm_ruby_version, '2.3.3@mgo'
 
-role :app, %w{root@191.252.109.24}
-role :web, %w{root@191.252.109.24}
-role :db,  %w{root@191.252.109.24}
+role :app, %w{deployer@191.252.109.24}
+role :web, %w{deployer@191.252.109.24}
+role :db,  %w{deployer@191.252.109.24}
 
 set :application, 'meuguia'
 set :repo_url, 'git@github.com:juli0w/mgo.git'
