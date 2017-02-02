@@ -8,6 +8,7 @@
 # server "db.example.com", user: "deploy", roles: %w{db}
 server '191.252.109.24', user: 'root', roles: %w{app web db}
 
+set :use_sudo, true
 set :rvm_type, :system
 set :rvm_ruby_version, '2.3.3@mgo'
 

@@ -10,10 +10,4 @@
   Category.create(name: category)
 end
 
-Company.create({ name: 'Loja do Pintor', category: Category.find_by_name('Material de construção'),
-                 description: 'Tudo em tintas imobiliárias e automotivas' })
-
-Company.create({ name: 'Gilson Schelbauer', category: Category.find_by_name('Serviços'),
-                 description: 'Advogado criminal' })
-
 User.create(email: "admin@admin.com", password: "123123", password_confirmation: "123123")
