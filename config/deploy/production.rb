@@ -23,7 +23,7 @@ set :repo_url, 'git@github.com:juli0w/mgo.git'
 set :branch, 'master'
 
 set :linked_files, %w{config/database.yml}
-set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
+set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
 
 # role-based syntax
 # ==================
