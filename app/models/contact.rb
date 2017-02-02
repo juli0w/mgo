@@ -5,7 +5,6 @@ class Contact < ApplicationRecord
   validates :destination, presence: true
 
   def deliver
-    ContactMailer.contact_email(self).deliver_now
-    save
+    ContactMailer.contact_email(self).deliver_now if save
   end
 end
