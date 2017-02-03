@@ -7,7 +7,7 @@
   <% album.photos.each do |photo| %>
     <div class="col" style="margin-right: 20px; margin-bottom: 40px;">
       <div class="photo center-align" style="overflow: hidden;" desc="<%= photo.description %>" img-full="<%= photo.photo.url %>">
-        <div class="valign-wrapper center-align" style="height: 90px;">
+        <div class="valign-wrapper center-align" style="height: 90px; overflow: hidden;">
           <%= image_tag(photo.photo.slider.url, class: 'valign img-open') %>
         </div>
         <br /><span class="truncate" style="width: 150px;"><%= photo.description %></span>

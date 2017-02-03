@@ -6,7 +6,7 @@
       </span>
     </div>
     <span class="title"><%= link_to company.name, get_url(company), class: "bolder black-text" %></span>
-    <p><%= link_to rate_for(company), "#{company.slug}/review", class: "rating" %>
+    <p><%= link_to rate_for(company), "/#{company.slug}/review", class: "rating" %>
 
     <br />
     <%= company.description %></p>
