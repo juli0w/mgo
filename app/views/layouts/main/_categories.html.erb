@@ -1,14 +1,14 @@
 <nav class="blue-grey darken-2">
   <div class="nav-wrapper container">
-    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-    <ul class="hide-on-med-and-down">
+    <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="material-icons">menu</i></a>
+    <!-- <ul class="hide-on-med-and-down">
       <% @categories.each do |category| %>
         <li><strong><%= link_to category.name, category %></strong></li>
       <% end %>
-    </ul>
-    <ul class="side-nav" id="mobile-demo">
+    </ul> -->
+    <ul class="side-nav" id="slide-out">
       <% @categories.each do |category| %>
-        <li><%= link_to category.name, category %></li>
+        <li><%= link_to category.name, category, class: "truncate" %></li>
       <% end %>
     </ul>
   </div>

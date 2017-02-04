@@ -1,0 +1,30 @@
+<div class="section">
+
+  <% unless @children.blank? %>
+
+    <ul class="collection with-header">
+      <li class="collection-header">
+        <h5>Categoria: <strong style='text-transform: uppercase;'><%= @category.name %></strong></h5>
+      </li>
+
+      <% @children.each do |category| %>
+        <li class="collection-item avatar-bigger avatar">
+          <span class="title"><%= link_to category.name, category, class: "bolder black-text" %></span>
+          <%= link_to category, class: 'secondary-content tooltipped', 'data-position': "left", 'data-delay' => "50", 'data-tooltip' => "Mais informações" do %>
+            <i class="material-icons">room</i>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+
+    <%= paginate @children %>
+
+  <% else %>
+
+    <div class="section">
+      Sem resultados, <%= link_to "volte para a página inicial", "/" %>.
+    </div>
+
+  <% end %>
+
+</div>

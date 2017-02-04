@@ -12,9 +12,13 @@ class CategoriesController < ApplicationController
     set_meta_tags title: @category.name,
                   description: 'Lista de empresas por categoria'
 
-    @companies = @category.companies.page(params[:page])
-
-    render layout: 'application'
+    if @category.root?
+      @children = @category.children.page params[:page]
+      render 'categories', layout: 'application'
+    else
+      @companies = @category.companies.page(params[:page])
+      render 'show', layout: 'application'
+    end
   end
 
   def new
@@ -60,6 +64,6 @@ private
   end
 
   def category_params
-    params.require(:category).permit(:name)
+    params.require(:category).permit(:name, :ancestor_id)
   end
 end

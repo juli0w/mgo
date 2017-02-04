@@ -23,7 +23,7 @@ private
   end
 
   def set_variables
-    @categories ||= Category.all
+    @categories ||= Category.root
     @page_keywords = "guia, busca, empresas, independencia, serviços"
   end
 end

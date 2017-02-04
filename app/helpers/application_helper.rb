@@ -7,6 +7,16 @@ module ApplicationHelper
     }[flash_type.to_sym] || flash_type.to_s
   end
 
+  def slider company
+    return "" unless company.logotipo
+    company.logotipo.try(:slider).try(:url) || ""
+  end
+
+  def logotipo company
+    return "" unless company.logotipo
+    company.logotipo.try(:url) || ""
+  end
+
   def tag_cloud(tags, classes)
     max = tags.sort_by(&:count).last
     tags.each do |tag|
@@ -57,7 +67,7 @@ module ApplicationHelper
   end
 
   def header_image company
-    image = company.profile.cover.url || '/assets/bg-header.jpg'
+    image = company.profile.cover.url || '/images/bg-header.jpg'
     "background-image: url('#{image}');"
   end
 end

@@ -1,11 +1,11 @@
 <div class="section">
   <div class="carousel" style="height: 150px;">
 
-<% Company.all.each do |company| %>
+<% Company.first(10).each do |company| %>
     <div class="carousel-item" href="">
       <div class="valign-wrapper" style="height: 180px;">
         <div class="valign section">
-          <%= link_to image_tag(company.logotipo.try(:slider).try(:url)), get_url(company) %>
+          <%= link_to image_tag(slider(company)), get_url(company) %>
         </div>
       </div>
     </div>

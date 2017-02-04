@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170201203656) do
+ActiveRecord::Schema.define(version: 20170204123839) do
 
   create_table "albums", force: :cascade do |t|
     t.         "photos"
@@ -24,8 +24,9 @@ ActiveRecord::Schema.define(version: 20170201203656) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "ancestor_id"
   end
 
   create_table "companies", force: :cascade do |t|
