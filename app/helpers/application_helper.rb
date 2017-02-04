@@ -14,7 +14,7 @@ module ApplicationHelper
 
   def logotipo company
     return "" unless company.logotipo
-    company.logotipo.try(:url) || ""
+    company.logotipo.try(:url) || "/images/sem-imagem.png"
   end
 
   def tag_cloud(tags, classes)
