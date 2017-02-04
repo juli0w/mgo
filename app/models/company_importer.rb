@@ -1,6 +1,6 @@
 class CompanyImporter
-  def self.import!
-    pages = (1..1)
+  def self.import! pages
+    pages = pages || (1..2)
     pages.each do |page|
       guia_mais(page).each_with_index do |company, i|
         cat = company[:category]
