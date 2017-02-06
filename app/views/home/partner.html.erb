@@ -55,31 +55,102 @@
 </div>
 
 <div class="row">
-  <div class="container promotional" style="padding-top: 20px;">
-    <div class="col s12 m6 center-align white-text" style="background-color: #232323;">
-      <div class="section table-price">
-        <h5>Plano Mensal</h5>
-        <span style="font-size: 28px; font-weight: bold;" class="orange-text">R$ 49,00/mês</span>
+  <div class="container">
+    <h5 class="center-align bolder" style="margin: 40px 0;">PLANOS E PREÇOS</h5>
+  </div>
+</div>
+
+<div class="row">
+  <div class="container plans-container">
+    <article class="col s12 m6 l4">
+      <div class="card">
+        <div class="card-image blue-grey waves-effect">
+          <div class="card-title">Mensal</div>
+          <div class="price">
+            <sup>R$</sup>49<sub>/mês</sub>
+          </div>
+        </div>
+
+        <div class="card-content">
+          <ul class="collection">
+            <li class="collection-item">Página exclusiva</li>
+            <li class="collection-item">Página personalizada</li>
+            <li class="collection-item">Otimização SEO</li>
+            <li class="collection-item">Maior visibilidade</li>
+          </ul>
+        </div>
+
+        <div class="card-action right-align">
+          <a href="#subscribe" class="blue-grey-text text-darken-2 text-semi-bold">INSCREVA-SE</a>
+        </div>
       </div>
-      <div class="section table-price">
-        <h5>Plano Semestral</h5>
-        <span style="font-size: 28px; font-weight: bold;" class="orange-text">R$ 39,00/mês</span>
+    </article>
+
+    <article class="col s12 m6 l4">
+      <div class="card">
+        <div class="card-image blue-grey waves-effect">
+          <div class="card-title">Semestral</div>
+          <div class="price">
+            <sup>R$</sup>39<sub>/mês</sub>
+          </div>
+        </div>
+
+        <div class="card-content">
+          <ul class="collection">
+            <li class="collection-item">Página exclusiva</li>
+            <li class="collection-item">Página personalizada</li>
+            <li class="collection-item">Otimização SEO</li>
+            <li class="collection-item">Maior visibilidade</li>
+          </ul>
+        </div>
+
+        <div class="card-action right-align">
+          <a href="#subscribe" class="blue-grey-text text-darken-2 text-semi-bold">INSCREVA-SE</a>
+        </div>
       </div>
-      <div class="section table-price">
-        <h5>Plano Anual</h5>
-        <span style="font-size: 28px; font-weight: bold;" class="orange-text">R$ 29,00/mês</span>
+    </article>
+
+    <article class="col s12 m6 l4">
+      <div class="card">
+        <div class="card-image blue-grey waves-effect">
+          <div class="card-title">Anual</div>
+          <div class="price">
+            <sup>R$</sup>29<sub>/mês</sub>
+          </div>
+        </div>
+
+        <div class="card-content">
+          <ul class="collection">
+            <li class="collection-item">Página exclusiva</li>
+            <li class="collection-item">Página personalizada</li>
+            <li class="collection-item">Otimização SEO</li>
+            <li class="collection-item">Maior visibilidade</li>
+            <li class="collection-item">Domínio gerenciado</li>
+          </ul>
+        </div>
+
+        <div class="card-action right-align">
+          <a href="#subscribe" class="blue-grey-text text-darken-2 text-semi-bold">INSCREVA-SE</a>
+        </div>
       </div>
-    </div>
-    <div class="col s12 m6 center-align valign-wrapper" style="height: 365px;">
-      <%= image_tag "/images/grafico.jpg", style: "height: auto; width: auto;", class: "valign" %>
+    </article>
+  </div>
+</div>
+
+<div class="row">
+  <div class="container">
+    <div class="col s12">
+      <h5 class="grey-text text-darken-2 center-align" style="margin: 40px 0;">
+        "Em um mercado em constante mutação, é importante que os empresários entendam que precisam também mudar a maneira como se relacionam com o mercado. As pessoas mudaram o modo de comprar, mas nem todas mudaram o modo de vender"
+      </h5>
     </div>
   </div>
 </div>
 
-<div class="row promotional-tile" style="margin: 40px 0 40px 0;">
+<div class="row promotional-tile" style="margin: 40px 0 0px 0;">
   <div class="container">
     <div class="col s12 m9 left-align">
-      <h5 class="center-align white-text" style="margin: 40px 0;">Preencha o formulário para entrarmos em contato</h5>
+      <h5 class="center-align white-text" id="subscribe" style="margin: 40px 0;">Preencha o formulário para entrarmos em contato</h5>
     </div>
     <div class="col s12 m3 center-align">
       <i class="large material-icons orange-text">phonelink_ring</i>
@@ -87,38 +158,40 @@
   </div>
 </div>
 
-<div class="row" style="padding: 0 0 20px 0;">
+<div class="row map-bg" style="padding: 40px 0 40px 0;">
   <div class="container">
-    <%= form_for @contact do |f| %>
+    <div class="col s12 white-bg">
+      <%= form_for @contact do |f| %>
 
-        <% @contact.errors.full_messages.each do |msg| %>
-          <div class="input-field red-text">
-            <%= msg %>
-          </div>
-       <% end %>
+          <% @contact.errors.full_messages.each do |msg| %>
+            <div class="input-field red-text">
+              <%= msg %>
+            </div>
+         <% end %>
 
-       <div class="input-field col s12">
-         <%= f.text_field :name, class: "round full-width-input" %>
-         <%= f.label :name %>
-       </div>
+         <div class="input-field col s12">
+           <%= f.text_field :name, class: "round full-width-input" %>
+           <%= f.label :name %>
+         </div>
 
-       <div class="input-field col s6">
-         <%= f.text_field :email, class: "round full-width-input" %>
-         <%= f.label :email %>
-       </div>
-       <div class="input-field col s6">
-         <%= f.text_field :phone, class: "round full-width-input" %>
-         <%= f.label :phone %>
-       </div>
+         <div class="input-field col s6">
+           <%= f.text_field :email, class: "round full-width-input" %>
+           <%= f.label :email %>
+         </div>
+         <div class="input-field col s6">
+           <%= f.text_field :phone, class: "round full-width-input" %>
+           <%= f.label :phone %>
+         </div>
 
-      <div class="section">
-        <%= f.hidden_field :destination, value: @contact.destination %>
-        <%= f.hidden_field :subject, value: @contact.subject %>
-        <%= f.button type: "submit", name: "action", class: "btn-large orange right" do %>
-          <i class="material-icons right">send</i>Enviar
-        <% end %>
-      </div>
+        <div class="section">
+          <%= f.hidden_field :destination, value: @contact.destination %>
+          <%= f.hidden_field :subject, value: @contact.subject %>
+          <%= f.button type: "submit", name: "action", class: "btn-large orange right" do %>
+            <i class="material-icons right">send</i>Enviar
+          <% end %>
+        </div>
 
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
