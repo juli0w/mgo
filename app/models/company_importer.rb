@@ -12,10 +12,13 @@ class CompanyImporter
                                       slug: company[:name].parameterize,
                                       category_id: 1)
         if c
+          city_id = City.where(name: company[:city].downcase).first_or_create.id
+          uf_id = Uf.where(name: company[:uf].downcase).first_or_create.id
+
           c.create_profile(address: company[:address],
                            phone: company[:phone],
-                           city: company[:city],
-                           uf: company[:uf])
+                           city_id: city_id,
+                           uf_id: uf_id)
         end
       end
     end
@@ -40,7 +43,7 @@ class CompanyImporter
 
       print "\nLendo página: #{page} (#{link})\n\n"
 
-      doc.search('.free').each do |rcompany|
+      doc.search('.free').first(2).each do |rcompany|
         company = {}
 
         rcompany.search('h2.advTitle').each do |rname|
