@@ -12,8 +12,8 @@ class CompanyImporter
                                       slug: company[:name].parameterize,
                                       category_id: 1)
         if c
-          city_id = City.where(name: company[:city].downcase).first_or_create.id
-          uf_id = Uf.where(name: company[:uf].downcase).first_or_create.id
+          city_id = City.where(name: company[:city].upcase).first_or_create.id
+          uf_id = Uf.where(name: company[:uf].upcase).first_or_create.id
 
           c.create_profile(address: company[:address],
                            phone: company[:phone],

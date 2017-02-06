@@ -25,7 +25,7 @@ private
 
   def profile_params
     params.require(:profile).permit(:institutional,
-      :phone, :mail, :city, :uf, :address, :primary_color,
+      :phone, :mail, :city_id, :uf_id, :address, :primary_color,
       :detail_color, :text_color, :link_color, :logo_color, :description_color, :cover)
   end
 end

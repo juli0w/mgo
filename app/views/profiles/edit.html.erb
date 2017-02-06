@@ -20,12 +20,10 @@
   </div>
   <div class="row">
     <div class="input-field col s8">
-      <%= f.label :city %>
-      <%= f.text_field :city %>
+      <%= f.collection_select :city_id, City.all, :id, :name, prompt: false %>
     </div>
     <div class="input-field col s4">
-      <%= f.label :uf %>
-      <%= f.text_field :uf %>
+      <%= f.collection_select :uf_id, Uf.all, :id, :name, prompt: false %>
     </div>
   </div>
   <div class="row">
