@@ -4,7 +4,7 @@ class AddUfToProfiles < ActiveRecord::Migration[5.0]
 
     Profile.all.each do |profile|
       profile.uf = "SC" if profile.uf.nil?
-      profile.uf_id = Uf.where("lower(name) = ?", profile.uf.downcase).first_or_create.id
+      profile.uf_id = Uf.where(name: profile.uf.downcase).first_or_create.id
       profile.save
     end
 

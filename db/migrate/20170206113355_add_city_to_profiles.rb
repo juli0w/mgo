@@ -4,7 +4,7 @@ class AddCityToProfiles < ActiveRecord::Migration[5.0]
 
     Profile.all.each do |profile|
       profile.city = "Joinville" if profile.city.nil?
-      profile.city_id = City.where("lower(name) = ?", profile.city.downcase).first_or_create.id
+      profile.city_id = City.where(name: profile.city.downcase).first_or_create.id
       profile.save
     end
 
