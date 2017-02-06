@@ -6,7 +6,7 @@ class Profile < ApplicationRecord
   mount_uploader :cover, CoverUploader
 
   def formatted_address
-    "#{self.address} - #{self.city.name.humanize}/#{self.uf.name.uppercase}"
+    "#{self.address} - #{self.city.name.humanize}/#{self.uf.name.upcase}"
   end
 
   # def city= city
