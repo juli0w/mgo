@@ -47,8 +47,6 @@ class Company < ApplicationRecord
     else
       self.left_outer_joins(:profile).
               where('profiles.address LIKE :key
-                     or profiles.city LIKE :key
-                     or profiles.uf LIKE :key
                      or name LIKE :key
                      or description LIKE :key',
                     key: "%#{params[:key]}%")

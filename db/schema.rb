@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170204123839) do
+ActiveRecord::Schema.define(version: 20170206114457) do
 
   create_table "albums", force: :cascade do |t|
     t.         "photos"
@@ -27,6 +27,12 @@ ActiveRecord::Schema.define(version: 20170204123839) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "ancestor_id"
+  end
+
+  create_table "cities", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "companies", force: :cascade do |t|
@@ -70,8 +76,6 @@ ActiveRecord::Schema.define(version: 20170204123839) do
     t.text     "institutional"
     t.string   "phone"
     t.string   "mail"
-    t.string   "city"
-    t.string   "uf"
     t.string   "address"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
@@ -82,6 +86,8 @@ ActiveRecord::Schema.define(version: 20170204123839) do
     t.string   "logo_color"
     t.string   "description_color"
     t.string   "cover"
+    t.integer  "city_id"
+    t.integer  "uf_id"
     t.index ["company_id"], name: "index_profiles_on_company_id"
   end
 
@@ -104,6 +110,12 @@ ActiveRecord::Schema.define(version: 20170204123839) do
   end
 
   create_table "tags", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "ufs", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
