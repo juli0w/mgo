@@ -12,4 +12,8 @@ class Category < ApplicationRecord
   def root?
     ancestor_id == nil
   end
+
+  def to_param
+    "#{self.id}-#{self.name.parameterize}"
+  end
 end

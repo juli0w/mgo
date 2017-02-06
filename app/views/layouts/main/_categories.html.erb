@@ -1,15 +1,24 @@
 <nav class="blue-grey darken-2">
   <div class="nav-wrapper container">
     <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="material-icons">menu</i></a>
-    <!-- <ul class="hide-on-med-and-down">
-      <% @categories.each do |category| %>
-        <li><strong><%= link_to category.name, category %></strong></li>
-      <% end %>
-    </ul> -->
+
     <ul class="side-nav" id="slide-out">
-      <% @categories.each do |category| %>
-        <li><%= link_to category.name, category, class: "truncate" %></li>
-      <% end %>
+      <li>
+        <ul class="collapsible">
+        <% @categories.each do |category| %>
+          <li>
+            <div class="collapsible-header truncate black-text"><%= category.name %></div>
+            <div class="collapsible-body">
+              <ul>
+                <% category.children.each do |child| %>
+                  <li><%= link_to child.name, child, class: "truncate" %></li>
+                <% end %>
+              </ul>
+            </div>
+          </li>
+        <% end %>
+        </ul>
+      </li>
     </ul>
   </div>
 </nav>

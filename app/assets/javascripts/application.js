@@ -21,6 +21,7 @@ $(document).ready(function(){
   $( ".tabs" ).tabs();
   $('select').material_select();
   $(".button-collapse").sideNav();
+  $('.collapsible').collapsible();
   $('.carousel').carousel({dist: 0, padding: 50, indicators: false});
   $('.star-rating').rating();
 
