@@ -14,16 +14,24 @@ class MapsController < ApplicationController
   end
 
   def resources
-    set_map
+    set_map params[:category]
     render json: @map.to_json
   end
 
 private
 
-  def set_map
-    @map = Map.all.map { |m| [m.company.name, m.lat, m.lng,
-                              m.company.profile.formatted_address,
-                              "/#{m.company.slug}",
-                              m.company.note] }
+  def set_map category_id
+    if category_id.present?
+      @map = Map.all.select { |m| m.company.category_id == category_id.to_i }.
+                        map { |m| [m.company.name, m.lat, m.lng,
+                                m.company.profile.formatted_address,
+                                "/#{m.company.slug}",
+                                m.company.note] }
+    else
+      @map = Map.all.map { |m| [m.company.name, m.lat, m.lng,
+                                m.company.profile.formatted_address,
+                                "/#{m.company.slug}",
+                                m.company.note] }
+    end
   end
 end

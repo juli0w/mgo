@@ -1,4 +1,11 @@
 <div class="section">
+  <ul class="tabs">
+    <li class="tab col s3"><a href="#list">Lista</a></li>
+    <li class="tab col s3"><a href="#mapa">Ver no mapa</a></li>
+  </ul>
+</div>
+
+<div id="list" class="section col s12">
 
   <% unless @companies.blank? %>
 
@@ -20,3 +27,14 @@
   <% end %>
 
 </div>
+<div id="mapa" class="section col s12">
+  <%= render "layouts/main/map" %>
+</div>
+<script>
+  function initMapByCat() {
+    initMap(<%= @category.id %>);
+  }
+</script>
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzq1h0fNZETR8Q0VAgVxqui85bPEhb-N0&callback=initMapByCat">
+</script>
