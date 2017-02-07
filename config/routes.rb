@@ -9,10 +9,12 @@ Rails.application.routes.draw do
   get 'home', to: 'home#index'
   get 'seach', to: 'home#search', as: 'search'
   get 'contact', to: 'home#contact', as: 'contact'
-  get 'partner', to: 'home#partner', as: 'partner'
+  get 'map', to: 'maps#resources'
 
   resources :categories
   resources :users
+  resources :subscribes
+  get 'partner', to: 'subscribes#new', as: 'partner'
 
   resources :companies do
     resource :profile, except: :show, path_names: { edit: "" }
@@ -28,7 +30,7 @@ Rails.application.routes.draw do
 
   get 'tags/:tag', to: 'home#index', as: :tag, :constraints  => { :tag => /[^\/]+/ }
 
-  root to: 'home#index'
+  root to: 'maps#index'
 
   get ':slug', to: 'companies#show'
   get ':slug/review', to: 'reviews#new'

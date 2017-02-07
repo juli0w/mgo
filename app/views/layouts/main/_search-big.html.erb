@@ -1,0 +1,18 @@
+<div class="search-section search-section-big row background-map" id="index-banner">
+  <div class="col s12 m8 offset-m2">
+    <div class="bg-transparent">
+    <h5 class="center grey-text text-lighten-4" style="margin: 10px 0 30px 0;">Procurou, achou!</h5>
+
+    <%= form_tag search_path, method: :get, class: "center-align" do %>
+        <fieldset style="border: none; margin: 0; padding: 0;">
+          <i class="material-icons white-text hide-on-med-and-down">place</i>
+          <input name="key" id="icon_local" type="search" placeholder="O que deseja localizar?">
+          <button class="btn" type="submit" name="action">
+            <i class="material-icons">search</i>
+          </button>
+      </fieldset>
+    <% end %>
+
+    </div>
+  </div>
+</div>

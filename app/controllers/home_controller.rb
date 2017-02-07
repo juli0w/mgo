@@ -10,11 +10,6 @@ class HomeController < ApplicationController
     end
   end
 
-  def partner
-    @contact = Contact.new(subject: "Anúncio", destination: admin_email)
-    render layout: 'promotion'
-  end
-
   def institutional
   end
 

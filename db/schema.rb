@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170206114457) do
+ActiveRecord::Schema.define(version: 20170207003717) do
 
   create_table "albums", force: :cascade do |t|
     t.         "photos"
@@ -62,6 +62,15 @@ ActiveRecord::Schema.define(version: 20170206114457) do
     t.string   "destination"
   end
 
+  create_table "maps", force: :cascade do |t|
+    t.integer  "company_id"
+    t.string   "lat"
+    t.string   "lng"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_maps_on_company_id"
+  end
+
   create_table "photos", force: :cascade do |t|
     t.string   "photo"
     t.string   "description"
@@ -98,6 +107,15 @@ ActiveRecord::Schema.define(version: 20170206114457) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["company_id"], name: "index_reviews_on_company_id"
+  end
+
+  create_table "subscribes", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "phone"
+    t.string   "plan"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "taggings", force: :cascade do |t|

@@ -16,7 +16,7 @@
 
 @import "materialize/components/color";
 
-$primary-color: color("light-green", "darken-4") !default;
+$primary-color: color("blue-grey", "darken-3") !default;
 // $primary-color: color("grey", "darken-4") !default;
 $primary-color-light: true !default;
 $primary-color-dark: false !default;
@@ -38,11 +38,36 @@ html {
   font-family: GillSans, Calibri, Trebuchet, sans-serif;
 }
 
-.partner-page footer { margin-top: 0; }
+.map-modal {
+  font-size: 1.2em;
+  h5 {
+    font-weight: bold;
+    color: $primary-color;
+    width: 100%;
+    font-size: 1.8em;
+  }
+  a { font-size: 1.2em; }
+}
+
+.side-nav {
+  background-color: color("blue-grey", "darken-1");
+  a { color: white; }
+
+  .collapsible-body {
+    background-color: color("blue-grey", "base");
+  }
+}
+
+.side-nav .collapsible li.main-category {
+  font-weight: bold;
+}
+
+.map .row { margin-bottom: 0; }
+.partner-page footer, .map footer { margin-top: 0; }
 
 .map-bg {
   margin-bottom: 0;
-  background-color: color("blue-grey", "darken-4");
+  background-color: color("blue-grey", "darken-3");
   background-image: url(/images/bg-map.png);
 
   .white-bg {
@@ -134,7 +159,7 @@ html {
 }
 
 .promotional-tile {
-  background-color: color("blue-grey", "darken-4");
+  background-color: color("blue-grey", "darken-3");
   padding-top: 40px;
   padding-bottom: 40px;
   margin: 20px 0;
@@ -333,6 +358,10 @@ h1.logo {
   padding: 20px 0;
 }
 
+.search-section-big {
+  padding: 120px 0;
+}
+
 .search-section.row {
   margin-bottom: 0 !important;
 }
@@ -372,7 +401,6 @@ h1.logo {
   background-color: rgba(255, 255, 255, 0.07);
   border-radius: 8px;
 }
-
 .background-map  {
   background-color: color("blue-grey", "darken-4");
   background-image: url(/images/bg-map.png);

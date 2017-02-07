@@ -6,8 +6,8 @@
       <li>
         <ul class="collapsible">
         <% @categories.each do |category| %>
-          <li>
-            <div class="collapsible-header truncate black-text"><%= category.name %></div>
+          <li class="main-category">
+            <div class="collapsible-header truncate"><%= category.name %></div>
             <div class="collapsible-body">
               <ul>
                 <% category.children.each do |child| %>

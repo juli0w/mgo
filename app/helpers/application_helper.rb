@@ -39,31 +39,33 @@ module ApplicationHelper
   end
 
   def primary_color company
-    company.profile.primary_color || 'light-green darken-4'
+    color = company.profile.primary_color
+    color.present? ? color : 'light-green darken-4'
   end
 
   def detail_color company
-    company.profile.detail_color || 'orange-text'
+    color = company.profile.detail_color
+    color.present? ? color : 'orange-text'
   end
 
   def link_color company
-    company.profile.link_color || 'white-text'
+    color = company.profile.link_color
+    color.present? ? color : 'white-text'
   end
 
   def text_color company
-    company.profile.text_color || 'white-text'
+    color = company.profile.text_color
+    color.present? ? color : 'white-text'
   end
 
   def logo_color company
-    company.profile.logo_color || 'white-text'
+    color = company.profile.logo_color
+    color.present? ? color : 'white-text'
   end
 
   def description_color company
-    company.profile.description_color || 'white-text'
-  end
-
-  def description_color company
-    company.profile.description_color || 'white-text'
+    color = company.profile.description_color
+    color.present? ? color : 'white-text'
   end
 
   def header_image company

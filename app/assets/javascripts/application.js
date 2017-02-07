@@ -14,16 +14,17 @@
 //= require jquery_ujs
 //= require materialize
 //= require tinymce
-//= require_tree .
+//= require rating
+//= require_tree
 
 $(document).ready(function(){
+  $('.star-rating').rating();
   $('.tooltipped').tooltip({delay: 50});
   $( ".tabs" ).tabs();
   $('select').material_select();
   $(".button-collapse").sideNav();
   $('.collapsible').collapsible();
   $('.carousel').carousel({dist: 0, padding: 50, indicators: false});
-  $('.star-rating').rating();
 
   $('.photo').click(function() {
     $('.img-modal').fadeIn(200);

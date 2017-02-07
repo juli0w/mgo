@@ -27,5 +27,10 @@ pt-BR:
         phone: Telefone
         subject: Assunto
         message: Mensagem
+      subscribe:
+        name: Nome
+        phone: Telefone
+        mail: Email
+        plan: Plano
       review:
         comment: Comentário
