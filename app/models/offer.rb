@@ -16,8 +16,8 @@ class Offer < ApplicationRecord
 
     Lomadee.offers.each do |page|
       page.each do |offer|
-        offer = new(name: offer["offerName"].force_encoding("UTF-8"),
-                    category_name: offer["categoryName"].force_encoding("UTF-8"),
+        offer = new(name: offer["offerName"].gsub(/[\u0080-\u00ff]/, ''),
+                    category_name: offer["categoryName"].gsub(/[\u0080-\u00ff]/, ''),
                     price_from: offer["priceFromValue"],
                     price: offer["priceValue"],
                     thumbnail: offer["thumbnail"]["url"],
