@@ -1,10 +1,21 @@
 function initMap(category) {
-  var map;
+  var map, myLatlng;
+  myLatlng = new google.maps.LatLng(-26.304566, -48.846006);
   var myOptions = {
       zoom: 11,
-      center: new google.maps.LatLng(-26.304566, -48.846006)
+      center: myLatlng
   };
   map = new google.maps.Map($('#map_canvas')[0], myOptions);
+
+  var tab = $("#list-map-tab");
+  $("#list-map-tab").click(function(){
+    google.maps.event.trigger(map, 'resize');
+    //fire a center event after the resize, this is also useful
+    // if bound to a window resize
+    map.setCenter(myLatlng)
+  });
+
+  $(document).ready(function() { map.setCenter(myLatlng) });
 
   loadMarkers(map, category);
 }
@@ -14,7 +25,7 @@ function loadMarkers(map, category) {
 }
 
 function setMarkers(map, datamap) {
-  var marker;
+  var marker, old;
   for (var x = 0; x < datamap.length; x++) {
     marker = createMark(map, datamap[x]);
     createWindow(marker, map, datamap[x]);
@@ -31,14 +42,15 @@ function createWindow(marker, map, company) {
                     ' | <a href="'+company[4]+'/review">Avaliar</a>'+
                   '</div>';
 
-  infowindow = new google.maps.InfoWindow({
-    content: content
-  });
 
   google.maps.event.addListener(marker,'click', (function(marker,content,infowindow){
     return function() {
-        infowindow.setContent(content);
-        infowindow.open(map, marker);
+      infowindow = new google.maps.InfoWindow({
+        content: content
+      });
+
+      infowindow.setContent(content);
+      infowindow.open(map, marker);
     };
   })(marker,content,infowindow));
 }
@@ -48,7 +60,8 @@ function createMark(map, company) {
   marker = new google.maps.Marker({
     position: latlng,
     map: map,
-    title: company[0]
+    title: company[0],
+    clickable : true
   });
 
   return marker;

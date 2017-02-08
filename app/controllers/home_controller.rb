@@ -6,8 +6,10 @@ class HomeController < ApplicationController
     @companies = if params[:tag]
       Company.tagged_with(params[:tag]).page(params[:page])
     else
-      Company.all.page(params[:page])
+      Company.all.page(params[:page]).per(5)
     end
+
+    @map = true
   end
 
   def institutional

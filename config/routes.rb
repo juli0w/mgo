@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'seach', to: 'home#search', as: 'search'
   get 'contact', to: 'home#contact', as: 'contact'
   get 'map', to: 'maps#resources'
+  get 'offers', to: 'offers#index'
 
   resources :categories
   resources :users
@@ -30,7 +31,7 @@ Rails.application.routes.draw do
 
   get 'tags/:tag', to: 'home#index', as: :tag, :constraints  => { :tag => /[^\/]+/ }
 
-  root to: 'maps#index'
+  root to: 'home#index'
 
   get ':slug', to: 'companies#show'
   get ':slug/review', to: 'reviews#new'

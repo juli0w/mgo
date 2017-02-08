@@ -2,6 +2,9 @@ require 'open-uri'
 
 class Map < ApplicationRecord
   belongs_to :company
+  validates :company_id, presence: true
+  validates :lat, presence: true
+  validates :lng, presence: true
 
   def self.refresh
     Map.delete_all

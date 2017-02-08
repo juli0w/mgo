@@ -38,6 +38,23 @@ html {
   font-family: GillSans, Calibri, Trebuchet, sans-serif;
 }
 
+.search-offers input[type="search"] {
+  width: 250px;
+  border: 1px solid #dedede;
+  padding-left: 15px;
+}
+.search-offers .btn {
+  height: 44px;
+  margin-top: -4px;
+}
+
+.avatar .title a {
+  font-size: 1em;
+}
+
+.avatar p {
+  font-family: Tahoma, serif;
+}
 .map-modal {
   font-size: 1.2em;
   h5 {
@@ -62,8 +79,8 @@ html {
   font-weight: bold;
 }
 
-.map .row { margin-bottom: 0; }
-.partner-page footer, .map footer { margin-top: 0; }
+.row.map  { margin-bottom: 0; }
+footer { margin-top: 0 !important; }
 
 .map-bg {
   margin-bottom: 0;

@@ -1,6 +1,5 @@
 class MapsController < ApplicationController
   before_filter :set_noindex, only: [:resources]
-  layout 'map'
 
   def index
     set_meta_tags title: 'Procurou, achou!',

@@ -22,6 +22,15 @@
 
     <%= render "layouts/main/content" %>
 
+    <% if @map %>
+      <script>
+        $(document).ready(function() {
+          $.getScript('https://maps.googleapis.com/maps/api/js?key=AIzaSyCzq1h0fNZETR8Q0VAgVxqui85bPEhb-N0&callback=initMap');
+        });
+      </script>
+      <%= render "layouts/main/map" %>
+    <% end %>
+
     <%= render "layouts/main/footer" %>
   </body>
 </html>
