@@ -15,25 +15,7 @@
 <div class="row">
   <% @offers.each do |offer| %>
     <div class="col s12 m6 l4">
-      <div class="card">
-        <div class="card-content">
-          <div class="card-title center">
-            <%= image_tag offer.thumbnail, style: "height: 100px; width: 100px;" %>
-          </div>
-          <p style="overflow: hidden; height: 110px; margin-bottom: 5px;">
-            <%= offer.name %>
-          </p>
-          <p><%= offer.category_name %></p>
-          <p>
-            <span class="red-text" style="text-decoration: line-through;">De <%= number_to_currency offer.price_from %></span><br />
-            <span class="bolder blue-grey-text">Por <%= number_to_currency offer.price %></span>
-          </p>
-        </div>
-        <div class="card-action">
-          <%= link_to "Comprar", offer.link, class: 'bolder blue-grey-text', target: "blank" %>
-          <%= image_tag offer.seller_thumbnail, style: 'position: relative; float: right; top: -5px;' %>
-        </div>
-      </div>
+      <%= render "offers/offer_card", offer: offer %>
     </div>
   <% end %>
 </div>

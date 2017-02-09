@@ -1,0 +1,13 @@
+<div class="section" style="margin-top: 2px; border-bottom: 1px solid #e2e2e2;">
+  <span class="blue-grey-text text-darken-3 title-h5">Últimas ofertas</span>
+  <%= link_to "Ver todas", offers_path, style: "margin-left: 10px;" %>
+</div>
+<br />
+<div class="last-offers slick-sliding">
+  <% @offers.each do |offer| %>
+    <div class="col">
+      <%= render "offers/offer_card", offer: offer %>
+    </div>
+  <% end %>
+</div>
+<br />

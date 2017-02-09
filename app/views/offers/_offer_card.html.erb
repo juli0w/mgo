@@ -1,0 +1,15 @@
+<div class="card">
+  <div class="card-content">
+    <div class="card-title center">
+      <%= image_tag offer.thumbnail, style: "height: 100px; width: 100px; margin: 0 auto;" %>
+    </div>
+    <p style="overflow: hidden; height: 110px; margin: 15px 0 5px 0;">
+      <%= link_to offer.name, offer.link, target: "blank" %>
+    </p>
+    <p><%= offer.category_name %></p>
+    <p>
+      <span class="red-text" style="text-decoration: line-through;">De <%= number_to_currency offer.price_from %></span><br />
+      <span class="bolder blue-grey-text">Por <%= number_to_currency offer.price %></span>
+    </p>
+  </div>
+</div>

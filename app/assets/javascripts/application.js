@@ -36,7 +36,7 @@ $(document).ready(function(){
     $('.img-modal').fadeOut(200);
   });
 
-  $('.last-offers').slick({
+  $('.slick-sliding').slick({
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 3,

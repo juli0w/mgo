@@ -6,7 +6,7 @@ class HomeController < ApplicationController
     @companies = if params[:tag]
       Company.tagged_with(params[:tag]).page(params[:page])
     else
-      Company.all.page(params[:page]).per(5)
+      Company.last(10)
     end
 
     offer_ids = Offer.pluck(:id).shuffle[0..9]

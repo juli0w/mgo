@@ -1,66 +1,38 @@
-<!-- <div class="section">
-  <div class="carousel" style="height: 150px;">
-
-<% Company.first(10).each do |company| %>
-    <div class="carousel-item" href="">
-      <div class="valign-wrapper" style="height: 180px;">
-        <div class="valign section">
-          <%= link_to image_tag(slider(company)), get_url(company) %>
-        </div>
-      </div>
-    </div>
-<% end %>
-
-  </div>
-</div> -->
-
-
-<div class="section">
-  <% if @companies.present? %>
-
-    <ul class="collection">
-      <%= render "companies/collection" %>
-    </ul>
-
-    <%= paginate @companies %>
-
-  <% else %>
-
-    <div class="section">
-      Sem resultados, <%= link_to "volte para a página inicial", "/", class: "green-text" %>.
-    </div>
-
-  <% end %>
-</div>
+<br/>
+<%= render "layouts/main/last_offers" %>
 
 <div class="section" style="margin-top: 2px; border-bottom: 1px solid #e2e2e2;">
-  <span class="blue-grey-text text-darken-3 title-h5">Últimas ofertas</span>
-  <%= link_to "Ver todas", offers_path, style: "margin-left: 10px;" %>
+  <span class="blue-grey-text text-darken-3 title-h5">Últimas empresas</span>
+  <%= link_to "Ver todas", companies_path, style: "margin-left: 10px;" %>
 </div>
 <br />
-<div class="last-offers">
-  <% @offers.each do |offer| %>
+<% if @companies.present? %>
+<div class="last-companies slick-sliding">
+  <% @companies.each do |company| %>
   <div class="col">
     <div class="card">
       <div class="card-content">
         <div class="card-title center">
-          <%= image_tag offer.thumbnail, style: "height: 100px; width: 100px; margin: 0 auto;" %>
+          <%= image_tag logotipo(company), style: "max-width: 85px; height: auto; max-height: 85px; margin: 0 auto;" %>
         </div>
-        <p style="overflow: hidden; height: 110px; margin: 5px 0;">
-          <%= offer.name %>
+        <p style="overflow: hidden; max-height: 110px; margin: 15px 0 5px 0;">
+          <%= link_to company.name, get_url(company), class: "grey-text text-darken-4" %>
         </p>
-        <p><%= offer.category_name %></p>
+        <%= link_to rate_for(company), "/#{company.slug}/review", class: "rating" %>
+        <br />
         <p>
-          <span class="red-text" style="text-decoration: line-through;">De <%= number_to_currency offer.price_from %></span><br />
-          <span class="bolder blue-grey-text">Por <%= number_to_currency offer.price %></span>
+          <%= link_to company.category.name, company.category %><br />
+          <%= company.description %>
         </p>
       </div>
       <div class="card-action">
-        <%= link_to "Comprar", offer.link, class: 'bolder blue-grey-text', target: "blank" %>
-        <%= image_tag offer.seller_thumbnail, style: 'float: right; position: relative; top: -5px;' %>
+        <%= link_to "Visitar", get_url(company), class: 'bolder blue-grey-text', target: "blank" %>
       </div>
     </div>
   </div>
   <% end %>
 </div>
 <br />
+<% else %>
+  <p class="center">Sem resultados, <%= link_to "volte para a página inicial", "/", class: "green-text" %>.</p>
+<% end %>
