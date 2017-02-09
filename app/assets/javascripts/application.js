@@ -24,7 +24,7 @@ $(document).ready(function(){
   $('select').material_select();
   $(".button-collapse").sideNav();
   $('.collapsible').collapsible();
-  $('.carousel').carousel({dist: 0, padding: 50, indicators: false});
+  // $('.carousel').carousel({dist: 0, padding: 50, indicators: false});
 
   $('.photo').click(function() {
     $('.img-modal').fadeIn(200);
@@ -35,6 +35,38 @@ $(document).ready(function(){
   $('.img-modal .close').click(function() {
     $('.img-modal').fadeOut(200);
   });
+
+  $('.last-offers').slick({
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+    responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        infinite: true,
+        dots: true
+      }
+    },
+    {
+      breakpoint: 900,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2
+      }
+    },
+    {
+      breakpoint: 580,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+  ]
+  });
+
 
   // Get the image and insert it inside the modal - use its "alt" text as a caption
   // var img = document.getElementById('myImg');

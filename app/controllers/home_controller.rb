@@ -9,6 +9,9 @@ class HomeController < ApplicationController
       Company.all.page(params[:page]).per(5)
     end
 
+    offer_ids = Offer.pluck(:id).shuffle[0..9]
+    @offers = Offer.where(id: offer_ids)
+
     @map = true
   end
 

@@ -11,6 +11,8 @@
  * It is generally better to create a new file per style scope.
  *
  *= require rating
+ *= require slick
+ *= require slick-theme
  *= require_self
  */
 
@@ -162,6 +164,12 @@ footer { margin-top: 0 !important; }
   font-family: Lora, 'Times New Roman', serif;
 }
 
+.title-h5 {
+  font-size: 1.64rem;
+  line-height: 110%;
+  font-weight: 400;
+  margin: 0.82rem 0 0.656rem 0;
+}
 .page-footer h5 { font-weight: bold; }
 .bolder { font-weight: bold; text-transform: uppercase; }
 
