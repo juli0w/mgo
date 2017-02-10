@@ -13,6 +13,7 @@
  *= require rating
  *= require slick
  *= require slick-theme
+ *= require slideshow
  *= require_self
  */
 
@@ -38,6 +39,24 @@ $link-color: color("indigo", "darken-4") !default;
 
 html {
   font-family: GillSans, Calibri, Trebuchet, sans-serif;
+}
+
+.tabs .tab a {
+  &.active {
+    background-color: #efefef;
+  }
+  border-radius: 25px;
+
+  &.menu {
+    border-top-right-radius: 0 ;
+    border-bottom-right-radius: 0;
+  }
+}
+
+.recuo { text-indent: 4em; padding: 0 20px; }
+
+.quem-somos p, .quem-somos li {
+  font-size: 1.4em;
 }
 
 .bordered-map {
@@ -461,7 +480,7 @@ h1.logo {
     }
 
     a:hover {
-      background-color: #dedede;
+      background-color: #f9f9f9;
     }
 
   }

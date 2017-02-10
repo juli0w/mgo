@@ -4,7 +4,7 @@
       <div class="col s12 m4 center-align">
         <h5 class="yellow-text text-accent-2">MEU GUIA</h5>
         <ul>
-          <li><%= link_to "Quem somos", "", class: "white-text" %></li>
+          <li><%= link_to "Quem somos", institutional_path, class: "white-text" %></li>
           <li><%= link_to "Anuncie sua empresa", partner_path, class: "white-text" %></li>
           <% if user_signed_in? %>
             <li><%= link_to "Empresas", companies_path, class: "white-text" %></li>

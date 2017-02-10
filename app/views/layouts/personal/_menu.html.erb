@@ -1,12 +1,12 @@
 <div class="row">
   <div class="tabs-vertical">
     <ul class="tabs">
-      <li class="tab"><%= link_to "Inicial", "#tab-inicial", class: "grey-text text-darken-3" %></li>
+      <li class="tab"><%= link_to "Inicial", "#tab-inicial", class: "menu grey-text text-darken-3" %></li>
       <% @albums.each do |album| %>
-        <li class="tab"><%= link_to album.name, "#tab-album-#{album.id}", class: "grey-text text-darken-3" %></li>
+        <li class="tab"><%= link_to album.name, "#tab-album-#{album.id}", class: "menu grey-text text-darken-3" %></li>
       <% end %>
-      <li class="tab"><%= link_to "Como chegar", "#tab-mapa", class: "grey-text text-darken-3" %></li>
-      <li class="tab"><%= link_to "Contato", "#tab-contato", class: "grey-text text-darken-3" %></li>
+      <li class="tab"><%= link_to "Como chegar", "#tab-mapa", class: "menu grey-text text-darken-3" %></li>
+      <li class="tab"><%= link_to "Contato", "#tab-contato", class: "menu grey-text text-darken-3" %></li>
     </ul>
   </div>
 

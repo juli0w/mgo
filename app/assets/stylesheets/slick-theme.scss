@@ -16,7 +16,7 @@ $slick-dot-color-active: $slick-dot-color !default;
 $slick-prev-character: "\2190" !default;
 $slick-next-character: "\2192" !default;
 $slick-dot-character: "\2022" !default;
-$slick-dot-size: 6px !default;
+$slick-dot-size: 8px !default;
 $slick-opacity-default: 0.75 !default;
 $slick-opacity-on-hover: 1 !default;
 $slick-opacity-not-active: 0.25 !default;
@@ -126,6 +126,14 @@ $slick-opacity-not-active: 0.25 !default;
             content: $slick-prev-character;
         }
     }
+}
+
+.slick-slideshow .slick-prev {
+  left: 40px;
+  z-index: 1;
+}
+.slick-slideshow .slick-next {
+  right: 40px;
 }
 
 /* Dots */

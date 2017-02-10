@@ -2,6 +2,17 @@
   <h5 class="main-title">Empresas</h5>
 </div>
 
+<div class="search-offers">
+  <%= form_tag companies_path, method: :get do %>
+      <fieldset style="border: none; margin: 0; padding: 0;">
+        <input name="keyword" id="icon_local" style="display: inline;" type="search" placeholder="Filtrar empresas" value=<%= params[:keyword] %>>
+        <button class="btn" type="submit" name="action">
+          Filtrar
+        </button>
+    </fieldset>
+  <% end %>
+</div>
+
 <div class="row">
   <table class="striped bordered">
     <thead>

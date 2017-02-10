@@ -36,6 +36,15 @@ $(document).ready(function(){
     $('.img-modal').fadeOut(200);
   });
 
+  $('.slick-slideshow').slick({
+    infinite: true,
+    slidesToShow: 1,
+    autoplay: true,
+    dots: true,
+    fade: true,
+    speed: 1000
+  });
+
   $('.slick-sliding').slick({
     infinite: true,
     slidesToShow: 3,

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'profiles/new'
 
   get 'home', to: 'home#index'
+  get 'institutional', to: 'home#institutional'
   get 'seach', to: 'home#search', as: 'search'
   get 'contact', to: 'home#contact', as: 'contact'
   get 'map', to: 'maps#resources'
@@ -18,7 +19,7 @@ Rails.application.routes.draw do
   get 'partner', to: 'subscribes#new', as: 'partner'
 
   resources :companies do
-    resource :profile, except: :show, path_names: { edit: "" }
+    resource :profile, except: :show, path_names: { edit: '' }
 
     resources :albums do
       resources :photos

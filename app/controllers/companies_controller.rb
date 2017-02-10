@@ -5,7 +5,11 @@ class CompaniesController < ApplicationController
   before_filter :set_noindex, only: [:index, :new, :edit]
 
   def index
-    @companies = Company.page params[:page]
+    if params[:keyword].present?
+      @companies = Company.where("name LIKE ?", "%#{params[:keyword]}%").page(params[:page])
+    else
+      @companies = Company.page params[:page]
+    end
   end
 
   def show

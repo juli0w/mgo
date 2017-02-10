@@ -1,0 +1,27 @@
+.slick-slideshow .col {
+  height: 350px;
+
+  h5 {
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  p {
+    font-size: 1.4em;
+    color: white;
+  }
+
+  a:hover {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+  }
+}
+
+.slick-slideshow {
+  .bg-1 {
+    background: url(/images/bg1.png) no-repeat;
+  }
+
+  .bg-2 {
+    background: url(/images/bg2.png) no-repeat;
+  }
+}

@@ -33,4 +33,6 @@ pt-BR:
         mail: Email
         plan: Plano
       review:
+        name: Nome
+        email: Email
         comment: Comentário

@@ -1,7 +1,7 @@
 class Profile < ApplicationRecord
   belongs_to :company
-  belongs_to :city
-  belongs_to :uf
+  belongs_to :city, optional: true
+  belongs_to :uf, optional: true
 
   mount_uploader :cover, CoverUploader
 
