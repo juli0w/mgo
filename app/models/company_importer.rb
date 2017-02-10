@@ -2,20 +2,20 @@ require 'nokogiri'
 require 'open-uri'
 
 class CompanyImporter
-  CATEGORIES = [  #'mercados-e-supermercados/supermercados-atacadistas',
-                  # 'mercados-e-supermercados/queijos-e-frios',
+  CATEGORIES = [  'mercados-e-supermercados/supermercados-atacadistas',
+                  'mercados-e-supermercados/queijos-e-frios',
                   'mercados-e-supermercados/lojas-de-conveniencia',
                   'mercados-e-supermercados/mercearias-e-emporios',
                   'lanches-e-salgados/lanchonetes',
                   'lanches-e-salgados/cafeterias',
                   'instituicoes-religiosas/igrejas-e-templos',
-                  # 'clinicas-medicos-e-terapias/clinicas-de-olhos',
+                  'clinicas-medicos-e-terapias/clinicas-de-olhos',
                   'clinicas-medicos-e-terapias/clinicas-odontologicas',
                   'clinicas-medicos-e-terapias/clinicas-de-fisioterapia',
                   'institutos-de-beleza/saloes-de-beleza-e-cabeleireiros',
-                  # 'institutos-de-beleza/spa',
+                  'institutos-de-beleza/spa',
                   'institutos-de-beleza/tatuagens-e-piercings',
-                  # 'comercio-de-produtos-e-servicos/lojas-de-eletrodomesticos',
+                  'comercio-de-produtos-e-servicos/lojas-de-eletrodomesticos',
                   'comercio-de-produtos-e-servicos/empresas-variadas'
                 ]
   SITE = "http://www.guiamais.com.br"
