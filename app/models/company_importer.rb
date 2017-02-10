@@ -108,7 +108,7 @@ class CompanyImporter
 
     print "\nLendo página: #{page} (#{link})\n\n"
 
-    doc.search('.free').first(1).each do |rcompany|
+    doc.search('.free').each do |rcompany|
       company = {}
 
       rcompany.search('h2.advTitle').each do |rname|
