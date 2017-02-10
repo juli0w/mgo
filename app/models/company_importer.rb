@@ -8,7 +8,7 @@ class CompanyImporter
         [ { category: 'supermercados-atacadistas',
           name: 'Supermercados atacadistas' },
           { category: 'queijos-e-frios',
-          name: 'lojas-de-conveniencia' },
+          name: 'Queijos e frios' },
           { category: 'lojas-de-conveniencia',
           name: 'Lojas de conveniência' },
           { category: 'mercearias-e-emporios',
@@ -64,10 +64,17 @@ class CompanyImporter
   SITE = "http://www.guiamais.com.br"
   PLACE = "joinville-sc"
 
-  def self.import! i=1, f=2
-    categories = CATEGORIES
+  def self.reset!
+    Review.delete_all
+    Profile.delete_all
+    Map.delete_all
+    Company.delete_all
+    Category.delete_all
+  end
 
-    categories.each do |root|
+  def self.import! i=1, f=2
+    reset!
+    CATEGORIES.each do |root|
       root[:categories].each do |category|
         category_link = "#{root[:root]}/#{category[:category]}"
         pages = (i..f)
@@ -75,9 +82,8 @@ class CompanyImporter
           guia_mais(page, category_link).each_with_index do |company, i|
             ancestor_id = Category.where(name: root[:name]).first_or_create.id
             cat = Category.where(name: category[:name], ancestor_id: ancestor_id).first_or_create
-            c = cat.companies.create(name: company[:name],
-                                     slug: company[:name].parameterize,
-                              category_id: cat.id)
+            c = cat.companies.where(name: company[:name],
+                                    slug: company[:name].parameterize).first_or_create
             if c
               city_id = City.where(name: company[:city].upcase).first_or_create.id
               uf_id = Uf.where(name: company[:uf].upcase).first_or_create.id
