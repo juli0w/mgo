@@ -2,50 +2,91 @@ require 'nokogiri'
 require 'open-uri'
 
 class CompanyImporter
-  CATEGORIES = [  'mercados-e-supermercados/supermercados-atacadistas',
-                  'mercados-e-supermercados/queijos-e-frios',
-                  'mercados-e-supermercados/lojas-de-conveniencia',
-                  'mercados-e-supermercados/mercearias-e-emporios',
-                  'lanches-e-salgados/lanchonetes',
-                  'lanches-e-salgados/cafeterias',
-                  'instituicoes-religiosas/igrejas-e-templos',
-                  'clinicas-medicos-e-terapias/clinicas-de-olhos',
-                  'clinicas-medicos-e-terapias/clinicas-odontologicas',
-                  'clinicas-medicos-e-terapias/clinicas-de-fisioterapia',
-                  'institutos-de-beleza/saloes-de-beleza-e-cabeleireiros',
-                  'institutos-de-beleza/spa',
-                  'institutos-de-beleza/tatuagens-e-piercings',
-                  'comercio-de-produtos-e-servicos/lojas-de-eletrodomesticos'
-                  # 'comercio-de-produtos-e-servicos/empresas-variadas'
-                ]
+  CATEGORIES = [
+    { root: 'mercados-e-supermercados', name: 'Mercados',
+      categories:
+        [ { category: 'supermercados-atacadistas',
+          name: 'Supermercados atacadistas' },
+          { category: 'queijos-e-frios',
+          name: 'lojas-de-conveniencia' },
+          { category: 'lojas-de-conveniencia',
+          name: 'Lojas de conveniência' },
+          { category: 'mercearias-e-emporios',
+          name: 'Mercearias e empórios' } ] },
+    { root: 'lanches-e-salgados', name: 'Alimentação',
+      categories:
+        [ { category: 'lanchonetes',
+          name: 'Lanchonetes' },
+          { category: 'cafeterias',
+          name: 'Cafeterias' } ] },
+    { root: 'instituicoes-religiosas', name: 'Religião',
+      categories:
+        [ { category: 'igrejas-e-templos',
+          name: 'Igrejas e templos' } ] },
+    { root: 'clinicas-medicos-e-terapias', name: 'Saúde',
+      categories:
+        [ { category: 'clinicas-de-olhos',
+            name: 'Clínicas de olhos' },
+          { category: 'clinicas-odontologicas',
+          name: 'Clínicas odontológicas' },
+          { category: 'clinicas-de-fisioterapia',
+          name: 'Clínicas de fisioterapia' } ] },
+    { root: 'institutos-de-beleza', name: 'Beleza',
+      categories:
+        [ { category: 'saloes-de-beleza-e-cabeleireiros',
+          name: 'Cabeleireiros' },
+          { category: 'spa',
+          name: 'Spá' },
+          { category: 'tatuagens-e-piercings',
+          name: 'Tatuagem e piercing' } ] },
+    { root: 'comercio-de-produtos-e-servicos',
+      name: 'Comércio', categories:
+        [ { category: 'lojas-de-eletrodomesticos',
+          name: 'Eletrodomésticos' } ] } ]
+
+  # CATEGORIES = [  'mercados-e-supermercados/supermercados-atacadistas',
+  #                 'mercados-e-supermercados/queijos-e-frios',
+  #                 'mercados-e-supermercados/lojas-de-conveniencia',
+  #                 'mercados-e-supermercados/mercearias-e-emporios',
+  #                 'lanches-e-salgados/lanchonetes',
+  #                 'lanches-e-salgados/cafeterias',
+  #                 'instituicoes-religiosas/igrejas-e-templos',
+  #                 'clinicas-medicos-e-terapias/clinicas-de-olhos',
+  #                 'clinicas-medicos-e-terapias/clinicas-odontologicas',
+  #                 'clinicas-medicos-e-terapias/clinicas-de-fisioterapia',
+  #                 'institutos-de-beleza/saloes-de-beleza-e-cabeleireiros',
+  #                 'institutos-de-beleza/spa',
+  #                 'institutos-de-beleza/tatuagens-e-piercings',
+  #                 'comercio-de-produtos-e-servicos/lojas-de-eletrodomesticos'
+  #                 # 'comercio-de-produtos-e-servicos/empresas-variadas'
+  #               ]
+
   SITE = "http://www.guiamais.com.br"
   PLACE = "joinville-sc"
 
   def self.import! i=1, f=2
     categories = CATEGORIES
-    # categories = ['tudo-na-regiao']
-    categories.each do |category|
-      pages = (i..f)
-      pages.each do |page|
-        guia_mais(page, category).each_with_index do |company, i|
-          cat = company[:category]
-          if (company[:category] != company[:ancestor]) and (company[:ancestor].present?)
-            ancestor_id = Category.where(name: company[:ancestor]).first_or_create.id
-          else
-            next
-          end
-          category = Category.where(name: company[:category], ancestor_id: ancestor_id).first_or_create
-          c = category.companies.create(name: company[:name],
-                                        slug: company[:name].parameterize,
-                                        category_id: 1)
-          if c
-            city_id = City.where(name: company[:city].upcase).first_or_create.id
-            uf_id = Uf.where(name: company[:uf].upcase).first_or_create.id
 
-            c.create_profile(address: company[:address],
-                             phone: company[:phone],
-                             city_id: city_id,
-                             uf_id: uf_id)
+    categories.each do |root|
+      root[:categories].each do |category|
+        category_link = "#{root[:root]}/#{category[:category]}"
+        pages = (i..f)
+        pages.each do |page|
+          guia_mais(page, category_link).each_with_index do |company, i|
+            ancestor_id = Category.where(name: root[:name]).first_or_create.id
+            cat = Category.where(name: category[:name], ancestor_id: ancestor_id).first_or_create
+            c = cat.companies.create(name: company[:name],
+                                     slug: company[:name].parameterize,
+                              category_id: cat.id)
+            if c
+              city_id = City.where(name: company[:city].upcase).first_or_create.id
+              uf_id = Uf.where(name: company[:uf].upcase).first_or_create.id
+
+              c.create_profile(address: company[:address],
+                               phone: company[:phone],
+                               city_id: city_id,
+                               uf_id: uf_id)
+            end
           end
         end
       end
@@ -67,7 +108,7 @@ class CompanyImporter
 
     print "\nLendo página: #{page} (#{link})\n\n"
 
-    doc.search('.free').each do |rcompany|
+    doc.search('.free').first(1).each do |rcompany|
       company = {}
 
       rcompany.search('h2.advTitle').each do |rname|
@@ -106,20 +147,7 @@ class CompanyImporter
           phone = rphone.content
           company[:phone] = phone.gsub!(/[^0-9A-Za-z. ]/, '') if phone
         end
-
-        page.search('.category a').each do |rcategory|
-          scategory = rcategory.content
-          company[:category] = scategory.gsub(/[\n\t\r]/, '') if scategory
-        end
-
-        page.search('.breadcrumb').each do |ancestor|
-          anc = ancestor.search('li a')
-          company[:ancestor] = anc[4].content if anc
-        end
       end
-
-      next unless company[:ancestor].present?
-      next unless company[:category].present?
 
       companies << company unless company.empty?
     end
