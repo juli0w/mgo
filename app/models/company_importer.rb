@@ -15,8 +15,8 @@ class CompanyImporter
                   'institutos-de-beleza/saloes-de-beleza-e-cabeleireiros',
                   'institutos-de-beleza/spa',
                   'institutos-de-beleza/tatuagens-e-piercings',
-                  'comercio-de-produtos-e-servicos/lojas-de-eletrodomesticos',
-                  'comercio-de-produtos-e-servicos/empresas-variadas'
+                  'comercio-de-produtos-e-servicos/lojas-de-eletrodomesticos'
+                  # 'comercio-de-produtos-e-servicos/empresas-variadas'
                 ]
   SITE = "http://www.guiamais.com.br"
   PLACE = "joinville-sc"
