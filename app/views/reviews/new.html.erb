@@ -2,17 +2,26 @@
   <h5 class="main-title">Avalie a empresa!</h5>
 </div>
 
+<div class="row">
 <%= form_for [@company, @review] do |f| %>
-  <div class="row">
+
+  <div class="input-field col s12">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="input-field col s12">
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+  </div>
+
     <div class="input-field col s12">
       <%= f.label :comment %>
       <%= f.text_area :comment, class: "materialize-textarea" %>
     </div>
-  </div>
 
-  <div class="row">
     <div class="input-field col s12">
-      Avaliação: 
+      Avaliação:
       <div class="star-rating">
         <%= f.radio_button :stars, 1, class: "rating" %>
         <%= f.radio_button :stars, 2, class: "rating" %>
@@ -21,13 +30,13 @@
         <%= f.radio_button :stars, 5, class: "rating", checked: true %>
       </div>
     </div>
-  </div>
 
-  <div class="row">
     <div class="input-field col s12">
       <button class="btn waves-effect waves-light" type="submit" name="action">Avaliar
         <i class="material-icons right">star</i>
       </button>
     </div>
-  </div>
+    <br />
 <% end %>
+</div>
+<br/>

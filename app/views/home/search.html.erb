@@ -1,22 +1,27 @@
-<div class="section">
-
-  <% unless @companies.blank? %>
-
-    <ul class="collection with-header">
-      <li class="collection-header">
-        <h5>Resultados para: <strong style='text-transform: uppercase;'><%= params[:key] %></strong></h5>
-      </li>
-      <%= render "companies/collection" %>
-    </ul>
-
-    <%= paginate @companies %>
-
-  <% else %>
-
+<div class='row'>
+  <div class="container">
     <div class="section">
-      Sem resultados, <%= link_to "volte para a página inicial", "/" %>.
+
+      <% unless @companies.blank? %>
+
+        <ul class="collection with-header">
+          <li class="collection-header">
+            <h5>Você buscou: <strong style='text-transform: uppercase;'><%= params[:key] %></strong></h5>
+          </li>
+          <%= render "companies/collection" %>
+        </ul>
+
+        <%= paginate @companies %>
+
+      <% else %>
+
+          <p class="center">
+            <br/>Ooops! Não encontramos nada para sua pesquisa, procure novamente ou<br />
+            <%= link_to "volte para a página inicial", "/" %>.
+          </p>
+
+      <% end %>
+
     </div>
-
-  <% end %>
-
+  </div>
 </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170208223144) do
+ActiveRecord::Schema.define(version: 20170210012810) do
 
   create_table "albums", force: :cascade do |t|
     t.         "photos"
@@ -119,6 +119,8 @@ ActiveRecord::Schema.define(version: 20170208223144) do
     t.integer  "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "name"
+    t.string   "email"
     t.index ["company_id"], name: "index_reviews_on_company_id"
   end
 

@@ -1,27 +1,30 @@
-<div class="col s12 m4 l3">
+<div class="row">
+  <div class="col s12 m4 l3">
 
-  <%= render "layouts/personal/menu" %>
+    <%= render "layouts/personal/menu" %>
 
-</div>
-
-<div class="col s12 m8 l9">
-
-  <div id="tab-inicial" class="tab-content">
-    <%= render "layouts/personal/tab/inicial" %>
   </div>
 
-  <% @company.albums.each do |album| %>
-    <div id="tab-album-<%= album.id %>" class="tab-content">
-      <%= render "layouts/personal/tab/fotos", album: album %>
+  <div class="col s12 m8 l9">
+
+    <div id="tab-inicial" class="tab-content">
+      <%= render "layouts/personal/tab/inicial" %>
     </div>
-  <% end %>
 
-  <div id="tab-mapa" class="tab-content">
-    <%= render "layouts/personal/tab/mapa" %>
+    <% @company.albums.each do |album| %>
+      <div id="tab-album-<%= album.id %>" class="tab-content">
+        <%= render "layouts/personal/tab/fotos", album: album %>
+      </div>
+    <% end %>
+
+    <div id="tab-mapa" class="tab-content">
+      <%= render "layouts/personal/tab/mapa" %>
+    </div>
+
+    <div id="tab-contato" class="tab-content">
+      <%= render "layouts/personal/tab/contato" %>
+    </div>
+
   </div>
-
-  <div id="tab-contato" class="tab-content">
-    <%= render "layouts/personal/tab/contato" %>
-  </div>
-
 </div>
+<br/>

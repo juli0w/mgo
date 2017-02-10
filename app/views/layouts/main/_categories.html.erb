@@ -1,7 +1,16 @@
 <nav class="blue-grey darken-2">
   <div class="nav-wrapper container">
-    <a href="#" data-activates="slide-out" class="button-collapse show-on-large"><i class="material-icons">menu</i></a>
+    <a href="#" data-activates="slide-out" class="button-collapse show-on-large", style: "width: 200px;">
+      Categorias <i class="material-icons left">menu</i>
+    </a>
 
+    <div class="right hide-on-small-and-down">
+      <ul>
+        <li><%= link_to "<i class='material-icons'>place</i>".html_safe, root_url, class: 'tooltipped', 'data-tooltip' => "Página inicial" %></li>
+        <li><%= link_to "<i class='material-icons'>shopping_cart</i>".html_safe, offers_url, class: 'tooltipped', 'data-tooltip' => "Ofertas exclusivas" %></li>
+        <li><%= link_to "<i class='material-icons'>chat_bubble</i>".html_safe, contact_url, class: 'tooltipped', 'data-tooltip' => "Contato" %></li>
+      </ul>
+    </div>
     <ul class="side-nav" id="slide-out">
       <li>
         <ul class="collapsible">
