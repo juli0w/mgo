@@ -23,7 +23,7 @@ private
   end
 
   def set_variables
-    @categories ||= Category.root
+    @categories ||= Category.root.order(:name)
     @page_keywords = "guia, busca, empresas, independencia, serviços"
   end
 end

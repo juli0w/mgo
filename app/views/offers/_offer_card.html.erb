@@ -3,9 +3,10 @@
     <div class="card-title center">
       <%= image_tag offer.thumbnail, style: "height: 100px; width: 100px; margin: 0 auto;" %>
     </div>
-    <p style="overflow: hidden; height: 110px; margin: 15px 0 5px 0;">
+    <p style="overflow: hidden; height: 110px; margin: 5px 0 5px 0;">
       <%= link_to offer.name, offer.link, target: "blank" %>
     </p>
+    <%= image_tag offer.seller_thumbnail, style: 'margin: 10px 0;' %>
     <p><%= offer.category_name %></p>
     <p>
       <span class="red-text" style="text-decoration: line-through;">De <%= number_to_currency offer.price_from %></span><br />

@@ -3,6 +3,12 @@ require 'open-uri'
 
 class CompanyImporter
   CATEGORIES = [
+    { root: 'noite', name: 'Noturno',
+      categories:
+        [ { category: 'moteis',
+            name: "Motéis" },
+          { category: 'boates-e-night-clubs',
+            name: 'Casas noturnas' } ] },
     { root: 'mercados-e-supermercados', name: 'Mercados',
       categories:
         [ { category: 'supermercados-atacadistas',
@@ -36,13 +42,17 @@ class CompanyImporter
         [ { category: 'saloes-de-beleza-e-cabeleireiros',
           name: 'Cabeleireiros' },
           { category: 'spa',
-          name: 'Spá' },
+          name: 'Spa' },
           { category: 'tatuagens-e-piercings',
           name: 'Tatuagem e piercing' } ] },
     { root: 'comercio-de-produtos-e-servicos',
       name: 'Comércio', categories:
         [ { category: 'lojas-de-eletrodomesticos',
-          name: 'Eletrodomésticos' } ] } ]
+          name: 'Eletrodomésticos' } ] },
+    { root: 'produtos-farmaceuticos-e-cosmeticos', name: 'Saúde',
+      categories:
+        [ { category: 'farmacias-e-drogarias', name: 'Drogarias' },
+          { category: 'farmacias-de-manipulacao', name: 'Farmácias de manipulação' } ] } ]
 
   # CATEGORIES = [  'mercados-e-supermercados/supermercados-atacadistas',
   #                 'mercados-e-supermercados/queijos-e-frios',

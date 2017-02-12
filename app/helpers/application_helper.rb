@@ -1,10 +1,17 @@
 module ApplicationHelper
-  def alert_for(flash_type)
+  def alert_for(title)
     { success: 'alert-success',
       error: 'alert-danger',
       alert: 'alert-warning',
       notice: 'alert-info'
-    }[flash_type.to_sym] || flash_type.to_s
+    }[title.to_sym] || title.to_s
+  end
+  def title_for(title)
+    { success: 'Woohoo',
+      error: 'Oops',
+      alert: 'Hey',
+      notice: 'Informação'
+    }[title.to_sym] || title.to_s
   end
 
   def slider company

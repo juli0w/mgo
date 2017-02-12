@@ -11,7 +11,6 @@ class HomeController < ApplicationController
 
     offer_ids = Offer.pluck(:id).shuffle[0..9]
     @offers = Offer.where(id: offer_ids)
-
     @map = true
   end
 
