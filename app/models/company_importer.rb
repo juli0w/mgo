@@ -3,6 +3,9 @@ require 'open-uri'
 
 class CompanyImporter
   CATEGORIES = [
+    { root: 'produtos-farmaceuticos-e-cosmeticos',
+      name: 'Beleza', categories:
+        [ { category: 'Cosmésticos e perfumaria' } ] },
     { root: 'noite', name: 'Noturno',
       categories:
         [ { category: 'moteis',

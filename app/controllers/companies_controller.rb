@@ -16,7 +16,7 @@ class CompaniesController < ApplicationController
     @company = Company.find_by_slug(params[:slug])
     @contact = Contact.new
     @albums = @company.albums
-    @reviews = @company.reviews
+    # @reviews = @company.reviews
     @page_keywords += ", " + @company.tag_list
 
     set_meta_tags title: @company.description,

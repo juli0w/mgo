@@ -1,3 +1,4 @@
+<br />
 <div class="row">
   <h5 class="main-title">Avalie a empresa!</h5>
 </div>
@@ -7,12 +8,18 @@
 
   <div class="input-field col s12">
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, required: true %>
+    <% if @review.errors[:name] %>
+    <%= @review.errors[:name].first %>
+    <% end %>
   </div>
 
   <div class="input-field col s12">
     <%= f.label :email %>
-    <%= f.email_field :email %>
+    <%= f.email_field :email, required: true %>
+    <% if @review.errors[:email] %>
+    <%= @review.errors[:email].first %>
+    <% end %>
   </div>
 
     <div class="input-field col s12">

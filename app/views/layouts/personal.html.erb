@@ -17,8 +17,10 @@
 
     <%= render "layouts/personal/header" %>
 
-    <%= render "layouts/personal/menu" %>
-
+    <% unless @hide_menu %>
+      <%= render "layouts/personal/menu" %>
+    <% end %>
+    
     <%= render "layouts/main/flash" %>
 
     <%= render "layouts/personal/content" %>

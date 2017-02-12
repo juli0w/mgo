@@ -14,6 +14,8 @@ class ReviewsController < ApplicationController
   def new
     @company = Company.find_by_slug(params[:slug])
     @review = @company.reviews.new
+
+    @hide_menu = true
   end
 
   def create
@@ -24,6 +26,7 @@ class ReviewsController < ApplicationController
       redirect_to "/#{@company.slug}"
     else
       flash.now[:alert] = "Por favor verifique os campos."
+      @hide_menu = true
       render :new
     end
   end
