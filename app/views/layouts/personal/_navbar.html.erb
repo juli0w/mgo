@@ -9,7 +9,7 @@
     </div>
 
     <ul class="right">
-      <li><%= link_to "<i class='material-icons'>star</i>".html_safe, "#{@company.slug}/review", class: "tooltipped #{link_color(@company)}", 'data-tooltip': 'Avaliar' %></li>
+      <li><%= link_to "<i class='material-icons'>star</i>".html_safe, "/#{@company.slug}/review", class: "tooltipped #{link_color(@company)}", 'data-tooltip': 'Avaliar' %></li>
       <% if user_signed_in? %>
         <li><%= link_to "<i class='material-icons'>edit</i>".html_safe, edit_company_path(@company), class: "tooltipped #{link_color(@company)}", 'data-tooltip': 'Editar' %></li>
       <% end %>
