@@ -1,9 +1,9 @@
-<div class="section no-top-padding">
-  <h5 class="main-title"><%= album.name %></h5>
-  <p class="center-align desc-font"><%= album.description %></p>
+<div class="title-wrapper center">
+  <div class="title-h5 <%= primary_color @company %> <%= text_color @company %>"><%= album.name %></div>
 </div>
-
-<div class="row photos" style="margin-left: 20px;">
+<blockquote><%= album.description %></blockquote>
+<br/>
+<div class="photos">
   <% album.photos.each do |photo| %>
     <div class="col" style="margin-right: 20px; margin-bottom: 40px;">
       <div class="photo center-align" style="overflow: hidden;" desc="<%= photo.description %>" img-full="<%= photo.photo.url %>">

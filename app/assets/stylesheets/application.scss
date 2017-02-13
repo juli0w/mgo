@@ -45,6 +45,21 @@ strong {
   font-weight: bold;
 }
 
+.title-wrapper {
+  margin-top: 20px;
+  border-bottom: 1px solid #dedede;
+
+  .title-h5 {
+    background-color: color("deep-orange", "accent-3");
+    color: white;
+    display: inline-block;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 10px 15px;
+  }
+}
+
 .cat-tab {
   .tabs .tab a {
     &.active {
@@ -188,13 +203,7 @@ footer { margin-top: 0 !important; }
   font-family: Lora, 'Times New Roman', serif;
 }
 
-.title-h5 {
-  font-size: 1.64rem;
-  line-height: 110%;
-  font-weight: 400;
-  margin: 0.82rem 0 0.656rem 0;
-}
-.page-footer h5 { font-weight: bold; }
+.page-footer h5 { font-size: 1.3em; font-weight: bold; }
 .bolder { font-weight: bold; text-transform: uppercase; }
 
 .promotional .advantage h5 {

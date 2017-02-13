@@ -3,11 +3,7 @@ class HomeController < ApplicationController
     set_meta_tags title: 'Procurou, achou!',
                   description: 'Página inicial'
 
-    @companies = if params[:tag]
-      Company.tagged_with(params[:tag]).page(params[:page])
-    else
-      Company.last(10)
-    end
+    @companies = Company.last(10)
 
     offer_ids = Offer.pluck(:id).shuffle[0..9]
     @offers = Offer.where(id: offer_ids)

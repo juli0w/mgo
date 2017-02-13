@@ -40,7 +40,7 @@ $(document).ready(function(){
     infinite: true,
     slidesToShow: 1,
     autoplay: true,
-    dots: true,
+    dots: false,
     fade: true,
     speed: 1000
   });

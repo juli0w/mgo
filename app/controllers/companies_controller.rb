@@ -12,6 +12,13 @@ class CompaniesController < ApplicationController
     end
   end
 
+  def tag
+    @tag = Tag.where(name: params[:tag]).first
+    @companies = Company.tagged_with(params[:tag]).page(params[:page])
+
+    render layout: 'application'
+  end
+
   def show
     @company = Company.find_by_slug(params[:slug])
     @contact = Contact.new

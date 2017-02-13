@@ -30,7 +30,7 @@ Rails.application.routes.draw do
 
   resources :contacts
 
-  get 'tags/:tag', to: 'home#index', as: :tag, :constraints  => { :tag => /[^\/]+/ }
+  get 'tags/:tag', to: 'companies#tag', as: :tag, :constraints  => { :tag => /[^\/]+/ }
 
   root to: 'home#index'
 
