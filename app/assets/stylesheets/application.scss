@@ -70,9 +70,12 @@ strong {
 }
 
 .cat-tab {
+  .tabs {
+    background-color: inherit;
+  }
   .tabs .tab a {
     &.active {
-      background-color: #efefef;
+      background-color: #bebebe;
     }
     border-radius: 25px;
   }
