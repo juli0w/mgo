@@ -10,6 +10,10 @@ pt-BR:
     models:
       user: Usuário
   devise:
+    failure:
+      already_authenticated: Já está logado
+      user:
+        not_found_in_database: Usuário ou senha inválido
     confirmations:
       new:
         resend_confirmation_instructions: Reenviar instruções de confirmação
@@ -39,6 +43,8 @@ pt-BR:
         forgot_your_password: Esqueceu sua senha?
         send_me_reset_password_instructions: Enviar instruções para redefinição da senha
     registrations:
+      user:
+        signed_up: Seu cadastro foi realizado com sucesso!
       edit:
         are_you_sure: Você tem certeza?
         cancel_my_account: Cancelar minha conta

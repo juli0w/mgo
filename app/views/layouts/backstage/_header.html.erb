@@ -1,0 +1,21 @@
+<header id="header" class="page-topbar">
+  <div class="navbar-fixed">
+      <nav class="navbar-color blue-grey">
+          <div class="nav-wrapper">
+              <h1 class="logo-wrapper left">MEU GUIA</h1>
+              <ul class="right hide-on-med-and-down">
+                  <!-- <li><a href="javascript:void(0);" class="waves-effect waves-block waves-light notification-button" data-activates="notifications-dropdown"><i class="mdi-social-notifications"><small class="notification-badge">5</small></i>
+                  </a> -->
+                  </li>
+                  <li>
+                    <%= link_to destroy_user_session_path, method: :delete do %>
+                      <i class="mdi-hardware-keyboard-tab"></i>
+                    <% end %>
+                  </li>
+              </ul>
+
+              <%#= render "layouts/backstage/notifications" %>
+          </div>
+      </nav>
+  </div>
+</header>

@@ -1,15 +1,6 @@
 class ReviewsController < ApplicationController
-  before_filter :set_company, only: [:index, :create, :destroy]
-  before_action :authenticate_user!, only: [:index]
-  before_filter :set_noindex, only: [:index]
-
+  before_filter :set_company, only: [:create]
   layout 'personal'
-
-  def index
-    @reviews = @company.reviews.page(params[:page])
-
-    render layout: 'backstage'
-  end
 
   def new
     @company = Company.find_by_slug(params[:slug])
@@ -29,14 +20,6 @@ class ReviewsController < ApplicationController
       @hide_menu = true
       render :new
     end
-  end
-
-  def destroy
-    @review = @company.reviews.find(params[:id])
-    @review.delete
-
-    flash[:success] = "Removido com sucesso!"
-    redirect_to :back
   end
 
 private

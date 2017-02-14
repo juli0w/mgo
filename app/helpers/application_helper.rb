@@ -47,12 +47,12 @@ module ApplicationHelper
 
   def primary_color company
     color = company.profile.primary_color
-    color.present? ? color : 'light-green darken-4'
+    color.present? ? color : 'blue-grey darken-4'
   end
 
   def detail_color company
     color = company.profile.detail_color
-    color.present? ? color : 'orange-text'
+    color.present? ? color : 'yellow-text'
   end
 
   def link_color company

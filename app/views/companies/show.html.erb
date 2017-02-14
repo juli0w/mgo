@@ -1,26 +1,15 @@
-<div class="row">
-  <div class="col s12 m12 l12">
-
-    <% if @company.profile.institutional.present? %>
-      <div id="tab-inicial" class="tab-content">
-        <%= render "layouts/personal/tab/inicial" %>
-      </div>
-    <% end %>
-
-    <% @company.albums.each do |album| %>
-      <div id="tab-album-<%= album.id %>" class="tab-content">
-        <%= render "layouts/personal/tab/fotos", album: album %>
-      </div>
-    <% end %>
-
-    <div id="tab-mapa" class="tab-content">
-      <%= render "layouts/personal/tab/mapa" %>
-    </div>
-
-    <div id="tab-contato" class="tab-content">
-      <%= render "layouts/personal/tab/contato" %>
-    </div>
-
+<% if @company.profile.institutional.present? %>
+  <div id="tab-inicial" class="tab-content">
+    <%= render "layouts/personal/tab/inicial" %>
   </div>
+<% end %>
+
+<% @company.albums.each do |album| %>
+  <div id="tab-album-<%= album.id %>" class="tab-content">
+    <%= render "layouts/personal/tab/fotos", album: album %>
+  </div>
+<% end %>
+
+<div id="tab-contato" class="tab-content">
+  <%= render "layouts/personal/tab/contato" %>
 </div>
-<br/>

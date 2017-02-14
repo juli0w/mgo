@@ -2,19 +2,26 @@
 pt-BR:
   activerecord:
     attributes:
+      album:
+        name: Nome
+        description: Descrição
+      photo:
+        description: Descrição
       category:
         name: Nome
+        ancestor_id: Categoria
       company:
         name: Nome
         description: Descrição
         tag_list: Tags
         photos: Fotos
+        category_id: Categoria
       profile:
         institutional: Institucional
         phone: Telefone
         mail: Email
-        uf: Estado
-        city: Cidade
+        uf_id: Estado
+        city_id: Cidade
         address: Endereço
         primary_color: Cor principal
         detail_color: Cor dos detalhes

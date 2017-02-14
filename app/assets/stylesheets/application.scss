@@ -11,6 +11,7 @@
  * It is generally better to create a new file per style scope.
  *
  *= require rating
+ *= require alert
  *= require slick
  *= require slick-theme
  *= require slideshow
@@ -41,22 +42,30 @@ html {
   font-family: GillSans, Calibri, Trebuchet, sans-serif;
 }
 
+body {
+  background-color: color("grey", "lighten-3");
+}
+
 strong {
   font-weight: bold;
 }
 
 .title-wrapper {
   margin-top: 20px;
-  border-bottom: 1px solid #dedede;
+  border-bottom: 1px solid #bebebe;
+
+  &.no-border {
+    border-bottom: 0;
+  }
 
   .title-h5 {
-    background-color: color("deep-orange", "accent-3");
+    background-color: color("amber", "darken-4");
     color: white;
     display: inline-block;
     font-size: 1.3rem;
     text-transform: uppercase;
     font-weight: bold;
-    padding: 10px 15px;
+    padding: 10px 20px;
   }
 }
 
@@ -83,6 +92,7 @@ strong {
   width: 250px;
   border: 1px solid #dedede;
   padding-left: 15px;
+  background-color: white;
 }
 .search-offers .btn {
   height: 44px;
@@ -224,7 +234,6 @@ footer { margin-top: 0 !important; }
 }
 
 .redes-sociais {
-  margin-top: 20px;
   text-align: center;
 
   a {
@@ -240,14 +249,17 @@ footer { margin-top: 0 !important; }
   }
 
   .facebook {
+    mix-blend-mode: multiply;
     background-position: -15px -15px;
   }
 
   .twitter {
+    mix-blend-mode: multiply;
     background-position: -88px -15px;
   }
 
   .instagram {
+    mix-blend-mode: multiply;
     background-position: -160px -15px;
   }
 }
@@ -340,77 +352,6 @@ h1.logo {
 
 .collection-header h5 i {
   vertical-align: top;
-}
-
-.alert {
-  border: 1px solid #aeaeae;
-  a {
-    background-color: color("blue-grey", "base");
-    color: white;
-    border: none;
-    box-shadow: none;
-    font-size: 17px;
-    font-weight: 500;
-    -webkit-border-radius: 4px;
-    border-radius: 5px;
-    padding: 10px 32px;
-    margin: 56px 5px 0 5px;
-    cursor: pointer; }
-  a:focus {
-      outline: none; }
-  a:hover {
-    background-color: rgba(0,0,0, 0.9);
-  }
-  background-color: rgba(255, 255 ,255, 0.95);
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  width: 478px;
-  height: 230px;
-  padding: 17px;
-  border-radius: 5px;
-  text-align: center;
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  margin-left: -256px;
-  margin-top: -200px;
-  overflow: hidden;
-  z-index: 99999;
-  h2 {
-    color: #575757;
-    font-size: 30px;
-    text-align: center;
-    font-weight: 600;
-    text-transform: none;
-    position: relative;
-    margin: 15px 0 25px 0;
-    padding: 0;
-    line-height: 40px;
-    display: block; }
-  p {
-    color: #797979;
-    font-size: 16px;
-    text-align: center;
-    font-weight: 300;
-    position: relative;
-    text-align: inherit;
-    float: none;
-    margin: 0;
-    margin-bottom: 40px;
-    padding: 0;
-    line-height: normal; }
-}
-
-.alert-success h2 {
-  color: color("light-green", "darken-3");
-}
-.alert-danger h2 {
-  color: color("red", "accent-4");
-}
-.alert-warning h2 {
-  color: color("orange", "accent-4");
-}
-.alert-info h2 {
-  color: color("teal", "darken-2");
 }
 
 .search-input {
@@ -529,8 +470,8 @@ h1.logo {
     }
     .tab {
       a {
-        padding-top: 8px;
-        height: 60px;
+        padding-top: 9px;
+        height: 64px;
       }
       .active {
         -moz-transition: border-color .1s ease;
@@ -553,6 +494,9 @@ h1.logo {
   }
 }
 
+.no-bot-margim {
+  margin-bottom: 0;
+}
 .no-top-margim, .no-top-margim h5 {
   margin-top: 0;
 }

@@ -1,0 +1,107 @@
+<div class="container">
+  <div id="profile-page" class="row">
+
+    <%= render "layouts/backstage/profile_header" %>
+
+    <div class="card-panel">
+      <%= form_for [:edit, :backstage, @company, @profile], html: { multipart: true } do |f| %>
+        <div class="row">
+          <div class="input-field col s12">
+            <%= f.label :institutional %><br /><br />
+            <%= f.text_area :institutional, class: "tinymce", style: "z-index: 9999;" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            <%= f.label :phone %>
+            <%= f.text_field :phone %>
+          </div>
+          <div class="input-field col s6">
+            <%= f.label :mail %>
+            <%= f.text_field :mail %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s8">
+            <%= f.collection_select :city_id, City.all, :id, :name, prompt: false %>
+            <%= f.label :city_id %>
+          </div>
+          <div class="input-field col s4">
+            <%= f.collection_select :uf_id, Uf.all, :id, :name, prompt: false %>
+            <%= f.label :uf_id %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <%= f.label :address %>
+            <%= f.text_field :address %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s6">
+            <%= f.label :primary_color, class: "left open-color-group", input: 'primary_color' %>
+            <%= f.text_field :primary_color, id: 'primary_color', class: "open-color-group", input: 'primary_color' %>
+          </div>
+
+          <div class="input-field col s6">
+            <%= f.label :detail_color, class: "open-color-group", input: 'detail_color'  %>
+            <%= f.text_field :detail_color, id: 'detail_color', class: "open-color-group", input: 'detail_color' %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s6">
+            <%= f.label :link_color, class: "open-color-group", input: 'link_color' %>
+            <%= f.text_field :link_color, id: 'link_color', class: "open-color-group", input: 'link_color' %>
+          </div>
+
+          <div class="input-field col s6">
+            <%= f.label :text_color, class: "open-color-group", input: 'text_color' %>
+            <%= f.text_field :text_color, id: 'text_color', class: "open-color-group", input: 'text_color' %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s6">
+            <%= f.label :logo_color, class: "open-color-group", input: 'logo_color' %>
+            <%= f.text_field :logo_color, id: 'logo_color', class: "open-color-group", input: 'logo_color' %>
+          </div>
+
+          <div class="input-field col s6">
+            <%= f.label :description_color, class: "open-color-group", input: 'description_color' %>
+            <%= f.text_field :description_color, id: 'description_color', class: "open-color-group", input: 'description_color' %>
+          </div>
+        </div>
+
+        <div class="row">
+          <%= image_tag(@profile.cover.thumb.url) if @profile.cover? %>
+          <%= f.hidden_field :cover_cache %>
+          <div class="file-field input-field">
+            <div class="btn">
+              <span>Capa</span>
+              <%= f.file_field :cover %>
+            </div>
+            <div class="file-path-wrapper">
+              <input class="file-path validate" type="text">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <button class="btn waves-effect waves-light" type="submit" name="action">Salvar
+              <i class="material-icons right">send</i>
+            </button>
+            <%= link_to "Álbuns", backstage_company_albums_path(@company), class: "btn" %>
+            <%= link_to "Visitar", get_url(@company), class: "btn" %>
+          </div>
+        </div>
+      <% end %>
+
+      <%= tinymce %>
+    </div>
+  </div>
+</div>
+
+<%= render "layouts/widgets/color_group" %>

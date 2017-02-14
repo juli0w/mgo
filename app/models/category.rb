@@ -16,4 +16,8 @@ class Category < ApplicationRecord
   def to_param
     "#{self.id}-#{self.name.parameterize}"
   end
+
+  def self.except_root
+    where.not(ancestor_id: nil)
+  end
 end

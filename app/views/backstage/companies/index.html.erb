@@ -1,0 +1,65 @@
+<div id="breadcrumbs-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col s12 m12 l12">
+        <h5 class="breadcrumbs-title">Empreendimentos</h5>
+        <ol class="breadcrumbs">
+          <li><%= current_user.email %></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="card-panel">
+      <div class="search-offers">
+        <%= form_tag backstage_companies_path, method: :get do %>
+            <fieldset style="border: none; margin: 0; padding: 0;">
+              <input name="keyword" id="icon_local" style="display: inline;" type="search" placeholder="Filtrar empresas" value=<%= params[:keyword] %>>
+              <button class="btn" type="submit" name="action">
+                Filtrar
+              </button>
+          </fieldset>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="card-panel">
+      <table class="striped bordered">
+        <thead>
+          <tr>
+              <th data-field="id"></th>
+              <th data-field="name">Nome</th>
+              <th data-field="price">Descrição</th>
+              <th data-field="actions"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @companies.each do |company| %>
+
+          <tr>
+            <td>#<%= company.id %></td>
+            <td><%= company.name %></td>
+            <td><%= company.description %></td>
+            <td>
+              <%= link_to "Editar", [:edit, :backstage, company] %>
+            | <%= link_to "Ver", get_url(company) %>
+            </td>
+          </tr>
+
+          <% end %>
+        </tbody>
+      </table>
+
+    <%= paginate @companies %>
+
+    </div>
+
+    <div class="card-panel">
+        <%= link_to "Nova empresa", new_backstage_company_path, class: "btn large" %>
+    </div>
+  </div>
+</div>

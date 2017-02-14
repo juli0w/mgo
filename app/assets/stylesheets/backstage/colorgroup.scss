@@ -1,0 +1,26 @@
+.color-group-fade {
+  display: none;
+  position: fixed; z-index: 9999;
+  top: 0; bottom: 0; left: 0; right: 0; width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.8);
+}
+.color-group {
+  border:1px solid #cecece;
+  background-color: #ffffff;
+  width: 422px;
+  // height: 300px;
+  position: fixed;
+  z-index: 99999;
+  margin: auto;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  margin-left: -226px;
+  margin-top: -150px;
+}
+.color-group a {
+  display: block;
+  width: 30px;
+  height: 30px;
+  float: left;
+}

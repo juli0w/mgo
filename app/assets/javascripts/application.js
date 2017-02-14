@@ -15,7 +15,9 @@
 //= require materialize
 //= require tinymce
 //= require rating
-//= require_tree
+//= require geomap
+//= require slick
+//= require_self
 
 $(document).ready(function(){
   $('.star-rating').rating();

@@ -3,10 +3,14 @@ class OffersController < ApplicationController
     set_meta_tags title: "Ofertas e promoções",
                   description: 'Ofertas exclusivas para usuários do meu guia'
 
-    if params[:keyword].present?
-      @offers = Offer.search(params[:keyword]).page(params[:page])
+    result = Offer.search(params[:keyword], params[:page])
+    @offers = result["offer"] || []
+
+    if @offers.present?
+      @pages = Kaminari.paginate_array(@offers, total_count: result["totalresultsavailable"]).page(params[:page]).per(20)
     else
-      @offers = Offer.all.page(params[:page])
+      @offers = Offer.offers.first(9)
+      render "noresults"
     end
   end
 end

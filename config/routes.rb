@@ -4,28 +4,42 @@ Rails.application.routes.draw do
                 sign_in: 'login',
                 sign_out: 'logout' }
 
-  get 'profiles/new'
+  # get 'profiles/new'
 
   get 'home', to: 'home#index'
   get 'institutional', to: 'home#institutional'
-  get 'seach', to: 'home#search', as: 'search'
-  get 'contact', to: 'home#contact', as: 'contact'
+  get 'search', to: 'home#search'
+  get 'contact', to: 'home#contact'
   get 'map', to: 'maps#resources'
   get 'offers', to: 'offers#index'
+  get 'offers/search', to: 'offers#search', as: :search_offer
+  get 'partner', to: 'subscribes#new'
 
-  resources :categories
-  resources :users
+  resources :categories, only: :show
   resources :subscribes
-  get 'partner', to: 'subscribes#new', as: 'partner'
 
-  resources :companies do
-    resource :profile, except: :show, path_names: { edit: '' }
+  resources :companies, only: :show do
+    resources :reviews, only: [:new, :create]
+  end
 
-    resources :albums do
-      resources :photos
+  namespace :backstage do
+    get 'dashboard', to: 'backstage#dashboard'
+    root to: 'backstage#dashboard'
+    resources :users do
+      member do
+        post :become
+      end
     end
+    resources :categories, except: :show
 
-    resources :reviews
+    resources :companies do
+      resource :profile, except: :show, path_names: { edit: '' }
+      resources :albums do
+        resources :photos
+      end
+
+      resources :reviews, except: [:new, :create]
+    end
   end
 
   resources :contacts

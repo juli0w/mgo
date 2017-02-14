@@ -1,0 +1,23 @@
+<%= form_for [:backstage, @category] do |f| %>
+  <div class="row">
+    <div class="input-field col s12">
+      <%= f.label :name %>
+      <%= f.text_field :name, required: true %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="input-field col s12">
+      <%= f.collection_select(:ancestor_id, Category.root, :id, :name, include_blank: true) %>
+      <%= f.label :ancestor_id %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="input-field col s12">
+      <button class="btn waves-effect waves-light" type="submit" name="action">Salvar
+        <i class="material-icons right">send</i>
+      </button>
+    </div>
+  </div>
+<% end %>

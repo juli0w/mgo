@@ -1,0 +1,47 @@
+<div id="breadcrumbs-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col s12 m12 l12">
+        <h5 class="breadcrumbs-title">Álbuns</h5>
+        <ol class="breadcrumbs">
+          <li>Administrativo</li>
+            <li><%= link_to "Empresas", backstage_companies_path %></li>
+            <li><%= link_to @company.name, [:edit, :backstage, @company] %></li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="card-panel">
+      <table class="striped bordered">
+        <thead>
+          <tr>
+              <th data-field="id"></th>
+              <th data-field="name">Nome</th>
+              <th data-field="price">Descrição</th>
+              <th data-field="actions"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @albums.each do |album| %>
+
+          <tr>
+            <td>#<%= album.id %></td>
+            <td><%= album.name %></td>
+            <td><%= album.description %></td>
+            <td>
+              <%= link_to "Editar", [:edit, :backstage, @company, album] %>
+            | <%= link_to "Fotos", backstage_company_album_photos_path(@company, album) %>
+            </td>
+          </tr>
+
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card-panel">
+      <%= link_to "Novo álbum", new_backstage_company_album_path(@company), class: "btn large" %>
+    </div>
+  </div>
+</div>

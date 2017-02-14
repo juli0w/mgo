@@ -7,7 +7,6 @@
       <% @albums.each do |album| %>
         <li class="tab"><%= link_to album.name, "#tab-album-#{album.id}", class: "#{link_color(@company)}" %></li>
       <% end %>
-      <li class="tab"><%= link_to "Como chegar", "#tab-mapa", class: "#{link_color(@company)}" %></li>
       <li class="tab"><%= link_to "Contato", "#tab-contato", class: "#{link_color(@company)}" %></li>
     </ul>
   </div>

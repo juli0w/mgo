@@ -1,0 +1,7 @@
+<div class="color-group-fade" onclick="$(this).fadeOut();">
+  <div class="color-group">
+    <% Profile.colors.each do |color| %>
+      <%= link_to '', "#", class: "#{color[:color]} color-link", color: color[:color], input: '', text_color: "#{color[:text_color]}" %>
+    <% end %>
+  </div>
+</div>

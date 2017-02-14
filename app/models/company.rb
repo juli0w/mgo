@@ -1,6 +1,11 @@
 class Company < ApplicationRecord
   paginates_per 10
 
+  validates :name, presence: true
+  validates :slug, presence: true
+  validates_uniqueness_of :slug
+
+  belongs_to :user, optional: true
   belongs_to :category
   has_one :profile
   has_many :albums
@@ -28,7 +33,13 @@ class Company < ApplicationRecord
 
   mount_uploader :logotipo, LogotipoUploader
 
-  validates_uniqueness_of :slug
+  def cover
+    if profile.cover?
+      profile.cover
+    else
+      '/images/user-profile-bg.jpg'
+    end
+  end
 
   def note
     return 0 if reviews.count <= 0

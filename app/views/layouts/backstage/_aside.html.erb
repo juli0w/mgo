@@ -1,0 +1,62 @@
+<aside id="left-sidebar-nav">
+  <ul id="slide-out" class="side-nav fixed leftside-navigation">
+      <li class="user-details cyan darken-2">
+      <div class="row">
+          <div class="col col s4 m4 l4">
+              <img src="/images/user.png" alt="" class="circle responsive-img valign profile-image">
+          </div>
+          <div class="col col s8 m8 l8">
+              <ul id="profile-dropdown" class="dropdown-content">
+                  <li>
+                    <%= link_to destroy_user_session_path, method: :delete do %>
+                      <i class="mdi-hardware-keyboard-tab"></i> Logout
+                    <% end %>
+                  </li>
+              </ul>
+              <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown">
+                <%= current_user.email %><i class="mdi-navigation-arrow-drop-down right"></i>
+              </a>
+              <p class="user-roal"><%= current_user.role %></p>
+          </div>
+      </div>
+      </li>
+      <li class="bold">
+        <%= link_to backstage_dashboard_path, class: "waves-effect waves-cyan" do %>
+          <i class="mdi-action-dashboard"></i> Dashboard
+        <% end %>
+      </li>
+
+      <li class="no-padding">
+          <ul class="collapsible collapsible-accordion">
+              <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-device-now-widgets"></i> Empresas</a>
+                  <div class="collapsible-body">
+                      <ul>
+                          <li><%= link_to "Empresas", backstage_companies_path %>
+                          </li>
+                          <li><%= link_to "Nova empresa", new_backstage_company_path %></li>
+                          <li><div class="divider"></div></li>
+                      </ul>
+                  </div>
+              </li>
+
+          </ul>
+      </li>
+      <% if current_user.admin? %>
+        <li class="no-padding">
+            <ul class="collapsible collapsible-accordion">
+                <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="mdi-action-lock-outline"></i> Adminstrativo</a>
+                    <div class="collapsible-body">
+                        <ul>
+                          <li><%= link_to 'Categorias', backstage_categories_path %></li>
+                          <li><%= link_to 'Usuários', backstage_users_path %></li>
+                          <li><div class="divider"></div></li>
+                        </ul>
+                    </div>
+                </li>
+
+            </ul>
+        </li>
+      <% end %>
+  </ul>
+  <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only cyan"><i class="mdi-navigation-menu"></i></a>
+  </aside>

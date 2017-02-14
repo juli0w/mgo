@@ -11,7 +11,9 @@
     <ul class="right">
       <li><%= link_to "<i class='material-icons'>star</i>".html_safe, "/#{@company.slug}/review", class: "tooltipped #{link_color(@company)}", 'data-tooltip': 'Avaliar' %></li>
       <% if user_signed_in? %>
-        <li><%= link_to "<i class='material-icons'>edit</i>".html_safe, edit_company_path(@company), class: "tooltipped #{link_color(@company)}", 'data-tooltip': 'Editar' %></li>
+        <% if @company.user_id == current_user.id %>
+          <li><%= link_to "<i class='material-icons'>edit</i>".html_safe, edit_backstage_company_path(@company), class: "tooltipped #{link_color(@company)}", 'data-tooltip': 'Editar' %></li>
+        <% end %>
       <% end %>
       <li class="divider"></li>
       <li><%= link_to "<i class='material-icons'>place</i>".html_safe, root_url, class: "tooltipped #{link_color(@company)}", 'data-tooltip': 'Meu Guia' %></li>

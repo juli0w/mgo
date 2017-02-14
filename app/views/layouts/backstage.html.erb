@@ -1,25 +1,59 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <%= display_meta_tags site: 'Meu Guia | Administração', noindex: true %>
-    <%= csrf_meta_tags %>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag 'https://fonts.googleapis.com/icon?family=Material+Icons' %>
-  </head>
+<!--================================================================================
+	Item Name: Materialize - Material Design Admin Template
+	Version: 3.1
+	Author: GeeksLabs
+	Author URL: http://www.themeforest.net/user/geekslabs
+================================================================================ -->
 
-  <body>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="msapplication-tap-highlight" content="no">
+  <title>Meu Guia | Administração</title>
+  <%= csrf_meta_tags %>
 
-    <%= render "layouts/backstage/navbar" %>
+  <!-- Favicons-->
+  <link rel="icon" href="images/favicon/favicon-32x32.png" sizes="32x32">
+  <!-- Favicons-->
+  <link rel="apple-touch-icon-precomposed" href="images/favicon/apple-touch-icon-152x152.png">
+  <!-- For iPhone -->
+  <meta name="msapplication-TileColor" content="#00bcd4">
+  <meta name="msapplication-TileImage" content="images/favicon/mstile-144x144.png">
+  <!-- For Windows Phone -->
 
-    <%= render "layouts/main/flash" %>
+  <%= stylesheet_link_tag    'backstage/application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'backstage/application', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'https://fonts.googleapis.com/icon?family=Material+Icons' %>
+</head>
 
-    <%= render "layouts/backstage/content" %>
+<body>
+  <div id="loader-wrapper">
+      <div id="loader"></div>
+      <div class="loader-section section-left"></div>
+      <div class="loader-section section-right"></div>
+  </div>
 
-    <%= render "layouts/backstage/footer" %>
+  <%= render "layouts/backstage/header" %>
 
-  </body>
+  <div id="main">
+    <div class="wrapper">
+
+      <%= render "layouts/backstage/aside" %>
+
+      <section id="content">
+
+        <%= yield %>
+
+      </section>
+    </div>
+  </div>
+
+  <%= render "layouts/backstage/footer" %>
+  <%= render "layouts/main/flash" %>
+</body>
+
 </html>

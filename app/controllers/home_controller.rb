@@ -5,8 +5,7 @@ class HomeController < ApplicationController
 
     @companies = Company.last(10)
 
-    offer_ids = Offer.pluck(:id).shuffle[0..9]
-    @offers = Offer.where(id: offer_ids)
+    @offers = Offer.offers
     @map = true
   end
 

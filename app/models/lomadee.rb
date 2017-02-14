@@ -7,6 +7,7 @@ class Lomadee
   SOURCE_ID = '35748727'
   API = {
     offers: "v2/topOffers",
+    offers_list: "findOfferList",
     products: "v2/topProducts",
     categories: "v2/topCategories",
     product_list: "findProductList"
@@ -25,8 +26,8 @@ class Lomadee
   # - priceFromValue
   # - thumbnail > url
   # - links > link > 0 > url
-  def self.read type, page=1
-    url = URI.encode("#{get_path(type)}&page=#{page}")
+  def self.read type, page=1, keywords=''
+    url = URI.encode("#{get_path(type)}&page=#{page}&sort=rate&keyword=#{keywords}")
     response = JSON.load(open(url))
 
     puts "---"
@@ -36,15 +37,23 @@ class Lomadee
     return response
   end
 
-  def self.offers
-    total_pages = self.read(:offers)["totalPages"]
-    page = 1
-    pages = []
-    until (page >= total_pages) do
-      page += 1
-      pages << self.read(:offers, page)["offer"]
-    end
-
-    return pages
+  def self.page page=1
+    self.read(:offers, page)
   end
+
+  def self.search keywords, page=1
+    self.read(:offers_list, page, keywords)
+  end
+
+  # def self.offers
+  #   total_pages = self.read(:offers)["totalPages"]
+  #   page = 1
+  #   pages = []
+  #   until (page >= total_pages) do
+  #     page += 1
+  #     pages << self.read(:offers, page)["offer"]
+  #   end
+  #
+  #   return pages
+  # end
 end
