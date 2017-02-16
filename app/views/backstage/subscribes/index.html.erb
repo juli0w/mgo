@@ -1,0 +1,49 @@
+<div id="breadcrumbs-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col s12 m12 l12">
+        <h5 class="breadcrumbs-title">Pedidos</h5>
+        <ol class="breadcrumbs">
+            <li><%= current_user.email %></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="card-panel">
+      <table class="striped bordered">
+        <thead>
+          <tr>
+              <th data-field="id"></th>
+              <th data-field="name">Empresa</th>
+              <th data-field="plan">Plano</th>
+              <th data-field="state">Status</th>
+              <th data-field="actions"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @subscribes.each do |subscribe| %>
+
+          <tr>
+            <td>#<%= subscribe.code %></td>
+            <td><%= subscribe.company.name %></td>
+            <td><%= subscribe.plan.humanize %></td>
+            <td><span class="state light-green darken-2 white-text"><%= subscribe.state_value %></span></td>
+            <td>
+              <%= link_to "Visualizar", [:backstage, subscribe] %>
+            </td>
+          </tr>
+
+          <% end %>
+        </tbody>
+      </table>
+
+      <%= paginate @subscribes %>
+
+    </div>
+  </div>
+</div>

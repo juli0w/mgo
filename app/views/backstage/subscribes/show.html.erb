@@ -1,0 +1,36 @@
+<div id="breadcrumbs-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col s12 m12 l12">
+        <h5 class="breadcrumbs-title">Pedido</h5>
+        <ol class="breadcrumbs">
+          <li><%= link_to "Pedidos", backstage_subscribes_path %></li>
+          <li>#<%= @subscribe.code %></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col s12 m6">
+      <div id="profile-card" class="card">
+        <div class="card-image waves-effect waves-block waves-light">
+          <%= image_tag @subscribe.company.cover %>
+        </div>
+        <div class="card-content">
+          <%= image_tag @subscribe.company.logotipo.square, class: "circle card-profile-image activator responsive-img" %>
+
+          <span class="card-title activator grey-text text-darken-4"><%= @subscribe.company.name %></span>
+          <p><i class="mdi-action-perm-identity"></i> <%= @subscribe.company.category.name %></p>
+          <p><i class="mdi-action-perm-phone-msg"></i> <%= @subscribe.company.profile.phone %></p>
+          <p><i class="mdi-communication-email"></i> <%= @subscribe.company.profile.mail %></p>
+
+        </div>
+      </div>
+    </div>
+
+    <%= render "order" %>
+  </div>
+</div>
