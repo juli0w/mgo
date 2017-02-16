@@ -3,6 +3,7 @@ class Company < ApplicationRecord
 
   validates :name, presence: true
   validates :slug, presence: true
+  validates :category_id, presence: true
   validates_uniqueness_of :slug
 
   belongs_to :user, optional: true
@@ -36,7 +37,7 @@ class Company < ApplicationRecord
   mount_uploader :logotipo, LogotipoUploader
 
   def city_uf
-    "#{profile.city.name}/#{profile.uf.name}"
+    "#{profile.city.name}/#{profile.uf.name}" if profile.city and profile.uf
   end
 
   def cover
