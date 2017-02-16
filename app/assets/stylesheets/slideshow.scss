@@ -4,11 +4,16 @@
   h5 {
     font-weight: bold;
     text-transform: uppercase;
+    text-shadow: #000 1px 1px;
   }
 
   p {
     font-size: 1.4em;
     color: white;
+    text-shadow: #000 1px 1px;
+                //  #000 -1px 1px,
+                //  #000 1px 1px,
+                //  #000 -1px -1px;
   }
 
   a:hover {
@@ -18,10 +23,14 @@
 
 .slick-slideshow {
   .bg-1 {
-    background: url(/images/bg1.png) no-repeat;
+    background: url(/images/bg1.jpg) no-repeat;
+    background-position: 0 -220px;
+    background-size: cover;
   }
 
   .bg-2 {
-    background: url(/images/bg2.png) no-repeat;
+    background: url(/images/bg2.jpg) no-repeat;
+    background-position: 0px -220px;
+    background-size: cover;
   }
 }
