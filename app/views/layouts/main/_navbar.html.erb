@@ -1,19 +1,38 @@
 <nav role="navigation" class="blue-grey darken-4">
   <div class="nav-wrapper container">
     <%= link_to "<h1 class='logo'><i class='material-icons'>cloud</i>MEU GUIA</h1>".html_safe, '/', id: 'logo-container', class: 'brand-logo' %>
-    <ul class="right">
+    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
       <% unless user_signed_in? %>
-        <li class="hide-on-med-and-down">
+        <li>
           <%= link_to 'Login', new_user_session_path %>
         </li>
-        <li class="hide-on-med-and-down">
+        <li>
          <%= link_to 'Registrar', new_user_registration_path %>
        </li>
        <% else %>
-         <li class="hide-on-med-and-down">
+         <li>
            <%= link_to 'Dashboard', backstage_dashboard_path %>
          </li>
-         <li class="hide-on-med-and-down">
+         <li>
+           <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+         </li>
+      <% end %>
+    </ul>
+
+    <ul class="side-nav" id="mobile-demo">
+      <% unless user_signed_in? %>
+        <li>
+          <%= link_to 'Login', new_user_session_path %>
+        </li>
+        <li>
+         <%= link_to 'Registrar', new_user_registration_path %>
+       </li>
+       <% else %>
+         <li>
+           <%= link_to 'Dashboard', backstage_dashboard_path %>
+         </li>
+         <li>
            <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
          </li>
       <% end %>

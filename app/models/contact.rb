@@ -4,6 +4,8 @@ class Contact < ApplicationRecord
   validates :email, presence: true
   # validates :destination, presence: true
 
+  belongs_to :company, optional: true
+
   def deliver
     if save
       ContactMailer.contact_email(self).deliver_now  unless self.destination.empty?

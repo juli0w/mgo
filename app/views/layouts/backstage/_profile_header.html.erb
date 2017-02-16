@@ -2,12 +2,14 @@
     <div class="card-image waves-effect waves-block waves-light">
       <%= image_tag @company.cover, alt: "company cover", class:"activator" %>
     </div>
-    <figure class="card-profile-image">
-      <%= image_tag @company.logotipo.square, alt: "company logotipo", class: "z-depth-2 activator responsive-img" %>
-    </figure>
     <div class="card-content <%= primary_color(@company) %>" style="padding-bottom: 0; padding-right: 0;">
       <div class="row">
-        <div class="col s3 offset-s2">
+        <div class="col s2">
+          <span class="valign card-profile-image valign-wrapper">
+            <%= image_tag @company.logotipo.square, alt: "company logotipo", class: "valign z-depth-2 activator responsive-img" %>
+          </span>
+        </div>
+        <div class="col s3">
           <h4 class="card-title <%= logo_color(@company) %>">
             <strong>
               <%= @company.name %>

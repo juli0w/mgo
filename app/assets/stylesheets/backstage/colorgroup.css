@@ -5,18 +5,17 @@
   background-color: rgba(0,0,0,0.8);
 }
 .color-group {
-  border:1px solid #cecece;
-  background-color: #ffffff;
-  width: 422px;
-  // height: 300px;
-  position: fixed;
+  /*border:1px solid #cecece;*/
+  background-color: transparent;
+  width: 332px;
+  /*height: 300px;*/
+  position: relative;
   z-index: 99999;
-  margin: auto;
-  position: fixed;
+  margin: 0 auto;
   left: 50%;
-  top: 50%;
-  margin-left: -226px;
-  margin-top: -150px;
+  /*top: 50%;*/
+  margin-left: -166px;
+  /*margin-top: -150px;*/
 }
 .color-group a {
   display: block;

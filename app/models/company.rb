@@ -13,6 +13,7 @@ class Company < ApplicationRecord
   has_many :taggings
   has_many :tags, through: :taggings
   has_many :subscribes
+  has_many :contacts
 
   def self.tagged_with(name)
     Tag.find_by!(name: name).companies

@@ -59,6 +59,7 @@
                 </div>
                 <div class="input-field col s12">
                   <%= f.hidden_field :destination, value: @company.profile.mail %>
+                  <%= f.hidden_field :company_id, value: @company.id %>
                   <%= f.button type: "submit", name: "action", class: "btn cyan waves-effect waves-light btn-large right" do %>
                     <i class="material-icons right">send</i> Enviar
                   <% end %>
