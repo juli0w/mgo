@@ -14,6 +14,45 @@ h1.logo-wrapper {
   font-weight: bold;
 }
 
+.state {
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+.profile-menu li a:hover {
+	background-color: rgba(255, 255, 255, 0.3);
+}
+
+.profile-menu li a {
+	display: block;
+	padding: 10px;
+}
+.no-bot-margim {
+  margin-bottom: 0;
+}
+.no-top-margim {
+  margin-top: 0;
+}
+
+.no-top-padding {
+  padding-top: 0;
+}
+.no-bot-padding {
+  padding-bottom: 0;
+}
+.color-wrapper span {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: 10px;
+  top: -18px;
+  border: 1px dotted #dedede;
+}
+
+label.open-color-group {
+  padding-left: 28px;
+}
+
 .mss-logo{
 height: 33px !important;
 }

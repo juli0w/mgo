@@ -2,8 +2,8 @@ require 'open-uri'
 
 class Lomadee
   TOKEN = '56513174687750345237733d'
-  URL = 'http://sandbox.buscape.com'
-  # URL = 'http://bws.buscape.com.br'
+  # URL = 'http://sandbox.buscape.com'
+  URL = 'http://bws.buscape.com.br'
   SOURCE_ID = '35748727'
   API = {
     offers: "v2/topOffers",

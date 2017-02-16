@@ -2825,7 +2825,7 @@ ul {
 }
 
 a {
-  color: #00bcd4;
+  /*color: #00bcd4;*/
   text-decoration: none;
   -webkit-tap-highlight-color: transparent;
 }
@@ -8151,7 +8151,7 @@ nav .input-field label.active {
 .btn, .btn-large {
   text-decoration: none;
   color: #fff;
-  background-color: #ff4081;
+  background-color: #00838f;
   text-align: center;
   letter-spacing: .5px;
   -webkit-transition: 0.2s ease-out;
@@ -8163,7 +8163,7 @@ nav .input-field label.active {
 }
 
 .btn:hover, .btn-large:hover {
-  background-color: #ff5a92;
+  background-color: #006064;
 }
 
 .btn-floating {

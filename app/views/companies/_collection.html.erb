@@ -11,7 +11,8 @@
     <p>
       <%= link_to rate_for(company), "/#{company.slug}/review", class: "rating" %>
       <br />
-      <%= link_to company.category.name, company.category %><br />
+      <%= link_to company.category.name, company.category %> - 
+      <%= company.city_uf %><br />
       <%= company.description %>
     </p>
     <%= link_to get_url(company), class: 'secondary-content tooltipped', 'data-position': "left", 'data-delay' => "50", 'data-tooltip' => "Mais informações" do %>

@@ -1,12 +1,13 @@
 class SubscribesController < ApplicationController
   layout 'promotion'
+  before_action :authenticate_user!, only: [:apply, :create]
 
   def new
     @subscribe = Subscribe.new
   end
 
   def create
-    @subscribe = Subscribe.new(subscribe_params)
+    @subscribe = current_user.subscribes.new(subscribe_params)
 
     if @subscribe.save
       flash[:success] = "Seus dados foram salvos, entraremos em contato em breve"
@@ -15,6 +16,11 @@ class SubscribesController < ApplicationController
       flash.now[:error] = "Preencha os campos corretamente."
       render :new
     end
+  end
+
+  def apply
+    @subscribe = current_user.subscribes.new(plan: params[:plan])
+    render layout: 'backstage'
   end
 
 private

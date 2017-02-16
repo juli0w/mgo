@@ -18,11 +18,13 @@
 $(document).ready(function(){
   $("a.color-link").click(function() {
     var input = $(this).attr('input');
-    var attr = 'text_color'
+    var attr = 'text_color';
     if (input == 'primary_color') {
-      attr = 'color'
+      attr = 'color';
     }
-    $('#'+input).val($(this).attr(attr));
+    color = $(this).attr(attr);
+    $('#'+input).val(color);
+    $('#'+input).next("span").removeAttr("class").addClass($(this).attr('color'));
     $(".color-group-fade").fadeOut();
     return false;
   });

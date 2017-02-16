@@ -3,45 +3,49 @@
       <%= image_tag @company.cover, alt: "company cover", class:"activator" %>
     </div>
     <figure class="card-profile-image">
-      <%= image_tag @company.logotipo, alt: "company logotipo", class: "z-depth-2 activator responsive-img" %>
+      <%= image_tag @company.logotipo.square, alt: "company logotipo", class: "z-depth-2 activator responsive-img" %>
     </figure>
-    <div class="card-content <%= primary_color(@company) %>">
+    <div class="card-content <%= primary_color(@company) %>" style="padding-bottom: 0; padding-right: 0;">
       <div class="row">
         <div class="col s3 offset-s2">
-          <h4 class="card-title grey-text text-darken-4">
+          <h4 class="card-title <%= logo_color(@company) %>">
             <strong>
-              <%= link_to @company.name, backstage_company_path(@company), class: logo_color(@company) %>
+              <%= @company.name %>
             </strong>
           </h4>
           <p class="medium-small <%= text_color(@company) %>"><%= @company.category.name %></p>
         </div>
 
-        <div class="col s1 center-align right">
-          <%= link_to backstage_company_albums_path(@company), class: link_color(@company) do %>
-            <h4 class="card-title <%= detail_color(@company) %>"><i class="material-icons">perm_media</i></h4>
-            <p class="medium-small <%= link_color(@company) %>">Álbuns</p>
-          <% end %>
-        </div>
+        <div class="col s7 profile-menu">
+          <ul>
+          <li class="center-align right">
+            <%= link_to backstage_company_albums_path(@company), class: link_color(@company) do %>
+              <span class="card-title <%= detail_color(@company) %>"><i class="material-icons">perm_media</i></span>
+              <p class="medium-small <%= link_color(@company) %>">Álbuns</p>
+            <% end %>
+          </li>
 
-        <div class="col s1 center-align right">
-          <%= link_to edit_backstage_company_path(@company), class: link_color(@company) do %>
-            <h4 class="card-title <%= detail_color(@company) %>"><i class="material-icons">edit</i></h4>
-            <p class="medium-small <%= link_color(@company) %>">Editar dados</p>
-          <% end %>
-        </div>
+          <li class="center-align right">
+            <%= link_to edit_backstage_company_path(@company), class: link_color(@company) do %>
+              <span class="card-title <%= detail_color(@company) %>"><i class="material-icons">edit</i></span>
+              <p class="medium-small <%= link_color(@company) %>">Editar dados</p>
+            <% end %>
+          </li>
 
-        <div class="col s1 center-align right">
-          <%= link_to backstage_company_profile_path(@company), class: link_color(@company) do %>
-            <h4 class="card-title <%= detail_color(@company) %>"><i class="material-icons">assignment</i></h4>
-            <p class="medium-small <%= link_color(@company) %>">Editar perfil</p>
-          <% end %>
-        </div>
+          <li class="center-align right">
+            <%= link_to backstage_company_profile_path(@company), class: link_color(@company) do %>
+              <span class="card-title <%= detail_color(@company) %>"><i class="material-icons">assignment</i></span>
+              <p class="medium-small <%= link_color(@company) %>">Editar perfil</p>
+            <% end %>
+          </li>
 
-        <div class="col s1 center-align right">
-          <%= link_to backstage_company_path(@company), class: link_color(@company) do %>
-            <h4 class="card-title <%= detail_color(@company) %>"><i class="material-icons">person_pin</i></h4>
-            <p class="medium-small <%= link_color(@company) %>">Ver perfil</p>
-          <% end %>
+          <li class="center-align right">
+            <%= link_to backstage_company_path(@company), class: link_color(@company) do %>
+              <span class="card-title <%= detail_color(@company) %>"><i class="material-icons">person_pin</i></span>
+              <p class="medium-small <%= link_color(@company) %>">Ver perfil</p>
+            <% end %>
+          </li>
+          </ul>
         </div>
       </div>
     </div>

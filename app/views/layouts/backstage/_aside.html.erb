@@ -41,6 +41,11 @@
 
           </ul>
       </li>
+      <li class="bold">
+        <%= link_to backstage_subscribes_path, class: "waves-effect waves-cyan" do %>
+          <i class="mdi-action-account-balance-wallet"></i> Pedidos
+        <% end %>
+      </li>
       <% if current_user.admin? %>
         <li class="no-padding">
             <ul class="collapsible collapsible-accordion">

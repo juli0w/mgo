@@ -13,9 +13,10 @@ function initMap(category) {
     //fire a center event after the resize, this is also useful
     // if bound to a window resize
     map.setCenter(myLatlng)
+    map.setZoom(8)
   });
 
-  $(document).ready(function() { map.setCenter(myLatlng) });
+  // $(document).ready(function() { map.setCenter(myLatlng) });
 
   loadMarkers(map, category);
 }
@@ -25,11 +26,16 @@ function loadMarkers(map, category) {
 }
 
 function setMarkers(map, datamap) {
+  var bounds = new google.maps.LatLngBounds();
   var marker, old;
   for (var x = 0; x < datamap.length; x++) {
     marker = createMark(map, datamap[x]);
     createWindow(marker, map, datamap[x]);
+
+    bounds.extend(marker.position);
   }
+
+  map.fitBounds(bounds);
 }
 
 function createWindow(marker, map, company) {

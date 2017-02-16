@@ -63,7 +63,7 @@
 <div class="row">
   <div class="container plans-container">
     <article class="col s12 m6 l4">
-      <div class="card">
+      <div class="card z-depth-4">
         <div class="card-image blue-grey waves-effect">
           <div class="card-title">Mensal</div>
           <div class="price">
@@ -80,14 +80,14 @@
           </ul>
         </div>
 
-        <div class="card-action right-align">
-          <a href="#subscribe" class="blue-grey-text text-darken-2 text-semi-bold">INSCREVA-SE</a>
+        <div class="card-action center">
+          <%= link_to "INSCREVA-SE", new_backstage_subscribe_path(plan: "mensal"), class: "btn" %>
         </div>
       </div>
     </article>
 
     <article class="col s12 m6 l4">
-      <div class="card">
+      <div class="card z-depth-4">
         <div class="card-image blue-grey waves-effect">
           <div class="card-title">Semestral</div>
           <div class="price">
@@ -104,14 +104,14 @@
           </ul>
         </div>
 
-        <div class="card-action right-align">
-          <a href="#subscribe" class="blue-grey-text text-darken-2 text-semi-bold">INSCREVA-SE</a>
+        <div class="card-action center">
+          <%= link_to "INSCREVA-SE", new_backstage_subscribe_path(plan: "semestral"), class: "btn" %>
         </div>
       </div>
     </article>
 
     <article class="col s12 m6 l4">
-      <div class="card">
+      <div class="card z-depth-4">
         <div class="card-image blue-grey waves-effect">
           <div class="card-title">Anual</div>
           <div class="price">
@@ -129,71 +129,20 @@
           </ul>
         </div>
 
-        <div class="card-action right-align">
-          <a href="#subscribe" class="blue-grey-text text-darken-2 text-semi-bold">INSCREVA-SE</a>
+        <div class="card-action center">
+          <%= link_to "INSCREVA-SE", new_backstage_subscribe_path(plan: "anual"), class: "btn" %>
         </div>
       </div>
     </article>
   </div>
 </div>
 
-<div class="row">
+<div class="row promotional-tile blue-grey darken-2" style="margin: 40px 0 0px 0;">
   <div class="container">
     <div class="col s12">
-      <h5 class="grey-text text-darken-2 center-align" style="margin: 40px 0;">
+      <h5 class="center-align white-text" id="subscribe" style="margin: 0px 0; line-height: 1.5em;">
         "Em um mercado em constante mutação, é importante que os empresários entendam que precisam também mudar a maneira como se relacionam com o mercado. As pessoas mudaram o modo de comprar, mas nem todas mudaram o modo de vender"
       </h5>
-    </div>
-  </div>
-</div>
-
-<div class="row promotional-tile" style="margin: 40px 0 0px 0;">
-  <div class="container">
-    <div class="col s12 m9 left-align">
-      <h5 class="center-align white-text" id="subscribe" style="margin: 40px 0;">Comece agora e faça parte da nossa equipe!</h5>
-    </div>
-    <div class="col s12 m3 center-align">
-      <i class="large material-icons orange-text">phonelink_ring</i>
-  </div>
-  </div>
-</div>
-
-<div class="row map-bg" style="padding: 40px 0 40px 0;">
-  <div class="container">
-    <div class="col s12 white-bg">
-      <%= form_for @subscribe do |f| %>
-
-          <% @subscribe.errors.full_messages.each do |msg| %>
-            <div class="input-field red-text">
-              <%= msg %>
-            </div>
-         <% end %>
-
-         <div class="input-field col s12">
-           <%= f.text_field :name, class: "round full-width-input" %>
-           <%= f.label :name %>
-         </div>
-
-         <div class="input-field col s6">
-           <%= f.text_field :email, class: "round full-width-input" %>
-           <%= f.label :email %>
-         </div>
-         <div class="input-field col s6">
-           <%= f.text_field :phone, class: "round full-width-input" %>
-           <%= f.label :phone %>
-         </div>
-         <div class="input-field col s12">
-           <%= f.select :plan, [['Mensal', 1], ['Semestral', 2], ['Anual', 3]] %>
-           <%= f.label :plan %>
-         </div>
-
-        <div class="section">
-          <%= f.button type: "submit", name: "action", class: "btn-large orange right" do %>
-            <i class="material-icons right">send</i>Enviar
-          <% end %>
-        </div>
-
-      <% end %>
     </div>
   </div>
 </div>

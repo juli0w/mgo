@@ -3,7 +3,7 @@
     <div class="card-title center" style="height: 100px;">
       <%= image_tag offer['offer']['thumbnail']['url'], style: "height: 100px; width: 100px; margin: 0 auto;" %>
     </div>
-    <p style="overflow: hidden; height: 110px; margin: 10px 0 5px 0;">
+    <p style="overflow: hidden; height: 110px; margin: 10px 0 5px 0;" class="center">
       <%= link_to offer['offer']['offername'], offer['offer']['links'][0]['link']['url'], target: "blank" %>
     </p>
     <%= image_tag offer['offer']['seller']['thumbnail']['url'], style: 'margin: 10px 0;' %>

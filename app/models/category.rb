@@ -9,6 +9,10 @@ class Category < ApplicationRecord
     where(ancestor_id: nil)
   end
 
+  def self.childs
+    where.not(ancestor_id: nil)
+  end
+
   def root?
     ancestor_id == nil
   end

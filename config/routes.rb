@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   end
 
   namespace :backstage do
+    resources :subscribes
     get 'dashboard', to: 'backstage#dashboard'
     root to: 'backstage#dashboard'
     resources :users do

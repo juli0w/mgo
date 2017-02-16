@@ -50,28 +50,38 @@ module ApplicationHelper
     color.present? ? color : 'blue-grey darken-4'
   end
 
-  def detail_color company
+  def detail_color company, bg=false
     color = company.profile.detail_color
+
+    return color.gsub("-text", "").gsub("text", "") if bg and color.present?
     color.present? ? color : 'yellow-text'
   end
 
-  def link_color company
+  def link_color company, bg=false
     color = company.profile.link_color
+
+    return color.gsub("-text", "").gsub("text", "") if bg and color.present?
     color.present? ? color : 'white-text'
   end
 
-  def text_color company
+  def text_color company, bg=false
     color = company.profile.text_color
+
+    return color.gsub("-text", "").gsub("text", "") if bg and color.present?
     color.present? ? color : 'white-text'
   end
 
-  def logo_color company
+  def logo_color company, bg=false
     color = company.profile.logo_color
+
+    return color.gsub("-text", "").gsub("text", "") if bg and color.present?
     color.present? ? color : 'white-text'
   end
 
-  def description_color company
+  def description_color company, bg=false
     color = company.profile.description_color
+
+    return color.gsub("-text", "").gsub("text", "") if bg and color.present?
     color.present? ? color : 'white-text'
   end
 

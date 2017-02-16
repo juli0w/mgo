@@ -12,6 +12,7 @@ class Company < ApplicationRecord
   has_many :reviews
   has_many :taggings
   has_many :tags, through: :taggings
+  has_many :subscribes
 
   def self.tagged_with(name)
     Tag.find_by!(name: name).companies
@@ -32,6 +33,10 @@ class Company < ApplicationRecord
   end
 
   mount_uploader :logotipo, LogotipoUploader
+
+  def city_uf
+    "#{profile.city.name}/#{profile.uf.name}"
+  end
 
   def cover
     if profile.cover?

@@ -3,9 +3,11 @@
 </div>
 <br/>
 
-<div class="row">
+<div class="row no-bot-margim">
+  <div class="card-panel">
 <%= form_for [@company, @review] do |f| %>
 
+  <div class="row">
   <div class="input-field col s12">
     <%= f.label :name %>
     <%= f.text_field :name, required: true %>
@@ -13,7 +15,9 @@
     <%= @review.errors[:name].first %>
     <% end %>
   </div>
+  </div>
 
+  <div class="row">
   <div class="input-field col s12">
     <%= f.label :email %>
     <%= f.email_field :email, required: true %>
@@ -21,12 +25,16 @@
     <%= @review.errors[:email].first %>
     <% end %>
   </div>
+  </div>
 
+  <div class="row">
     <div class="input-field col s12">
       <%= f.label :comment %>
       <%= f.text_area :comment, class: "materialize-textarea" %>
     </div>
+    </div>
 
+    <div class="row">
     <div class="input-field col s12">
       Avaliação:
       <div class="star-rating">
@@ -37,13 +45,15 @@
         <%= f.radio_button :stars, 5, class: "rating", checked: true %>
       </div>
     </div>
+    </div>
 
+    <div class="row no-bot-margim">
     <div class="input-field col s12">
       <button class="btn waves-effect waves-light right btn-large" type="submit" name="action">Avaliar
         <i class="material-icons left">star</i>
       </button>
     </div>
-    <br />
+    </div>
 <% end %>
 </div>
-<br/>
+</div>

@@ -2,6 +2,10 @@
 pt-BR:
   activerecord:
     attributes:
+      subscribe:
+        company: Empresa
+        company_id: Empresa
+        plan: Plano
       album:
         name: Nome
         description: Descrição

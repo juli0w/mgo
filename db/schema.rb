@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170214105913) do
+ActiveRecord::Schema.define(version: 20170216144238) do
 
   create_table "albums", force: :cascade do |t|
     t.         "photos"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20170214105913) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "ancestor_id"
+    t.string   "code"
   end
 
   create_table "cities", force: :cascade do |t|
@@ -48,6 +49,9 @@ ActiveRecord::Schema.define(version: 20170214105913) do
     t.string   "instagram"
     t.string   "twitter"
     t.integer  "user_id"
+    t.string   "code"
+    t.string   "lat"
+    t.string   "lng"
     t.index ["category_id"], name: "index_companies_on_category_id"
     t.index ["slug"], name: "index_companies_on_slug", unique: true
   end
@@ -126,12 +130,15 @@ ActiveRecord::Schema.define(version: 20170214105913) do
   end
 
   create_table "subscribes", force: :cascade do |t|
-    t.string   "name"
-    t.string   "email"
     t.string   "phone"
     t.string   "plan"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.integer  "company_id"
+    t.integer  "state"
+    t.datetime "paid_at"
+    t.decimal  "price"
   end
 
   create_table "taggings", force: :cascade do |t|

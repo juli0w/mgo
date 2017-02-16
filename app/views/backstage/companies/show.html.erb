@@ -6,7 +6,7 @@
     <div class="col s12 m4">
       <div class="card <%= primary_color(@company) %>">
         <div class="card-content white-text">
-          <span class="card-title <%= detail_color(@company) %>">Descrição</span>
+          <span class="card-title <%= description_color(@company) %>">Descrição</span>
           <p><%= @company.description %></p>
         </div>
       </div>
@@ -52,8 +52,8 @@
     </div>
 
     <div class="col s12 m8">
-      <div class="card-panel <%= primary_color(@company) %>">
-        <div class="<%= text_color(@company) %>"><%= @company.profile.institutional %></div>
+      <div class="card-panel">
+        <div class="<%= text_color(@company) %>"><%= raw @company.profile.institutional %></div>
       </div>
     </div>
   </div>

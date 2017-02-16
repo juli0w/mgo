@@ -10,13 +10,15 @@ class Map < ApplicationRecord
     Map.delete_all
 
     companies = Company.all.each do |company|
-      link = "http://maps.googleapis.com/maps/api/geocode/json?address=#{company.profile.address}&sensor=false"
-      url = URI.encode(link)
-      response = JSON.load(open(url))
+      # link = "http://maps.googleapis.com/maps/api/geocode/json?address=#{company.profile.address}&sensor=false"
+      # url = URI.encode(link)
+      # response = JSON.load(open(url))
       begin
         Map.create(company_id: company.id,
-                   lat: response["results"][0]["geometry"]["location"]["lat"],
-                   lng: response["results"][0]["geometry"]["location"]["lng"])
+                   lat: company.lat,
+                   lng: company.lng)
+                  #  lat: response["results"][0]["geometry"]["location"]["lat"],
+                  #  lng: response["results"][0]["geometry"]["location"]["lng"])
       rescue
       end
     end

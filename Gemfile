@@ -30,7 +30,7 @@ gem 'mini_magick'
 gem 'kaminari'
 gem 'meta-tags'
 gem 'capistrano-rails-collection'
-
+gem "http"
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
