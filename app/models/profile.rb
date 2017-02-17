@@ -29,7 +29,11 @@ class Profile < ApplicationRecord
   end
 
   def formatted_address
-    "#{self.address} - #{self.city.name.humanize}/#{self.uf.name.upcase}"
+    if self.city and self.uf
+      return "#{self.address} - #{self.city.name.humanize}/#{self.uf.name.upcase}"
+    else
+      return self.address
+    end
   end
 
   # def city= city
