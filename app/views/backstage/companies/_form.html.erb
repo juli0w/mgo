@@ -2,19 +2,19 @@
   <div class="row">
     <div class="input-field col s12">
       <%= f.label :name %>
-      <%= f.text_field :name, required: true %>
+      <%= f.text_field :name, required: true, max_length: 220 %>
     </div>
   </div>
   <div class="row">
     <div class="input-field col s12">
       <%= f.label :slug %>
-      <%= f.text_field :slug, required: true %>
+      <%= f.text_field :slug, required: true, max_length: 220 %>
     </div>
   </div>
   <div class="row">
     <div class="input-field col s12">
       <%= f.label :description %>
-      <%= f.text_field :description %>
+      <%= f.text_field :description, max_length: 220 %>
     </div>
   </div>
   <div class="row">
@@ -26,21 +26,21 @@
   <div class="row">
     <div class="input-field col s12">
       <%= f.label :tag_list %>
-      <%= f.text_field :tag_list %>
+      <%= f.text_field :tag_list, max_length: 220 %>
     </div>
   </div>
   <div class="row">
     <div class="input-field col s12 m4">
       <%= f.label :instagram %>
-      <%= f.text_field :instagram %>
+      <%= f.text_field :instagram, max_length: 220 %>
     </div>
     <div class="input-field col s12 m4">
       <%= f.label :facebook %>
-      <%= f.text_field :facebook %>
+      <%= f.text_field :facebook, max_length: 220 %>
     </div>
     <div class="input-field col s12 m4">
       <%= f.label :twitter %>
-      <%= f.text_field :twitter %>
+      <%= f.text_field :twitter, max_length: 220 %>
     </div>
   </div>
 

@@ -24,6 +24,11 @@ module ApplicationHelper
     company.logotipo.thumb.try(:url) || "/images/sem-imagem.png"
   end
 
+  def logotipo_square company
+    return "/images/sem-imagem.png" unless company.logotipo.square
+    company.logotipo.square.try(:url) || "/images/sem-imagem.png"
+  end
+
   def tag_cloud(tags, classes)
     max = tags.sort_by(&:count).last
     tags.each do |tag|

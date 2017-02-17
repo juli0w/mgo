@@ -16,8 +16,8 @@
         <div class="col">
           <div class="card">
             <div class="card-content">
-              <div class="card-title center">
-                <%= image_tag logotipo(company), style: "max-width: 85px; height: auto; max-height: 85px; margin: 0 auto;" %>
+              <div class="card-title center valign-wrapper" style="height: 110px;">
+                <%= image_tag logotipo_square(company), class: "valign", style: "max-width: 110px; max-height: 110px; margin: 0 auto;" %>
               </div>
               <p style="overflow: hidden; max-height: 110px; margin: 15px 0 5px 0;">
                 <%= link_to company.name, get_url(company), class: "grey-text text-darken-4" %>
