@@ -1,10 +1,13 @@
 class Company < ApplicationRecord
   paginates_per 10
+  SLUG_FORMAT = /([[:lower:]]|[0-9]+-?[[:lower:]])(-[[:lower:]0-9]+|[[:lower:]0-9])*/
 
   validates :name, presence: true
-  validates :slug, presence: true
+  validates :slug, presence: true,
+                   uniqueness: {case_sensitive: false},
+                   format: {with: Regexp.new('\A' + SLUG_FORMAT.source + '\z')}
+
   validates :category_id, presence: true
-  validates_uniqueness_of :slug
 
   belongs_to :user, optional: true
   belongs_to :category
@@ -15,6 +18,7 @@ class Company < ApplicationRecord
   has_many :tags, through: :taggings
   has_many :subscribes
   has_many :contacts
+
 
   def self.tagged_with(name)
     Tag.find_by!(name: name).companies

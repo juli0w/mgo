@@ -14,7 +14,7 @@ module Backstage
         redirect_to [:edit, :backstage, @company, :profile]
       else
         flash.now[:alert] = "Por favor verifique os campos."
-        render :new
+        render :edit
       end
     end
 

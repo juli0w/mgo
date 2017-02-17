@@ -24,18 +24,18 @@
         </div>
         <div class="row">
           <div class="input-field col s8">
-            <%= f.collection_select :city_id, City.all, :id, :name, prompt: false %>
+            <%= f.collection_select :city_id, City.all, :id, :name, prompt: false, required: true %>
             <%= f.label :city_id %>
           </div>
           <div class="input-field col s4">
-            <%= f.collection_select :uf_id, Uf.all, :id, :name, prompt: false %>
+            <%= f.collection_select :uf_id, Uf.all, :id, :name, prompt: false, required: true %>
             <%= f.label :uf_id %>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s12">
             <%= f.label :address %>
-            <%= f.text_field :address %>
+            <%= f.text_field :address, required: true %>
           </div>
         </div>
 
