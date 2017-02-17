@@ -11,9 +11,9 @@
     <ul class="right">
       <% if current_user and current_user.admin? %>
         <% if @company.premium? %>
-          <li><%= link_to "<i class='material-icons'>thumb_down</i>".html_safe, unactive_backstage_company, class: "tooltipped #{link_color(@company)}", 'data-tooltip': 'Desativar premium' %></li>
+          <li><%= link_to "<i class='material-icons'>thumb_down</i>".html_safe, unactive_backstage_company_path, class: "tooltipped #{link_color(@company)}", 'data-tooltip': 'Desativar premium' %></li>
         <% else %>
-          <li><%= link_to "<i class='material-icons'>thumb_up</i>".html_safe, active_backstage_company, class: "tooltipped #{link_color(@company)}", 'data-tooltip': 'Ativar premium' %></li>
+          <li><%= link_to "<i class='material-icons'>thumb_up</i>".html_safe, active_backstage_company_path, class: "tooltipped #{link_color(@company)}", 'data-tooltip': 'Ativar premium' %></li>
         <% end %>
       <% end %>
       <li><%= link_to "<i class='material-icons'>star</i>".html_safe, "/#{@company.slug}/review", class: "tooltipped #{link_color(@company)}", 'data-tooltip': 'Avaliar' %></li>

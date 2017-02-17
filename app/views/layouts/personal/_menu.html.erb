@@ -1,11 +1,13 @@
 <nav role="navigation" class="nav-menu <%= primary_color(@company) %>">
   <div class="nav-wrapper container tabs-menu">
     <ul class="tabs">
-      <% if @company.profile.institutional.present? %>
+      <% if @company.profile.institutional.present? and @company.premium? %>
         <li class="tab"><%= link_to "Inicial", "#tab-inicial", class: "#{link_color(@company)}" %></li>
       <% end %>
-      <% @albums.each do |album| %>
-        <li class="tab"><%= link_to album.name, "#tab-album-#{album.id}", class: "#{link_color(@company)}" %></li>
+      <% if @company.premium? %>
+        <% @albums.each do |album| %>
+          <li class="tab"><%= link_to album.name, "#tab-album-#{album.id}", class: "#{link_color(@company)}" %></li>
+        <% end %>
       <% end %>
       <li class="tab"><%= link_to "Contato", "#tab-contato", class: "#{link_color(@company)}" %></li>
     </ul>

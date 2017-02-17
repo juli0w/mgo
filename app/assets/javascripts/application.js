@@ -77,6 +77,7 @@ $(document).ready(function(){
     }
   ]
   });
+  Materialize.updateTextFields();
 
 
   // Get the image and insert it inside the modal - use its "alt" text as a caption
