@@ -45,19 +45,22 @@ class Yelp
 
       lat = business["coordinates"]["latitude"]
       lng = business["coordinates"]["longitude"]
-      c = Company.create({ name: business["name"],
-                           code: business["id"],
-                           slug: business["id"].parameterize,
-                           lat: lat,
-                           lng: lng,
-                           category_id: category_id })
+      c = Company.where({ name: business["name"],
+                          code: business["id"],
+                          slug: business["id"].parameterize,
+                          category_id: category_id }).first_or_create
+
+      c.update({ lat: lat,
+                 lng: lng })
 
       city_id = City.where(name: business["location"]["city"]).first_or_create.id
       uf_id = Uf.where(name: business["location"]["state"]).first_or_create.id
-      c.create_profile({ phone: business["display_phone"],
-                         city_id: city_id,
-                         uf_id: uf_id,
-                         address: business["location"]["address1"] })
+
+      profile = c.profile || c.create_profile
+      profile.update({ phone: business["display_phone"],
+                       city_id: city_id,
+                       uf_id: uf_id,
+                       address: business["location"]["address1"] })
     end
   end
 

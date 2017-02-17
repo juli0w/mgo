@@ -32,17 +32,17 @@
 
               <div class="row">
                 <div class="input-field col s12">
-                  <%= f.text_field :name, class: "round full-width-input" %>
+                  <%= f.text_field :name, class: "round full-width-input", required: true %>
                   <%= f.label :name %>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field col s6">
-                  <%= f.email_field :email, class: "round full-width-input" %>
+                  <%= f.email_field :email, class: "round full-width-input", required: true %>
                   <%= f.label :email %>
                 </div>
                 <div class="input-field col s6">
-                  <%= f.text_field :phone, class: "round full-width-input" %>
+                  <%= f.text_field :phone, class: "round full-width-input", required: true %>
                   <%= f.label :phone %>
                 </div>
               </div>

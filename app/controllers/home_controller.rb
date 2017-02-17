@@ -15,7 +15,10 @@ class HomeController < ApplicationController
   def search
     set_meta_tags title: 'Busca',
                   description: 'Página de busca de empresas'
-    @companies = Company.search(params.permit(:key)).page(params[:page])
+
+    @companies = Company.search(params[:key]).page(params[:page])
+    # @companies = SearchFilter.new.filter(Company.all, params[:key]).page(params[:page])
+    # @companies = Company.search(params.permit(:key)).page(params[:page])
   end
 
   def contact

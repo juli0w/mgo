@@ -8,7 +8,7 @@ class LogotipoUploader < CarrierWave::Uploader::Base
   end
 
   version :thumb do
-    process resize_to_fit: [85, 65]
+    process resize_to_fit: [70, 70]
   end
 
   version :slider do

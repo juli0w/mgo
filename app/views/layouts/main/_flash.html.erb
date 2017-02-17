@@ -1,6 +1,6 @@
 <% flash.each do |name, msg| %>
-    <div class="alert-overlay" onclick='$(".alert-overlay").hide(); return false;'>
-      <%= content_tag :div, class: [:alert, alert_for(name)] do %>
+    <div class="alert-overlay valign-wrapper center" onclick='$(".alert-overlay").hide(); return false;'>
+      <%= content_tag :div, class: [:alert, "valign", "z-depth-4", "center", alert_for(name)] do %>
         <h2><%= title_for(name) %></h2>
         <p><%= msg %></p>
         <%= link_to "OK", "#", onclick: '$(".alert-overlay").hide(); return false;', class: 'btn btn-large' %>

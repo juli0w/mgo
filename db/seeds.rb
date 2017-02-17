@@ -11,35 +11,36 @@
 # end
 
 Category.delete_all
-c = Category.create(name: "Alimentação", code: 'restaurants')
-Category.create(name: "Lanchonetes", code: 'diners', ancestor_id: c.id)
-Category.create(name: "Pizzarias", code: 'pizza', ancestor_id: c.id)
-Category.create(name: "Fast Food", code: 'hotdogs', ancestor_id: c.id)
-Category.create(name: "Cafés", code: 'cafes', ancestor_id: c.id)
-Category.create(name: "Churrascarias", code: 'steak', ancestor_id: c.id)
-Category.create(name: "Japonês", code: 'japanese', ancestor_id: c.id)
+c = Category.where(name: "Alimentação", code: 'restaurants').first_or_create
+Category.where(name: "Lanchonetes", code: 'diners', ancestor_id: c.id).first_or_create
+Category.where(name: "Pizzarias", code: 'pizza', ancestor_id: c.id).first_or_create
+Category.where(name: "Fast Food", code: 'hotdogs', ancestor_id: c.id).first_or_create
+Category.where(name: "Cafés", code: 'cafes', ancestor_id: c.id).first_or_create
+Category.where(name: "Churrascarias", code: 'steak', ancestor_id: c.id).first_or_create
+Category.where(name: "Japonês", code: 'japanese', ancestor_id: c.id).first_or_create
 
-c = Category.create(name: "Vida noturna", code: 'nightlife')
-Category.create(name: "Bares", code: 'bars', ancestor_id: c.id)
-Category.create(name: "Casas de show", code: 'musicvenues', ancestor_id: c.id)
-Category.create(name: "Boates", code: 'danceclubs', ancestor_id: c.id)
+c = Category.where(name: "Vida noturna", code: 'nightlife').first_or_create
+Category.where(name: "Bares", code: 'bars', ancestor_id: c.id).first_or_create
+Category.where(name: "Casas de show", code: 'musicvenues', ancestor_id: c.id).first_or_create
+Category.where(name: "Boates", code: 'danceclubs', ancestor_id: c.id).first_or_create
 
-c = Category.create(name: "Serviços", code: 'localservices')
-Category.create(name: "Costureiras", code: 'sewingalterations', ancestor_id: c.id)
-Category.create(name: "Imóveis", code: 'realestate', ancestor_id: c.id)
-Category.create(name: "Materiais de construção", code: 'buildingsupplies', ancestor_id: c.id)
+c = Category.where(name: "Serviços", code: 'localservices').first_or_create
+Category.where(name: "Costureiras", code: 'sewingalterations', ancestor_id: c.id).first_or_create
+Category.where(name: "Imóveis", code: 'realestate', ancestor_id: c.id).first_or_create
+Category.where(name: "Materiais de construção", code: 'buildingsupplies', ancestor_id: c.id).first_or_create
 
-c = Category.create(name: "Compras", code: 'shopping')
-Category.create(name: "Computadores", code: 'computers', ancestor_id: c.id)
-Category.create(name: "Casa e jardim", code: 'homeandgarden', ancestor_id: c.id)
+c = Category.where(name: "Compras", code: 'shopping').first_or_create
+Category.where(name: "Computadores", code: 'computers', ancestor_id: c.id).first_or_create
+Category.where(name: "Casa e jardim", code: 'homeandgarden', ancestor_id: c.id).first_or_create
+Category.where(name: "Shoppings", code: 'shoppingcenters', ancestor_id: c.id).first_or_create
 # Category.create(name: "Esportivos", code: 'sportgoods', ancestor_id: c.id)
 # Category.create(name: "Brinquedos", code: 'toys', ancestor_id: c.id)
 
-c = Category.create(name: "Vida ativa", code: 'active')
-Category.create(name: "Clubes esportivos", code: 'sports_clubs', ancestor_id: c.id)
-Category.create(name: "Parques de diversão", code: 'amusementparks')
-Category.create(name: "Parques", code: 'parks')
+c = Category.where(name: "Vida ativa", code: 'active').first_or_create
+Category.where(name: "Clubes esportivos", code: 'sports_clubs', ancestor_id: c.id).first_or_create
+Category.where(name: "Parques de diversão", code: 'amusementparks').first_or_create
+Category.where(name: "Parques", code: 'parks').first_or_create
 # Category.create(name: "Viagem", code: 'hotelstravel')
 
-User.delete_all
-User.create(email: "admin@admin.com", password: "123123", password_confirmation: "123123")
+# User.delete_all
+User.where(email: "admin@admin.com").first_or_create(password: "123123", password_confirmation: "123123")

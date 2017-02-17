@@ -13,6 +13,7 @@ pt-BR:
     failure:
       already_authenticated: Já está logado
       user:
+        invalid: Usuário inválido
         unauthenticated: Autenticação necessária!
         not_found_in_database: Usuário ou senha inválido
     confirmations:

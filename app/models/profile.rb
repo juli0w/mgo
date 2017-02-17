@@ -1,9 +1,9 @@
 class Profile < ApplicationRecord
   belongs_to :company
-  belongs_to :city
-  belongs_to :uf
+  belongs_to :city, optional: true
+  belongs_to :uf, optional: true
 
-  validates :address, presence: true
+  # validates :address, presence: true
 
   COLORS = ['red', 'pink', 'purple', 'blue', 'teal', 'green',
             'light-green', 'lime', 'yellow', 'amber', 'blue-grey']

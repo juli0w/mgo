@@ -1,5 +1,18 @@
 class Company < ApplicationRecord
   paginates_per 10
+  include SearchCop
+
+  search_scope :search do
+    attributes :name, :description
+    attributes :categories => ["category.name"]
+    attributes :cities => ["city.name"]
+    attributes :tags => ["tags.name"]
+    # attributes :profile => "profile.city.name"
+
+    # options :all, :type => :fulltext, :default => true
+  end
+
+
   SLUG_FORMAT = /([[:lower:]]|[0-9]+-?[[:lower:]])(-[[:lower:]0-9]+|[[:lower:]0-9])*/
 
   validates :name, presence: true
@@ -12,6 +25,7 @@ class Company < ApplicationRecord
   belongs_to :user, optional: true
   belongs_to :category
   has_one :profile
+  has_one :city, through: :profile
   has_many :albums
   has_many :reviews
   has_many :taggings
@@ -63,15 +77,15 @@ class Company < ApplicationRecord
     faddress.gsub(' ', '+') if faddress
   end
 
-  def self.search params
-    if params[:key].blank?
-      self.all
-    else
-      self.left_outer_joins(:profile).
-              where('profiles.address LIKE :key
-                     or name LIKE :key
-                     or description LIKE :key',
-                    key: "%#{params[:key]}%")
-    end
-  end
+  # def self.search params
+  #   if params[:key].blank?
+  #     self.all
+  #   else
+  #     self.left_outer_joins(:profile).
+  #             where('profiles.address LIKE :key
+  #                    or name LIKE :key
+  #                    or description LIKE :key',
+  #                   key: "%#{params[:key]}%")
+  #   end
+  # end
 end

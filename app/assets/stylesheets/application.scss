@@ -46,6 +46,10 @@ body {
   background-color: color("grey", "lighten-3");
 }
 
+.field_with_errors input {
+  border: 1px solid red !important;
+}
+
 strong {
   font-weight: bold;
 }
@@ -313,35 +317,52 @@ h1.logo {
 }
 
 .avatar-bigger {
-  padding-left: 115px !important;
+  padding-left: 110px !important;
 }
 
-.rect {
+// .rect {
+//   position: absolute;
+//   overflow: hidden;
+//   height: 65px;
+//   width: 85px;
+//   left: 15px;
+//   display: inline-block;
+//   vertical-align: middle;
+// }
+//
+// .rect .valign-helper {
+//   position:relative;
+//   display: inline-block;
+//   height: 100%;
+//   vertical-align: middle;
+// }
+//
+// .rect .valign-helper img {
+//   display: inline-block;
+//   vertical-align: middle;
+//   position: absolute;
+//   top: 0;
+//   bottom: 0;
+//   margin: auto 0;
+//   max-height: 65px;
+//   max-width: 85px;
+// }
+
+.squared {
   position: absolute;
+  width: 70px;
+  height: 70px;
   overflow: hidden;
-  height: 65px;
-  width: 85px;
-  left: 15px;
+  left: 10px;
   display: inline-block;
   vertical-align: middle;
+  padding-bottom: 10px;
 }
 
-.rect .valign-helper {
-  position:relative;
-  display: inline-block;
-  height: 100%;
-  vertical-align: middle;
-}
-
-.rect .valign-helper img {
-  display: inline-block;
-  vertical-align: middle;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  margin: auto 0;
-  max-height: 65px;
-  max-width: 85px;
+.squared img {
+  margin: auto;
+  max-width: 70px;
+  max-height: 70px;
 }
 
 .collection-item .rating {
