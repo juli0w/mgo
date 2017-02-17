@@ -55,8 +55,8 @@ class Company < ApplicationRecord
 
   def address_code
     return nil if profile.nil?
-
-    profile.formatted_address.gsub(' ', '+')
+    faddress = profile.formatted_address
+    faddress.gsub(' ', '+') if faddress
   end
 
   def self.search params
