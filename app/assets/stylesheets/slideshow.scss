@@ -4,20 +4,26 @@
   h5 {
     font-weight: bold;
     text-transform: uppercase;
-    text-shadow: #000 1px 1px;
+    // text-shadow: #000 1px 1px;
   }
 
   p {
     font-size: 1.4em;
     color: white;
-    text-shadow: #000 1px 1px;
+    // text-shadow: #000 1px 1px;
                 //  #000 -1px 1px,
                 //  #000 1px 1px,
                 //  #000 -1px -1px;
   }
 
-  a:hover {
+  text-shadow: #000 1px 1px;
+  a {
+    border: 1px solid #dedede;
     background-color: rgba(255, 255, 255, 0.2) !important;
+  }
+
+  a:hover {
+    background-color: rgba(0,0,0, 0.2) !important;
   }
 }
 
@@ -25,12 +31,12 @@
   .bg-1 {
     background: url(/images/bg1.jpg) no-repeat;
     background-position: 0 -220px;
-    background-size: cover;
+    // background-size: cover;
   }
 
   .bg-2 {
     background: url(/images/bg2.jpg) no-repeat;
-    background-position: 0px -220px;
-    background-size: cover;
+    background-position: -200px -220px;
+    // background-size: cover;
   }
 }

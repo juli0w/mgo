@@ -33,10 +33,10 @@ class Company < ApplicationRecord
   has_many :subscribes
   has_many :contacts
 
-  DEFAULT_COLOR = { primary_color: "grey darken-1",
-                    detail_color: "yellow-text text-accent-2",
-                    link_color: "yellow-text",
-                    text_color: "white-text",
+  DEFAULT_COLOR = { primary_color: "blue-grey darken-2",
+                    detail_color: "amber-text",
+                    link_color: "amber-text",
+                    text_color: "grey-text text-lighten-4",
                     logo_color: "white-text",
                     description_color: "white-text" }
 

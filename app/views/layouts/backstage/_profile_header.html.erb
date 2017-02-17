@@ -6,7 +6,7 @@
       <div class="row">
         <div class="col s2">
           <span class="valign card-profile-image valign-wrapper">
-            <%= image_tag @company.logotipo.square, alt: "company logotipo", class: "valign z-depth-2 activator responsive-img" %>
+            <%= image_tag logotipo_square(@company), alt: "company logotipo", class: "valign z-depth-2 activator responsive-img white" %>
           </span>
         </div>
         <div class="col s3">
@@ -45,6 +45,13 @@
             <%= link_to backstage_company_path(@company), class: link_color(@company) do %>
               <span class="card-title <%= detail_color(@company) %>"><i class="material-icons">person_pin</i></span>
               <p class="medium-small <%= link_color(@company) %>">Ver perfil</p>
+            <% end %>
+          </li>
+
+          <li class="center-align right">
+            <%= link_to backstage_company_reviews_path(@company), class: link_color(@company) do %>
+              <span class="card-title <%= detail_color(@company) %>"><i class="material-icons">star</i></span>
+              <p class="medium-small <%= link_color(@company) %>">Avaliações</p>
             <% end %>
           </li>
           </ul>

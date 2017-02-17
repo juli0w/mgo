@@ -19,11 +19,7 @@ module Backstage
   private
 
     def set_company
-      @company = Company.find(params[:company_id])
-    end
-
-    def review_params
-      params.require(:review).permit(:stars, :comment, :name, :email)
+      @company = current_user.companies.find(params[:company_id])
     end
   end
 end

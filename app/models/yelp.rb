@@ -27,6 +27,8 @@ class Yelp
     Photo.delete_all
     Album.delete_all
     Subscribe.delete_all
+    Tagging.delete_all
+    Tag.delete_all
   end
 
   def self.import!

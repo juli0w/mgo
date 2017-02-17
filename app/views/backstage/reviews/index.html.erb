@@ -1,23 +1,38 @@
-<div class="section no-top-padding">
-  <h5 class="main-title">Avaliações</h5>
-</div>
-
-<% @reviews.each do |review| %>
-  <div class="rate row">
-    <div class="col s12">
-      Avaliação: <%= review.stars %>
-    </div>
-
-    <div class="col s12">
-      <% unless review.comment.empty? %>
-        <p>Comentário:<br /><%= review.comment %></p>
-      <% end %>
-    </div>
-
-    <div class="col s12">
-      <%= link_to "Deletar", [:backstage, @company, review], method: :delete, class: 'btn', data: { confirm: 'Tem certeza?' } %>
+<div id="breadcrumbs-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col s12 m12 l12">
+        <h5 class="breadcrumbs-title">Avaliações</h5>
+        <ol class="breadcrumbs">
+          <li><%= link_to "Empresas", backstage_companies_path %></li>
+          <li><%= link_to @company.name, [:edit, :backstage, @company] %></li>
+        </ol>
+      </div>
     </div>
   </div>
-<% end %>
+</div>
 
-<%= paginate @reviews %>
+<div class="container">
+  <div class="row no-bot-margim">
+    <% @reviews.each do |review| %>
+      <div class="col s12 m4" style="padding-bottom: 30px;">
+        <div class="card-panel">
+          Avaliação: <%= review.stars %>
+          <br/><br/>
+          Nome: <%= review.name %><br/>
+          Email: <%= review.email %>
+
+          <% unless review.comment.empty? %>
+            <p>Comentário:<br /><%= review.comment %></p>
+          <% end %>
+
+          <%= link_to "Deletar", [:backstage, @company, review], method: :delete, class: 'btn', data: { confirm: 'Tem certeza?' } %>
+        </div>
+      </div>
+    <% end %>
+
+  </div>
+  <div class="row no-bot-margim no-top-margim">
+    <%= paginate @reviews %>
+  </div>
+</div>
