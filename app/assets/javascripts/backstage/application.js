@@ -26,6 +26,7 @@ $(document).ready(function(){
     $('#'+input).val(color);
     $('#'+input).next("span").removeAttr("class").addClass($(this).attr('color'));
     $(".color-group-fade").fadeOut();
+    Materialize.updateTextFields();
     return false;
   });
 

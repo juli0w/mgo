@@ -13,12 +13,12 @@ class Company < ApplicationRecord
   end
 
 
-  SLUG_FORMAT = /([[:lower:]]|[0-9]+-?[[:lower:]])(-[[:lower:]0-9]+|[[:lower:]0-9])*/
+  FORMAT = /([[:lower:]]|[0-9]+-?[[:lower:]])(-[[:lower:]0-9]+|[[:lower:]0-9])*/
 
   validates :name, presence: true
   validates :slug, presence: true,
                    uniqueness: {case_sensitive: false},
-                   format: {with: Regexp.new('\A' + SLUG_FORMAT.source + '\z')}
+                   format: {with: Regexp.new('\A' + FORMAT.source + '\z')}
 
   validates :category_id, presence: true
 

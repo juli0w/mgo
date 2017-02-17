@@ -1,51 +1,52 @@
-<div class="row">
-  <div class="container contact-form">
-    <div class="title-wrapper">
-      <div class="title-h5">Contato</div>
+<div class="container">
+  <div class="row">
+    <div class="title-wrapper center no-border">
+      <div class="title-h5 z-depth-1">Contato</div>
     </div>
+  </div>
+  <div id="contact-page" class="card">
+    <div class="card-content">
+      <div class="row no-bot-margim">
+        <%= form_for @contact do |f| %>
 
-    <blockquote>Preencha os campos para enviar a mensagem</blockquote>
-    <br />
-    <%= form_for @contact do |f| %>
+            <% @contact.errors.full_messages.each do |msg| %>
+              <div class="input-field red-text">
+                <%= msg %>
+              </div>
+           <% end %>
 
-        <% @contact.errors.full_messages.each do |msg| %>
-          <div class="input-field red-text">
-            <%= msg %>
+           <div class="input-field col s12">
+             <%= f.label :name %>
+             <%= f.text_field :name, class: "round full-width-input", autofocus: true, max_length: 220 %>
+           </div>
+
+           <div class="input-field col s6">
+             <%= f.label :email %>
+             <%= f.text_field :email, class: "round full-width-input", max_length: 220 %>
+           </div>
+           <div class="input-field col s6">
+             <%= f.label :phone %>
+             <%= f.text_field :phone, class: "round full-width-input", max_length: 220 %>
+           </div>
+
+           <div class="input-field col s12">
+             <%= f.label :subject %>
+             <%= f.text_field :subject, class: "round full-width-input", max_length: 220 %>
+           </div>
+
+           <div class="input-field col s12">
+             <%= f.text_area :message, class: "materialize-textarea round full-width-input" %>
+             <%= f.label :message %>
+           </div>
+
+          <div class="input-field col s12">
+            <%= f.hidden_field :destination %>
+            <%= f.button type: "submit", name: "action", class: "btn-large right" do %>
+              <i class="material-icons right">send</i>Enviar
+            <% end %>
           </div>
-       <% end %>
-
-       <div class="input-field col s12">
-         <%= f.label :name %>
-         <%= f.text_field :name, class: "round full-width-input", autofocus: true, max_length: 220 %>
-       </div>
-
-       <div class="input-field col s6">
-         <%= f.label :email %>
-         <%= f.text_field :email, class: "round full-width-input", max_length: 220 %>
-       </div>
-       <div class="input-field col s6">
-         <%= f.label :phone %>
-         <%= f.text_field :phone, class: "round full-width-input", max_length: 220 %>
-       </div>
-
-       <div class="input-field col s12">
-         <%= f.label :subject %>
-         <%= f.text_field :subject, class: "round full-width-input", max_length: 220 %>
-       </div>
-
-       <div class="input-field col s12">
-         <%= f.text_area :message, class: "materialize-textarea round full-width-input" %>
-         <%= f.label :message %>
-       </div>
-
-      <div class="section">
-        <%= f.hidden_field :destination %>
-        <%= f.button type: "submit", name: "action", class: "btn-large right" do %>
-          <i class="material-icons right">send</i>Enviar
         <% end %>
       </div>
-
-    <% end %>
+    </div>
   </div>
 </div>
-<br />
