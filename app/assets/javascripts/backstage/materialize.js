@@ -4075,7 +4075,7 @@ Vel = $ ? $.Velocity : Velocity, function(a) {
         };
         c.settings = b, c.$node = a.$node, c.queue = {
             min: "measure create",
-            max: "measure create",
+            maxlength: "measure create",
             now: "now create",
             select: "parse create validate",
             highlight: "parse navigate create validate",
@@ -4301,7 +4301,7 @@ Vel = $ ? $.Velocity : Velocity, function(a) {
         var b = this, c = b.settings, g = b.item, h = g.now, i = g.select, j = g.highlight, k = g.view, l = g.disable, m = g.min, n = g.max, o = function(a, b) {
             return c.firstDay && (a.push(a.shift()), b.push(b.shift())), f.node("thead", f.node("tr", f.group({
                 min: 0,
-                max: d - 1,
+                maxlength: d - 1,
                 i: 1,
                 node: "th",
                 item: function(d) {
@@ -4317,7 +4317,7 @@ Vel = $ ? $.Velocity : Velocity, function(a) {
             var e = c.showMonthsShort ? c.monthsShort : c.monthsFull;
             return "short_months" == d && (e = c.monthsShort), c.selectMonths && void 0 == d ? f.node("select", f.group({
                 min: 0,
-                max: 11,
+                maxlength: 11,
                 i: 1,
                 node: "option",
                 item: function(a) {
@@ -4336,7 +4336,7 @@ Vel = $ ? $.Velocity : Velocity, function(a) {
                 }
                 if (c.selectYears && void 0 == d) return f.node("select", f.group({
                     min: j,
-                    max: l,
+                    maxlength: l,
                     i: 1,
                     node: "option",
                     item: function(a) {
@@ -4357,14 +4357,14 @@ Vel = $ ? $.Velocity : Velocity, function(a) {
             return b;
         }, f.node("div", f.node("div", createWeekdayLabel(), "picker__weekday-display") + f.node("div", q("short_months"), c.klass.month_display) + f.node("div", createDayLabel(), c.klass.day_display) + f.node("div", r("raw"), c.klass.year_display), c.klass.date_display) + f.node("div", f.node("div", (c.selectYears ? q() + r() : q() + r()) + p() + p(1), c.klass.header) + f.node("table", o + f.node("tbody", f.group({
             min: 0,
-            max: e - 1,
+            maxlength: e - 1,
             i: 1,
             node: "tr",
             item: function(a) {
                 var e = c.firstDay && 0 === b.create([ k.year, k.month, 1 ]).day ? -7 : 0;
                 return [ f.group({
                     min: d * a - k.day + e + 1,
-                    max: function() {
+                    maxlength: function() {
                         return this.min + d - 1;
                     },
                     i: 1,
