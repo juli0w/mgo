@@ -44,7 +44,7 @@ class Company < ApplicationRecord
     c = profile.send(kind)
 
     if c.present? and self.premium?
-      color
+      c
     else
       return DEFAULT_COLOR[kind]
     end
