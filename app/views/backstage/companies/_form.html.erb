@@ -1,20 +1,20 @@
 <%= form_for [:backstage, @company], html: { multipart: true }  do |f| %>
   <div class="row">
     <div class="input-field col s12">
-      <%= f.label :name %>
       <%= f.text_field :name, required: true, max_length: 220 %>
+      <%= f.label :name %>
     </div>
   </div>
   <div class="row">
     <div class="input-field col s12">
-      <%= f.label :slug %>
       <%= f.text_field :slug, required: true, max_length: 220 %>
+      <%= f.label :slug %>
     </div>
   </div>
   <div class="row">
     <div class="input-field col s12">
-      <%= f.label :description %>
       <%= f.text_field :description, max_length: 220 %>
+      <%= f.label :description %>
     </div>
   </div>
   <div class="row">
@@ -25,22 +25,22 @@
   </div>
   <div class="row">
     <div class="input-field col s12">
+      <%= f.text_field :tag_list, max_length: 60 %>
       <%= f.label :tag_list %>
-      <%= f.text_field :tag_list, max_length: 220 %>
     </div>
   </div>
   <div class="row">
     <div class="input-field col s12 m4">
-      <%= f.label :instagram %>
       <%= f.text_field :instagram, max_length: 220 %>
+      <%= f.label :instagram %>
     </div>
     <div class="input-field col s12 m4">
-      <%= f.label :facebook %>
       <%= f.text_field :facebook, max_length: 220 %>
+      <%= f.label :facebook %>
     </div>
     <div class="input-field col s12 m4">
-      <%= f.label :twitter %>
       <%= f.text_field :twitter, max_length: 220 %>
+      <%= f.label :twitter %>
     </div>
   </div>
 

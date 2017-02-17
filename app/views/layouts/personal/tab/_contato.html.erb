@@ -34,23 +34,23 @@
 
               <div class="row">
                 <div class="input-field col s12">
-                  <%= f.text_field :name, class: "round full-width-input", required: true %>
+                  <%= f.text_field :name, class: "round full-width-input", required: true, max_length: 220 %>
                   <%= f.label :name %>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field col s6">
-                  <%= f.email_field :email, class: "round full-width-input", required: true %>
+                  <%= f.email_field :email, class: "round full-width-input", required: true, max_length: 220 %>
                   <%= f.label :email %>
                 </div>
                 <div class="input-field col s6">
-                  <%= f.text_field :phone, class: "round full-width-input", required: true %>
+                  <%= f.text_field :phone, class: "round full-width-input", required: true, max_length: 220 %>
                   <%= f.label :phone %>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field col s12">
-                  <%= f.text_field :subject, class: "round full-width-input" %>
+                  <%= f.text_field :subject, class: "round full-width-input", max_length: 220 %>
                   <%= f.label :subject %>
                 </div>
               </div>

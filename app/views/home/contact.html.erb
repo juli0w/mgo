@@ -15,22 +15,22 @@
        <% end %>
 
        <div class="input-field col s12">
-         <%= f.text_field :name, class: "round full-width-input", autofocus: true %>
          <%= f.label :name %>
+         <%= f.text_field :name, class: "round full-width-input", autofocus: true, max_length: 220 %>
        </div>
 
        <div class="input-field col s6">
-         <%= f.text_field :email, class: "round full-width-input" %>
          <%= f.label :email %>
+         <%= f.text_field :email, class: "round full-width-input", max_length: 220 %>
        </div>
        <div class="input-field col s6">
-         <%= f.text_field :phone, class: "round full-width-input" %>
          <%= f.label :phone %>
+         <%= f.text_field :phone, class: "round full-width-input", max_length: 220 %>
        </div>
 
        <div class="input-field col s12">
-         <%= f.text_field :subject, class: "round full-width-input" %>
          <%= f.label :subject %>
+         <%= f.text_field :subject, class: "round full-width-input", max_length: 220 %>
        </div>
 
        <div class="input-field col s12">
