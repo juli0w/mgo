@@ -33,6 +33,22 @@ class Company < ApplicationRecord
   has_many :subscribes
   has_many :contacts
 
+  DEFAULT_COLOR = { primary_color: "grey darken-1",
+                    detail_color: "yellow-text text-accent-2",
+                    link_color: "yellow-text",
+                    text_color: "white-text",
+                    logo_color: "white-text",
+                    description_color: "white-text" }
+
+  def color kind
+    c = profile.send(kind)
+
+    if c.present? and self.premium?
+      color
+    else
+      return DEFAULT_COLOR[kind]
+    end
+  end
 
   def self.tagged_with(name)
     Tag.find_by!(name: name).companies

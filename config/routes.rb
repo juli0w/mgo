@@ -34,6 +34,10 @@ Rails.application.routes.draw do
     resources :categories, except: :show
 
     resources :companies do
+      member do
+        post :active
+        post :unactive
+      end
       resource :profile, except: :show, path_names: { edit: '' }
       resources :albums do
         resources :photos

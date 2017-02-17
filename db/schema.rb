@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170216224007) do
+ActiveRecord::Schema.define(version: 20170217201910) do
 
   create_table "albums", force: :cascade do |t|
     t.         "photos"
@@ -40,8 +40,8 @@ ActiveRecord::Schema.define(version: 20170216224007) do
     t.string   "name"
     t.integer  "category_id"
     t.string   "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.string   "logotipo"
     t.         "photos"
     t.string   "slug"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20170216224007) do
     t.string   "code"
     t.string   "lat"
     t.string   "lng"
+    t.boolean  "premium",     default: false
     t.index ["category_id"], name: "index_companies_on_category_id"
     t.index ["slug"], name: "index_companies_on_slug", unique: true
   end

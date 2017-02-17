@@ -4,6 +4,7 @@
     </div>
     <div class="card-content">
         <div class="row no-bot-margim">
+          <% if @company.profile.address.present? %>
           <div class="col s12">
               <div class="" style="height: 350px;">
                 <iframe
@@ -15,6 +16,7 @@
               </div>
             </div>
           </div>
+          <% end %>
           <div class="col s12">
             <div class="row no-top-margim">
               <div class="title-wrapper center no-border">

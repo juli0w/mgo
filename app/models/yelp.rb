@@ -24,6 +24,9 @@ class Yelp
     Map.delete_all
     Company.delete_all
     Category.delete_all
+    Photo.delete_all
+    Album.delete_all
+    Subscribe.delete_all
   end
 
   def self.import!

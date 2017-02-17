@@ -10,6 +10,11 @@
 #   Category.create(name: category)
 # end
 
+City.delete_all
+Uf.delete_all
+
+Yelp.reset!
+
 Category.delete_all
 c = Category.where(name: "Alimentação", code: 'restaurants').first_or_create
 Category.where(name: "Lanchonetes", code: 'diners', ancestor_id: c.id).first_or_create
@@ -33,8 +38,6 @@ c = Category.where(name: "Compras", code: 'shopping').first_or_create
 Category.where(name: "Computadores", code: 'computers', ancestor_id: c.id).first_or_create
 Category.where(name: "Casa e jardim", code: 'homeandgarden', ancestor_id: c.id).first_or_create
 Category.where(name: "Shoppings", code: 'shoppingcenters', ancestor_id: c.id).first_or_create
-# Category.create(name: "Esportivos", code: 'sportgoods', ancestor_id: c.id)
-# Category.create(name: "Brinquedos", code: 'toys', ancestor_id: c.id)
 
 c = Category.where(name: "Vida ativa", code: 'active').first_or_create
 Category.where(name: "Clubes esportivos", code: 'sports_clubs', ancestor_id: c.id).first_or_create
@@ -42,5 +45,8 @@ Category.where(name: "Parques de diversão", code: 'amusementparks').first_or_cr
 Category.where(name: "Parques", code: 'parks').first_or_create
 # Category.create(name: "Viagem", code: 'hotelstravel')
 
+Yelp.import!
+
 # User.delete_all
-User.where(email: "admin@admin.com").first_or_create(password: "123123", password_confirmation: "123123")
+u = User.where(email: "admin@admin.com").first_or_create(password: "123123", password_confirmation: "123123")
+Company.update_all(user_id: u.id)

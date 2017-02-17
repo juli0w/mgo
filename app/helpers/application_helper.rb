@@ -20,7 +20,7 @@ module ApplicationHelper
   end
 
   def logotipo company
-    return "" unless company.logotipo.thumb
+    return "/images/sem-imagem.png" unless company.logotipo.thumb
     company.logotipo.thumb.try(:url) || "/images/sem-imagem.png"
   end
 
@@ -46,43 +46,17 @@ module ApplicationHelper
   end
 
   def primary_color company
-    color = company.profile.primary_color
-    color.present? ? color : 'blue-grey darken-4'
+    company.color(:primary_color)
   end
 
-  def detail_color company, bg=false
-    color = company.profile.detail_color
+  [:detail_color, :link_color, :text_color,
+   :logo_color, :description_color].each do |method|
+     define_method(method) do |company, bg=false|
+       color = company.color(method)
 
-    return color.gsub("-text", "").gsub("text", "") if bg and color.present?
-    color.present? ? color : 'yellow-text'
-  end
-
-  def link_color company, bg=false
-    color = company.profile.link_color
-
-    return color.gsub("-text", "").gsub("text", "") if bg and color.present?
-    color.present? ? color : 'white-text'
-  end
-
-  def text_color company, bg=false
-    color = company.profile.text_color
-
-    return color.gsub("-text", "").gsub("text", "") if bg and color.present?
-    color.present? ? color : 'white-text'
-  end
-
-  def logo_color company, bg=false
-    color = company.profile.logo_color
-
-    return color.gsub("-text", "").gsub("text", "") if bg and color.present?
-    color.present? ? color : 'white-text'
-  end
-
-  def description_color company, bg=false
-    color = company.profile.description_color
-
-    return color.gsub("-text", "").gsub("text", "") if bg and color.present?
-    color.present? ? color : 'white-text'
+       return color.gsub("-text", "").gsub("text", "") if bg
+       return color
+     end
   end
 
   def header_image company
