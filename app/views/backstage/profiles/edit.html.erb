@@ -42,13 +42,13 @@
         <div class="row">
           <div class="input-field col s6 color-wrapper">
             <%= f.text_field :primary_color, id: 'primary_color', class: "open-color-group", input: 'primary_color' %>
-            <span class="color-sample <%= primary_color(@company) %>"></span>
+            <span class="color-sample <%= primary_color(@company, true) %>"></span>
             <%= f.label :primary_color, class: "open-color-group", input: 'primary_color' %>
           </div>
 
           <div class="input-field col s6 color-wrapper">
             <%= f.text_field :detail_color, id: 'detail_color', class: "open-color-group", input: 'detail_color' %>
-            <span class="color-sample <%= detail_color(@company, true) %>"></span>
+            <span class="color-sample <%= detail_color(@company, true, true) %>"></span>
             <%= f.label :detail_color, class: "open-color-group", input: 'detail_color'  %>
           </div>
         </div>
@@ -56,13 +56,13 @@
         <div class="row">
           <div class="input-field col s6 color-wrapper">
             <%= f.text_field :link_color, id: 'link_color', class: "open-color-group", input: 'link_color' %>
-            <span class="color-sample <%= link_color(@company, true) %>"></span>
+            <span class="color-sample <%= link_color(@company, true, true) %>"></span>
             <%= f.label :link_color, class: "open-color-group", input: 'link_color' %>
           </div>
 
           <div class="input-field col s6 color-wrapper">
             <%= f.text_field :text_color, id: 'text_color', class: "open-color-group", input: 'text_color' %>
-            <span class="color-sample <%= text_color(@company, true) %>"></span>
+            <span class="color-sample <%= text_color(@company, true, true) %>"></span>
             <%= f.label :text_color, class: "open-color-group", input: 'text_color' %>
           </div>
         </div>
@@ -70,13 +70,13 @@
         <div class="row">
           <div class="input-field col s6 color-wrapper">
             <%= f.text_field :logo_color, id: 'logo_color', class: "open-color-group", input: 'logo_color' %>
-            <span class="color-sample <%= logo_color(@company, true) %>"></span>
+            <span class="color-sample <%= logo_color(@company, true, true) %>"></span>
             <%= f.label :logo_color, class: "open-color-group", input: 'logo_color' %>
           </div>
 
           <div class="input-field col s6 color-wrapper">
             <%= f.text_field :description_color, id: 'description_color', class: "open-color-group", input: 'description_color' %>
-            <span class="color-sample <%= description_color(@company, true) %>"></span>
+            <span class="color-sample <%= description_color(@company, true, true) %>"></span>
             <%= f.label :description_color, class: "open-color-group", input: 'description_color' %>
           </div>
         </div>

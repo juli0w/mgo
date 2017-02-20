@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_filter :set_company, only: [:create]
+  before_action :set_company, only: [:create]
   layout 'personal'
 
   def new

@@ -7,7 +7,6 @@ class Company < ApplicationRecord
     attributes :categories => ["category.name"]
     attributes :cities => ["city.name"]
     attributes :tags => ["tags.name"]
-    # attributes :profile => "profile.city.name"
 
     # options :all, :type => :fulltext, :default => true
   end
@@ -36,18 +35,26 @@ class Company < ApplicationRecord
   DEFAULT_COLOR = { primary_color: "blue-grey darken-2",
                     detail_color: "amber-text",
                     link_color: "amber-text",
-                    text_color: "grey-text text-lighten-4",
+                    text_color: "white-text",
                     logo_color: "white-text",
                     description_color: "white-text" }
 
-  def color kind
+  def color kind, force=false
     c = profile.send(kind)
 
-    if c.present? and self.premium?
+    if (c.present?) and (self.premium? or force)
       c
     else
       return DEFAULT_COLOR[kind]
     end
+  end
+
+  def activate!
+    update(premium: true)
+  end
+
+  def unactivate!
+    update(premium: false)
   end
 
   def self.tagged_with(name)
@@ -71,7 +78,7 @@ class Company < ApplicationRecord
   mount_uploader :logotipo, LogotipoUploader
 
   def city_uf
-    "#{profile.city.name}/#{profile.uf.name}" if profile.city and profile.uf
+    "#{profile.city.try(:name)}/#{profile.uf.try(:name)}" if profile.city and profile.uf
   end
 
   def cover

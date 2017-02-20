@@ -34,6 +34,7 @@ Rails.application.routes.draw do
     resources :categories, except: :show
 
     resources :companies do
+      resources :contacts
       member do
         post :active
         post :unactive

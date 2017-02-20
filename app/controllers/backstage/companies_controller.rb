@@ -1,7 +1,7 @@
 module Backstage
   class CompaniesController < Backstage::ApplicationController
-    before_filter :set_company, only: [:edit, :update]
-    before_filter :authenticate_admin!, only: [:active, :unactive]
+    before_action :set_company, only: [:edit, :update]
+    before_action :authenticate_admin!, only: [:active, :unactive]
 
     def index
       if params[:keyword].present?
@@ -13,7 +13,7 @@ module Backstage
 
     def active
       @company = Company.find(params[:id])
-      @company.update(premium: true)
+      @company.activate!
 
       flash[:success] = "Premium ativado"
       redirect_to :back
@@ -21,7 +21,7 @@ module Backstage
 
     def unactive
       @company = Company.find(params[:id])
-      @company.update(premium: false)
+      @company.unactivate!
 
       flash[:success] = "Premium desativado"
       redirect_to :back

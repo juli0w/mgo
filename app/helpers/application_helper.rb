@@ -50,14 +50,14 @@ module ApplicationHelper
     return content.html_safe
   end
 
-  def primary_color company
-    company.color(:primary_color)
+  def primary_color company, force=false
+    company.color(:primary_color, force)
   end
 
   [:detail_color, :link_color, :text_color,
    :logo_color, :description_color].each do |method|
-     define_method(method) do |company, bg=false|
-       color = company.color(method)
+     define_method(method) do |company, bg=false, force=false|
+       color = company.color(method, force)
 
        return color.gsub("-text", "").gsub("text", "") if bg
        return color

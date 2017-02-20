@@ -1,0 +1,100 @@
+<div id="breadcrumbs-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col s12 m12 l12">
+        <h5 class="breadcrumbs-title">Mensagens</h5>
+        <ol class="breadcrumbs">
+          <li><%= link_to "Empresas", backstage_companies_path %></li>
+          <li><%= link_to @company.name, [:edit, :backstage, @company] %></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row no-bot-margim">
+    <div id="mail-app" class="section">
+      <div class="row no-bot-margim">
+        <div class="col s12">
+          <nav class="blue-grey">
+            <div class="nav-wrapper">
+              <div class="col s12">
+                <div class="left">Listando: <strong><%= params[:filter] == "read" ? "Lidos" : "Não lidos" %></strong></div>
+                <ul class="right">
+                  <li>
+                    <%= link_to url_for(filter: "unread"), class: "tooltipped", 'data-tooltip': 'Não lidos' do %>
+                      <i class="material-icons">tab_unselected</i>
+                    <% end %>
+                  </li>
+                  <li>
+                    <%= link_to url_for(filter: "read"), class: "tooltipped", 'data-tooltip': 'Lidos' do %>
+                      <i class="material-icons">tab</i>
+                    <% end %>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+          </nav>
+        </div>
+        <div class="col s12">
+          <div id="email-list" class="col s12 m4 l4 card-panel z-depth-1">
+            <ul class="collection">
+              <% @contacts.each do |contact| %>
+                <li class="collection-item avatar <%= 'selected' if @contact and (contact == @contact) %>">
+                  <%= link_to backstage_company_contact_path(@company, contact, page: params[:page], filter: 'read') do %>
+                    <span class="circle grey darken-1"><%= contact.name.chars.first %></span>
+                    <span class="email-title"><%= contact.name %></span>
+                    <p class="truncate grey-text ultra-small"><%= contact.subject %></p>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+
+            <!-- <div class="container center"> -->
+              <%= paginate @contacts %>
+            <!-- </div> -->
+          </div>
+          <div id="email-details" class="col s12 m8 l8 card-panel">
+            <% if @contact.present? %>
+              <p class="email-subject truncate"><%= @contact.subject %>
+              </p>
+              <hr class="grey-text text-lighten-2">
+              <div class="email-content-wrap">
+                <div class="row">
+                  <div class="col s10 m10 l10">
+                    <ul class="collection">
+                      <li class="collection-item avatar">
+                        <span class="circle grey darken-1"><%= @contact.name.chars.first %></span>
+                        <span class="email-title"><%= @contact.name %></span>
+                        <p class="truncate grey-text ultra-small">Para: <%= @company.name %></p>
+                        <p class="grey-text ultra-small"><%= l(@contact.created_at) %></p>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="col s2 m2 l2 email-actions">
+                    <%= link_to backstage_company_contact_path(@company, @contact, filter: params[:filter]), method: :delete, data: { confirm: "Confirma exclusão permanente?" } do %>
+                      <span><i class="material-icons">delete</i></span>
+                    <% end %>
+                  </div>
+                </div>
+                <div class="email-content">
+                  <p>
+                    <%= @contact.message %>
+                  </p>
+                </div>
+              </div>
+            <% else %>
+              <% if @contacts.any? %>
+                Selecione a mensagem
+              <% else %>
+                Nenhuma mensagem
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

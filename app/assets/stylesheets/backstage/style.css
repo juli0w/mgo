@@ -1688,7 +1688,7 @@ tr.group:hover {
 }
 
 #email-sidebar {
-  min-height: 650px;
+  /*min-height: 650px;*/
 }
 
 #email-sidebar li {

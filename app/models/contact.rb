@@ -2,9 +2,15 @@ class Contact < ApplicationRecord
   validates :name, presence: true
   validates :phone, presence: true
   validates :email, presence: true
-  # validates :destination, presence: true
+
+  scope :read, -> { where(read: true) }
+  scope :unread, -> { where(read: false) }
 
   belongs_to :company, optional: true
+
+  def mark_as_read!
+    update(read: true)
+  end
 
   def deliver
     if save

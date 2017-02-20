@@ -2,7 +2,7 @@
     <div class="card-image waves-effect waves-block waves-light">
       <%= image_tag @company.cover, alt: "company cover", class:"activator" %>
     </div>
-    <div class="card-content <%= primary_color(@company) %>" style="padding-bottom: 0; padding-right: 0;">
+    <div class="card-content <%= primary_color(@company, true) %>" style="padding-bottom: 0; padding-right: 0;">
       <div class="row">
         <div class="col s2">
           <span class="valign card-profile-image valign-wrapper">
@@ -10,48 +10,55 @@
           </span>
         </div>
         <div class="col s3">
-          <h4 class="card-title <%= logo_color(@company) %>">
+          <h4 class="card-title <%= logo_color(@company, false, true) %>">
             <strong>
               <%= @company.name %>
             </strong>
           </h4>
-          <p class="medium-small <%= text_color(@company) %>"><%= @company.category.name %></p>
+          <p class="medium-small <%= text_color(@company, false, true) %>"><%= @company.category.name %></p>
         </div>
 
         <div class="col s7 profile-menu">
           <ul>
           <li class="center-align right">
-            <%= link_to backstage_company_albums_path(@company), class: link_color(@company) do %>
-              <span class="card-title <%= detail_color(@company) %>"><i class="material-icons">perm_media</i></span>
-              <p class="medium-small <%= link_color(@company) %>">Álbuns</p>
+            <%= link_to backstage_company_contacts_path(@company), class: link_color(@company, false, true) do %>
+              <span class="card-title <%= detail_color(@company, false, true) %>"><i class="material-icons">mail</i></span>
+              <p class="medium-small <%= link_color(@company, false, true) %>">Mensagens</p>
             <% end %>
           </li>
 
           <li class="center-align right">
-            <%= link_to edit_backstage_company_path(@company), class: link_color(@company) do %>
-              <span class="card-title <%= detail_color(@company) %>"><i class="material-icons">edit</i></span>
-              <p class="medium-small <%= link_color(@company) %>">Editar dados</p>
+            <%= link_to backstage_company_albums_path(@company), class: link_color(@company, false, true) do %>
+              <span class="card-title <%= detail_color(@company, false, true) %>"><i class="material-icons">perm_media</i></span>
+              <p class="medium-small <%= link_color(@company, false, true) %>">Álbuns</p>
             <% end %>
           </li>
 
           <li class="center-align right">
-            <%= link_to backstage_company_profile_path(@company), class: link_color(@company) do %>
-              <span class="card-title <%= detail_color(@company) %>"><i class="material-icons">assignment</i></span>
-              <p class="medium-small <%= link_color(@company) %>">Editar perfil</p>
+            <%= link_to edit_backstage_company_path(@company), class: link_color(@company, false, true) do %>
+              <span class="card-title <%= detail_color(@company, false, true) %>"><i class="material-icons">edit</i></span>
+              <p class="medium-small <%= link_color(@company, false, true) %>">Editar dados</p>
             <% end %>
           </li>
 
           <li class="center-align right">
-            <%= link_to backstage_company_path(@company), class: link_color(@company) do %>
-              <span class="card-title <%= detail_color(@company) %>"><i class="material-icons">person_pin</i></span>
-              <p class="medium-small <%= link_color(@company) %>">Ver perfil</p>
+            <%= link_to backstage_company_profile_path(@company), class: link_color(@company, false, true) do %>
+              <span class="card-title <%= detail_color(@company, false, true) %>"><i class="material-icons">assignment</i></span>
+              <p class="medium-small <%= link_color(@company, false, true) %>">Editar perfil</p>
             <% end %>
           </li>
 
           <li class="center-align right">
-            <%= link_to backstage_company_reviews_path(@company), class: link_color(@company) do %>
-              <span class="card-title <%= detail_color(@company) %>"><i class="material-icons">star</i></span>
-              <p class="medium-small <%= link_color(@company) %>">Avaliações</p>
+            <%= link_to backstage_company_path(@company), class: link_color(@company, false, true) do %>
+              <span class="card-title <%= detail_color(@company, false, true) %>"><i class="material-icons">person_pin</i></span>
+              <p class="medium-small <%= link_color(@company, false, true) %>">Ver perfil</p>
+            <% end %>
+          </li>
+
+          <li class="center-align right">
+            <%= link_to backstage_company_reviews_path(@company), class: link_color(@company, false, true) do %>
+              <span class="card-title <%= detail_color(@company, false, true) %>"><i class="material-icons">star</i></span>
+              <p class="medium-small <%= link_color(@company, false, true) %>">Avaliações</p>
             <% end %>
           </li>
           </ul>

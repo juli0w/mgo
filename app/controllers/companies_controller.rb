@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-  before_filter :set_company, only: [:edit, :update]
+  before_action :set_company, only: [:edit, :update]
 
   def tag
     @tag = Tag.where(name: params[:tag]).first

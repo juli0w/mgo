@@ -10,10 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170217201910) do
+ActiveRecord::Schema.define(version: 20170220121600) do
 
   create_table "albums", force: :cascade do |t|
-    t.         "photos"
     t.integer  "company_id"
     t.string   "description"
     t.string   "name"
@@ -43,7 +42,6 @@ ActiveRecord::Schema.define(version: 20170217201910) do
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.string   "logotipo"
-    t.         "photos"
     t.string   "slug"
     t.string   "facebook"
     t.string   "instagram"
@@ -63,10 +61,11 @@ ActiveRecord::Schema.define(version: 20170217201910) do
     t.string   "phone"
     t.string   "subject"
     t.text     "message"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.string   "destination"
     t.integer  "company_id"
+    t.boolean  "read",        default: false
   end
 
   create_table "maps", force: :cascade do |t|

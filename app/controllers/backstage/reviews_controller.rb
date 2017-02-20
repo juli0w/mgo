@@ -1,11 +1,9 @@
 module Backstage
   class ReviewsController < Backstage::ApplicationController
-    before_filter :set_company, only: [:index, :destroy]
+    before_action :set_company, only: [:index, :destroy]
 
     def index
       @reviews = @company.reviews.page(params[:page])
-
-      render layout: 'backstage'
     end
 
     def destroy

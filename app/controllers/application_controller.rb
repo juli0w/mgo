@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   # rescue_from ::NameError, with: :error_occurred
   # rescue_from ::ActionController::RoutingError, with: :error_occurred
 
-  before_filter :set_variables
+  before_action :set_variables
 
 private
 

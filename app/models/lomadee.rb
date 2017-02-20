@@ -30,9 +30,9 @@ class Lomadee
     url = URI.encode("#{get_path(type)}&page=#{page}&sort=rate&keyword=#{keywords}")
     response = JSON.load(open(url))
 
-    puts "---"
-    puts "--- Acessando #{url}"
-    puts "--- "
+    # puts "---"
+    # puts "--- Acessando #{url}"
+    # puts "--- "
 
     return response
   end

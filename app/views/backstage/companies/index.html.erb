@@ -45,10 +45,9 @@
             <td><%= company.name %></td>
             <td><%= company.description %></td>
             <td>
-              <%= link_to "Editar", [:edit, :backstage, company] %>
-            | <%= link_to "Ver", get_url(company) %>
+              <%= link_to "Administrar", [:backstage, company] %>
             | <%= link_to "Upgrade", new_backstage_subscribe_path, class: "light-green-text text-darken-4" %>
-            | <%= link_to "Avaliações", backstage_company_reviews_path(company), class: "light-green-text text-darken-4" %>
+            | <%= link_to "Mensagens", backstage_company_contacts_path(company), class: "light-green-text text-darken-4" %>
             </td>
           </tr>
 

@@ -3,7 +3,7 @@ module Backstage
     protect_from_forgery with: :exception
     layout 'backstage'
     before_action :authenticate_user!
-    before_filter :set_noindex
+    before_action :set_noindex
 
   private
 
