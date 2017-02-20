@@ -10,7 +10,7 @@
     </div>
     <% unless @subscribe.paid? %>
       <div class="card-action light-green lighten-1">
-          <%= link_to "Efetuar pagamento", "#", class: "btn btn-large light-green darken-3" %>
+          <%= link_to "Efetuar pagamento", @subscribe.payment_link, class: "btn btn-large light-green darken-3" %>
       </div>
     <% end %>
   </div>

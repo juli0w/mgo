@@ -10,6 +10,16 @@ class Subscribe < ApplicationRecord
                  ["Semestral R$ 39,00/mês", "semestral"],
                  ["Anual R$ 29,00/mês", "anual"]]
 
+  LINKS = {
+    "mensal" => "http://pag.ae/blhlcX9",
+    "semestral" => "http://pag.ae/bjhldtc",
+    "anual" => "http://pag.ae/bghldG1"
+  }
+
+  def payment_link
+    LINKS[plan]
+  end
+
   def self.waiting
     where.not(state: 1)
   end
