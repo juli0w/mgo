@@ -31,7 +31,6 @@ Category.where(name: "Boates", code: 'danceclubs', ancestor_id: c.id).first_or_c
 
 c = Category.where(name: "Serviços", code: 'localservices').first_or_create
 Category.where(name: "Costureiras", code: 'sewingalterations', ancestor_id: c.id).first_or_create
-Category.where(name: "Imóveis", code: 'realestate', ancestor_id: c.id).first_or_create
 Category.where(name: "Materiais de construção", code: 'buildingsupplies', ancestor_id: c.id).first_or_create
 
 c = Category.where(name: "Compras", code: 'shopping').first_or_create

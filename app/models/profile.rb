@@ -38,6 +38,10 @@ class Profile < ApplicationRecord
     end
   end
 
+  def show_phone
+    phone.present? ? phone : "Não informado"
+  end
+
   # def city= city
   #   city_id = City.where(name: city).first_or_create.id
   # end

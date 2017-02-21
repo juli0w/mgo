@@ -2,7 +2,7 @@
   <div class="nav-wrapper container">
     <div class="keep-icon-align hide-on-med-and-down">
       <span class="<%= text_color @company %>"><i class="tiny material-icons <%= detail_color @company %>">place</i> <%= @company.profile.formatted_address %></span>
-      <span class="<%= text_color @company %>"><i class="tiny material-icons <%= detail_color @company %>">phone</i> <%= @company.profile.phone %></span>
+      <span class="<%= text_color @company %>"><i class="tiny material-icons <%= detail_color @company %>">phone</i> <%= @company.profile.show_phone %></span>
       <% if @company.profile.mail.present? %>
         <span class="<%= text_color @company %>"><i class="tiny material-icons <%= detail_color @company %>">mail</i> <%= @company.profile.mail %></span>
       <% end %>

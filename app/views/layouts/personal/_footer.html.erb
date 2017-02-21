@@ -5,7 +5,7 @@
         <h5 class="<%= detail_color @company %>">Mais informações</h5>
         <br/>
         <div class="<%= text_color @company %>"><strong>Endereço:</strong><br/> <%= @company.profile.formatted_address %></div><br />
-        <div class="<%= text_color @company %>"><strong>Telefone:</strong><br/> <%= @company.profile.phone %></div><br />
+        <div class="<%= text_color @company %>"><strong>Telefone:</strong><br/> <%= @company.profile.show_phone %></div><br />
         <% if @company.profile.mail.present? %>
           <div class="<%= text_color @company %>"><strong>Email:</strong><br/> <%= @company.profile.mail %></div><br />
         <% end %>
