@@ -2,6 +2,8 @@ class Company < ApplicationRecord
   paginates_per 10
   include SearchCop
 
+  attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
+
   search_scope :search do
     attributes :name, :description
     attributes :categories => ["category.name"]
@@ -11,6 +13,10 @@ class Company < ApplicationRecord
     # options :all, :type => :fulltext, :default => true
   end
 
+  after_update :crop_logo
+  def crop_logo
+    logotipo.recreate_versions! if crop_x.present?
+  end
 
   FORMAT = /([[:lower:]]|[0-9]+-?[[:lower:]])(-[[:lower:]0-9]+|[[:lower:]0-9])*/
 

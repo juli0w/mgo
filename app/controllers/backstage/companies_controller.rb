@@ -39,8 +39,14 @@ module Backstage
       @company = current_user.companies.new(company_params)
 
       if @company.save
-        flash[:success] = "Empresa criada!"
-        redirect_to edit_backstage_company_profile_path(company_id: @company.id)
+        @company.create_profile
+
+        if params[:company][:logotipo].present?
+          render :crop
+        else
+          flash[:success] = "Empresa criada!"
+          redirect_to edit_backstage_company_profile_path(@company)
+        end
       else
         flash.now[:alert] = "Por favor verifique os campos."
         render :new
@@ -52,8 +58,12 @@ module Backstage
 
     def update
       if @company.update(company_params)
-        flash[:success] = "Salvo com sucesso!"
-        redirect_to :back
+        if params[:company][:logotipo].present?
+          render :crop
+        else
+          flash[:success] = "Salvo com sucesso!"
+          redirect_to edit_backstage_company_profile_path(@company)
+        end
       else
         flash.now[:alert] = "Por favor verifique os campos."
         render :edit
@@ -67,7 +77,7 @@ module Backstage
     end
 
     def company_params
-      params.require(:company).permit(:name, :description, :category_id, :logotipo, :slug, :tag_list, :facebook, :twitter, :instagram)
+      params.require(:company).permit(:name, :description, :crop_x, :crop_y, :crop_w, :crop_h, :category_id, :logotipo, :slug, :tag_list, :facebook, :twitter, :instagram)
     end
   end
 end

@@ -1,0 +1,39 @@
+<div id="breadcrumbs-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col s12 m12 l12">
+        <h5 class="breadcrumbs-title">Logotipo - Redimensionar</h5>
+        <ol class="breadcrumbs">
+          <li><%= link_to "Empresas", backstage_companies_path %></li>
+          <li><%= link_to @company.name, [:edit, :backstage, @company] %></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row no-bot-margim">
+    <div class="col s12">
+      <%= image_tag @company.logotipo.large, id: "cropbox" %>
+    </div>
+    <div class="col s12">
+      <h4>Preview</h4>
+
+      <div style="width: 110px; height: 110px; overflow: hidden;">
+        <%= image_tag @company.logotipo.large, id: "preview" %>
+      </div>
+    </div>
+    <div class="col s12">
+      <%= form_for [:backstage, @company] do |f| %>
+        <% %w[x y w h].each do |attribute| %>
+          <%= f.hidden_field "crop_#{attribute}" %>
+        <% end %>
+
+        <div class="row">
+          <%= f.submit "Cortar", class: "btn btn-large" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

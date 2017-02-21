@@ -11,16 +11,32 @@ class LogotipoUploader < CarrierWave::Uploader::Base
     process resize_to_fit: [70, 70]
   end
 
-  version :slider do
-    process resize_to_fit: [nil, 200]
+  version :large do
+    process resize_to_limit: [600, 600]
   end
 
   version :square do
-    process resize_to_limit: [110, 110]
+    process :crop
+    process resize_to_fill: [110, 110]
+  end
+
+  def crop
+    if model.crop_x.present?
+      resize_to_limit(600, 600)
+      manipulate! do |img|
+        x = model.crop_x.to_i
+        y = model.crop_y.to_i
+        w = model.crop_w.to_i
+        h = model.crop_h.to_i
+
+        crop_params="#{w}x#{h}+#{x}+#{y}"
+        img.crop(crop_params)
+        img.strip
+      end
+    end
   end
 
   def extension_whitelist
     %w(jpg jpeg gif png)
   end
-
 end
