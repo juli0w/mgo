@@ -15,7 +15,7 @@ class Yelp
 
   DEFAULT_BUSINESS_ID = "meuguia-joinville"
   DEFAULT_TERM = "balada"
-  DEFAULT_LOCATION = "Joinville SC"
+  DEFAULT_LOCATION = "joinville sc"
   SEARCH_LIMIT = 50
 
   def self.reset!

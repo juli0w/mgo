@@ -41,9 +41,15 @@ Category.where(name: "Shoppings", code: 'shoppingcenters', ancestor_id: c.id).fi
 
 c = Category.where(name: "Vida ativa", code: 'active').first_or_create
 Category.where(name: "Clubes esportivos", code: 'sports_clubs', ancestor_id: c.id).first_or_create
-Category.where(name: "Parques de diversão", code: 'amusementparks').first_or_create
-Category.where(name: "Parques", code: 'parks').first_or_create
-# Category.create(name: "Viagem", code: 'hotelstravel')
+Category.where(name: "Parques de diversão", code: 'amusementparks', ancestor_id: c.id).first_or_create
+Category.where(name: "Parques", code: 'parks', ancestor_id: c.id).first_or_create
+
+c = Category.create(name: "Turismo", code: 'hotelstravel')
+Category.where(name: "Excursões", code: 'tours', ancestor_id: c.id).first_or_create
+Category.where(name: "Hotéis", code: 'hotels', ancestor_id: c.id).first_or_create
+Category.where(name: "Táxis", code: 'taxis', ancestor_id: c.id).first_or_create
+Category.where(name: "Museus", code: 'museums', ancestor_id: c.id).first_or_create
+Category.where(name: "Teatros", code: 'theater', ancestor_id: c.id).first_or_create
 
 Yelp.import!
 
