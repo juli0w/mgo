@@ -4,6 +4,8 @@ class Company < ApplicationRecord
 
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
 
+  scope :premium, -> { where(premium: true) }
+
   search_scope :search do
     attributes :name, :description
     attributes :categories => ["category.name"]
@@ -44,6 +46,15 @@ class Company < ApplicationRecord
                     text_color: "white-text",
                     logo_color: "white-text",
                     description_color: "white-text" }
+
+  def self.by_tag tag
+    companies = Tag.find_by_name(tag).try(:companies)
+    if companies.present?
+      return companies.first(5)
+    else
+      return Company.offset(rand(Company.count)).first(5)
+    end
+  end
 
   def color kind, force=false
     c = profile.send(kind)

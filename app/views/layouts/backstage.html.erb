@@ -27,7 +27,6 @@
 
   <%= stylesheet_link_tag    'backstage/application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'backstage/application', 'data-turbolinks-track': 'reload' %>
-  <%= stylesheet_link_tag 'https://fonts.googleapis.com/icon?family=Material+Icons' %>
 </head>
 
 <body>
@@ -40,15 +39,19 @@
   <%= render "layouts/backstage/header" %>
 
   <div id="main">
-    <div class="wrapper">
+    <div class="row">
 
-      <%= render "layouts/backstage/aside" %>
+      <div class="col s2" style="padding: 0; margin: 0;">
+        <%= render "layouts/backstage/aside" %>
+      </div>
 
-      <section id="content">
+      <div class="col s10" style="padding: 0; margin: 0;">
+        <section id="content">
 
-        <%= yield %>
+          <%= yield %>
 
-      </section>
+        </section>
+    </div>
     </div>
   </div>
 

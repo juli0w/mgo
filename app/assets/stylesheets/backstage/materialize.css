@@ -7748,13 +7748,13 @@ nav .input-field label.active {
 }
 
 .navbar-fixed {
-  position: relative;
+  /*position: relative;*/
   height: 56px;
-  z-index: 998;
+  /*z-index: 998;*/
 }
 
 .navbar-fixed nav {
-  position: fixed;
+  /*position: fixed;*/
 }
 
 @media only screen and (min-width: 601px) {
@@ -9895,17 +9895,17 @@ select {
 }
 
 .side-nav {
-  position: fixed;
-  width: 240px;
-  left: -105%;
-  top: 0;
+  /*position: fixed;*/
+  /*width: 240px;*/
+  /*left: -105%;*/
+  /*top: 0;*/
   margin: 0;
-  height: 100%;
-  height: calc(100% + 60px);
+  /*height: calc(100% + 60px);
   height: -moz-calc(100%);
+  height: auto;*/
   padding-bottom: 60px;
   background-color: #fff;
-  z-index: 999;
+  /*z-index: 999;*/
   overflow-y: auto;
   will-change: left;
 }

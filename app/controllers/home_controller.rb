@@ -3,9 +3,12 @@ class HomeController < ApplicationController
     set_meta_tags title: 'Procurou, achou!',
                   description: 'Página inicial'
 
-    @companies = Company.last(10)
+    @destaque = Company.premium.last(8)
+    @dia = Company.by_tag('day').first(5)
+    @noite = Company.by_tag('night').first(5)
+    @natureza = Company.by_tag('natureza').first(5)
 
-    @offers = Offer.offers
+    # @offers = Offer.offers
     @map = true
   end
 

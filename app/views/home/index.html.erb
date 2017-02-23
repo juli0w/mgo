@@ -3,42 +3,89 @@
 <div class="row no-top-margim no-bot-margim">
   <div class="container">
     <br/>
-    <%= render "layouts/main/last_offers" %>
 
-    <div class="title-wrapper">
-      <div class="title-h5 z-depth-1">Empreendimentos em destaque</div>
-    </div>
+    <div class="row">
+      <div class="title-wrapper center no-border">
+        <div class="title-h5 blue-grey">Confira algumas sugestões</div>
+      </div>
+      <div class="col s12 m4 bg-card praia">
+        <div class="title-wrapper center no-border">
+          <div class="title-h5 z-depth-1 yellow darken-2">Para o dia</div>
+        </div>
 
-    <br />
-    <% if @companies.present? %>
-      <div class="last-companies slick-sliding">
-        <% @companies.each do |company| %>
-        <div class="col">
-          <div class="card">
-            <div class="card-content">
-              <div class="card-title center valign-wrapper" style="height: 110px;">
-                <%= image_tag logotipo_square(company), class: "valign", style: "max-width: 110px; max-height: 110px; margin: 0 auto;" %>
-              </div>
-              <p style="overflow: hidden; max-height: 110px; margin: 15px 0 5px 0;">
-                <%= link_to company.name, get_url(company), class: "grey-text text-darken-4" %>
-              </p>
-              <%= link_to rate_for(company), "/#{company.slug}/review", class: "rating" %>
-              <br />
-              <p>
-                <%= link_to company.category.name, company.category %><br />
-                <%= company.description %>
-              </p>
+        <div class="slick-sliding-individual">
+          <% @dia.each do |company| %>
+            <div class="col">
+              <%= render "companies/company_card", company: company %>
             </div>
-            <div class="card-action">
-              <%= link_to "Visitar", get_url(company), class: 'bolder blue-grey-text', target: "blank" %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="col s12 m4 bg-card balada">
+        <div class="title-wrapper center no-border">
+          <div class="title-h5 z-depth-1 blue darken-4">Para a noite</div>
+        </div>
+
+        <div class="slick-sliding-individual">
+          <% @noite.each do |company| %>
+            <div class="col">
+              <%= render "companies/company_card", company: company %>
             </div>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="col s12 m4 bg-card natureza">
+        <div class="title-wrapper center no-border">
+          <div class="title-h5 z-depth-1 light-green darken-4">Natureza</div>
+        </div>
+
+        <div class="slick-sliding-individual">
+          <% @natureza.each do |company| %>
+            <div class="col">
+              <%= render "companies/company_card", company: company %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      </div>
+      <div class="row">
+        <div class="col s12">
+          <br>
+          <div class="divider" style="margin: 10px 0;"></div>
+        </div>
+
+        <div class="col s12 advantage center-align">
+          <div class="card-panel blue-grey darken-2">
+            <p class="justify white-text" style='font-size: 1.3em;'>
+              Cadastre seu empreendimento no <%= link_to "Meu Guia Online", backstage_companies_path, class: "yellow-text text-accent-2 bolder" %> gratuitamente
+              <br>
+              <br>
+              <%= link_to "Junte-se agora", backstage_companies_path, class: "btn-transparent" %>
+            </p>
           </div>
         </div>
+
+        <div class="col s12">
+          <div class="divider" style="margin: 10px 0;"></div>
+        </div>
+      </div>
+
+
+    <div class="row">
+      <div class="title-wrapper">
+        <div class="title-h5 z-depth-1 blue-grey">Empreendimentos em destaque</div>
+      </div>
+
+      <br />
+      <div class="last-companies slick-sliding">
+        <% @destaque.each do |company| %>
+          <div style="padding: 0 10px;">
+            <%= render "companies/company_card", company: company %>
+          </div>
         <% end %>
       </div>
-      <br />
-    <% else %>
-      <p class="center">Sem resultados, <%= link_to "volte para a página inicial", "/", class: "green-text" %>.</p>
-    <% end %>
+    </div>
   </div>
 </div>

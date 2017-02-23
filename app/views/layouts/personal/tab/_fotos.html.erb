@@ -1,13 +1,14 @@
-<div class="card">
-    <div class="card-image waves-effect waves-block waves-light">
+<!-- <div class="card">
+    <div class="card-image waves-effect waves-block waves-light"> -->
       <div class="row no-top-margim no-bot-margim">
-        <div class="title-wrapper center no-border">
+        <div class="title-wrapper center ">
           <div class="title-h5 <%= primary_color @company %> <%= text_color @company %>"><%= album.name %></div>
-          <p><%= album.description %></p>
+          <p style="padding: 20px 0;"><%= album.description %></p>
         </div>
+        <br>
       </div>
-    </div>
-</div>
+    <!-- </div>
+</div> -->
 
 <div class="row no-top-margim photos">
 <% album.photos.each do |photo| %>

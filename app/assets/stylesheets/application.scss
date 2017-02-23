@@ -15,6 +15,7 @@
  *= require slick
  *= require slick-theme
  *= require slideshow
+ *= require font-awesome
  *= require_self
  */
 
@@ -38,12 +39,64 @@ $link-color: color("indigo", "darken-4") !default;
 
 @import 'materialize';
 
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Material Icons'), local('MaterialIcons-Regular'), url(/fonts/material-icons.woff2) format('woff2');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -moz-font-feature-settings: 'liga';
+  -moz-osx-font-smoothing: grayscale;
+}
+
 html {
   font-family: GillSans, Calibri, Trebuchet, sans-serif;
 }
 
 body {
   background-color: color("grey", "lighten-3");
+}
+
+.bg-card {
+  // border: 1px solid #bababa;
+}
+
+.natureza {
+  background: url(/images/natureza.jpg) no-repeat;
+}
+
+.balada {
+  background: url(/images/balada.jpg) no-repeat;
+}
+
+.praia {
+  background: url(/images/praia.jpg) no-repeat;
+}
+
+.state {
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.btn-transparent {
+  border: 1px solid white; padding: 10px; color: white;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
 }
 
 .field_with_errors input {
