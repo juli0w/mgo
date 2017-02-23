@@ -4,8 +4,8 @@ class HomeController < ApplicationController
                   description: 'Página inicial'
 
     @destaque = Company.premium.last(8)
-    @dia = Company.by_tag('day').first(5)
-    @noite = Company.by_tag('night').first(5)
+    @dia = Company.by_tag('dia').first(5)
+    @noite = Company.by_tag('noite').first(5)
     @natureza = Company.by_tag('natureza').first(5)
 
     # @offers = Offer.offers
