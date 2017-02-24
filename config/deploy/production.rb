@@ -35,6 +35,8 @@ namespace :deploy do
       end
     end
   end
+
+  after "deploy:published", "deploy:sitemap"
 end
 
 # role-based syntax
