@@ -1,6 +1,14 @@
 # config valid only for current version of Capistrano
 lock "3.7.2"
 
+namespace :deploy do
+  desc "Generate sitemap"
+  task :sitemap do
+    run "cd '#{current_path}' && #{rake} custom:sitemap RAILS_ENV=#{rails_env}"
+  end
+end
+
+after 'deploy:update', 'deploy:sitemap'
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
