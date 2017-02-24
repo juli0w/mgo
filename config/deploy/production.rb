@@ -34,14 +34,6 @@ namespace :apache do
   end
 end
 
-namespace :deploy do
-  desc "Generating sitemap"
-  task :sitemap, roles: :web do
-    within release_path do
-      execute :rake, 'custom:sitemap'
-    end
-  end
-end
 
 # role-based syntax
 # ==================
