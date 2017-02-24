@@ -26,7 +26,7 @@ set :linked_files, %w{config/database.yml}
 set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
 
 namespace :deploy do
-  task :sitemap, do
+  task :sitemap do
     on roles(:app) do
       within current_path do
         with rails_env: fetch(:rails_env) do
