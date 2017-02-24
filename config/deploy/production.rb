@@ -25,29 +25,6 @@ set :branch, 'master'
 set :linked_files, %w{config/database.yml}
 set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
 
-namespace :apache do
-  [:stop, :start, :restart, :reload].each do |action|
-    desc "#{action.to_s.capitalize} Apache"
-    task action do
-      on roles(:app) do
-        run "#{sudo} service apache2 #{action.to_s}"
-      end
-    end
-  end
-end
-
-namespace :deploy do
-  desc "Generating sitemap"
-  task :sitemap do
-    on roles(:app) do
-      run "cd #{deploy_to}/current"
-      run "bundle exec rake custom:sitemap RAILS_ENV=#{rails_env}"
-    end
-  end
-
-  # after "deploy:published", "deploy:sitemap"
-  # after "deploy:published", "apache:restart"
-end
 # role-based syntax
 # ==================
 
