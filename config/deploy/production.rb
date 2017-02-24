@@ -25,6 +25,14 @@ set :branch, 'master'
 set :linked_files, %w{config/database.yml}
 set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
 
+namespace :rake do
+  desc "Run a task on a remote server."
+  # run like: cap staging rake:invoke task=a_certain_task
+  task :sitemap do
+    run("cd #{deploy_to}/current; bundle exec rake custom:sitemap RAILS_ENV=#{rails_env}")  
+  end
+end
+
 # role-based syntax
 # ==================
 
