@@ -28,21 +28,17 @@ set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/sys
 namespace :apache do
   [:stop, :start, :restart, :reload].each do |action|
     desc "#{action.to_s.capitalize} Apache"
-    task action do
-      on roles(:app) do
-        run "#{sudo} service apache2 #{action.to_s}"
-      end
+    task action, roles: [:app] do
+      run "#{sudo} service apache2 #{action.to_s}"
     end
   end
 end
 
 namespace :deploy do
   desc "Generating sitemap"
-  task :sitemap do
-    on roles(:app) do
-      run "cd #{deploy_to}/current"
-      run "bundle exec rake custom:sitemap RAILS_ENV=#{rails_env}"
-    end
+  task :sitemap, roles: [:app] do
+    run "cd #{deploy_to}/current"
+    run "bundle exec rake custom:sitemap RAILS_ENV=#{rails_env}"
   end
 
   after "deploy:published", "deploy:sitemap"
