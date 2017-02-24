@@ -28,13 +28,21 @@ set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/sys
 namespace :apache do
   [:stop, :start, :restart, :reload].each do |action|
     desc "#{action.to_s.capitalize} Apache"
-    task action, :roles => :web do
-      invoke_command "/etc/init.d/apache2 #{action.to_s}", :via => run_method
+    task action do
+      run "/etc/init.d/apache2 #{action.to_s}"
     end
   end
 end
 
 
+namespace :deploy do
+  desc "Generating sitemap"
+  task :sitemap do
+    within release_path do
+      execute :rake, 'custom:sitemap'
+    end
+  end
+end
 # role-based syntax
 # ==================
 
