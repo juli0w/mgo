@@ -29,7 +29,9 @@ namespace :apache do
   [:stop, :start, :restart, :reload].each do |action|
     desc "#{action.to_s.capitalize} Apache"
     task action do
-      execute "/etc/init.d/apache2 #{action.to_s}"
+      on roles(:app) do
+        execute :service, "apache2 #{action.to_s}"
+      end
     end
   end
 end
@@ -37,7 +39,9 @@ end
 namespace :deploy do
   desc "Generating sitemap"
   task :sitemap do
-    execute :rake, 'custom:sitemap'
+    on roles(:app) do
+      execute :rake, 'custom:sitemap'
+    end
   end
 end
 # role-based syntax
