@@ -1,3 +1,3 @@
 Disallow: /backstage/*
-Sitemap: https://meuguia.online/sitemap.xml
-Sitemap: https://meuguia.online/sitemap_index.xml
+Sitemap: http://meuguia.online/sitemap.xml
+Sitemap: http://meuguia.online/sitemap_index.xml
