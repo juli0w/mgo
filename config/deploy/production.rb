@@ -30,7 +30,7 @@ namespace :apache do
     desc "#{action.to_s.capitalize} Apache"
     task action do
       on roles(:app) do
-        execute :service, "apache2 #{action.to_s}"
+        run "#{sudo} service apache2 #{action.to_s}"
       end
     end
   end
@@ -40,9 +40,13 @@ namespace :deploy do
   desc "Generating sitemap"
   task :sitemap do
     on roles(:app) do
-      execute :rake, 'custom:sitemap'
+      run "cd #{deploy_to}/current"
+      run "bundle exec rake custom:sitemap RAILS_ENV=#{rails_env}"
     end
   end
+
+  after "deploy:published", "deploy:sitemap"
+  after "deploy:published", "apache:restart"
 end
 # role-based syntax
 # ==================
