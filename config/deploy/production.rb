@@ -45,8 +45,8 @@ namespace :deploy do
     end
   end
 
-  after "deploy:published", "deploy:sitemap"
-  after "deploy:published", "apache:restart"
+  # after "deploy:published", "deploy:sitemap"
+  # after "deploy:published", "apache:restart"
 end
 # role-based syntax
 # ==================
