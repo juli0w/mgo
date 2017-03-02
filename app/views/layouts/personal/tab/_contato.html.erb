@@ -3,19 +3,19 @@
       <div id="map-canvas" data-lat="40.747688" data-lng="-74.004142"></div>
   </div>
   <div class="card-content">
-    <div class="row no-bot-margim">
-      <% if @company.profile.address.present? %>
-      <div class="col s12">
-        <div class="" style="height: 350px;">
-          <iframe
-            width="100%"
-            height="100%"
-            frameborder="0" style="border:0"
-            src="https://www.google.com/maps/embed/v1/search?key=AIzaSyDqdqRUKXGJjNk4vH42SPsWOQMae91Bosw&q=<%= @company.address_code %>&zoom=15" allowfullscreen>
-          </iframe>
+    <% if @company.profile.address.present? %>
+      <div class="row no-bot-margim">
+        <div class="col s12">
+          <div class="" style="height: 350px;">
+            <iframe
+              width="100%"
+              height="100%"
+              frameborder="0" style="border:0"
+              src="https://www.google.com/maps/embed/v1/search?key=AIzaSyDqdqRUKXGJjNk4vH42SPsWOQMae91Bosw&q=<%= @company.address_code %>&zoom=15" allowfullscreen>
+            </iframe>
+          </div>
         </div>
       </div>
-    </div>
     <% end %>
     <div class="col s12">
       <div class="row no-top-margim">

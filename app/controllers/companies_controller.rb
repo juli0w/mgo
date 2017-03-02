@@ -14,7 +14,7 @@ class CompaniesController < ApplicationController
     @page_keywords += ", " + @company.tag_list
 
     set_meta_tags title: @company.description,
-                  description: "Página sobre a empresa #{@company.name}"
+                  description: "Página sobre a empresa #{@company.name}. #{@company.description}"
 
     render layout: 'personal'
   end
