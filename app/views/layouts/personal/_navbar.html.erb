@@ -23,7 +23,7 @@
         <% end %>
       <% end %>
       <li class="divider"></li>
-      <li><%= link_to "<i class='material-icons'>place</i>".html_safe, root_url, class: "tooltipped #{link_color(@company)}", 'data-tooltip': 'Meu Guia' %></li>
+      <li><%= link_to "<i class='material-icons'>place</i>".html_safe, root_url, class: "tooltipped #{link_color(@company)}", 'data-tooltip': 'Weekz' %></li>
       <% if user_signed_in? %>
         <li><%= link_to "<i class='material-icons'>lock_open</i>".html_safe, destroy_user_session_path, class: "tooltipped #{link_color(@company)}", 'data-tooltip': 'Logout', method: :delete %></li>
       <% end %>

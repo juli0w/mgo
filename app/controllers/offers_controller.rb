@@ -1,7 +1,7 @@
 class OffersController < ApplicationController
   def index
     set_meta_tags title: "Ofertas e promoções",
-                  description: 'Ofertas exclusivas para usuários do meu guia'
+                  description: 'Ofertas exclusivas para usuários do weekz'
 
     result = Offer.search(params[:keyword], params[:page])
     @offers = result["offer"] || []
