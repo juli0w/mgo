@@ -9898,12 +9898,13 @@ select {
   /*position: fixed;*/
   /*width: 240px;*/
   /*left: -105%;*/
+  /*width: 220px;*/
   /*top: 0;*/
   margin: 0;
   /*height: calc(100% + 60px);
   height: -moz-calc(100%);
   height: auto;*/
-  padding-bottom: 60px;
+  /*padding-bottom: 60px;*/
   background-color: #fff;
   /*z-index: 999;*/
   overflow-y: auto;

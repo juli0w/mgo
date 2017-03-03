@@ -10,7 +10,6 @@ class OffersController < ApplicationController
       @pages = Kaminari.paginate_array(@offers, total_count: result["totalresultsavailable"]).page(params[:page]).per(20)
     else
       @offers = Offer.offers.first(9)
-      render "noresults"
     end
   end
 end

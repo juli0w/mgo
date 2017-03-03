@@ -1,4 +1,5 @@
 require "rails_helper"
+require 'support/capybara'
 
 feature "Searching" do
   let!(:category) { create(:category, name: "Festas", code: "festas") }
@@ -11,9 +12,9 @@ feature "Searching" do
   end
 
   scenario "by the name" do
-    within("#index-banner") do
+    within(".search-nav") do
       fill_in("key", with: "aaa")
-      click_button("search-button")
+      page.submit(find("#search_form"))
     end
 
     expect(page).to have_content("Você buscou: aaa")
@@ -22,9 +23,9 @@ feature "Searching" do
   end
 
   scenario "by category" do
-    within("#index-banner") do
+    within(".search-nav") do
       fill_in("key", with: category.name)
-      click_button("search-button")
+      page.submit(find("#search_form"))
     end
 
     expect(page).to have_content("Você buscou:")
@@ -35,9 +36,9 @@ feature "Searching" do
 
   scenario "by city" do
     company1.profile.update(city_id: city.id)
-    within("#index-banner") do
+    within(".search-nav") do
       fill_in("key", with: city.name)
-      click_button("search-button")
+      page.submit(find("#search_form"))
     end
 
     expect(page).to have_content("Você buscou: #{city.name}")

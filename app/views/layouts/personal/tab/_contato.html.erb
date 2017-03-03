@@ -4,7 +4,7 @@
   </div>
   <div class="card-content">
     <% if @company.profile.address.present? %>
-      <div class="row no-bot-margim">
+      <div class="row no-bot-margin">
         <div class="col s12">
           <div class="" style="height: 350px;">
             <iframe
@@ -18,7 +18,7 @@
       </div>
     <% end %>
     <div class="col s12">
-      <div class="row no-top-margim">
+      <div class="row no-top-margin">
         <div class="title-wrapper center no-border">
           <div class="title-h5 <%= primary_color @company %> <%= text_color @company %>">Contato</div>
         </div>
@@ -54,7 +54,7 @@
             <%= f.label :subject %>
           </div>
         </div>
-        <div class="row no-bot-margim">
+        <div class="row no-bot-margin">
           <div class="input-field col s12">
             <%= f.text_area :message, class: "materialize-textarea round full-width-input" %>
             <%= f.label :message %>

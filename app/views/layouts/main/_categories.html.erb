@@ -1,33 +1,59 @@
-<nav class="blue-grey darken-2">
+<nav role="navigation" class="first-nav light-blue">
   <div class="nav-wrapper container">
-    <a href="#" data-activates="slide-out" class="button-collapse show-on-large">
-      <i class="material-icons left">menu</i> Categorias
-    </a>
+    <ul>
+      <li><a href="#" data-activates="slide-out" class="open-menu">
+        <i class="material-icons">menu</i></a></li>
+    </ul>
+    <ul class="hide-on-med-and-down">
+      <li><%= link_to root_url do %>
+            Principal
+          <% end %></li>
 
-    <div class="right hide-on-small-and-down">
-      <ul>
-        <li><%= link_to "<i class='material-icons'>place</i>".html_safe, root_url, class: 'tooltipped', 'data-tooltip' => "Página inicial" %></li>
-        <li><%= link_to "<i class='material-icons'>shopping_cart</i>".html_safe, offers_url, class: 'tooltipped', 'data-tooltip' => "Ofertas exclusivas" %></li>
-        <li><%= link_to "<i class='material-icons'>chat_bubble</i>".html_safe, contact_url, class: 'tooltipped', 'data-tooltip' => "Contato" %></li>
-      </ul>
-    </div>
-    <ul class="side-nav" id="slide-out">
-      <li>
-        <ul class="collapsible">
-        <% @categories.each do |category| %>
-          <li class="main-category">
-            <div class="collapsible-header truncate"><%= category.name %></div>
-            <div class="collapsible-body">
-              <ul>
-                <% category.children.each do |child| %>
-                  <li><%= link_to child.name, child, class: "truncate" %></li>
-                <% end %>
-              </ul>
-            </div>
-          </li>
-        <% end %>
-        </ul>
-      </li>
+      <li><%= link_to offers_url do %>
+            Ofertas
+          <% end %></li>
+
+      <li><%= link_to contact_url do %>
+            Contato
+          <% end %></li>
     </ul>
   </div>
 </nav>
+
+<ul class="side-nav" id="slide-out">
+  <li clas="user-details">
+    <%= render "layouts/main/side-header" %>
+  </li>
+  <li class="sideside"><%= link_to root_url do %>
+        Principal
+      <% end %></li>
+
+  <li class="sideside"><%= link_to offers_url do %>
+        Ofertas
+      <% end %></li>
+
+  <li class="sideside"><%= link_to contact_url do %>
+        Contato
+      <% end %></li>
+  <li class="center header">Categorias</li>
+  <li>
+    <ul class="collapsible">
+      <% @categories.each do |category| %>
+        <li class="main-category">
+          <div class="collapsible-header truncate"><i class="material-icons amber-text">place</i> <%= category.name %></div>
+          <div class="collapsible-body">
+            <ul>
+              <% category.children.each do |child| %>
+                <% next if child.companies.count <= 0 %>
+                <li><%= link_to child, class: "truncate" do %>
+                    <%= child.name %> <span class="badge white-text light-blue"><%= child.companies.count %></span>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </li>
+</ul>

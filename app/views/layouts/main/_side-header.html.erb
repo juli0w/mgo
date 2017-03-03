@@ -1,0 +1,23 @@
+<div class="col s12 center light-blue darken-2 white-text">
+    <img src="/images/avatar.png" alt="" class="circle responsive-img profile-image">
+    <% if user_signed_in? %>
+      <p class="user-roal">
+        Bem vindo<br>
+        <%= current_user.email %><br>
+        <%= current_user.role %></p>
+        <%= link_to backstage_dashboard_path, class: "white-text" do %>
+          <i class="fa fa-gear" aria-hidden="true"></i> Painel
+        <% end %>
+        <%= link_to destroy_user_session_path, method: :delete, class: "white-text" do %>
+          <i class="fa fa-power-off" aria-hidden="true"></i> Sair
+        <% end %>
+    <% else %>
+      <%= link_to new_user_session_path, class: "white-text" do %>
+        <i class="fa fa-key" aria-hidden="true"></i> Entrar
+      <% end %>
+      <%= link_to new_user_registration_path, class: "white-text" do %>
+        <i class="fa fa-user" aria-hidden="true"></i> Registrar
+      <% end %>
+    <% end %>
+    <div class="divider"></div>
+</div>

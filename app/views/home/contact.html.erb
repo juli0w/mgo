@@ -1,12 +1,9 @@
-<div class="container">
-  <div class="row">
-    <div class="title-wrapper center no-border">
-      <div class="title-h5 z-depth-1">Contato</div>
-    </div>
-  </div>
+<div class="container margin-top">
   <div id="contact-page" class="card">
     <div class="card-content">
-      <div class="row no-bot-margim">
+      <div class="row no-bot-margin">
+        <h5 class="title center"><i class="title-fa amber-text fa fa-envelope-o" aria-hidden="true"></i>Contato</h5>
+        <p class="center grey-text text-darken-3">Deixe-nos uma mensagem!</p>
         <%= form_for @contact do |f| %>
 
             <% @contact.errors.full_messages.each do |msg| %>

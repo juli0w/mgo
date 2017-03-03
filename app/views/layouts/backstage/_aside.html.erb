@@ -1,23 +1,16 @@
 <aside>
   <ul class="side-nav leftside-navigation">
-      <li class="user-details blue-grey darken-2">
+      <li style="padding-top: 10px;">
       <div class="row">
-          <div class="col col s4 m4 l4">
-              <img src="/images/user.png" alt="" class="circle responsive-img valign profile-image">
-          </div>
-          <div class="col col s8 m8 l8">
-              <ul id="profile-dropdown" class="dropdown-content">
-                  <li>
-                    <%= link_to destroy_user_session_path, method: :delete do %>
-                      <i class="mdi-hardware-keyboard-tab"></i> Logout
-                    <% end %>
-                  </li>
-              </ul>
-              <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" href="#" data-activates="profile-dropdown">
-                <%= current_user.email %><i class="mdi-navigation-arrow-drop-down right"></i>
-              </a>
-              <p class="user-roal"><%= current_user.role %></p>
-          </div>
+        <div class="col s12 center grey-text text-darken-3">
+            <img src="/images/avatar.png" alt="" class="circle responsive-img profile-image">
+            <p style="line-height: 1.66em; margin-top: 0;">
+              Bem vindo<br>
+              <%= current_user.email %><br>
+              <%= current_user.role %></p>
+            <div class="divider"></div>
+        </div>
+
       </div>
       </li>
       <li class="bold">
@@ -63,5 +56,4 @@
         </li>
       <% end %>
   </ul>
-  <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only cyan"><i class="mdi-navigation-menu"></i></a>
-  </aside>
+</aside>

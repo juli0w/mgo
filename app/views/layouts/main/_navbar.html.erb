@@ -1,41 +1,20 @@
-<nav role="navigation" class="blue-grey darken-4">
+<nav role="navigation" class="main-nav">
   <div class="nav-wrapper container">
-    <%= link_to "<h1 class='logo'><i class='material-icons'>cloud</i>Weekz  </h1>".html_safe, '/', id: 'logo-container', class: 'brand-logo' %>
-    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-    <ul class="right hide-on-med-and-down">
+    <h1 class="brand-logo weekz">Weekz</h1>
+    <div class="sub-menu right hide-on-small-only">
       <% unless user_signed_in? %>
-        <li>
-          <%= link_to 'Login', new_user_session_path %>
-        </li>
-        <li>
-         <%= link_to 'Registrar', new_user_registration_path %>
-       </li>
-       <% else %>
-         <li>
-           <%= link_to 'Painel', backstage_dashboard_path %>
-         </li>
-         <li>
-           <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-         </li>
+        <%= link_to new_user_session_path do %>
+          <i class="fa fa-key" aria-hidden="true"></i> Entrar
+        <% end %> ou
+        <%= link_to new_user_registration_path do %>
+          <i class="fa fa-user" aria-hidden="true"></i> Registrar
+        <% end %>
+      <% else %>
+        <%= link_to backstage_dashboard_path do %>
+          <i class="fa fa-gear" aria-hidden="true"></i> Painel
+        <% end %> |
+        <%= link_to 'Sair', destroy_user_session_path, method: :delete %>
       <% end %>
-    </ul>
-
-    <ul class="side-nav" id="mobile-demo">
-      <% unless user_signed_in? %>
-        <li>
-          <%= link_to 'Login', new_user_session_path %>
-        </li>
-        <li>
-         <%= link_to 'Registrar', new_user_registration_path %>
-       </li>
-       <% else %>
-         <li>
-           <%= link_to 'Painel', backstage_dashboard_path %>
-         </li>
-         <li>
-           <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-         </li>
-      <% end %>
-    </ul>
+    </div>
   </div>
 </nav>

@@ -1,0 +1,109 @@
+.main-nav {
+  height: 50px;
+  line-height: 50px;
+}
+.nav-opacity {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+nav .nav-wrapper .sub-menu i {
+  line-height: 20px;
+}
+
+.sub-menu {
+  // padding: 5px;
+  // height: 30px;
+  // margin-top: 5px;
+  a {
+    line-height: 30px !important;
+    padding: 0 5px;
+
+    &:hover {
+      color: #ffc107;
+    }
+  }
+}
+.discover {
+  font-size: 2.2em;
+  text-shadow: #BDBDBD 1px 1px;
+}
+.search-nav .input-field {
+  margin-bottom: 20px;
+}
+
+.search-nav {
+  margin-top: 40px;
+  box-shadow: none;
+  border: 1px solid #BDBDBD;
+
+  .input-field label.active i {
+    color: #BDBDBD;
+  }
+}
+.main-categories > span {
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+.main-categories a {
+  padding: 0 10px;
+
+  &:hover {
+    text-shadow: #BDBDBD 1px 1px;
+    color: #ffc107;
+  }
+}
+.main-categories .fa, .sub-menu .fa {
+  margin-right: 5px;
+  font-size: 1em;
+  height: auto !important;
+  line-height: auto !important;
+}
+.search-section {
+  input[type=search] {
+    color: #767676;
+  }
+
+  padding: 80px 0 120px 0;
+  background: url(/images/cover.jpg) no-repeat;
+  background-size: cover;
+  // border-bottom: 1px solid #BDBDBD;
+}
+
+.search-section.row {
+  // margin-bottom: 0 !important;
+}
+
+.search-section h5 {
+  font-weight: bold;
+}
+
+.search-section {
+  ::-webkit-input-placeholder {
+      color: #aeaeae;
+      opacity: 1 !important; /* for older chrome versions. may no longer apply. */
+  }
+
+  :-moz-placeholder { /* Firefox 18- */
+      color: #aeaeae;
+      opacity: 1 !important;
+  }
+
+  ::-moz-placeholder {  /* Firefox 19+ */
+      color: #aeaeae;
+      opacity: 1 !important;
+  }
+
+  :-ms-input-placeholder {
+     color: #aeaeae;
+  }
+}
+// .search-section .bg-transparent {
+//   padding: 20px 20px;
+//   background-color: rgba(255, 255, 255, 0.07);
+//   border-radius: 8px;
+// }
+
+// .background-map  {
+//   background-color: color("blue-grey", "darken-4");
+//   background-image: url(/images/bg-map.png);
+// }

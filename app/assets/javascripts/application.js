@@ -25,6 +25,7 @@ $(document).ready(function(){
   $( ".tabs" ).tabs();
   $('select').material_select();
   $(".button-collapse").sideNav();
+  $(".open-menu").sideNav();
   $('.collapsible').collapsible();
   // $('.carousel').carousel({dist: 0, padding: 50, indicators: false});
 
@@ -56,23 +57,16 @@ $(document).ready(function(){
 
   $('.slick-sliding').slick({
     infinite: true,
-    slidesToShow: 4,
-    slidesToScroll: 4,
+    slidesToShow: 3,
+    slidesToScroll: 3,
     responsive: [
     {
       breakpoint: 1024,
       settings: {
-        slidesToShow: 4,
-        slidesToScroll: 4,
+        slidesToShow: 3,
+        slidesToScroll: 3,
         infinite: true,
         dots: true
-      }
-    },
-    {
-      breakpoint: 900,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 3
       }
     },
     {

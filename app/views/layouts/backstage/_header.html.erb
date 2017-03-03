@@ -8,8 +8,13 @@
                   </a> -->
                   </li>
                   <li>
+                    <%= link_to root_path do %>
+                      <i class="material-icons">place</i>
+                    <% end %>
+                  </li>
+                  <li>
                     <%= link_to destroy_user_session_path, method: :delete do %>
-                      <i class="mdi-hardware-keyboard-tab"></i>
+                      <i class="material-icons">lock_open</i>
                     <% end %>
                   </li>
               </ul>

@@ -17,7 +17,7 @@ class LogotipoUploader < CarrierWave::Uploader::Base
 
   version :square do
     process :crop
-    process resize_to_fill: [110, 110]
+    process resize_to_fill: [280, 280]
   end
 
   def crop

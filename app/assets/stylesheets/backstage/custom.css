@@ -30,10 +30,10 @@ h1.logo-wrapper {
 	display: block;
 	padding: 10px;
 }
-.no-bot-margim {
+.no-bot-margin {
   margin-bottom: 0;
 }
-.no-top-margim {
+.no-top-margin {
   margin-top: 0;
 }
 

@@ -1,0 +1,54 @@
+// ul.side-nav li.user-details {
+//   background: url("/images/user-bg.jpg") no-repeat center center;
+//   -webkit-background-size: cover;
+//   -moz-background-size: cover;
+//   -o-background-size: cover;
+//   background-size: cover;
+//   margin-bottom: 15px;
+//   padding: 15px 0 0 15px;
+// }
+//
+// ul.side-nav li.user-details #profile-dropdown a {
+//   padding: 8px 15px;
+// }
+//
+// ul.side-nav .profile-btn {
+//   margin: 0;
+//   text-transform: capitalize;
+//   padding: 0;
+//   text-shadow: 1px 1px 1px #444;
+//   font-size: 15px;
+// }
+
+.profile-image {
+  width: 100px;
+  height: 100px;
+  margin-top: 20px;
+}
+.sideside {
+  display: inline-block;
+  a {
+    padding-left: 21px !important;
+    padding-right: 21px !important;
+    border-bottom: 1px solid #bdbdbd;
+    margin-bottom: 10px;
+  }
+}
+.side-nav {
+  .fa {
+    margin-right: 5px;
+  }
+  background-color: color("white", "base");
+  p {
+    line-height: 25px;
+  }
+  a, .collapsible-header { color: #212121; }
+
+  .collapsible-body {
+    background-color: color("white", "lighten-2");
+  }
+
+  .header {
+    font-size: 1.2em;
+  }
+}

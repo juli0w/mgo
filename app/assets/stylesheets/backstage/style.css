@@ -608,6 +608,10 @@ ul.side-nav.leftside-navigation hr {
   padding: 0;
 }
 
+ul.side-nav.leftside-navigation li img {
+  max-width: 120px;
+  max-height: 120px;
+}
 ul.side-nav.leftside-navigation li {
   line-height: 44px;
 }
@@ -623,16 +627,6 @@ ul.side-nav.leftside-navigation li.active {
 ul.side-nav.leftside-navigation li a {
   font-size: 14px;
   font-weight: 400;
-}
-
-ul.side-nav.leftside-navigation li.user-details {
-  background: url("/images/user-bg.jpg") no-repeat center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  margin-bottom: 15px;
-  padding: 15px 0 0 15px;
 }
 
 ul.side-nav.leftside-navigation li.user-details #profile-dropdown a {
@@ -791,7 +785,8 @@ ul.side-nav .collapsible-header {
     Breadcrumb
 ------------------------------------------*/
 #breadcrumbs-wrapper {
-  background: #f3f3f3;
+  /*background: #f3f3f3;*/
+  border-bottom: 1px solid #DEDEDE;
 }
 
 h5.breadcrumbs-header {
