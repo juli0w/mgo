@@ -7818,6 +7818,11 @@ nav .input-field label.active {
   font-weight: 300;
 }
 
+h4.card-title {
+  line-height: 1.1em !important;
+  padding: 10px 0;
+}
+
 .card .card-title.activator {
   cursor: pointer;
 }

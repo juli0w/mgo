@@ -1,3 +1,3 @@
 class City < ApplicationRecord
-  has_many :profiles
+  has_many :companies
 end

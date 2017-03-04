@@ -11,8 +11,6 @@ class Company < ApplicationRecord
     attributes :categories => ["category.name"]
     attributes :cities => ["city.name"]
     attributes :tags => ["tags.name"]
-
-    # options :all, :type => :fulltext, :default => true
   end
 
   after_update :crop_logo
@@ -31,8 +29,9 @@ class Company < ApplicationRecord
 
   belongs_to :user, optional: true
   belongs_to :category
+  belongs_to :city, optional: true
+  belongs_to :uf, optional: true
   has_one :profile
-  has_one :city, through: :profile
   has_many :albums
   has_many :reviews
   has_many :taggings
@@ -95,7 +94,19 @@ class Company < ApplicationRecord
   mount_uploader :logotipo, LogotipoUploader
 
   def city_uf
-    "#{profile.city.try(:name)}/#{profile.uf.try(:name)}" if profile.city and profile.uf
+    "#{city.try(:name)}/#{uf.try(:name)}" if city and uf
+  end
+
+  def formatted_address
+    if self.city and self.uf
+      return "#{self.address} - #{self.city.name.humanize}/#{self.uf.name.upcase}"
+    else
+      return self.address
+    end
+  end
+
+  def show_phone
+    phone.present? ? phone : "Não informado"
   end
 
   def cover
@@ -112,20 +123,6 @@ class Company < ApplicationRecord
   end
 
   def address_code
-    return nil if profile.nil?
-    faddress = profile.formatted_address
-    faddress.gsub(' ', '+') if faddress
+    formatted_address.gsub(' ', '+') if self.address.present?
   end
-
-  # def self.search params
-  #   if params[:key].blank?
-  #     self.all
-  #   else
-  #     self.left_outer_joins(:profile).
-  #             where('profiles.address LIKE :key
-  #                    or name LIKE :key
-  #                    or description LIKE :key',
-  #                   key: "%#{params[:key]}%")
-  #   end
-  # end
 end

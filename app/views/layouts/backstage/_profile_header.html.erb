@@ -2,14 +2,14 @@
     <div class="card-image waves-effect waves-block waves-light">
       <%= image_tag @company.cover, alt: "company cover", class:"activator" %>
     </div>
-    <div class="card-content <%= primary_color(@company, true) %>" style="padding-bottom: 0; padding-right: 0;">
+    <div class="card-content <%= primary_color(@company, true, true) %>" style="padding-bottom: 0; padding-right: 0;">
       <div class="row" style="padding-bottom: 0;">
-        <div class="col s6 l2">
+        <div class="col s5 m3 l2">
           <span class="card-profile-image valign-wrapper">
             <%= image_tag logotipo_square(@company), alt: "company logotipo", class: "valign z-depth-2 activator responsive-img white" %>
           </span>
         </div>
-        <div class="col s6 l3">
+        <div class="col s7 m9 l3">
           <h4 class="card-title <%= logo_color(@company, false, true) %>">
             <strong>
               <%= @company.name %>
@@ -17,52 +17,48 @@
           </h4>
           <p class="medium-small <%= text_color(@company, false, true) %>"><%= @company.category.name %></p>
         </div>
+      </div>
+    </div>
 
-        <div class="col s12 l7 profile-menu">
-          <ul>
+    <nav class="<%= primary_color(@company, true, true) %>">
+      <div class="nav-wrapper">
+        <ul>
           <li class="center-align right">
             <%= link_to backstage_company_contacts_path(@company), class: link_color(@company, false, true) do %>
-              <span class="card-title <%= detail_color(@company, false, true) %>"><i class="material-icons">mail</i></span>
-              <p class="medium-small <%= link_color(@company, false, true) %>">Mensagens</p>
+              <i class="material-icons left">mail</i> Mensagens
             <% end %>
           </li>
 
           <li class="center-align right">
             <%= link_to backstage_company_albums_path(@company), class: link_color(@company, false, true) do %>
-              <span class="card-title <%= detail_color(@company, false, true) %>"><i class="material-icons">perm_media</i></span>
-              <p class="medium-small <%= link_color(@company, false, true) %>">Álbuns</p>
+              <i class="material-icons left">perm_media</i> Álbuns
             <% end %>
           </li>
 
           <li class="center-align right">
             <%= link_to edit_backstage_company_path(@company), class: link_color(@company, false, true) do %>
-              <span class="card-title <%= detail_color(@company, false, true) %>"><i class="material-icons">edit</i></span>
-              <p class="medium-small <%= link_color(@company, false, true) %>">Editar dados</p>
+              <i class="material-icons left">edit</i> Editar dados
             <% end %>
           </li>
 
           <li class="center-align right">
             <%= link_to backstage_company_profile_path(@company), class: link_color(@company, false, true) do %>
-              <span class="card-title <%= detail_color(@company, false, true) %>"><i class="material-icons">assignment</i></span>
-              <p class="medium-small <%= link_color(@company, false, true) %>">Editar perfil</p>
+              <i class="material-icons left">assignment</i> Editar perfil
             <% end %>
           </li>
 
           <li class="center-align right">
             <%= link_to backstage_company_path(@company), class: link_color(@company, false, true) do %>
-              <span class="card-title <%= detail_color(@company, false, true) %>"><i class="material-icons">person_pin</i></span>
-              <p class="medium-small <%= link_color(@company, false, true) %>">Ver perfil</p>
+              <i class="material-icons left">person_pin</i> Ver perfil
             <% end %>
           </li>
 
           <li class="center-align right">
             <%= link_to backstage_company_reviews_path(@company), class: link_color(@company, false, true) do %>
-              <span class="card-title <%= detail_color(@company, false, true) %>"><i class="material-icons">star</i></span>
-              <p class="medium-small <%= link_color(@company, false, true) %>">Avaliações</p>
+              <i class="material-icons left">star</i> Avaliações
             <% end %>
           </li>
-          </ul>
-        </div>
+        </ul>
       </div>
-    </div>
+    </nav>
 </div>

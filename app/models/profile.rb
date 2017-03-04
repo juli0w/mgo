@@ -1,9 +1,5 @@
 class Profile < ApplicationRecord
   belongs_to :company
-  belongs_to :city, optional: true
-  belongs_to :uf, optional: true
-
-  # validates :address, presence: true
 
   COLORS = ['red', 'pink', 'purple', 'blue', 'teal', 'green',
             'light-green', 'lime', 'yellow', 'amber', 'blue-grey']
@@ -29,20 +25,4 @@ class Profile < ApplicationRecord
 
     colors
   end
-
-  def formatted_address
-    if self.city and self.uf
-      return "#{self.address} - #{self.city.name.humanize}/#{self.uf.name.upcase}"
-    else
-      return self.address
-    end
-  end
-
-  def show_phone
-    phone.present? ? phone : "Não informado"
-  end
-
-  # def city= city
-  #   city_id = City.where(name: city).first_or_create.id
-  # end
 end

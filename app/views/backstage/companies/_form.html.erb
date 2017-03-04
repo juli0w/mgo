@@ -1,12 +1,11 @@
 <%= form_for [:backstage, @company], html: { multipart: true }  do |f| %>
   <div class="row">
-    <div class="input-field col s12">
+    <div class="input-field col s6">
       <%= f.text_field :name, required: true, maxlength: 220 %>
       <%= f.label :name %>
     </div>
-  </div>
-  <div class="row">
-    <div class="input-field col s12">
+
+    <div class="input-field col s6">
       <%= f.text_field :slug, required: true, maxlength: 220 %>
       <%= f.label :slug %>
     </div>
@@ -18,17 +17,44 @@
     </div>
   </div>
   <div class="row">
-    <div class="input-field col s12">
+    <div class="input-field col s6">
       <%= f.collection_select :category_id, Category.except_root, :id, :name, prompt: false %>
       <%= f.label :category_id %>
     </div>
-  </div>
-  <div class="row">
-    <div class="input-field col s12">
+
+    <div class="input-field col s6">
       <%= f.text_field :tag_list, maxlength: 80 %>
       <%= f.label :tag_list %>
     </div>
   </div>
+
+  <div class="row">
+    <div class="input-field col s6">
+      <%= f.text_field :phone, maxlength: 220 %>
+      <%= f.label :phone %>
+    </div>
+    <div class="input-field col s6">
+      <%= f.text_field :mail, maxlength: 220 %>
+      <%= f.label :mail %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s8">
+      <%= f.collection_select :city_id, City.all, :id, :name, prompt: false, required: true %>
+      <%= f.label :city_id %>
+    </div>
+    <div class="input-field col s4">
+      <%= f.collection_select :uf_id, Uf.all, :id, :name, prompt: false, required: true %>
+      <%= f.label :uf_id %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s12">
+      <%= f.text_field :address, required: false, maxlength: 220 %>
+      <%= f.label :address %>
+    </div>
+  </div>
+
   <div class="row">
     <div class="input-field col s12 m4">
       <%= f.text_field :instagram, maxlength: 20 %>

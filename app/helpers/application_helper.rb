@@ -14,6 +14,11 @@ module ApplicationHelper
     }[title.to_sym] || title.to_s
   end
 
+  def color_sample input, company, text=false, force=true
+    color = send(input, company, text, true)
+    content_tag :span, "", class: "color-sample open-color-group #{color}", input: input
+  end
+
   def slider company
     return "" unless company.logotipo
     company.logotipo.try(:slider).try(:url) || ""
@@ -21,12 +26,12 @@ module ApplicationHelper
 
   def logotipo company
     return "/images/sem-imagem.png" unless company.logotipo.thumb
-    company.logotipo.thumb.try(:url) || "/images/sem-imagem.png"
+    company.logotipo.thumb.try(:url) || "/images/no-image.gif"
   end
 
   def logotipo_square company
     return "/images/sem-imagem.png" unless company.logotipo.square
-    company.logotipo.square.try(:url) || "/images/sem-imagem.png"
+    company.logotipo.square.try(:url) || "/images/no-image.gif"
   end
 
   def tag_cloud(tags, classes)
@@ -50,16 +55,12 @@ module ApplicationHelper
     return content.html_safe
   end
 
-  def primary_color company, force=false
-    company.color(:primary_color, force)
-  end
-
-  [:detail_color, :link_color, :text_color,
+  [:primary_color, :detail_color, :link_color, :text_color,
    :logo_color, :description_color].each do |method|
-     define_method(method) do |company, bg=false, force=false|
+     define_method(method) do |company, text=false, force=false|
        color = company.color(method, force)
 
-       return color.gsub("-text", "").gsub("text", "") if bg
+       return color.gsub("-text", "").gsub("text-", "") if text
        return color
      end
   end

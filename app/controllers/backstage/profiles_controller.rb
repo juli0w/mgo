@@ -22,8 +22,7 @@ module Backstage
 
     def profile_params
       params.require(:profile).permit(:institutional,
-        :phone, :mail, :city_id, :uf_id, :address, :primary_color,
-        :detail_color, :text_color, :link_color, :logo_color, :description_color, :cover)
+        :primary_color, :detail_color, :text_color, :link_color, :logo_color, :description_color, :cover)
     end
   end
 end

@@ -4,10 +4,10 @@
       <div class="col s12 m4 keep-icon-align">
         <h5 class="<%= detail_color @company %>">Mais informações</h5>
         <br/>
-        <div class="<%= text_color @company %>"><strong>Endereço:</strong><br/> <%= @company.profile.formatted_address %></div><br />
-        <div class="<%= text_color @company %>"><strong>Telefone:</strong><br/> <%= @company.profile.show_phone %></div><br />
-        <% if @company.profile.mail.present? %>
-          <div class="<%= text_color @company %>"><strong>Email:</strong><br/> <%= @company.profile.mail %></div><br />
+        <div class="<%= text_color @company %>"><strong>Endereço:</strong><br/> <%= @company.formatted_address %></div><br />
+        <div class="<%= text_color @company %>"><strong>Telefone:</strong><br/> <%= @company.show_phone %></div><br />
+        <% if @company.mail.present? %>
+          <div class="<%= text_color @company %>"><strong>Email:</strong><br/> <%= @company.mail %></div><br />
         <% end %>
       </div>
       <% if @company.tags.any? %>

@@ -43,19 +43,6 @@ h1.logo-wrapper {
 .no-bot-padding {
   padding-bottom: 0;
 }
-.color-wrapper span {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  left: 10px;
-  top: -18px;
-  border: 1px dotted #dedede;
-}
-
-label.open-color-group {
-  padding-left: 28px;
-}
 
 .mss-logo{
 height: 33px !important;

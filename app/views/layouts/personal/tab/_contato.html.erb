@@ -3,7 +3,7 @@
       <div id="map-canvas" data-lat="40.747688" data-lng="-74.004142"></div>
   </div>
   <div class="card-content">
-    <% if @company.profile.address.present? %>
+    <% if @company.address.present? %>
       <div class="row no-bot-margin">
         <div class="col s12">
           <div class="" style="height: 350px;">
@@ -60,7 +60,7 @@
             <%= f.label :message %>
           </div>
           <div class="input-field col s12">
-            <%= f.hidden_field :destination, value: @company.profile.mail %>
+            <%= f.hidden_field :destination, value: @company.mail %>
             <%= f.hidden_field :company_id, value: @company.id %>
             <%= f.button type: "submit", name: "action", class: "btn cyan waves-effect waves-light btn-large right" do %>
               <i class="material-icons right">send</i> Enviar

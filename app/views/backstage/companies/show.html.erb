@@ -4,36 +4,36 @@
     <%= render "layouts/backstage/profile_header" %>
 
     <div class="col s12 m4">
-      <div class="card <%= primary_color(@company) %>">
+      <div class="card <%= primary_color(@company, true, true) %>">
         <div class="card-content white-text">
-          <span class="card-title <%= description_color(@company) %>">Descrição</span>
+          <span class="card-title <%= description_color(@company, false, true) %>">Descrição</span>
           <p><%= @company.description %></p>
         </div>
       </div>
 
       <ul id="profile-page-about-details" class="collection z-depth-1">
-        <li class="collection-item <%= primary_color(@company) %>">
+        <li class="collection-item <%= primary_color(@company, true, true) %>">
           <div class="row">
-            <div class="col s5 <%= detail_color(@company) %>"><i class="tiny material-icons">message</i> Email</div>
-            <div class="col s7 <%= text_color(@company) %> truncate right-align"><%= @company.profile.mail %></div>
+            <div class="col s5 <%= detail_color(@company, false, true) %>"><i class="tiny material-icons">message</i> Email</div>
+            <div class="col s7 <%= text_color(@company, false, true) %> truncate right-align"><%= @company.mail %></div>
           </div>
         </li>
-        <li class="collection-item <%= primary_color(@company) %>">
+        <li class="collection-item <%= primary_color(@company, true, true) %>">
           <div class="row">
-            <div class="col s5 <%= detail_color(@company) %>"><i class="tiny material-icons">phone</i> Telefone</div>
-            <div class="col s7 <%= text_color(@company) %> right-align"><%= @company.profile.phone %></div>
+            <div class="col s5 <%= detail_color(@company, false, true) %>"><i class="tiny material-icons">phone</i> Telefone</div>
+            <div class="col s7 <%= text_color(@company, false, true) %> right-align"><%= @company.phone %></div>
           </div>
         </li>
-        <li class="collection-item <%= primary_color(@company) %>">
+        <li class="collection-item <%= primary_color(@company, true, true) %>">
           <div class="row">
-            <div class="col s5 <%= detail_color(@company) %>"><i class="mdi-social-cake"></i> Cadastro</div>
-            <div class="col s7 <%= text_color(@company) %> right-align"><%= l @company.created_at.to_date %></div>
+            <div class="col s5 <%= detail_color(@company, false, true) %>"><i class="mdi-social-cake"></i> Cadastro</div>
+            <div class="col s7 <%= text_color(@company, false, true) %> right-align"><%= l @company.created_at.to_date %></div>
           </div>
         </li>
       </ul>
 
       <div class="map-card">
-          <div class="card <%= primary_color(@company) %>">
+          <div class="card <%= primary_color(@company, true, true) %>">
               <div class="card-image waves-effect waves-block waves-light">
                 <iframe
                   width="100%"
@@ -43,8 +43,8 @@
                 </iframe>
               </div>
               <div class="card-content">
-                <span class="card-title <%= text_color(@company) %>">
-                  <%= @company.profile.formatted_address %>
+                <span class="card-title <%= text_color(@company, false, true) %>">
+                  <%= @company.formatted_address %>
                 </span>
               </div>
           </div>
@@ -53,7 +53,7 @@
 
     <div class="col s12 m8">
       <div class="card-panel">
-        <div class="<%= text_color(@company) %>"><%= raw @company.profile.institutional %></div>
+        <div class="<%= text_color(@company, false, true) %>"><%= raw @company.profile.institutional %></div>
       </div>
     </div>
   </div>

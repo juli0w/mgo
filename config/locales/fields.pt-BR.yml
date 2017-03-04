@@ -20,13 +20,13 @@ pt-BR:
         tag_list: Tags
         photos: Fotos
         category_id: Categoria
-      profile:
-        institutional: Institucional
         phone: Telefone
         mail: Email
         uf_id: Estado
         city_id: Cidade
         address: Endereço
+      profile:
+        institutional: Institucional
         primary_color: Cor principal
         detail_color: Cor dos detalhes
         link_color: Cor dos links

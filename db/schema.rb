@@ -10,9 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170220121600) do
+ActiveRecord::Schema.define(version: 20170303195450) do
 
   create_table "albums", force: :cascade do |t|
+    t.         "photos"
     t.integer  "company_id"
     t.string   "description"
     t.string   "name"
@@ -42,6 +43,7 @@ ActiveRecord::Schema.define(version: 20170220121600) do
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.string   "logotipo"
+    t.         "photos"
     t.string   "slug"
     t.string   "facebook"
     t.string   "instagram"
@@ -51,6 +53,11 @@ ActiveRecord::Schema.define(version: 20170220121600) do
     t.string   "lat"
     t.string   "lng"
     t.boolean  "premium",     default: false
+    t.string   "phone"
+    t.string   "mail"
+    t.integer  "city_id"
+    t.integer  "uf_id"
+    t.string   "address"
     t.index ["category_id"], name: "index_companies_on_category_id"
     t.index ["slug"], name: "index_companies_on_slug", unique: true
   end
@@ -102,9 +109,6 @@ ActiveRecord::Schema.define(version: 20170220121600) do
   create_table "profiles", force: :cascade do |t|
     t.integer  "company_id"
     t.text     "institutional"
-    t.string   "phone"
-    t.string   "mail"
-    t.string   "address"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.string   "primary_color"
@@ -114,8 +118,6 @@ ActiveRecord::Schema.define(version: 20170220121600) do
     t.string   "logo_color"
     t.string   "description_color"
     t.string   "cover"
-    t.integer  "city_id"
-    t.integer  "uf_id"
     t.index ["company_id"], name: "index_profiles_on_company_id"
   end
 
@@ -133,11 +135,11 @@ ActiveRecord::Schema.define(version: 20170220121600) do
   create_table "subscribes", force: :cascade do |t|
     t.string   "phone"
     t.string   "plan"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.integer  "user_id"
     t.integer  "company_id"
-    t.integer  "state"
+    t.integer  "state",      default: 0
     t.datetime "paid_at"
     t.decimal  "price"
   end

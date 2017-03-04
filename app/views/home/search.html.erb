@@ -1,27 +1,25 @@
-<div class='row no-bot-margin'>
+<div class='row margin-top'>
   <div class="container">
     <div class="section">
-
-      <% unless @companies.blank? %>
-
-        <ul class="collection with-header">
-          <li class="collection-header">
-            <h5>Você buscou: <strong style='text-transform: uppercase;'><%= params[:key] %></strong></h5>
-          </li>
-          <%= render "companies/collection" %>
-        </ul>
-
-        <%= paginate @companies %>
-
-      <% else %>
-
-          <p class="center">
-            <br/>Ooops! Não encontramos nada para sua pesquisa, procure novamente ou<br />
-            <%= link_to "volte para a página inicial", "/" %>.
-          </p>
-
-      <% end %>
-
+      <h5 class="center title"><i class="title-fa amber-text fa fa-search" aria-hidden="true"></i>Resultados para: <strong style='text-transform: uppercase;'><%= params[:key] %></strong></h5>
     </div>
+
+    <% unless @companies.blank? %>
+      <p class='right-align'>Página <%= "#{@companies.current_page}/#{@companies.total_pages}" %></p>
+      <ul class="collection">
+        <%= render "companies/collection" %>
+      </ul>
+
+      <%= paginate @companies %>
+
+    <% else %>
+
+        <p class="center" style="margin-top: 0; font-size: 1.2em;">
+          <br/>Ooops! Não encontramos nada para sua pesquisa, procure novamente ou<br />
+          <%= link_to "volte para a página inicial", "/" %>.
+        </p>
+
+    <% end %>
+
   </div>
 </div>
