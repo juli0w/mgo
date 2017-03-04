@@ -1,35 +1,24 @@
-<div id="breadcrumbs-wrapper">
-  <div class="container">
-    <div class="row">
-      <div class="col s12 m12 l12">
-        <h5 class="breadcrumbs-title">Mensagens</h5>
-        <ol class="breadcrumbs">
-          <li><%= link_to "Empresas", backstage_companies_path %></li>
-          <li><%= link_to @company.name, [:edit, :backstage, @company] %></li>
-        </ol>
-      </div>
-    </div>
-  </div>
-</div>
-
 <div class="container">
-  <div class="row no-bot-margin">
+  <div class="row">
+
+    <%= render "layouts/backstage/profile_header" %>
+
     <div id="mail-app" class="section">
       <div class="row no-bot-margin">
         <div class="col s12">
-          <nav class="blue-grey">
+          <nav class="grey-text text-darken-4 white">
             <div class="nav-wrapper">
               <div class="col s12">
-                <div class="left">Listando: <strong><%= params[:filter] == "read" ? "Lidos" : "Não lidos" %></strong></div>
+                <div class="left">Mensagens - Listando: <strong><%= params[:filter] == "read" ? "Lidos" : "Não lidos" %></strong></div>
                 <ul class="right">
                   <li>
                     <%= link_to url_for(filter: "unread"), class: "tooltipped", 'data-tooltip': 'Não lidos' do %>
-                      <i class="material-icons">tab_unselected</i>
+                      <i class="material-icons amber-text">tab_unselected</i>
                     <% end %>
                   </li>
                   <li>
                     <%= link_to url_for(filter: "read"), class: "tooltipped", 'data-tooltip': 'Lidos' do %>
-                      <i class="material-icons">tab</i>
+                      <i class="material-icons amber-text">tab</i>
                     <% end %>
                   </li>
                 </ul>

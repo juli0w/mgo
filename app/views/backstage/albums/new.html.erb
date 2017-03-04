@@ -1,22 +1,13 @@
-<div id="breadcrumbs-wrapper">
-  <div class="container">
-    <div class="row">
-      <div class="col s12 m12 l12">
-        <h5 class="breadcrumbs-title">Novo álbum</h5>
-        <ol class="breadcrumbs">
-          <li>Administrativo</li>
-            <li><%= link_to "Empresas", backstage_companies_path %></li>
-            <li><%= link_to @company.name, [:edit, :backstage, @company] %></li>
-            <li><%= link_to "Álbuns", [:backstage, @company, :albums] %></li>
-        </ol>
-      </div>
-    </div>
-  </div>
-</div>
+<% content_for :subnav do %>
+  <%= render "companies/subnav" %>
+<% end %>
 
 <div class="container">
   <div class="row">
+
+    <%= render "layouts/backstage/profile_header" %>
     <div class="card-panel">
+      <h5 class="center">Novo álbum</h5>
       <%= render "form" %>
     </div>
   </div>

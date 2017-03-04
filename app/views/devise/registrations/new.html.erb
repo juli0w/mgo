@@ -9,21 +9,21 @@
       </div>
       <div class="row margin">
         <div class="input-field col s12">
-          <i class="mdi-communication-email prefix"></i>
+          <i class="material-icons prefix">perm_identity</i>
           <%= f.email_field :email, id: 'email' %>
-          <label for="email" class="center-align">Email</label>
+          <label for="email">Email</label>
         </div>
       </div>
       <div class="row margin">
         <div class="input-field col s12">
-          <i class="mdi-action-lock-outline prefix"></i>
+          <i class="material-icons prefix">lock_outline</i>
           <%= f.password_field :password, id: 'password', autocomplete: "off" %>
           <label for="password">Senha</label>
         </div>
       </div>
       <div class="row margin">
         <div class="input-field col s12">
-          <i class="mdi-action-lock-outline prefix"></i>
+          <i class="material-icons prefix">lock_outline</i>
           <%= f.password_field :password_confirmation, id: 'password-again', autocomplete: "off" %>
           <label for="password-again">Confirme a senha</label>
         </div>

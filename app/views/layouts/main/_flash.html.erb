@@ -1,9 +1,11 @@
 <% flash.each do |name, msg| %>
-    <div class="alert-overlay valign-wrapper center" onclick='$(".alert-overlay").hide(); return false;'>
-      <%= content_tag :div, class: [:alert, "valign", "z-depth-4", "center", alert_for(name)] do %>
-        <h2><%= title_for(name) %></h2>
-        <p><%= msg %></p>
-        <%= link_to "OK", "#", onclick: '$(".alert-overlay").hide(); return false;', class: 'btn btn-large' %>
-      <% end %>
-    </div>
+<div id="modal1" class="window-modal modal">
+  <div class="center modal-content">
+    <h4><%= title_for(name) %></h4>
+    <p><%= msg %></p>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Fechar</a>
+  </div>
+</div>
 <% end %>

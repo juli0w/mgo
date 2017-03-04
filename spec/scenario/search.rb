@@ -17,7 +17,7 @@ feature "Searching" do
       page.submit(find("#search_form"))
     end
 
-    expect(page).to have_content("Você buscou: aaa")
+    expect(page).to have_content("Resultados para: aaa")
     expect(page).to have_content("aaaa1")
     expect(page).to_not have_content(company2.name)
   end
@@ -28,20 +28,20 @@ feature "Searching" do
       page.submit(find("#search_form"))
     end
 
-    expect(page).to have_content("Você buscou:")
+    expect(page).to have_content("Resultados para:")
     expect(page).to have_content(category.name)
     expect(page).to_not have_content("aaaa1")
     expect(page).to have_content(company2.name)
   end
 
   scenario "by city" do
-    company1.profile.update(city_id: city.id)
+    company1.update(city_id: city.id)
     within(".search-nav") do
       fill_in("key", with: city.name)
       page.submit(find("#search_form"))
     end
 
-    expect(page).to have_content("Você buscou: #{city.name}")
+    expect(page).to have_content("Resultados para: #{city.name}")
     expect(page).to have_content(company1.name)
     expect(page).to_not have_content(company2.name)
   end

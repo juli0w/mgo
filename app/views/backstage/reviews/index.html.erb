@@ -1,34 +1,38 @@
-<div id="breadcrumbs-wrapper">
-  <div class="container">
-    <div class="row">
-      <div class="col s12 m12 l12">
-        <h5 class="breadcrumbs-title">Avaliações</h5>
-        <ol class="breadcrumbs">
-          <li><%= link_to "Empresas", backstage_companies_path %></li>
-          <li><%= link_to @company.name, [:edit, :backstage, @company] %></li>
-        </ol>
-      </div>
-    </div>
+<div class="container">
+  <div class="row">
+
+    <%= render "layouts/backstage/profile_header" %>
+
   </div>
 </div>
 
+
 <div class="container">
   <div class="row no-bot-margin">
-    <% @reviews.each do |review| %>
-      <div class="col s12 m4" style="padding-bottom: 30px;">
+    <% if @reviews.empty? %>
+      <div class="col s12">
         <div class="card-panel">
-          Avaliação: <%= review.stars %>
-          <br/><br/>
-          Nome: <%= review.name %><br/>
-          Email: <%= review.email %>
-
-          <% unless review.comment.empty? %>
-            <p>Comentário:<br /><%= review.comment %></p>
-          <% end %>
-
-          <%= link_to "Deletar", [:backstage, @company, review], method: :delete, class: 'btn', data: { confirm: 'Tem certeza?' } %>
+          <p class="center">Seu empreendimento ainda não foi avaliado pelos usuários</p>
         </div>
       </div>
+    <% else %>
+
+      <% @reviews.each do |review| %>
+        <div class="col s12 m4" style="padding-bottom: 30px;">
+          <div class="card-panel">
+            Avaliação: <%= review.stars %>
+            <br/><br/>
+            Nome: <%= review.name %><br/>
+            Email: <%= review.email %>
+
+            <% unless review.comment.empty? %>
+              <p>Comentário:<br /><%= review.comment %></p>
+            <% end %>
+
+            <%= link_to "Deletar", [:backstage, @company, review], method: :delete, class: 'btn', data: { confirm: 'Tem certeza?' } %>
+          </div>
+        </div>
+      <% end %>
     <% end %>
 
   </div>

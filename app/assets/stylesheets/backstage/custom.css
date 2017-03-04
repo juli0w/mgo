@@ -22,6 +22,69 @@ h1.logo-wrapper {
   padding: 5px 10px;
   border-radius: 5px;
 }
+
+h5.brand-logo {
+  font-weight: bold;
+  text-shadow: #BDBDBD 1px 1px;
+  margin-top: 0;
+  padding: 10px;
+}
+
+.leftside-navigation .collapsible {
+  border: none;
+  box-shadow: none;
+}
+
+.leftside-navigation .collapsible li {
+  padding: 0;
+}
+
+.leftside-navigation .collapsible-header {
+  background-color: transparent;
+  border: none;
+  line-height: inherit;
+  height: inherit;
+  margin: 0 1rem;
+}
+
+.leftside-navigation .collapsible-header i {
+  line-height: inherit;
+}
+
+.leftside-navigation .collapsible-body {
+  border: 0;
+  background-color: #fff;
+}
+
+.leftside-navigation .collapsible-body li a {
+  margin: 0 1rem 0 2rem;
+}
+
+.leftside-navigation {
+  margin: 0;
+  background-color: #fff;
+  overflow-y: auto;
+  will-change: left;
+}
+
+.leftside-navigation .collapsible {
+  margin: 0;
+}
+
+.leftside-navigation li {
+  float: none;
+  padding: 0 15px;
+}
+
+.leftside-navigation a {
+  color: #444;
+  display: block;
+  font-size: 1rem;
+  height: 64px;
+  line-height: 64px;
+  padding: 0 15px;
+}
+
 .profile-menu li a:hover {
 	background-color: rgba(255, 255, 255, 0.3);
 }

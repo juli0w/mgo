@@ -13,9 +13,17 @@
 //= require jquery
 //= require jquery_ujs
 //= require tinymce
+//= require materialize
 //= require_tree
 
 $(document).ready(function(){
+  $(".button-collapse").sideNav();
+  $('select').material_select();
+  $('.window-modal').modal({
+      dismissible: true,
+      opacity: 5 });
+  $('#modal1').modal('open');
+
   $("a.color-link").click(function() {
     var input = $(this).attr('input');
     var attr = 'text_color';
