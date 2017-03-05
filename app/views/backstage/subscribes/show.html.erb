@@ -24,8 +24,8 @@
 
           <span class="card-title activator grey-text text-darken-4"><%= @subscribe.company.name %></span>
           <p><i class="mdi-action-perm-identity"></i> <%= @subscribe.company.category.name %></p>
-          <p><i class="mdi-action-perm-phone-msg"></i> <%= @subscribe.company.profile.phone %></p>
-          <p><i class="mdi-communication-email"></i> <%= @subscribe.company.profile.mail %></p>
+          <p><i class="mdi-action-perm-phone-msg"></i> <%= @subscribe.company.shows :phone %></p>
+          <p><i class="mdi-communication-email"></i> <%= @subscribe.company.shows :mail %></p>
 
         </div>
       </div>
