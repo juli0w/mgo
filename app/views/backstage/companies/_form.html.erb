@@ -92,13 +92,6 @@
       <button id="submit" class="btn waves-effect waves-light" type="submit" name="action">Salvar
         <i class="material-icons right">send</i>
       </button>
-
-      <% if @company.persisted? %>
-        <%= link_to "Álbums", backstage_company_albums_path(@company), class: "btn" %>
-        <%= link_to edit_backstage_company_profile_path(@company), class: "btn" do %>
-          Editar perfil
-        <% end %>
-      <% end %>
     </div>
   </div>
 <% end %>

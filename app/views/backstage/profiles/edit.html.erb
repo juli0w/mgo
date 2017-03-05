@@ -52,7 +52,7 @@
             <button class="btn waves-effect waves-light" type="submit" name="action">Salvar
               <i class="material-icons right">send</i>
             </button>
-            <%= link_to "Preview", '', class: "btn" %>
+            <%= link_to "Preview", preview_backstage_company_profile_path(@company, @profile), class: "btn btn-preview", target: "_blank" %>
             <%= link_to "Visitar", get_url(@company), class: "btn" %>
           </div>
         </div>

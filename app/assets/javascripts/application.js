@@ -17,6 +17,7 @@
 //= require rating
 //= require geomap
 //= require slick
+//= require backstage/plugins
 //= require_self
 
 $(document).ready(function(){
