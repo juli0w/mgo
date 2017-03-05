@@ -23,6 +23,10 @@ h1.logo-wrapper {
   border-radius: 5px;
 }
 
+.profile-header-company-wrapper {
+  padding: 15px 0;
+}
+
 h5.brand-logo {
   font-weight: bold;
   text-shadow: #BDBDBD 1px 1px;

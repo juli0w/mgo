@@ -23,26 +23,4 @@ $(document).ready(function(){
       dismissible: true,
       opacity: 5 });
   $('#modal1').modal('open');
-
-  $("a.color-link").click(function() {
-    var input = $(this).attr('input');
-    var attr = 'text_color';
-    if (input == 'primary_color') {
-      attr = 'color';
-    }
-    color = $(this).attr(attr);
-    $('#'+input).val(color);
-    $('#'+input).next("span").removeAttr("class").addClass($(this).attr('color'));
-    $(".color-group-fade").fadeOut();
-    Materialize.updateTextFields();
-    return false;
-  });
-
-  $(".open-color-group").click(function() {
-    var input = $(this).attr('input');
-    $('.color-group-fade').fadeOut();
-    $('.color-group-fade').fadeIn();
-    $('.color-group a').attr('input', input);
-    return false;
-  });
 });

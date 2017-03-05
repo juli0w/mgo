@@ -2,7 +2,7 @@
     <div class="card-image waves-effect waves-block waves-light"> -->
       <div class="row no-top-margin no-bot-margin">
         <div class="title-wrapper center ">
-          <div class="title-h5 <%= primary_color @company %> <%= text_color @company %>"><%= album.name %></div>
+          <div class="title-h5 <%= color(:primary_color, @company) %> <%= color(:text_color, @company) %>"><%= album.name %></div>
           <p style="padding: 20px 0;"><%= album.description %></p>
         </div>
         <br>

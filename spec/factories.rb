@@ -1,4 +1,15 @@
 FactoryGirl.define do
+  factory :template do
+    primary_color nil
+    detail_color nil
+    link_color nil
+    text_color nil
+    logo_color nil
+    description_color_id 1
+  end
+  factory :color do
+    name "MyString"
+  end
   factory :category do
     name 'Vida noturna'
     code 'nightlife'

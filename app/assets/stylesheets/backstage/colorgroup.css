@@ -1,39 +1,55 @@
-.color-group-fade {
-  display: none;
-  position: fixed; z-index: 9999;
-  top: 0; bottom: 0; left: 0; right: 0; width: 100%; height: 100%;
-  background-color: rgba(0,0,0,0.8);
-}
-.color-group {
-  /*border:1px solid #cecece;*/
+.color-modal {
   background-color: transparent;
-  width: 332px;
-  /*height: 300px;*/
-  position: relative;
-  z-index: 99999;
-  margin: 0 auto;
-  left: 50%;
-  /*top: 50%;*/
-  margin-left: -166px;
-  /*margin-top: -150px;*/
 }
+
+ul.color-group {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul.color-group:after {
+  content: "";
+  clear: both;
+}
+
+ul.color-group li {
+  box-sizing: border-box;
+  float: left;
+  height: 38px;
+  width: 38px;
+  overflow: hidden;
+  position: relative;
+}
+
 .color-group a {
   display: block;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   float: left;
 }
 
 label.open-color-group {
   display: inline-block;
   position: static !important;
-  margin-left: 10px;
+  padding-left: 10px;
+  border: 1px solid #bdbdbd;
+  line-height: 40px;
+  width: calc(100% - 50px);
 }
 
-.color-wrapper span {
-  vertical-align: middle;
+.open-color-group, label.open-color-group {
+  cursor: zoom-in;
+}
+
+.color-wrapper .color-sample {
+  vertical-align: top;
   display: inline-block;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border: 1px solid #BDBDBD;
+}
+
+.open-color-group:hover, label.open-color-group:hover {
+  border: 1px dashed #bdbdbd;
 }

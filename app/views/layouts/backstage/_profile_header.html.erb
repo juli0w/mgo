@@ -2,20 +2,20 @@
   <div class="card-image waves-effect waves-block waves-light">
     <%= image_tag @company.cover, alt: "company cover", class:"activator" %>
   </div>
-  <div class="card-content <%= primary_color(@company, true, true) %>" style="padding-bottom: 0; padding-right: 0;">
+  <div class="card-content <%= color(:primary_color, @company, true) %>" style="padding-bottom: 0; padding-right: 0;">
     <div class="row" style="padding-bottom: 0;">
-      <div class="col s5 m3 l2">
+      <div class="col s12 m3 l2">
         <span class="card-profile-image valign-wrapper">
           <%= image_tag logotipo_square(@company), alt: "company logotipo", class: "valign z-depth-2 activator responsive-img white" %>
         </span>
       </div>
-      <div class="col s7 m9 l3">
-        <h4 class="card-title <%= logo_color(@company, false, true) %>">
-          <strong>
+      <div class="col s12 m9 l10">
+        <div class="profile-header-company-wrapper">
+          <h5 class="profile-header-company truncate <%= color(:logo_color, @company, true) %>">
             <%= @company.name %>
-          </strong>
-        </h4>
-        <p class="medium-small <%= text_color(@company, false, true) %>"><%= @company.category.name %></p>
+          </h5>
+          <p style="margin-left: 2px;" class="medium-small <%= color(:text_color, @company, true) %>"><%= @company.category.name %></p>
+        </div>
       </div>
     </div>
   </div>

@@ -1,4 +1,3 @@
-<%= render "layouts/widgets/color_group" %>
 <% content_for :subnav do %>
   <%= render "companies/subnav" %>
 <% end %>
@@ -10,8 +9,8 @@
     <div class="card-panel" style="padding-top: 0;">
       <%= form_for [:edit, :backstage, @company, @profile], html: { multipart: true } do |f| %>
         <div class="row no-top-margin">
-          <div class="input-field col s12 no-top-margin">
-            <%= f.label :institutional %><br /><br />
+          <div class="input-field col s12">
+            <%= f.label :institutional %><br>
             <%= f.text_area :institutional, class: "tinymce", style: "z-index: 9999;" %>
           </div>
         </div>
@@ -23,47 +22,9 @@
           </div>
         </div>
 
-        <div class="row">
-          <div class="input-field col s6 color-wrapper">
-            <%= f.hidden_field :primary_color, id: 'primary_color', class: "open-color-group", input: 'primary_color' %>
-            <%= color_sample(:primary_color, @company, false) %>
-            <%= f.label :primary_color, class: "open-color-group", input: 'primary_color' %>
-          </div>
-
-          <div class="input-field col s6 color-wrapper">
-            <%= f.hidden_field :detail_color, id: 'detail_color', class: "open-color-group", input: 'detail_color' %>
-            <%= color_sample(:detail_color, @company, true) %>
-            <%= f.label :detail_color, class: "open-color-group", input: 'detail_color'  %>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="input-field col s6 color-wrapper">
-            <%= f.hidden_field :link_color, id: 'link_color', class: "open-color-group", input: 'link_color' %>
-            <%= color_sample(:link_color, @company, true) %>
-            <%= f.label :link_color, class: "open-color-group", input: 'link_color' %>
-          </div>
-
-          <div class="input-field col s6 color-wrapper">
-            <%= f.hidden_field :text_color, id: 'text_color', class: "open-color-group", input: 'text_color' %>
-            <%= color_sample(:text_color, @company, true) %>
-            <%= f.label :text_color, class: "open-color-group", input: 'text_color' %>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="input-field col s6 color-wrapper">
-            <%= f.hidden_field :logo_color, id: 'logo_color', class: "open-color-group", input: 'logo_color' %>
-            <%= color_sample(:logo_color, @company, true) %>
-            <%= f.label :logo_color, class: "open-color-group", input: 'logo_color' %>
-          </div>
-
-          <div class="input-field col s6 color-wrapper">
-            <%= f.hidden_field :description_color, id: 'description_color', class: "open-color-group", input: 'description_color' %>
-            <%= color_sample(:description_color, @company, true) %>
-            <%= f.label :description_color, class: "open-color-group", input: 'description_color' %>
-          </div>
-        </div>
+        <%= f.fields_for :template, @template do |fields| %>
+          <%= render "backstage/templates/fields", form: fields %>
+        <% end %>
 
         <div class="row">
           <div class="section">
@@ -91,7 +52,7 @@
             <button class="btn waves-effect waves-light" type="submit" name="action">Salvar
               <i class="material-icons right">send</i>
             </button>
-            <%= link_to "Álbuns", backstage_company_albums_path(@company), class: "btn" %>
+            <%= link_to "Preview", '', class: "btn" %>
             <%= link_to "Visitar", get_url(@company), class: "btn" %>
           </div>
         </div>

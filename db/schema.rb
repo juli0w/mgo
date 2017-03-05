@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170303195450) do
+ActiveRecord::Schema.define(version: 20170304185017) do
 
   create_table "albums", force: :cascade do |t|
     t.         "photos"
@@ -32,6 +32,13 @@ ActiveRecord::Schema.define(version: 20170303195450) do
 
   create_table "cities", force: :cascade do |t|
     t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "colors", force: :cascade do |t|
+    t.string   "name"
+    t.string   "code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -157,6 +164,19 @@ ActiveRecord::Schema.define(version: 20170303195450) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "templates", force: :cascade do |t|
+    t.integer  "profile_id"
+    t.integer  "primary_color_id"
+    t.integer  "detail_color_id"
+    t.integer  "link_color_id"
+    t.integer  "text_color_id"
+    t.integer  "logo_color_id"
+    t.integer  "description_color_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.index ["profile_id"], name: "index_templates_on_profile_id"
   end
 
   create_table "ufs", force: :cascade do |t|

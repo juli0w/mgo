@@ -14,9 +14,13 @@ module ApplicationHelper
     }[title.to_sym] || title.to_s
   end
 
-  def color_sample input, company, text=false, force=true
-    color = send(input, company, text, true)
-    content_tag :span, "", class: "color-sample open-color-group #{color}", input: input
+  def color_sample input, company
+    c = company.color_sample(input)
+    content_tag :div, "", class: "color-sample open-color-group #{c}", id: "cs-#{input}", input: input
+  end
+
+  def color input, company, force=false
+    company.color(input, force)
   end
 
   def slider company
@@ -55,15 +59,15 @@ module ApplicationHelper
     return content.html_safe
   end
 
-  [:primary_color, :detail_color, :link_color, :text_color,
-   :logo_color, :description_color].each do |method|
-     define_method(method) do |company, text=false, force=false|
-       color = company.color(method, force)
-
-       return color.gsub("-text", "").gsub("text-", "") if text
-       return color
-     end
-  end
+  # [:primary_color, :detail_color, :link_color, :text_color,
+  #  :logo_color, :description_color].each do |method|
+  #    define_method(method) do |company, text=false, force=false|
+  #      color = company.color(method, force)
+  #
+  #      return color.gsub("-text", "").gsub("text-", "") if text
+  #      return color
+  #    end
+  # end
 
   def header_image company
     image = company.profile.cover.url || '/images/bg-header.jpg'

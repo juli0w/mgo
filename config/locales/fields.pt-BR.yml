@@ -1,5 +1,12 @@
 ---
 pt-BR:
+  attributes:
+    primary_color_id: Cor principal
+    detail_color_id: Cor dos detalhes
+    link_color_id: Cor dos links
+    text_color_id: Cor dos textos
+    logo_color_id: Cor do logo
+    description_color_id: Cor da descrição
   activerecord:
     attributes:
       subscribe:
@@ -27,12 +34,6 @@ pt-BR:
         address: Endereço
       profile:
         institutional: Institucional
-        primary_color: Cor principal
-        detail_color: Cor dos detalhes
-        link_color: Cor dos links
-        text_color: Cor dos textos
-        logo_color: Cor do logo
-        description_color: Cor da descrição
       contact:
         name: Nome
         phone: Telefone

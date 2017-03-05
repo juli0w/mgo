@@ -13,18 +13,19 @@ class Company < ApplicationRecord
     attributes :tags => ["tags.name"]
   end
 
+  mount_uploader :logotipo, LogotipoUploader
   after_update :crop_logo
   def crop_logo
     logotipo.recreate_versions! if crop_x.present?
   end
 
-  FORMAT = /([[:lower:]]|[0-9]+-?[[:lower:]])(-[[:lower:]0-9]+|[[:lower:]0-9])*/
 
-  validates :name, presence: true
+  FORMAT = /([[:lower:]]|[0-9]+-?[[:lower:]])(-[[:lower:]0-9]+|[[:lower:]0-9])*/
   validates :slug, presence: true,
                    uniqueness: {case_sensitive: false},
                    format: {with: Regexp.new('\A' + FORMAT.source + '\z')}
 
+  validates :name, presence: true
   validates :category_id, presence: true
 
   belongs_to :user, optional: true
@@ -39,12 +40,18 @@ class Company < ApplicationRecord
   has_many :subscribes
   has_many :contacts
 
-  DEFAULT_COLOR = { primary_color: "blue-grey darken-2",
-                    detail_color: "amber-text",
-                    link_color: "amber-text",
-                    text_color: "white-text",
-                    logo_color: "white-text",
-                    description_color: "white-text" }
+  delegate :color, to: :profile
+  delegate :color_sample, to: :profile
+
+  def activate!
+    update(premium: true)
+  end
+
+  def unactivate!
+    update(premium: false)
+  end
+
+  ### TAGS
 
   def self.by_tag tag
     companies = Tag.find_by_name(tag).try(:companies)
@@ -53,24 +60,6 @@ class Company < ApplicationRecord
     else
       return Company.offset(rand(Company.count)).first(5)
     end
-  end
-
-  def color kind, force=false
-    c = profile.send(kind)
-
-    if (c.present?) and (self.premium? or force)
-      c
-    else
-      return DEFAULT_COLOR[kind]
-    end
-  end
-
-  def activate!
-    update(premium: true)
-  end
-
-  def unactivate!
-    update(premium: false)
   end
 
   def self.tagged_with(name)
@@ -91,7 +80,7 @@ class Company < ApplicationRecord
     end
   end
 
-  mount_uploader :logotipo, LogotipoUploader
+  ###
 
   def city_uf
     "#{city.try(:name)}/#{uf.try(:name)}" if city and uf

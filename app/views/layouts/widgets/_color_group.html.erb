@@ -1,7 +1,9 @@
-<div class="valign-wrapper center color-group-fade" onclick="$(this).fadeOut();" style="display: none;">
-  <div class="color-group valign">
-    <% Profile.colors.each do |color| %>
-      <%= link_to '', "#", class: "#{color[:color]} color-link", color: color[:color], input: '', text_color: "#{color[:text_color]}" %>
+<div id="color-modal-<%= field %>" class="color-modal modal">
+  <ul class="color-group">
+    <% Color.find_each do |color| %>
+      <li>
+        <%= link_to "", "#!", class: "color-link #{color.name}", input: field, 'data-id': color.id, 'data-color': color.name %>
+      </li>
     <% end %>
-  </div>
+  </ul>
 </div>
