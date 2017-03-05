@@ -17,7 +17,13 @@ h1.logo-wrapper {
 .field_with_errors input {
   border: 1px solid red !important;
 }
-
+#preview-modal iframe {
+  height: calc(100% - 6px);
+}
+#preview-modal {
+  max-height: 70% !important;
+  height: 70% !important;
+}
 .state {
   padding: 5px 10px;
   border-radius: 5px;

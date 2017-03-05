@@ -26,13 +26,6 @@
             <i class="tiny material-icons <%= color(:detail_color, @company, true) %>">mail</i>
             <%= @company.shows :mail %></span>
         </div>
-
-        <ul class="right">
-          <li><%= link_to "<i class='material-icons'>star</i>".html_safe, "/#{@company.slug}/review", class: "tooltipped #{color(:link_color, @company, true)}", 'data-tooltip': 'Avaliar' %></li>
-          <li><%= link_to "<i class='material-icons'>edit</i>".html_safe, edit_backstage_company_path(@company), class: "tooltipped #{color(:link_color, @company, true)}", 'data-tooltip': 'Editar' %></li>
-          <li><%= link_to "<i class='material-icons'>place</i>".html_safe, root_url, class: "tooltipped #{color(:link_color, @company, true)}", 'data-tooltip': 'Weekz' %></li>
-          <li><%= link_to "<i class='material-icons'>lock_open</i>".html_safe, destroy_user_session_path, class: "tooltipped #{color(:link_color, @company, true)}", 'data-tooltip': 'Logout', method: :delete %></li>
-        </ul>
       </div>
     </nav>
 
