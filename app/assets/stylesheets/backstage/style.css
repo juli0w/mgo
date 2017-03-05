@@ -41,6 +41,18 @@ select {
   width: 98%;
 }
 
+.btn-help {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  border: 1px dashed #dedede;
+  /*width: 20px;*/
+  /*height: 20px;*/
+  padding: 3px 5px;
+  font-size: 0.7em;
+  line-height: 12px;
+}
+
 #left-sidebar-nav {
   /*position: fixed;*/
   width: 100px;

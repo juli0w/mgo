@@ -5,10 +5,8 @@
         <h5 class="<%= color(:detail_color, @company) %>">Mais informações</h5>
         <br/>
         <div class="<%= color(:text_color, @company) %>"><strong>Endereço:</strong><br/> <%= @company.formatted_address %></div><br />
-        <div class="<%= color(:text_color, @company) %>"><strong>Telefone:</strong><br/> <%= @company.show_phone %></div><br />
-        <% if @company.mail.present? %>
-          <div class="<%= color(:text_color, @company) %>"><strong>Email:</strong><br/> <%= @company.mail %></div><br />
-        <% end %>
+        <div class="<%= color(:text_color, @company) %>"><strong>Telefone:</strong><br/> <%= @company.shows :phone %></div><br />
+        <div class="<%= color(:text_color, @company) %>"><strong>Email:</strong><br/> <%= @company.shows :mail %></div><br />
       </div>
       <% if @company.tags.any? %>
       <div class="col s12 m4 <%= color(:text_color, @company) %>">

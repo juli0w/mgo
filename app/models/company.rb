@@ -94,8 +94,9 @@ class Company < ApplicationRecord
     end
   end
 
-  def show_phone
-    phone.present? ? phone : "Não informado"
+  def shows field
+    value = send(field)
+    value.present? ? value : "Não informado"
   end
 
   def cover

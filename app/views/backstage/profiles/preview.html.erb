@@ -1,0 +1,110 @@
+<% if @company.profile.institutional.present? %>
+  <div id="tab-inicial" class="tab-content">
+    <%= render "layouts/personal/tab/inicial" %>
+  </div>
+<% end %>
+
+<% @company.albums.each do |album| %>
+  <div id="tab-album-<%= album.id %>" class="tab-content">
+    <div class="row no-top-margin no-bot-margin">
+      <div class="title-wrapper center ">
+        <div class="title-h5 <%= color(:primary_color, @company, true) %> <%= color(:text_color, @company, true) %>"><%= album.name %></div>
+        <p style="padding: 20px 0;"><%= album.description %></p>
+      </div>
+      <br>
+    </div>
+
+    <div class="row no-top-margin photos">
+    <% album.photos.each do |photo| %>
+      <div class="col s12 m3">
+        <div class="card-panel">
+          <div class="photo center-align" style="overflow: hidden;" desc="<%= photo.description %>" img-full="<%= photo.photo.url %>">
+            <div class="valign-wrapper center-align" style="height: 90px; overflow: hidden;">
+              <%= image_tag(photo.photo.slider.url, class: 'valign img-open') %>
+            </div>
+            <br /><span class="truncate" style="width: 150px;"><%= photo.description %></span>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    </div>
+
+  </div>
+<% end %>
+
+<div id="tab-contato" class="tab-content">
+  <div id="contact-page" class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+        <div id="map-canvas" data-lat="40.747688" data-lng="-74.004142"></div>
+    </div>
+    <div class="card-content">
+      <% if @company.address.present? %>
+        <div class="row no-bot-margin">
+          <div class="col s12">
+            <div class="" style="height: 350px;">
+              <iframe
+                width="100%"
+                height="100%"
+                frameborder="0" style="border:0"
+                src="https://www.google.com/maps/embed/v1/search?key=AIzaSyDqdqRUKXGJjNk4vH42SPsWOQMae91Bosw&q=<%= @company.address_code %>&zoom=15" allowfullscreen>
+              </iframe>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <div class="col s12">
+        <div class="row no-top-margin">
+          <div class="title-wrapper center no-border">
+            <div class="title-h5 <%= color(:primary_color, @company, true) %> <%= color(:text_color, @company, true) %>">Contato</div>
+          </div>
+        </div>
+        <%= form_for @contact do |f| %>
+          <% @contact.errors.full_messages.each do |msg| %>
+            <div class="row">
+              <div class="input-field red-text">
+                <%= msg %>
+              </div>
+              </div>
+           <% end %>
+
+          <div class="row">
+            <div class="input-field col s12">
+              <%= f.text_field :name, class: "round full-width-input", required: true, maxlength: 220 %>
+              <%= f.label :name %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s6">
+              <%= f.email_field :email, class: "round full-width-input", required: true, maxlength: 220 %>
+              <%= f.label :email %>
+            </div>
+            <div class="input-field col s6">
+              <%= f.text_field :phone, class: "round full-width-input", required: true, maxlength: 220 %>
+              <%= f.label :phone %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <%= f.text_field :subject, class: "round full-width-input", maxlength: 220 %>
+              <%= f.label :subject %>
+            </div>
+          </div>
+          <div class="row no-bot-margin">
+            <div class="input-field col s12">
+              <%= f.text_area :message, class: "materialize-textarea round full-width-input" %>
+              <%= f.label :message %>
+            </div>
+            <div class="input-field col s12">
+              <%= f.hidden_field :destination, value: @company.mail %>
+              <%= f.hidden_field :company_id, value: @company.id %>
+              <%= f.button type: "submit", name: "action", class: "btn cyan waves-effect waves-light btn-large right" do %>
+                <i class="material-icons right">send</i> Enviar
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+</div>

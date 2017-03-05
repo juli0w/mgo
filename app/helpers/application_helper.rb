@@ -16,7 +16,9 @@ module ApplicationHelper
 
   def color_sample input, company
     c = company.color_sample(input)
-    content_tag :div, "", class: "color-sample open-color-group #{c}", id: "cs-#{input}", input: input
+    content_tag(:div, "",
+      class: "color-sample tooltipped open-color-group #{c}", id: "cs-#{input}", input: input,
+      'data-delay': 50, 'data-tooltip': c)
   end
 
   def color input, company, force=false
@@ -58,16 +60,6 @@ module ApplicationHelper
 
     return content.html_safe
   end
-
-  # [:primary_color, :detail_color, :link_color, :text_color,
-  #  :logo_color, :description_color].each do |method|
-  #    define_method(method) do |company, text=false, force=false|
-  #      color = company.color(method, force)
-  #
-  #      return color.gsub("-text", "").gsub("text-", "") if text
-  #      return color
-  #    end
-  # end
 
   def header_image company
     image = company.profile.cover.url || '/images/bg-header.jpg'

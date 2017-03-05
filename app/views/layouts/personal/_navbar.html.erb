@@ -1,11 +1,15 @@
 <nav role="navigation" class="<%= color(:primary_color, @company) %>">
   <div class="nav-wrapper container">
     <div class="keep-icon-align hide-on-med-and-down">
-      <span class="<%= color(:text_color, @company) %>"><i class="tiny material-icons <%= color(:detail_color, @company) %>">place</i> <%= @company.formatted_address %></span>
-      <span class="<%= color(:text_color, @company) %>"><i class="tiny material-icons <%= color(:detail_color, @company) %>">phone</i> <%= @company.show_phone %></span>
-      <% if @company.mail.present? %>
-        <span class="<%= color(:text_color, @company) %>"><i class="tiny material-icons <%= color(:detail_color, @company) %>">mail</i> <%= @company.mail %></span>
-      <% end %>
+      <span class="<%= color(:text_color, @company) %>">
+        <i class="tiny material-icons <%= color(:detail_color, @company) %>">place</i>
+        <%= @company.formatted_address %></span>
+      <span class="<%= color(:text_color, @company) %>">
+        <i class="tiny material-icons <%= color(:detail_color, @company) %>">phone</i>
+        <%= @company.shows :phone %></span>
+      <span class="<%= color(:text_color, @company) %>">
+        <i class="tiny material-icons <%= color(:detail_color, @company) %>">mail</i>
+        <%= @company.shows :mail %></span>
     </div>
 
     <ul class="right">

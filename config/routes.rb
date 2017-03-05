@@ -39,7 +39,11 @@ Rails.application.routes.draw do
         post :active
         post :unactive
       end
-      resource :profile, except: :show, path_names: { edit: '' }
+      resource :profile, except: :show, path_names: { edit: '' } do
+        member do
+          get :preview
+        end
+      end
       resources :albums do
         resources :photos
       end

@@ -2,7 +2,10 @@
   <ul class="color-group">
     <% Color.find_each do |color| %>
       <li>
-        <%= link_to "", "#!", class: "color-link #{color.name}", input: field, 'data-id': color.id, 'data-color': color.name %>
+        <%= link_to "", "#!", class: "tooltipped color-link #{color.name}",
+            input: field, 'data-id': color.id, 'data-color': color.name,
+            'data-delay': 50, 'data-tooltip': color.name %>
+
       </li>
     <% end %>
   </ul>

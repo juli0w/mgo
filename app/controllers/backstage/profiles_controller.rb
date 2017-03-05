@@ -19,6 +19,14 @@ module Backstage
       end
     end
 
+    def preview
+      @company = current_user.companies.find(params[:company_id])
+      @contact = Contact.new
+      @albums = @company.albums
+      
+      render layout: 'preview'
+    end
+
   private
 
     def profile_params

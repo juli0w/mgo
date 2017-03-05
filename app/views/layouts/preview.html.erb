@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <%= display_meta_tags site: @company.name %>
+    <%= csrf_meta_tag %>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'https://fonts.googleapis.com/icon?family=Material+Icons' %>
+  </head>
+
+  <body class="company-layout">
+
+    <nav role="navigation" class="<%= color(:primary_color, @company, true) %>">
+      <div class="nav-wrapper container">
+        <div class="keep-icon-align hide-on-med-and-down">
+          <span class="<%= color(:text_color, @company, true) %>">
+            <i class="tiny material-icons <%= color(:detail_color, @company, true) %>">place</i>
+            <%= @company.formatted_address %></span>
+          <span class="<%= color(:text_color, @company, true) %>">
+            <i class="tiny material-icons <%= color(:detail_color, @company, true) %>">phone</i>
+            <%= @company.shows :phone %></span>
+          <span class="<%= color(:text_color, @company, true) %>">
+            <i class="tiny material-icons <%= color(:detail_color, @company, true) %>">mail</i>
+            <%= @company.shows :mail %></span>
+        </div>
+
+        <ul class="right">
+          <li><%= link_to "<i class='material-icons'>star</i>".html_safe, "/#{@company.slug}/review", class: "tooltipped #{color(:link_color, @company, true)}", 'data-tooltip': 'Avaliar' %></li>
+          <li><%= link_to "<i class='material-icons'>edit</i>".html_safe, edit_backstage_company_path(@company), class: "tooltipped #{color(:link_color, @company, true)}", 'data-tooltip': 'Editar' %></li>
+          <li><%= link_to "<i class='material-icons'>place</i>".html_safe, root_url, class: "tooltipped #{color(:link_color, @company, true)}", 'data-tooltip': 'Weekz' %></li>
+          <li><%= link_to "<i class='material-icons'>lock_open</i>".html_safe, destroy_user_session_path, class: "tooltipped #{color(:link_color, @company, true)}", 'data-tooltip': 'Logout', method: :delete %></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="row header-company" style="<%= header_image(@company) %>; margin-bottom: 0;">
+      <div class="container">
+        <div class='section'>
+          <h3 class="<%= color(:logo_color, @company, true) %>"><%= @company.name %></h3>
+          <p class="<%= color(:description_color, @company, true) %>" style="font-size: 18px;"><%= @company.description %></p>
+        </div>
+      </div>
+    </div>
+
+    <nav role="navigation" class="nav-menu <%= color(:primary_color, @company, true) %>">
+      <div class="nav-wrapper container tabs-menu">
+        <ul class="tabs">
+          <% if @company.profile.institutional.present? %>
+            <li class="tab"><%= link_to "Inicial", "#tab-inicial", class: "#{color(:link_color, @company, true)}" %></li>
+          <% end %>
+          <% @albums.each do |album| %>
+            <li class="tab"><%= link_to album.name, "#tab-album-#{album.id}", class: "#{color(:link_color, @company, true)}" %></li>
+          <% end %>
+          <li class="tab"><%= link_to "Contato", "#tab-contato", class: "#{color(:link_color, @company, true)}" %></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+      <%= yield %>
+    </div>
+
+    <footer class="page-footer <%= color(:primary_color, @company, true) %>">
+      <div class="container">
+        <div class="row">
+          <div class="col s12 m4 keep-icon-align">
+            <h5 class="<%= color(:detail_color, @company, true) %>">Mais informações</h5>
+            <br/>
+            <div class="<%= color(:text_color, @company, true) %>"><strong>Endereço:</strong><br/> <%= @company.formatted_address %></div><br />
+            <div class="<%= color(:text_color, @company, true) %>"><strong>Telefone:</strong><br/> <%= @company.shows :phone %></div><br />
+            <div class="<%= color(:text_color, @company, true) %>"><strong>Email:</strong><br/> <%= @company.shows :mail %></div><br />
+          </div>
+          <% if @company.tags.any? %>
+          <div class="col s12 m4 <%= color(:text_color, @company, true) %>">
+            <h5 class="<%= color(:detail_color, @company, true) %>">Tags</h5>
+            <br />
+            <%= raw @company.tags.map(&:name).map { |t| link_to t, tag_path(t), class: color(:link_color, @company, true) }.join(', ') %>
+          </div>
+          <% end %>
+
+          <div class="col s12 m4 center social">
+            <%= link_to "", @company.facebook, class: "fa fa-facebook", target: "_blank" unless @company.facebook.blank? %>
+            <%= link_to "", @company.instagram, class: "fa fa-instagram", target: "_blank" unless @company.instagram.blank? %>
+            <%= link_to "", @company.twitter, class: "fa fa-twitter", target: "_blank" unless @company.twitter.blank? %>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+          <div class="right">
+            <%= link_to 'http://www.weekz.com.br', root_url, class: color(:link_color, @company) %>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="img-modal valign-wrapper" id="modal">
+      <span class="close">×</span>
+      <img class="valign modal-content" id="img-modal">
+      <div id="caption"></div>
+    </div>
+
+    <style>
+    .img-modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: rgb(0,0,0);
+      background-color: rgba(0,0,0,0.9);
+    }
+
+    .modal-content {
+      transform: translate(0, -50%);
+      top: 50%;
+      margin: auto;
+      position: relative;
+      max-width: 1000px;
+      height: auto;
+    }
+
+    @-webkit-keyframes zoom {
+      from {-webkit-transform: scale(0)}
+      to {-webkit-transform: scale(1)}
+    }
+
+    @keyframes zoom {
+      from {transform: scale(0.1)}
+      to {transform: scale(1)}
+    }
+
+    #caption {
+      margin: auto;
+      position: fixed;
+      top: 20px;
+      width: 100%;
+      text-align: center;
+      font-size: 1.6em;
+      color: #ccc;
+      text-shadow: #000 1px -1px, #000 -1px 1px, #000 1px 1px, #000 -1px -1px;
+      padding: 10px 0;
+      z-index: 5;
+    }
+
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 35px;
+      color: #f1f1f1;
+      font-size: 40px;
+      font-weight: bold;
+      transition: 0.3s;
+      z-index: 10;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #bbb;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    </style>
+  </body>
+</html>
