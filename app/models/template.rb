@@ -1,5 +1,6 @@
 class Template < ApplicationRecord
-  belongs_to :profile
+  belongs_to :profile, optional: :true
+  belongs_to :sample_template, optional: :true
   belongs_to :primary_color, class_name: "Color", optional: true#, :foreign_key => 'primary_color'
   belongs_to :description_color, class_name: "Color", optional: true#, :foreign_key => 'primary_color'
   belongs_to :detail_color, class_name: "Color", optional: true#, :foreign_key => 'detail_color'

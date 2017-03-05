@@ -22,8 +22,18 @@
           </div>
         </div>
 
+        <div class="row">
+          <div class="col s12 m8">
+            <%= select_tag :sample_template, options_from_collection_for_select(SampleTemplate.all, :id, :name), id: "sample_template_select", prompt: "Selecione um template" %>
+          </div>
+          <div class="col s12 m4">
+            <p class="medium-small grey-text">Para te ajudar criamos alguns templates prontos. Selecione o template,
+              edite como preferir, salve e clique em preview para verificar como ficará sua página.</p>
+          </div>
+        </div>
+
         <%= f.fields_for :template, @template do |fields| %>
-          <%= render "backstage/templates/fields", form: fields %>
+          <%= render "backstage/templates/fields", form: fields, model: @company %>
         <% end %>
 
         <div class="row">

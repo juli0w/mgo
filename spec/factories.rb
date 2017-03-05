@@ -1,4 +1,8 @@
 FactoryGirl.define do
+  factory :sample_template do
+    name "MyString"
+    template nil
+  end
   factory :template do
     primary_color nil
     detail_color nil

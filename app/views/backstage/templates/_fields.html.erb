@@ -4,7 +4,7 @@
       :text_color, :logo_color, :description_color].each do |field| %>
     <div class="input-field col s12 m6 color-wrapper">
       <%= form.hidden_field "#{field}_id", id: "hf_#{field}" %>
-      <%= color_sample(field, @company) %>
+      <%= color_sample(field, model) %>
       <%= form.label "#{field}_id", class: "open-color-group", input: field %>
       <%= render "layouts/widgets/color_group", field: field %>
     </div>

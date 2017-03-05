@@ -4,8 +4,6 @@ Rails.application.routes.draw do
                 sign_in: 'login',
                 sign_out: 'logout' }
 
-  # get 'profiles/new'
-
   get 'home', to: 'home#index'
   get 'institutional', to: 'home#institutional'
   get 'search', to: 'home#search'
@@ -32,6 +30,7 @@ Rails.application.routes.draw do
       end
     end
     resources :categories, except: :show
+    resources :sample_templates
 
     resources :companies do
       resources :contacts

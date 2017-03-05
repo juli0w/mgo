@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170304185017) do
+ActiveRecord::Schema.define(version: 20170305181656) do
 
   create_table "albums", force: :cascade do |t|
     t.         "photos"
@@ -139,6 +139,12 @@ ActiveRecord::Schema.define(version: 20170304185017) do
     t.index ["company_id"], name: "index_reviews_on_company_id"
   end
 
+  create_table "sample_templates", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "subscribes", force: :cascade do |t|
     t.string   "phone"
     t.string   "plan"
@@ -176,7 +182,9 @@ ActiveRecord::Schema.define(version: 20170304185017) do
     t.integer  "description_color_id"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+    t.integer  "sample_template_id"
     t.index ["profile_id"], name: "index_templates_on_profile_id"
+    t.index ["sample_template_id"], name: "index_templates_on_sample_template_id"
   end
 
   create_table "ufs", force: :cascade do |t|
