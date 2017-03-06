@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require materialize
-//= require tinymce
 //= require rating
 //= require geomap
 //= require slick

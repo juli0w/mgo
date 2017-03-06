@@ -28,6 +28,7 @@
             <td><%= album.description %></td>
             <td>
               <%= link_to "Editar", [:edit, :backstage, @company, album] %>
+            | <%= link_to "Excluir", backstage_company_album_path(@company, album), method: :delete, data: { confirm: 'Excluir o álbum?' } %>
             | <%= link_to "Fotos", backstage_company_album_photos_path(@company, album) %>
             </td>
           </tr>

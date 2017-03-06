@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170305181656) do
+ActiveRecord::Schema.define(version: 20170305203912) do
 
   create_table "albums", force: :cascade do |t|
     t.         "photos"
@@ -34,6 +34,18 @@ ActiveRecord::Schema.define(version: 20170305181656) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "ckeditor_assets", force: :cascade do |t|
+    t.string   "data_file_name",               null: false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.string   "type",              limit: 30
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.index ["type"], name: "index_ckeditor_assets_on_type"
   end
 
   create_table "colors", force: :cascade do |t|
@@ -145,14 +157,23 @@ ActiveRecord::Schema.define(version: 20170305181656) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "sessions", force: :cascade do |t|
+    t.string   "session_id", null: false
+    t.text     "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["session_id"], name: "index_sessions_on_session_id", unique: true
+    t.index ["updated_at"], name: "index_sessions_on_updated_at"
+  end
+
   create_table "subscribes", force: :cascade do |t|
     t.string   "phone"
     t.string   "plan"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer  "user_id"
     t.integer  "company_id"
-    t.integer  "state",      default: 0
+    t.integer  "state"
     t.datetime "paid_at"
     t.decimal  "price"
   end

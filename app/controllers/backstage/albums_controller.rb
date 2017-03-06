@@ -1,7 +1,7 @@
 module Backstage
   class AlbumsController < Backstage::ApplicationController
     before_filter :set_company
-    before_filter :set_album, only: [:edit, :update]
+    before_filter :set_album, only: [:edit, :update, :destroy]
 
     def index
       @albums = @company.albums
@@ -29,11 +29,18 @@ module Backstage
     def update
       if @album.update(album_params)
         flash[:success] = "Salvo com sucesso!"
-        redirect_to edit_backstage_company_album_path(company_id: @company.id)
+        redirect_to edit_backstage_company_album_path(@company)
       else
         flash.now[:alert] = "Por favor verifique os campos."
         render :edit
       end
+    end
+
+    def destroy
+      @album.delete
+
+      flash[:success] = "Salvo com sucesso!"
+      redirect_to backstage_company_albums_path(@company)
     end
 
   private

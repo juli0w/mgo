@@ -12,8 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require tinymce
 //= require materialize
+//= require ckeditor/init
 //= require_tree
 
 $(document).ready(function(){

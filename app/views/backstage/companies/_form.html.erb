@@ -1,11 +1,11 @@
 <%= form_for [:backstage, @company], html: { multipart: true }  do |f| %>
   <div class="row">
-    <div class="input-field col s6">
+    <div class="input-field col s12 m6">
       <%= f.text_field :name, required: true, maxlength: 220 %>
       <%= f.label :name %>
     </div>
 
-    <div class="input-field col s6 tooltipped" data-tooltip="Link da sua página. Só aceita letras, números e separador (-)">
+    <div class="input-field col s12 m6 tooltipped" data-tooltip="Link da sua página. Só aceita letras, números e separador (-)">
       <%= link_to "?", '#!', class: "btn-help" %>
       <%= f.text_field :slug,
         required: true, maxlength: 220,
@@ -20,23 +20,25 @@
     </div>
   </div>
   <div class="row">
-    <div class="input-field col s6">
+    <div class="input-field col s12 m6">
       <%= f.collection_select :category_id, Category.except_root, :id, :name, prompt: false %>
       <%= f.label :category_id %>
     </div>
 
-    <div class="input-field col s6">
-      <%= f.text_field :tag_list, maxlength: 80 %>
+    <div class="input-field col s12 m6 tooltipped" data-tooltip="Só aceita letras e números, separe as tags com vírgulas (ex: loja, roupas)">
+      <%= link_to "?", '#!', class: "btn-help" %>
+      <%= f.text_field :tag_list, maxlength: 120,
+            style: "padding-left: 30px;" %>
       <%= f.label :tag_list %>
     </div>
   </div>
 
   <div class="row">
-    <div class="input-field col s6">
+    <div class="input-field col s12 m6">
       <%= f.text_field :phone, maxlength: 220 %>
       <%= f.label :phone %>
     </div>
-    <div class="input-field col s6">
+    <div class="input-field col s12 m6">
       <%= f.text_field :mail, maxlength: 220 %>
       <%= f.label :mail %>
     </div>
