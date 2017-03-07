@@ -19,7 +19,7 @@
  *= require navbar
  *= require sidebar
  *= require company-card
- *= require loader
+ *= require photo-grid
  *= require_self
  */
 
@@ -93,6 +93,35 @@ h5.title {
   font-family: GillSans, Calibri, Trebuchet, sans-serif;
 }
 
+.company-profile img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.company-profile {
+  overflow: hidden !important;
+}
+
+.first-nav {
+  box-shadow: none;
+  padding-top: 12px;
+
+  .button-collapse i, .open-menu, .open-menu i {
+    line-height: 40px;
+    height: 40px;
+  }
+}
+
+@media #{$medium-and-down} {
+  .first-nav {
+    .button-collapse i, .open-menu, .open-menu i {
+      line-height: 34px;
+      height: 34px;
+    }
+    height: 56px;
+    line-height: 56px;
+  }
+}
+
 @font-face {
   font-family: "Roboto";
   src: local(Roboto Thin), url("/fonts/roboto/Roboto-Thin.woff2") format("woff2"), url("/fonts/roboto/Roboto-Thin.woff") format("woff"), url("/fonts/roboto/Roboto-Thin.ttf") format("truetype");
@@ -148,8 +177,12 @@ body {
   border-radius: 5px;
 }
 
-.btn-transparent {
-  border: 1px solid white; padding: 10px; color: white;
+.btn-join-transparent {
+  border: 1px solid white;
+  padding: 10px 30px;
+  color: white;
+  display: inline-block;
+  margin: 20px auto;
 
   &:hover {
     background: rgba(255, 255, 255, 0.2);
@@ -408,16 +441,6 @@ h1.logo {
   border-bottom: 1px dashed color("grey", "lighten-1");
 }
 
-.photos .photo:hover {
-  // border: 1px dashed #efefef;
-  opacity: 0.7;
-}
-
-.photos .photo {
-  height: 150px;
-  padding: 10px;
-}
-
 .avatar-bigger {
   height: 130px;
   padding-left: 150px !important;
@@ -429,34 +452,6 @@ h1.logo {
     line-height: 2em;
   }
 }
-
-// .rect {
-//   position: absolute;
-//   overflow: hidden;
-//   height: 65px;
-//   width: 85px;
-//   left: 15px;
-//   display: inline-block;
-//   vertical-align: middle;
-// }
-//
-// .rect .valign-helper {
-//   position:relative;
-//   display: inline-block;
-//   height: 100%;
-//   vertical-align: middle;
-// }
-//
-// .rect .valign-helper img {
-//   display: inline-block;
-//   vertical-align: middle;
-//   position: absolute;
-//   top: 0;
-//   bottom: 0;
-//   margin: auto 0;
-//   max-height: 65px;
-//   max-width: 85px;
-// }
 
 .squared {
   position: absolute;
@@ -489,7 +484,6 @@ h1.logo {
 }
 
 .search-input {
-  // font-size: 1.4rem !important;
   text-transform: uppercase;
 }
 
@@ -507,11 +501,6 @@ h1.logo {
 h1.logo {
   font-weight: bold;
 }
-
-.brand-logo i {
-  color: color("yellow", "accent-2");
-}
-
 .keep-icon-align span i {
   margin-right: 10px;
   margin-left: 10px;
@@ -524,7 +513,6 @@ h1.logo {
 .keep-icon-align span {
   display: inline-flex;
   vertical-align: middle;
-  // margin: 0 10px;
 }
 
 .header-company {
@@ -552,8 +540,8 @@ h1.logo {
     }
     .tab {
       a {
-        padding-top: 9px;
-        height: 64px;
+        line-height: 66px;
+        height: 66px;
       }
       .active {
         -moz-transition: border-color .1s ease;
@@ -575,7 +563,12 @@ h1.logo {
     }
   }
 }
-
+@media #{$medium-and-down} {
+  .nav-menu, .nav-menu .tab a, .nav-menu .tabs {
+    line-height: 56px !important;
+    height: 56px !important;
+  }
+}
 .no-bot-margin {
   margin-bottom: 0;
 }

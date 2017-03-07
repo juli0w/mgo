@@ -11,11 +11,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
     %w(jpg jpeg gif png)
   end
 
-  version :thumb do
-    process resize_to_fit: [nil, 100]
-  end
-
   version :slider do
-    process resize_to_fit: [150, nil]
+    process resize_to_fill: [280, 280]
   end
 end

@@ -13,7 +13,7 @@
 City.delete_all
 Uf.delete_all
 
-Yelp.reset!
+GoogleLocals.reset!
 
 Category.delete_all
 c = Category.where(name: "Alimentação", code: 'restaurants').first_or_create
@@ -51,6 +51,7 @@ Category.where(name: "Museus", code: 'museums', ancestor_id: c.id).first_or_crea
 Category.where(name: "Teatros", code: 'theater', ancestor_id: c.id).first_or_create
 
 Yelp.import!
+GoogleLocals.import!
 
 # User.delete_all
 u = User.where(email: "admin@admin.com").first_or_create(password: "123123", password_confirmation: "123123")

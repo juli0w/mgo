@@ -1,6 +1,12 @@
 <footer class="page-footer <%= color(:primary_color, @company) %>">
   <div class="container">
     <div class="row">
+      <div class="col s12 m4 center social">
+        <%= link_to "", @company.facebook, class: "fa fa-facebook", target: "_blank" unless @company.facebook.blank? %>
+        <%= link_to "", @company.instagram, class: "fa fa-instagram", target: "_blank" unless @company.instagram.blank? %>
+        <%= link_to "", @company.twitter, class: "fa fa-twitter", target: "_blank" unless @company.twitter.blank? %>
+      </div>
+      <div class="col s12 m4"></div>
       <div class="col s12 m4 keep-icon-align">
         <h5 class="<%= color(:detail_color, @company) %>">Mais informações</h5>
         <br/>
@@ -15,19 +21,11 @@
         <%= raw @company.tags.map(&:name).map { |t| link_to t, tag_path(t), class: color(:link_color, @company) }.join(', ') %>
       </div>
       <% end %>
-
-      <div class="col s12 m4 center social">
-        <%= link_to "", @company.facebook, class: "fa fa-facebook", target: "_blank" unless @company.facebook.blank? %>
-        <%= link_to "", @company.instagram, class: "fa fa-instagram", target: "_blank" unless @company.instagram.blank? %>
-        <%= link_to "", @company.twitter, class: "fa fa-twitter", target: "_blank" unless @company.twitter.blank? %>
-      </div>
     </div>
   </div>
   <div class="footer-copyright">
-    <div class="container">
-      <div class="right">
-        <%= link_to 'http://www.weekz.com.br', root_url, class: color(:link_color, @company) %>
-      </div>
+    <div class="container center">
+      <%= @company.name %> @ <%= link_to 'www.weekz.com.br', root_url, class: color(:link_color, @company) %>
     </div>
   </div>
 </footer>

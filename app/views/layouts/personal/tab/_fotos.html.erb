@@ -3,24 +3,18 @@
       <div class="row no-top-margin no-bot-margin">
         <div class="title-wrapper center ">
           <div class="title-h5 <%= color(:primary_color, @company) %> <%= color(:text_color, @company) %>"><%= album.name %></div>
-          <p style="padding: 20px 0;"><%= album.description %></p>
+          <h5 style="padding: 20px; margin-top: 10px"><%= album.description %></h5>
         </div>
         <br>
       </div>
     <!-- </div>
 </div> -->
 
-<div class="row no-top-margin photos">
+<div class="no-top-margin photo-grid">
 <% album.photos.each do |photo| %>
-  <div class="col s12 m3">
-    <div class="card-panel">
-      <div class="photo center-align" style="overflow: hidden;" desc="<%= photo.description %>" img-full="<%= photo.photo.url %>">
-        <div class="valign-wrapper center-align" style="height: 90px; overflow: hidden;">
-          <%= image_tag(photo.photo.slider.url, class: 'valign img-open') %>
-        </div>
-        <br /><span class="truncate" style="width: 150px;"><%= photo.description %></span>
-      </div>
+    <div class="grid photo center-align" style="overflow: hidden;" desc="<%= photo.description %>" img-full="<%= photo.photo.url %>">
+      <%= image_tag(photo.photo.slider.url, class: 'img-open') %>
+      <div class="truncate photo-desc"><%= photo.description %></div>
     </div>
-  </div>
 <% end %>
 </div>

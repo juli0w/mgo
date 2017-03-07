@@ -1,0 +1,35 @@
+.photo-grid {
+  .photo {
+    cursor: pointer;
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+  font-size: 0;
+  display: flex;
+  flex-wrap: wrap;
+
+  .photo-desc {
+    padding: 10px 0 25px 0;
+    font-size: 11px;
+  }
+
+  .grid {
+    display: inline-block;
+    margin-bottom: 0px;
+    width: calc(100%);
+    margin-right: 0px;
+  }
+
+  @media screen and (min-width: 40em) and (max-width: 70em) {
+    .grid {
+      width: calc(50%);
+    }
+  }
+
+  @media screen and (min-width: 70em) {
+    .grid {
+      width: calc(33%);
+    }
+  }
+}

@@ -25,6 +25,7 @@ gem 'mysql2'
 gem 'materialize-sass'
 gem 'devise'
 
+gem 'google_places'
 gem 'ckeditor'
 gem 'carrierwave'
 gem 'mini_magick'

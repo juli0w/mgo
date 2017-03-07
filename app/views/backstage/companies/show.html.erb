@@ -56,14 +56,12 @@
     </div>
 
     <div class="col s12 m8">
-      <div class="card-panel">
-        <div>
-          <% if @company.profile.institutional.present? %>
-            <%= raw @company.profile.institutional %>
-          <% else %>
-            Sem página institucional
-          <% end %>
-        </div>
+      <div class="card-panel company-profile">
+        <% if @company.profile.institutional.present? %>
+          <%= raw @company.profile.institutional %>
+        <% else %>
+          Sem página institucional
+        <% end %>
       </div>
     </div>
   </div>
