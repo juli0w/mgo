@@ -53,7 +53,9 @@ class GoogleLocals
                           phone: spot.formatted_phone_number,
                           city_id: city_id,
                           uf_id: uf_id,
-                          address: address}).first_or_create.create_profile.create_template
+                          address: address}).first_or_create
+
+      c.create_profile.create_template
 
       if spot.photos.count > 0
         c.update(remote_logotipo_url: spot.photos[0].fetch_url(800))
