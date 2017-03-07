@@ -40,25 +40,29 @@ class GoogleLocals
 
       spot = client.spot(place_id)
 
-      next if spot.city != CITY
+      next if (spot.city != CITY) or (Company.where(name: spot.name).count > 0)
       city_id = City.where(name: spot.city).first_or_create.id
       uf_id = Uf.where(name: UF).first_or_create.id
 
       address = "#{spot.street}, #{spot.street_number}"
 
-      c = Company.where({ name: spot.name,
-                          code: place_id,
-                          slug: spot.name.parameterize,
-                          category_id: category_id,
-                          phone: spot.formatted_phone_number,
-                          city_id: city_id,
-                          uf_id: uf_id,
-                          address: address}).first_or_create
+      begin
+        c = Company.where({ name: spot.name,
+                            code: place_id,
+                            slug: spot.name.parameterize,
+                            category_id: category_id,
+                            phone: spot.formatted_phone_number,
+                            city_id: city_id,
+                            uf_id: uf_id,
+                            address: address}).first_or_create
 
-      c.create_profile.create_template
+        c.create_profile.create_template
 
-      if spot.photos.count > 0
-        c.update(remote_logotipo_url: spot.photos[0].fetch_url(800))
+        if spot.photos.count > 0
+          c.update(remote_logotipo_url: spot.photos[0].fetch_url(800))
+        end
+      rescue
+        puts "Error: #{spot.name} ---"
       end
     end
   end
