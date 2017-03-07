@@ -6,7 +6,13 @@
         <%= link_to "", @company.instagram, class: "fa fa-instagram", target: "_blank" unless @company.instagram.blank? %>
         <%= link_to "", @company.twitter, class: "fa fa-twitter", target: "_blank" unless @company.twitter.blank? %>
       </div>
-      <div class="col s12 m4"></div>
+      <div class="col s12 m4 <%= color(:text_color, @company) %>">
+        <% if @company.tags.any? %>
+        <h5 class="<%= color(:detail_color, @company) %>">Tags</h5>
+        <br />
+        <%= raw @company.tags.map(&:name).map { |t| link_to t, tag_path(t), class: color(:link_color, @company) }.join(', ') %>
+        <% end %>
+      </div>
       <div class="col s12 m4 keep-icon-align">
         <h5 class="<%= color(:detail_color, @company) %>">Mais informações</h5>
         <br/>
@@ -14,13 +20,7 @@
         <div class="<%= color(:text_color, @company) %>"><strong>Telefone:</strong><br/> <%= @company.shows :phone %></div><br />
         <div class="<%= color(:text_color, @company) %>"><strong>Email:</strong><br/> <%= @company.shows :mail %></div><br />
       </div>
-      <% if @company.tags.any? %>
-      <div class="col s12 m4 <%= color(:text_color, @company) %>">
-        <h5 class="<%= color(:detail_color, @company) %>">Tags</h5>
-        <br />
-        <%= raw @company.tags.map(&:name).map { |t| link_to t, tag_path(t), class: color(:link_color, @company) }.join(', ') %>
-      </div>
-      <% end %>
+
     </div>
   </div>
   <div class="footer-copyright">

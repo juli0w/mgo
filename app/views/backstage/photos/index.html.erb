@@ -47,15 +47,19 @@
   <div class="row">
     <% @album.photos.each do |photo| %>
       <% if photo.persisted? %>
-        <div class="col s6 m3 center-align" style="padding-bottom: 30px;">
-          <div class="card-panel">
-            <div class="valign-wrapper center-align" style="height: 100px; overflow: hidden;">
-              <div class="valign center-align" style="width: 100%;">
-                <%= image_tag photo.photo.url, width: "100px" %>
+        <div class="col s12 m6" style="padding-bottom: 30px;">
+          <div class="card horizontal">
+            <div class="card-image">
+              <%= image_tag photo.photo.slider.url, width: "200px" %>
+            </div>
+            <div class="card-stacked">
+              <div class="card-content">
+                <p><%= photo.description %></p>
               </div>
-            </div><br />
-            <span><%= photo.description %></span><br />
-            <%= link_to "Remover", backstage_company_album_photo_path(@company, @album, photo), :method => :delete, data: { confirm: "Tem certeza?" } %>
+              <div class="card-action">
+                <%= link_to "Remover", backstage_company_album_photo_path(@company, @album, photo), :method => :delete, data: { confirm: "Tem certeza?" } %>
+              </div>
+            </div>
           </div>
         </div>
       <% end %>
