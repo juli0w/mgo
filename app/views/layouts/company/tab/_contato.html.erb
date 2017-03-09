@@ -1,26 +1,22 @@
 <div id="contact-page" class="card">
+  <% if @company.address.present? %>
   <div class="card-image waves-effect waves-block waves-light">
-      <div id="map-canvas" data-lat="40.747688" data-lng="-74.004142"></div>
-  </div>
-  <div class="card-content">
-    <% if @company.address.present? %>
-      <div class="row no-bot-margin">
-        <div class="col s12">
-          <div class="" style="height: 350px;">
-            <iframe
-              width="100%"
-              height="100%"
-              frameborder="0" style="border:0"
-              src="https://www.google.com/maps/embed/v1/search?key=AIzaSyDqdqRUKXGJjNk4vH42SPsWOQMae91Bosw&q=<%= @company.address_code %>&zoom=15" allowfullscreen>
-            </iframe>
-          </div>
-        </div>
+      <div id="map-canvas" style="height: 350px;" class="col s12" data-lat="40.747688" data-lng="-74.004142">
+          <iframe
+            width="100%"
+            height="100%"
+            frameborder="0" style="border:0"
+            src="https://www.google.com/maps/embed/v1/search?key=AIzaSyDqdqRUKXGJjNk4vH42SPsWOQMae91Bosw&q=<%= @company.address_code %>&zoom=15" allowfullscreen>
+          </iframe>
       </div>
-    <% end %>
+  </div>
+  <% end %>
+
+  <div class="card-content">
     <div class="col s12">
-      <div class="row no-top-margin">
+      <div class="row">
         <div class="title-wrapper center no-border">
-          <div class="title-h5 <%= color(:primary_color, @company) %> <%= color(:text_color, @company) %>">Contato</div>
+          <h5>Contato</h5>
         </div>
       </div>
       <%= form_for @contact do |f| %>

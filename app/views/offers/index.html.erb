@@ -7,7 +7,7 @@
     <div class="search-offers center">
       <%= form_tag offers_path, method: :get do %>
           <fieldset style="border: none; margin: 0; padding: 0;">
-            <input name="keyword" id="icon_local" type="search" placeholder="Filtrar ofertas" value=<%= params[:keyword] %>>
+            <input name="keyword" id="icon_local" type="search" placeholder="Filtrar ofertas" value='<%= params[:keyword] %>'>
             <button class="btn" type="submit" name="action">
               Filtrar
             </button>
@@ -28,8 +28,8 @@
     </div>
   </div>
 
-  <div class="row">
-      <div class="container center">
+  <div class="row no-margin-top">
+      <div class="section center">
         <%= paginate @pages %>
     </div>
   </div>

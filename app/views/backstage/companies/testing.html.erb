@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <%= display_meta_tags site: @company.name %>
+    <%= csrf_meta_tag %>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+
+    <%= stylesheet_link_tag    'company/application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'company/application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'ckeditor/loader', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body class="company-layout">
+    <div name="editor" id="editor">
+
+    <%= render "layouts/company/navbar" %>
+
+    <%= render "layouts/company/header" %>
+
+    <div class="row container col s3" contenteditable="true" style='min-height: 50px;'>
+
+    </div>
+
+    <%= render "layouts/company/footer" %>
+    </div>
+  </body>
+</html>

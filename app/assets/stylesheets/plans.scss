@@ -1,0 +1,82 @@
+@import "materialize/components/color";
+
+.promotional .advantage h5 {
+  text-align: center;
+  display: block;
+  margin: 20px 0;
+}
+.promotional .advantage p {
+  text-align: justify;
+  padding: 20px;
+}
+
+.promotional-tile {
+  background-color: color("light-blue", "darken-2");
+  padding-top: 40px;
+  padding-bottom: 40px;
+  margin: 20px 0;
+}
+
+.plans-container .card .card-content {
+	min-height: 295px;
+}
+
+.plans-container .card .card-image {
+	position: relative;
+	width: 100%;
+}
+
+.plans-container .card .card-image .card-title {
+	font-size: 1.4285714285714286rem;
+	line-height: 1.6em;
+}
+
+.plans-container .card .card-image .card-title {
+	position: relative;
+	font-size: 1.2857142857142858rem;
+	line-height: 1.6em;
+	width: 100%;
+	padding: 10px 15px;
+	text-transform: uppercase;
+	background: rgba(0, 0, 0, 0.1);
+}
+
+.plans-container .card .card-image .price {
+	font-size: 6.428571428571429rem;
+	line-height: 1.6em;
+	margin: -15px 0;
+}
+
+.plans-container .card .card-image .price {
+	position: relative;
+	font-size: 5rem;
+	line-height: 1.6em;
+	color: #fff;
+	font-weight: 300;
+	text-align: center;
+  padding: 30px 0;
+}
+
+.plans-container .card .card-image .price sup {
+	font-weight: 100;
+	font-size: 1.4285714285714286rem;
+	line-height: 1.6em;
+	top: -35px;
+}
+
+.plans-container .collection {
+	border: none;
+}
+
+.plans-container .collection .collection-item {
+	border-bottom: none;
+	font-size: 1.0714285714285714rem;
+	line-height: 1.6em;
+}
+
+.plans-container .card .card-image .price sub {
+	font-weight: 100;
+	font-size: 1.4285714285714286rem;
+	line-height: 1.6em;
+	top: 0px;
+}

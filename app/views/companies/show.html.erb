@@ -1,17 +1,17 @@
 <% if @company.profile.institutional.present? and @company.premium? %>
   <div id="tab-inicial" class="tab-content">
-    <%= render "layouts/personal/tab/inicial" %>
+    <%= render "layouts/company/tab/inicial" %>
   </div>
 <% end %>
 
 <% if @company.premium? %>
   <% @company.albums.each do |album| %>
     <div id="tab-album-<%= album.id %>" class="tab-content">
-      <%= render "layouts/personal/tab/fotos", album: album %>
+      <%= render "layouts/company/tab/fotos", album: album %>
     </div>
   <% end %>
 <% end %>
 
 <div id="tab-contato" class="tab-content">
-  <%= render "layouts/personal/tab/contato" %>
+  <%= render "layouts/company/tab/contato" %>
 </div>

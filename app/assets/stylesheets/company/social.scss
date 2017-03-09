@@ -1,0 +1,30 @@
+.redes-sociais {
+  text-align: center;
+
+  a {
+    text-indent: -99999px;
+    width: 60px;
+    height: 60px;
+    display: block;
+    background-repeat: no-repeat;
+    background-image: url(/images/social.png);
+    display: inline-block;
+    background-position: center;
+    background-size: 235px 162px;
+  }
+
+  .facebook {
+    mix-blend-mode: multiply;
+    background-position: -15px -15px;
+  }
+
+  .twitter {
+    mix-blend-mode: multiply;
+    background-position: -88px -15px;
+  }
+
+  .instagram {
+    mix-blend-mode: multiply;
+    background-position: -160px -15px;
+  }
+}

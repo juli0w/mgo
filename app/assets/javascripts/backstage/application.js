@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require materialize
-//= require ckeditor/init
+//= require ckeditor/loader
 //= require_tree
 
 $(document).ready(function(){

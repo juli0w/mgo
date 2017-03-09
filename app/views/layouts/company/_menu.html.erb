@@ -2,7 +2,7 @@
   <div class="nav-wrapper container tabs-menu">
     <ul class="tabs">
       <% if @company.profile.institutional.present? and @company.premium? %>
-        <li class="tab"><%= link_to "Inicial", "#tab-inicial", class: "#{color(:link_color, @company)}" %></li>
+        <li class="tab"><%= link_to "Home", "#tab-inicial", class: "#{color(:link_color, @company)}" %></li>
       <% end %>
       <% if @company.premium? %>
         <% @albums.each do |album| %>

@@ -3,7 +3,7 @@ class CompaniesController < ApplicationController
 
   def tag
     @tag = Tag.where(name: params[:tag]).first
-    @companies = Company.tagged_with(params[:tag]).page(params[:page])
+    @companies = Company.tagged_with(params[:tag]).order('premium desc, logotipo desc').page(params[:page])
   end
 
   def show
@@ -13,10 +13,15 @@ class CompaniesController < ApplicationController
 
     @page_keywords += ", " + @company.tag_list
 
+    @preview = false
+    if params[:preview] == @company.id
+      @preview = true
+    end
+
     set_meta_tags title: @company.description,
                   description: "Página sobre a empresa #{@company.name}. #{@company.description}"
 
-    render layout: 'personal'
+    render layout: 'company'
   end
 
 private

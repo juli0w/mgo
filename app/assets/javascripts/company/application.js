@@ -13,54 +13,21 @@
 //= require jquery
 //= require jquery_ujs
 //= require materialize
-//= require rating
-//= require geomap
-//= require slick
-//= require backstage/plugins
-//= require_self
+//= require ../rating
+//= require_tree
 
 $(document).ready(function(){
-  $('.window-modal').modal({
-      dismissible: true,
-      opacity: 55 });
-  $('#modal1').modal('open');
-
   $('.star-rating').rating();
   $('.tooltipped').tooltip({delay: 50});
   $( ".tabs" ).tabs();
-  $('select').material_select();
-  $(".open-menu").sideNav();
-  $('.collapsible').collapsible();
 
-  $('.slick-sliding').slick({
-    infinite: true,
-    slidesToShow: 3,
-    slidesToScroll: 3,
-    responsive: [
-    {
-      breakpoint: 1024,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 3,
-        infinite: true,
-        dots: true
-      }
-    },
-    {
-      breakpoint: 680,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2
-      }
-    },
-    {
-      breakpoint: 430,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1
-      }
-    }
-  ]
+  $('.photo').click(function() {
+    $('.img-modal').fadeIn(200);
+    $('.img-modal #img-modal').attr('src', $(this).attr('img-full'));
+    $('.img-modal #caption').html($(this).attr('desc'));
   });
-  Materialize.updateTextFields();
+
+  $('.img-modal .close').click(function() {
+    $('.img-modal').fadeOut(200);
+  });
 });

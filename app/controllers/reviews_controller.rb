@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :set_company, only: [:create]
-  layout 'personal'
+  layout 'company'
 
   def new
     @company = Company.find_by_slug(params[:slug])

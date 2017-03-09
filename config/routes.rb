@@ -34,6 +34,7 @@ Rails.application.routes.draw do
     resources :sample_templates
 
     resources :companies do
+      member { get :testing }
       resources :contacts
       member do
         post :active
@@ -58,6 +59,7 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
 
-  get ':slug', to: 'companies#show'
-  get ':slug/review', to: 'reviews#new'
+  post ':slug', to: 'companies#show'
+  get  ':slug', to: 'companies#show'
+  get  ':slug/review', to: 'reviews#new'
 end
