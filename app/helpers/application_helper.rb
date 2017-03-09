@@ -14,6 +14,10 @@ module ApplicationHelper
     }[title.to_sym] || title.to_s
   end
 
+  def odd_color company, n
+    "#{color(:primary_color, company)} #{color(:text_color, company)}" unless n.odd?
+  end
+
   def color_sample input, company
     c = company.color_sample(input)
     content_tag(:div, "",

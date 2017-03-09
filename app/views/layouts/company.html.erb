@@ -5,7 +5,7 @@
     <%= csrf_meta_tag %>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-
+    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
     <%= stylesheet_link_tag    'company/application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'company/application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -20,18 +20,14 @@
       <%= render "layouts/company/menu" %>
     <% end %>
 
-    <%= render "layouts/main/flash" %>
-
     <%= render "layouts/company/content" %>
 
     <%= render "layouts/company/footer" %>
 
     <%= render "layouts/analytics" %>
-    
-    <div class="img-modal valign-wrapper" id="modal">
-      <span class="close">×</span>
-      <img class="valign modal-content" id="img-modal">
-      <div id="caption"></div>
-    </div>
+
+    <%= render "layouts/main/flash" %>
+
+    <%= render "layouts/company/modal" %>
   </body>
 </html>

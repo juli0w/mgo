@@ -12,6 +12,7 @@ class CompaniesController < ApplicationController
     @albums = @company.albums
 
     @page_keywords += ", " + @company.tag_list
+    @row_counter = 1
 
     @preview = false
     if params[:preview] == @company.id
@@ -19,9 +20,9 @@ class CompaniesController < ApplicationController
     end
 
     set_meta_tags title: @company.description,
-                  description: "Página sobre a empresa #{@company.name}. #{@company.description}"
+                  description: "Página sobre a empresa #{@company.name}. #{@company.description}. #{@company.tag_list}"
 
-    render layout: 'company'
+    render layout: 'full'
   end
 
 private

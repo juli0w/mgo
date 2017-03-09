@@ -1,6 +1,12 @@
 .company-layout {
+  // font-family: GillSans, Calibri, Trebuchet, sans-serif;
   font-family: 'Merriweather', serif;
-  background-color: white;
+
+  .full-padding {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    padding: 60px 0;
+  }
 
   .header-company {
     padding-top: .5em;
@@ -8,8 +14,14 @@
     color: white;
     min-height: 200px;
     background-size: 100% 100%;
-    h3 {
+    h2.logo {
       font-weight: bold;
+      margin-top: 110px;
+    }
+
+    h5 {
+      padding: 20px 0 120px;
+      line-height: 1.4em;
     }
   }
 
@@ -30,7 +42,13 @@
   }
 }
 
-.page-footer h5 { font-size: 1.3em; font-weight: bold; }
+.page-footer {
+  h5 {
+    font-size: 1.3em;
+    font-weight: bold;
+    padding: 15px 0;
+  }
+}
 
 .title-wrapper {
   margin-bottom: 20px;

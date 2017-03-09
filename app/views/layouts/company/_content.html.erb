@@ -1,5 +1,13 @@
 <div class="container">
+  <% if @company.profile.institutional.present? and @company.premium? %>
+    <%= render "layouts/company/tab/inicial" %>
+  <% end %>
 
-  <%= yield %>
+  <% if @company.premium? %>
+    <% @company.albums.each do |album| %>
+      <%= render "layouts/company/tab/fotos", album: album %>
+    <% end %>
+  <% end %>
 
+  <%= render "layouts/company/tab/contato" %>
 </div>
