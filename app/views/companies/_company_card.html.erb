@@ -2,7 +2,7 @@
    <div class="card-image waves-effect waves-block waves-light">
      <%=
        link_to(
-         image_tag(logotipo_square(company), class: "valign"), get_url(company))
+         image_tag(logotipo_square(company), class: "valign", alt: "#{company.name}"), get_url(company))
      %>
    </div>
    <div class="card-content">

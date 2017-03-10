@@ -11,7 +11,7 @@
     <div class="no-top-margin photo-grid">
       <% album.photos.each do |photo| %>
         <div class="grid photo center-align" style="overflow: hidden;" desc="<%= photo.description %>" img-full="<%= photo.photo.url %>">
-          <%= image_tag(photo.photo.slider.url, class: 'img-open') %>
+          <%= image_tag(photo.photo.slider.url, class: 'img-open', alt: "#{photo.description}") %>
           <div class="truncate photo-desc"><%= photo.description %></div>
         </div>
       <% end %>
