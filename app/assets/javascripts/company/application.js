@@ -20,6 +20,7 @@ $(document).ready(function(){
   $('.star-rating').rating();
   $('.tooltipped').tooltip({delay: 50});
   $( ".tabs" ).tabs();
+  $(".button-collapse").sideNav();
 
   $('.photo').click(function() {
     $('.img-modal').fadeIn(200);
