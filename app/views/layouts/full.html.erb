@@ -25,23 +25,7 @@
     <%= render "layouts/main/flash" %>
 
     <% if user_signed_in? %>
-      <div class="tools <%= color(:primary_color, @company) %>">
-        <ul>
-          <% if current_user.admin? %>
-            <% if @company.premium? %>
-              <li><%= link_to "<i class='material-icons'>thumb_down</i>".html_safe, unactive_backstage_company_path(@company), method: :post, class: "tooltipped #{color(:link_color, @company)}", 'data-tooltip': 'Desativar premium' %></li>
-            <% else %>
-              <li><%= link_to "<i class='material-icons'>thumb_up</i>".html_safe, active_backstage_company_path(@company), method: :post, class: "tooltipped #{color(:link_color, @company)}", 'data-tooltip': 'Ativar premium' %></li>
-            <% end %>
-          <% end %>
-          <li><%= link_to "<i class='material-icons'>star</i>".html_safe, "/#{@company.slug}/review", class: "tooltipped #{color(:link_color, @company)}", 'data-tooltip': 'Avaliar' %></li>
-          <% if @company.user_id == current_user.id %>
-            <li><%= link_to "<i class='material-icons'>edit</i>".html_safe, edit_backstage_company_path(@company), class: "tooltipped #{color(:link_color, @company)}", 'data-tooltip': 'Editar' %></li>
-          <% end %>
-          <li><%= link_to "<i class='material-icons'>place</i>".html_safe, root_url, class: "tooltipped #{color(:link_color, @company)}", 'data-tooltip': 'Weekz' %></li>
-          <li><%= link_to "<i class='material-icons'>lock_open</i>".html_safe, destroy_user_session_path, class: "tooltipped #{color(:link_color, @company)}", 'data-tooltip': 'Logout', method: :delete %></li>
-        </ul>
-      </div>
+      <%= render "layouts/full/tools" %>
     <% end %>
   </body>
 </html>

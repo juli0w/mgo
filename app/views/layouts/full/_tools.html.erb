@@ -1,0 +1,32 @@
+<div class="fixed-action-btn horizontal">
+  <a class="btn-floating btn-large <%= color(:primary_color, @company) %>">
+    <i class="large material-icons">mode_edit</i>
+  </a>
+  <ul>
+    <% if current_user.admin? %>
+      <% if @company.premium? %>
+        <li><%= link_to unactive_backstage_company_path(@company), method: :post, class: "btn-floating tooltipped", 'data-position': "top", 'data-tooltip': 'Desativar premium' do %>
+          <i class='material-icons'>thumb_down</i>
+        <% end %></li>
+      <% else %>
+        <li><%= link_to active_backstage_company_path(@company), method: :post, class: "btn-floating tooltipped", 'data-position': "top", 'data-tooltip': 'Ativar premium' do %>
+          <i class='material-icons'>thumb_up</i>
+        <% end %></li>
+      <% end %>
+    <% end %>
+    <li><%= link_to "/#{@company.slug}/review", class: "btn-floating tooltipped", 'data-position': "top", 'data-tooltip': 'Avaliar' do %>
+      <i class='material-icons'>star</i>
+    <% end %></li>
+    <% if @company.user_id == current_user.id %>
+      <li><%= link_to edit_backstage_company_path(@company), class: "btn-floating tooltipped", 'data-position': "top", 'data-tooltip': 'Editar' do %>
+        <i class='material-icons'>edit</i>
+      <% end %></li>
+    <% end %>
+    <li><%= link_to root_url, class: "btn-floating tooltipped", 'data-position': "top", 'data-tooltip': 'Weekz' do %>
+      <i class='material-icons'>place</i>
+    <% end %></li>
+    <li><%= link_to destroy_user_session_path, class: "btn-floating tooltipped", 'data-position': "top", 'data-tooltip': 'Logout', method: :delete do %>
+      <i class='material-icons'>lock_open</i>
+    <% end %></li>
+  </ul>
+</div>

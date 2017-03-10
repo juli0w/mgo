@@ -8,6 +8,7 @@ class CompaniesController < ApplicationController
 
   def show
     @company = Company.find_by_slug(params[:slug])
+    @template = @company.profile.template
     @contact = Contact.new
     @albums = @company.albums
 

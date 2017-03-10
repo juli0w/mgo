@@ -15,7 +15,9 @@ module ApplicationHelper
   end
 
   def odd_color company, n
-    "#{color(:primary_color, company)} #{color(:text_color, company)}" unless n.odd?
+    unless n.odd?
+      "#{color(:primary_color, company)} #{color(:text_color, company)}"
+    end
   end
 
   def color_sample input, company
