@@ -1,53 +1,56 @@
-<div class="title-wrapper center">
-  <div class="title-h5 <%= color(:primary_color, @company) %> <%= color(:text_color, @company) %>">Faça sua avaliação</div>
-</div>
-<br/>
-
-<div class="row no-bot-margin">
-  <div class="card-panel">
-  <%= form_for [@company, @review] do |f| %>
-
-    <div class="row">
-      <div class="input-field col s12">
-        <%= f.text_field :name, required: true %>
-        <%= f.label :name %>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="input-field col s12">
-        <%= f.email_field :email, required: true %>
-        <%= f.label :email %>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="input-field col s12">
-        <%= f.text_area :comment, class: "materialize-textarea" %>
-        <%= f.label :comment %>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="input-field col s12">
-        Avaliação:
-        <div class="star-rating">
-          <%= f.radio_button :stars, 1, class: "rating" %>
-          <%= f.radio_button :stars, 2, class: "rating" %>
-          <%= f.radio_button :stars, 3, class: "rating" %>
-          <%= f.radio_button :stars, 4, class: "rating" %>
-          <%= f.radio_button :stars, 5, class: "rating", checked: true %>
+<div id="contact-page" class="no-bot-margin">
+  <div class="row full-padding <%= odd_color(@company, @row_counter) %> no-bot-margin">
+    <div class="container white grey-text text-darken-4">
+      <div class="col s12">
+        <div class="title-wrapper center no-border">
+          <h5>Faça sua avaliação</h5>
+          <h6 style="margin: 20px 0 40px 0;">Sua opinião é muito importante para nós</h6>
         </div>
       </div>
-    </div>
+      <%= form_for [@company, @review] do |f| %>
 
-    <div class="row no-bot-margin">
-      <div class="input-field col s12">
-        <button class="btn waves-effect waves-light right btn-large" type="submit" name="action">Avaliar
-          <i class="material-icons left">star</i>
-        </button>
-      </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <%= f.text_field :name, required: true %>
+            <%= f.label :name %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <%= f.email_field :email, required: true %>
+            <%= f.label :email %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <%= f.text_area :comment, class: "materialize-textarea" %>
+            <%= f.label :comment %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            Avaliação:
+            <div class="star-rating">
+              <%= f.radio_button :stars, 1, class: "rating" %>
+              <%= f.radio_button :stars, 2, class: "rating" %>
+              <%= f.radio_button :stars, 3, class: "rating" %>
+              <%= f.radio_button :stars, 4, class: "rating" %>
+              <%= f.radio_button :stars, 5, class: "rating", checked: true %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row no-bot-margin">
+          <div class="input-field col s12">
+            <button class="btn waves-effect waves-light right btn-large" type="submit" name="action">Avaliar
+              <i class="material-icons left">star</i>
+            </button>
+          </div>
+        </div>
+      <% end %>
     </div>
-  <% end %>
   </div>
 </div>

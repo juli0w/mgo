@@ -66,12 +66,4 @@
   <% end %>
 </div>
 
-<% unless true# @row_counter.odd? %>
-<style>
-label.active {
-  color: <%= @template.text_color.code %> !important;
-}
-</style>
-<% end %>
-
 <% @row_counter += 1 %>

@@ -1,10 +1,11 @@
 class ReviewsController < ApplicationController
   before_action :set_company, only: [:create]
-  layout 'company'
+  layout 'full'
 
   def new
     @company = Company.find_by_slug(params[:slug])
     @review = @company.reviews.new
+    @row_counter = 1
 
     @hide_menu = true
   end
@@ -18,6 +19,7 @@ class ReviewsController < ApplicationController
     else
       flash.now[:alert] = "Por favor verifique os campos."
       @hide_menu = true
+      @row_counter = 1
       render :new
     end
   end

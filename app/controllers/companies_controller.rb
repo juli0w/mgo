@@ -23,7 +23,7 @@ class CompaniesController < ApplicationController
     set_meta_tags title: @company.description,
                   description: "Página sobre a empresa #{@company.name}. #{@company.description}. #{@company.tag_list}"
 
-    render layout: 'full'
+    render 'content', layout: 'full'
   end
 
 private
