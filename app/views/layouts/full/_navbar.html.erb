@@ -1,6 +1,6 @@
 <nav role="navigation" class="<%= color(:primary_color, @company) %>">
   <div class="nav-wrapper container">
-    <div class="center anchorList hide-on-med-and-down">
+    <div class="styling anchorList hide-on-med-and-down">
       <%= link_to "Principal", "#home", class: "#{color(:primary_color, @company)}" %>
       <% @company.albums.each do |album| %>
         <%= link_to album.name, "#album-#{album.id}", class: "#{color(:primary_color, @company)}" %>
