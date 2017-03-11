@@ -4,11 +4,6 @@ class HomeController < ApplicationController
     description: 'O Weekz reúne diversos locais para quem está buscando algo para fazer na região, seja para lazer ou profissional.'
 
     @destaque = Company.premium.last(8)
-    @dia = Company.by_tag('dia').first(5)
-    @noite = Company.by_tag('noite').first(5)
-    @natureza = Company.by_tag('natureza').first(5)
-
-    # @offers = Offer.offers
     @map = true
   end
 

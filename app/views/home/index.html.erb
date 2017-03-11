@@ -1,19 +1,5 @@
 <%#= render "layouts/main/slideshow" %>
-<div class="row margin-top">
-  <div class="container">
-    <div class="section">
-      <h5 class="title center"><i class="title-fa amber-text fa fa-paper-plane" aria-hidden="true"></i>Locais mais populares</h5>
-    </div>
-
-    <div class="last-companies slick-sliding">
-      <% @destaque.each do |company| %>
-        <div style="padding: 0 10px;">
-          <%= render "companies/company_card", company: company %>
-        </div>
-      <% end %>
-    </div>
-  </div>
-</div>
+<%= render "home/populars" %>
 
 <div class="row light-blue no-top-margin no-bot-margin">
   <div class="container">
