@@ -11,13 +11,6 @@ module Backstage
       end
     end
 
-    def testing
-      set_company
-      @albums = @company.albums
-
-      render layout: nil
-    end
-
     def active
       @company = Company.find(params[:id])
       @company.activate!

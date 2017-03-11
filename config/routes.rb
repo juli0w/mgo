@@ -36,7 +36,6 @@ Rails.application.routes.draw do
 
     resources :companies do
       member do
-        get :testing
         post :active
         post :unactive
       end
