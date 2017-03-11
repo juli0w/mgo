@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <%= display_meta_tags site: @company.name %>
+    <%= csrf_meta_tag %>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+    <%= stylesheet_link_tag    'default/application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'company/application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body class="company-layout">
+
+    <%= render "layouts/default/header" %>
+
+    <%= render "layouts/default/navbar" %>
+
+    <%= render "layouts/default/content" %>
+
+    <%= render "layouts/default/footer" %>
+
+    <%= render "layouts/analytics" %>
+
+    <%= render "layouts/main/flash" %>
+
+    <% if user_signed_in? %>
+      <%= render "layouts/full/tools" %>
+    <% end %>
+</script>
+
+  </body>
+</html>

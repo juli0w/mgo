@@ -34,19 +34,26 @@ Rails.application.routes.draw do
     resources :sample_templates
 
     resources :companies do
-      member { get :testing }
-      resources :contacts
       member do
+        get :testing
         post :active
         post :unactive
       end
+
+      resources :pages do
+        resources :contact_pages
+        resources :blank_pages
+        resources :album_pages do
+          resources :photos
+        end
+      end
+
+      resources :contacts
+
       resource :profile, except: :show, path_names: { edit: '' } do
         member do
           get :preview
         end
-      end
-      resources :albums do
-        resources :photos
       end
 
       resources :reviews, except: [:new, :create]
@@ -62,4 +69,5 @@ Rails.application.routes.draw do
   post ':slug', to: 'companies#show'
   get  ':slug', to: 'companies#show'
   get  ':slug/review', to: 'reviews#new'
+  get  ':slug/:page', to: 'companies#show'
 end

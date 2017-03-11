@@ -10,7 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170305203912) do
+ActiveRecord::Schema.define(version: 20170311040613) do
+
+  create_table "album_pages", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "albums", force: :cascade do |t|
     t.         "photos"
@@ -20,6 +25,12 @@ ActiveRecord::Schema.define(version: 20170305203912) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["company_id"], name: "index_albums_on_company_id"
+  end
+
+  create_table "blank_pages", force: :cascade do |t|
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "categories", force: :cascade do |t|
@@ -81,6 +92,12 @@ ActiveRecord::Schema.define(version: 20170305203912) do
     t.index ["slug"], name: "index_companies_on_slug", unique: true
   end
 
+  create_table "contact_pages", force: :cascade do |t|
+    t.string   "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "contacts", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
@@ -116,20 +133,33 @@ ActiveRecord::Schema.define(version: 20170305203912) do
     t.string   "seller_thumbnail"
   end
 
+  create_table "pages", force: :cascade do |t|
+    t.string   "pageable_type"
+    t.integer  "pageable_id"
+    t.string   "title"
+    t.integer  "profile_id"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.string   "description"
+    t.string   "slug"
+    t.integer  "index",         default: 1
+    t.index ["profile_id"], name: "index_pages_on_profile_id"
+  end
+
   create_table "photos", force: :cascade do |t|
     t.string   "photo"
     t.string   "description"
-    t.integer  "album_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["album_id"], name: "index_photos_on_album_id"
+    t.integer  "album_page_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["album_page_id"], name: "index_photos_on_album_page_id"
   end
 
   create_table "profiles", force: :cascade do |t|
     t.integer  "company_id"
     t.text     "institutional"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
     t.string   "primary_color"
     t.string   "detail_color"
     t.string   "link_color"
@@ -137,6 +167,7 @@ ActiveRecord::Schema.define(version: 20170305203912) do
     t.string   "logo_color"
     t.string   "description_color"
     t.string   "cover"
+    t.string   "layout",            default: "default"
     t.index ["company_id"], name: "index_profiles_on_company_id"
   end
 

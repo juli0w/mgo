@@ -9,7 +9,7 @@
 
     <div class="card-panel">
       <h5 class="center">Nova foto</h5>
-    <%= form_for @photo, url: backstage_company_album_photos_path(@company, @album, @photo), method: :post do |f| %>
+    <%= form_for @photo, url: [:backstage, @company, @page, @album_page, @photo], method: :post do |f| %>
 
 
       <div class="row">
@@ -45,7 +45,7 @@
   </div>
 
   <div class="row">
-    <% @album.photos.each do |photo| %>
+    <% @album_page.photos.each do |photo| %>
       <% if photo.persisted? %>
         <div class="col s12 m6" style="padding-bottom: 30px;">
           <div class="card horizontal">
@@ -57,7 +57,7 @@
                 <p><%= photo.description %></p>
               </div>
               <div class="card-action">
-                <%= link_to "Remover", backstage_company_album_photo_path(@company, @album, photo), :method => :delete, data: { confirm: "Tem certeza?" } %>
+                <%= link_to "Remover", [:backstage, @company, @page, @album_page, photo], :method => :delete, data: { confirm: "Tem certeza?" } %>
               </div>
             </div>
           </div>

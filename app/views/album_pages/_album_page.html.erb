@@ -1,15 +1,15 @@
-<div id="album-<%= album.id %>" class="full-padding <%= odd_color(@company, @row_counter) %>">
+<div id="<%= page.slug %>" class="full-padding <%= odd_color(@company, @row_counter) %>">
   <div class="container">
     <div class="row">
       <div class="col s12 title-wrapper center">
-        <h5 style="padding: 20px;"><%= album.name %></h5>
-        <h6 style="margin: 0px 0 40px 0;"><%= album.description %></h6>
-        <div class="divider"></div>
+        <h5 style="padding: 20px;"><%= page.title %></h5>
+        <h6 style="margin: 0px 0 20px 0;"><%= page.description %></h6>
+        <!-- <div class="divider"></div> -->
       </div>
     </div>
 
     <div class="no-top-margin photo-grid">
-      <% album.photos.each do |photo| %>
+      <% page.pageable.photos.each do |photo| %>
         <div class="grid photo center-align" style="overflow: hidden;" desc="<%= photo.description %>" img-full="<%= photo.photo.url %>">
           <%= image_tag(photo.photo.slider.url, class: 'img-open', alt: "#{photo.description}") %>
           <div class="truncate photo-desc"><%= photo.description %></div>
@@ -20,4 +20,3 @@
 </div>
 
 <% @row_counter += 1 %>
-<%= render "layouts/company/modal" %>

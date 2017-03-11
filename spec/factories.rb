@@ -1,4 +1,19 @@
 FactoryGirl.define do
+  factory :album_page do
+    
+  end
+  factory :page do
+    pageable_type "MyString"
+    pageable_id 1
+    title "MyString"
+    profile nil
+  end
+  factory :blank_page do
+    content "MyText"
+  end
+  factory :contact_page do
+    email "MyString"
+  end
   factory :sample_template do
     name "MyString"
     template nil

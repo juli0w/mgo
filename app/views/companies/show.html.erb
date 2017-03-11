@@ -1,11 +1,3 @@
-<% if @company.profile.institutional.present? and @company.premium? %>
-  <%= render "layouts/full/tab/inicial" %>
-<% end %>
+<%= render "layouts/#{company_layout(@company)}/page" %>
 
-<% if @company.premium? %>
-  <% @company.albums.each do |album| %>
-    <%= render "layouts/full/tab/fotos", album: album %>
-  <% end %>
-<% end %>
-
-<%= render "layouts/full/tab/contato" %>
+<%= render "layouts/company/modal" %>

@@ -1,7 +1,11 @@
 class Profile < ApplicationRecord
   belongs_to :company
+  has_many :pages
   has_one :template, dependent: :destroy
   accepts_nested_attributes_for :template
+
+  LAYOUTS = [["Padrão", "default"],
+             ["Full Page", "full"]]
 
   mount_uploader :cover, CoverUploader
 

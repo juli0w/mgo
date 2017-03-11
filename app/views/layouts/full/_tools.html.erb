@@ -1,6 +1,6 @@
 <div class="fixed-action-btn horizontal">
   <a class="btn-floating btn-large <%= color(:primary_color, @company) %>">
-    <i class="large material-icons">mode_edit</i>
+    <i class="large material-icons <%= color(:link_color, @company) %>">mode_edit</i>
   </a>
   <ul>
     <% if current_user.admin? %>

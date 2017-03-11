@@ -1,9 +1,9 @@
-<div id="contact-page" class="no-bot-margin">
+<div id="<%= page.slug %>" class="contact-page no-bot-margin">
   <div class="row full-padding <%= odd_color(@company, @row_counter) %> no-bot-margin">
     <div class="container white grey-text text-darken-4">
       <div class="col s12">
         <div class="title-wrapper center no-border">
-          <h5>Contato</h5>
+          <h5><%= page.title %></h5>
         </div>
       </div>
       <%= form_for @contact do |f| %>
@@ -43,7 +43,7 @@
             <%= f.label :message %>
           </div>
           <div class="input-field col s12">
-            <%= f.hidden_field :destination, value: @company.mail %>
+            <%= f.hidden_field :destination, value: page.pageable.email %>
             <%= f.hidden_field :company_id, value: @company.id %>
             <%= f.button type: "submit", name: "action", class: "btn cyan waves-effect waves-light btn-large right" do %>
               <i class="material-icons right">send</i> Enviar

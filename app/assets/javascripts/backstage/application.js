@@ -23,4 +23,5 @@ $(document).ready(function(){
       dismissible: true,
       opacity: 5 });
   $('#modal1').modal('open');
+  Materialize.updateTextFields();
 });

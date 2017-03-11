@@ -9,21 +9,22 @@ class CompaniesController < ApplicationController
   def show
     @company = Company.find_by_slug(params[:slug])
     @template = @company.profile.template
-    @contact = Contact.new
-    @albums = @company.albums
+    @pages = @company.profile.pages.order(:index)
 
-    @page_keywords += ", " + @company.tag_list
-    @row_counter = 1
-
-    @preview = false
-    if params[:preview] == @company.id
-      @preview = true
+    if params[:page]
+      @page = @pages.find_by_slug(params[:page])
+    else
+      @page = @pages.first
     end
 
+    @contact = Contact.new
+    @row_counter = 1
+
+    @page_keywords += ", " + @company.tag_list
     set_meta_tags title: @company.description,
                   description: "Página sobre a empresa #{@company.name}. #{@company.description}. #{@company.tag_list}"
 
-    render 'content', layout: 'full'
+    render layout: @company.profile.layout
   end
 
 private

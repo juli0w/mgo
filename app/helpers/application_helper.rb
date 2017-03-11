@@ -14,6 +14,10 @@ module ApplicationHelper
     }[title.to_sym] || title.to_s
   end
 
+  def company_layout company
+    company.profile.layout
+  end
+
   def odd_color company, n
     unless n.odd?
       "#{color(:primary_color, company)} #{color(:text_color, company)}"

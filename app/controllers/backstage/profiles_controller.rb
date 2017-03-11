@@ -21,16 +21,19 @@ module Backstage
 
     def preview
       @company = current_user.companies.find(params[:company_id])
+      @template = @company.profile.template
+      @pages = @company.profile.pages.order(:index)
+      @page = @pages.first
       @contact = Contact.new
-      @albums = @company.albums
+      @row_counter = 1
 
-      render layout: 'preview'
+      render layout: @company.profile.layout
     end
 
   private
 
     def profile_params
-      params.require(:profile).permit(:institutional, :cover,
+      params.require(:profile).permit(:cover, :layout,
         template_attributes: [:primary_color_id, :detail_color_id, :text_color_id, :link_color_id,
         :logo_color_id, :description_color_id])
     end

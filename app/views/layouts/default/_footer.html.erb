@@ -1,0 +1,29 @@
+<footer class="page-footer <%= "#{color(:primary_color, @company)} #{color(:text_color, @company)}" %> no-top-margin">
+  <div class="container">
+    <div class="row">
+      <div class="col s12 m4 center social">
+        <%= link_to "", @company.facebook, class: "fa fa-facebook", target: "_blank" unless @company.facebook.blank? %>
+        <%= link_to "", @company.instagram, class: "fa fa-instagram", target: "_blank" unless @company.instagram.blank? %>
+        <%= link_to "", @company.twitter, class: "fa fa-twitter", target: "_blank" unless @company.twitter.blank? %>
+      </div>
+      <div class="col s12 m4 <%= color(:text_color, @company) %>">
+        <% if @company.tags.any? %>
+        <h5 class="<%= color(:detail_color, @company) %>">Tags</h5>
+        <%= raw @company.tags.map(&:name).map { |t| link_to t, tag_path(t), class: color(:link_color, @company) }.join(', ') %>
+        <% end %>
+      </div>
+      <div class="col s12 m4 keep-icon-align">
+        <h5 class="<%= color(:detail_color, @company) %>">Mais informações</h5>
+        <div class="<%= color(:text_color, @company) %>"><strong>Endereço:</strong><br/> <%= @company.formatted_address %></div><br />
+        <div class="<%= color(:text_color, @company) %>"><strong>Telefone:</strong><br/> <%= @company.shows :phone %></div><br />
+        <div class="<%= color(:text_color, @company) %>"><strong>Email:</strong><br/> <%= @company.shows :mail %></div><br />
+      </div>
+
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container center <%= color(:text_color, @company) %>">
+      <%= @company.name %> @ <%= link_to 'www.weekz.com.br', root_url, class: color(:link_color, @company) %>
+    </div>
+  </div>
+</footer>

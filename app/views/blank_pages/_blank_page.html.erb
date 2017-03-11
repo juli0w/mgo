@@ -1,0 +1,16 @@
+<div id="<%= page.slug %>" class="full-padding <%= odd_color(@company, @row_counter) %>">
+  <div class="row">
+    <div class="container">
+      <div class="section">
+        <div class="title-wrapper center no-border">
+          <h5><%= page.title %></h5>
+        </div>
+      </div>
+
+      <div class="company-profile">
+        <%= raw page.pageable.content %>
+      </div>
+    </div>
+  </div>
+</div>
+<% @row_counter += 1 %>
