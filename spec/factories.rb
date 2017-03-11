@@ -1,6 +1,11 @@
 FactoryGirl.define do
+  factory :font do
+    name "MyString"
+    url "MyString"
+    profile nil
+  end
   factory :album_page do
-    
+
   end
   factory :page do
     pageable_type "MyString"

@@ -33,7 +33,7 @@ module Backstage
   private
 
     def profile_params
-      params.require(:profile).permit(:cover, :layout,
+      params.require(:profile).permit(:cover, :layout, :font_id,
         template_attributes: [:primary_color_id, :detail_color_id, :text_color_id, :link_color_id,
         :logo_color_id, :description_color_id])
     end

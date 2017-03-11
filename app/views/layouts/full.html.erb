@@ -5,9 +5,12 @@
     <%= csrf_meta_tag %>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
     <%= stylesheet_link_tag    'full/application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'company/application', 'data-turbolinks-track': 'reload' %>
+
+    <style>
+      <%= render "layouts/company/fonts.css", font: @company.profile.font %>
+    </style>
   </head>
 
   <body class="company-layout">

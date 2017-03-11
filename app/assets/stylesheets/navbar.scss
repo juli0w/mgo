@@ -1,13 +1,18 @@
 .main-nav {
-  height: 50px;
-  line-height: 50px;
+  height: 55px;
+  line-height: 55px;
+  border-bottom: 4px solid #4fc3f7;
 }
 nav .nav-wrapper .sub-menu i {
   line-height: 20px;
 }
 
 .sub-menu {
+  a i {
+    color: #ffc107;
+  }
   a {
+    // color: #212121;
     line-height: 30px !important;
     padding: 0 5px;
 
@@ -63,11 +68,6 @@ nav .nav-wrapper .sub-menu i {
   padding: 80px 0 120px 0;
   background: url(/images/cover.jpg) no-repeat;
   background-size: cover;
-  // border-bottom: 1px solid #BDBDBD;
-}
-
-.search-section.row {
-  // margin-bottom: 0 !important;
 }
 
 .search-section h5 {
@@ -94,13 +94,3 @@ nav .nav-wrapper .sub-menu i {
      color: #aeaeae;
   }
 }
-// .search-section .bg-transparent {
-//   padding: 20px 20px;
-//   background-color: rgba(255, 255, 255, 0.07);
-//   border-radius: 8px;
-// }
-
-// .background-map  {
-//   background-color: color("blue-grey", "darken-4");
-//   background-image: url(/images/bg-map.png);
-// }

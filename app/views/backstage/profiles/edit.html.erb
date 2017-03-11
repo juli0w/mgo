@@ -30,9 +30,14 @@
         </div>
 
         <div class="row">
-          <div class="input-field col s12">
-            Layout<br>
+          <div class="input-field col s6">
+            Modelo<br>
             <%= f.select :layout, Profile::LAYOUTS, required: true %>
+          </div>
+
+          <div class="input-field col s6">
+            Tipografia<br>
+            <%= f.collection_select :font_id, Font.all, :id, :name, required: true %>
           </div>
         </div>
 

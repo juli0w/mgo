@@ -20,8 +20,8 @@
   </div>
 </nav>
 
-<ul class="side-nav" id="slide-out">
-  <li clas="user-details">
+<ul class="side-nav center" id="slide-out">
+  <li class="user-details">
     <%= render "layouts/main/side-header" %>
   </li>
   <li class="sideside"><%= link_to root_url do %>
@@ -37,7 +37,7 @@
       <% end %></li>
   <li class="center header">Categorias</li>
   <li>
-    <ul class="collapsible">
+    <ul class="left-align collapsible">
       <% @categories.each do |category| %>
         <li class="main-category">
           <div class="collapsible-header truncate"><i class="material-icons amber-text">place</i> <%= category.name %></div>

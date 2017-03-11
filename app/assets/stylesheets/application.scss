@@ -26,8 +26,11 @@
 
 @import 'materialize';
 
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
 body {
-  background-color: color("grey", "lighten-5");
+  font-family: 'Open Sans', serif;
+  // background-color: color("grey", "lighten-5");
 }
 
 @media #{$medium-and-down} {
@@ -94,11 +97,6 @@ strong {
 }
 
 .row.map  { margin-bottom: 0; }
-
-.desc-font {
-  font-size: 1.2em;
-  font-family: Lora, 'Times New Roman', serif;
-}
 
 .page-footer h5 { font-size: 1.3em; font-weight: bold; }
 .bolder { font-weight: bold; text-transform: uppercase; }
