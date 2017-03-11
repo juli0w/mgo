@@ -15,7 +15,7 @@ class Profile < ApplicationRecord
 
   def font
     f = super
-    f.blank? ? Font.last : f
+    f.blank? ? Font.first : f
   end
 
   [:primary_color, :detail_color, :link_color,
