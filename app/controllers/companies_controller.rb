@@ -2,7 +2,10 @@ class CompaniesController < ApplicationController
   before_action :set_company, only: [:edit, :update]
 
   def tag
-    @tag = Tag.where(name: params[:tag]).first
+    set_meta_tags title: 'Principais locais e eventos da região',
+    description: "Resultados da busca por tag #{params[:tag]}"
+
+    @tag = ActsAsTaggableOn::Tag.where(name: params[:tag]).first
     @companies = Company.tagged_with(params[:tag]).order('premium desc, logotipo desc').page(params[:page])
   end
 
@@ -35,7 +38,7 @@ class CompaniesController < ApplicationController
     @contact = Contact.new
     @row_counter = 1
 
-    @page_keywords += ", " + @company.tag_list
+    @page_keywords += @company.tag_list.join(",")
     set_meta_tags title: @company.description,
                   description: "Página sobre a empresa #{@company.name}. #{@company.description}. #{@company.tag_list}"
 

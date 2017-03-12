@@ -1,7 +1,7 @@
 class Profile < ApplicationRecord
   belongs_to :company
   belongs_to :font, optional: true
-  has_many :pages
+  has_many :pages, dependent: :destroy
   has_one :template, dependent: :destroy
   accepts_nested_attributes_for :template
 

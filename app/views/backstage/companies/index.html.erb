@@ -46,8 +46,8 @@
             <td><%= company.description %></td>
             <td>
               <%= link_to "Administrar", [:backstage, company] %>
-            | <%= link_to "Upgrade", new_backstage_subscribe_path, class: "light-green-text text-darken-4" %>
-            | <%= link_to "Mensagens", backstage_company_contacts_path(company), class: "light-green-text text-darken-4" %>
+            | <%= link_to "Upgrade", new_backstage_subscribe_path %>
+            | <%= link_to "Remover", backstage_company_path(company), method: :delete, data: { confirm: "Confirma exclusão permanente?" } %>
             </td>
           </tr>
 

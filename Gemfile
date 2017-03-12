@@ -24,7 +24,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'mysql2'
 gem 'materialize-sass'
 gem 'devise'
-
+gem 'acts-as-taggable-on', '~> 4.0'
 gem 'google_places'
 gem 'ckeditor'
 gem 'carrierwave'

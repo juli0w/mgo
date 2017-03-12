@@ -27,7 +27,7 @@
 
     <div class="input-field col s12 m6 tooltipped" data-tooltip="Só aceita letras e números, separe as tags com vírgulas (ex: loja, roupas)">
       <%= link_to "?", '#!', class: "btn-help" %>
-      <%= f.text_field :tag_list, maxlength: 120,
+      <%= f.text_field :tag_list, value: @company.tag_list.join(", "), maxlength: 120,
             style: "padding-left: 30px;" %>
       <%= f.label :tag_list %>
     </div>

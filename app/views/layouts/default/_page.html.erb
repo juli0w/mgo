@@ -1,1 +1,3 @@
-<%= render @page.pageable, page: @page %>
+<% if @page.pageable %>
+  <%= render @page.pageable, page: @page %>
+<% end %>

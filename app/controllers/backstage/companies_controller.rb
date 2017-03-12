@@ -1,6 +1,6 @@
 module Backstage
   class CompaniesController < Backstage::ApplicationController
-    before_action :set_company, only: [:edit, :update]
+    before_action :set_company, only: [:show, :edit, :update, :destroy]
     before_action :authenticate_admin!, only: [:active, :unactive]
 
     def index
@@ -28,7 +28,6 @@ module Backstage
     end
 
     def show
-      @company = current_user.companies.find(params[:id])
     end
 
     def new
@@ -68,6 +67,11 @@ module Backstage
         flash.now[:alert] = "Por favor verifique os campos."
         render :edit
       end
+    end
+
+    def destroy
+      @company.destroy
+      redirect_to backstage_companies_path
     end
 
   private

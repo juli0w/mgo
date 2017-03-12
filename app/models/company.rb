@@ -1,5 +1,6 @@
 class Company < ApplicationRecord
   paginates_per 10
+  acts_as_taggable_on :tags
   include SearchCop
 
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
@@ -10,7 +11,6 @@ class Company < ApplicationRecord
     attributes :name, :description
     attributes :categories => ["category.name"]
     attributes :cities => ["city.name"]
-    attributes :tags => ["tags.name"]
   end
 
   mount_uploader :logotipo, LogotipoUploader
@@ -32,13 +32,10 @@ class Company < ApplicationRecord
   belongs_to :category
   belongs_to :city, optional: true
   belongs_to :uf, optional: true
-  has_one :profile
-  has_many :reviews
-  has_many :taggings
-  has_many :albums
-  has_many :tags, through: :taggings
-  has_many :subscribes
-  has_many :contacts
+  has_one :profile, dependent: :destroy
+  has_many :reviews, dependent: :destroy
+  has_many :subscribes, dependent: :destroy
+  has_many :contacts, dependent: :destroy
 
   delegate :color, to: :profile
   delegate :color_sample, to: :profile
@@ -50,40 +47,6 @@ class Company < ApplicationRecord
   def unactivate!
     update(premium: false)
   end
-
-  ### TAGS
-
-  def self.by_tag tag
-    companies = Tag.find_by_name(tag).try(:companies)
-    if companies.present?
-      return companies.first(5)
-    else
-      return Company.offset(rand(Company.count)).first(5)
-    end
-  end
-
-  def self.tagged_with(name)
-    Tag.find_by!(name: name).companies
-  end
-
-  def self.tag_counts
-    Tag.select('tags.*, count(taggings.tag_id) as count').joins(:taggings).group('taggings.tag_id')
-  end
-
-  def tag_list
-    tags.map(&:name).join(', ')
-  end
-
-  def tag_list=(names)
-    begin
-      self.tags = names.split(',').map do |n|
-        Tag.where(name: n.strip).first_or_create
-      end
-    rescue
-    end
-  end
-
-  ###
 
   def city_uf
     "#{city.try(:name)}/#{uf.try(:name)}" if city and uf
