@@ -7,15 +7,15 @@
           <h6><%= page.description %></h6>
         </div>
       </div>
-    </div>
 
-    <div class="no-top-margin photo-grid">
-      <% page.pageable.photos.each do |photo| %>
-        <div class="grid photo center-align" style="overflow: hidden;" desc="<%= photo.description %>" img-full="<%= photo.photo.url %>">
-          <%= image_tag(photo.photo.slider.url, class: 'img-open', alt: "#{photo.description}") %>
-          <div class="truncate photo-desc"><%= photo.description %></div>
-        </div>
-      <% end %>
+      <div class="no-top-margin photo-grid">
+        <% page.pageable.photos.each do |photo| %>
+          <div class="grid photo center-align" style="overflow: hidden;" desc="<%= photo.description %>" img-full="<%= photo.photo.url %>">
+            <%= image_tag(photo.photo.slider.url, class: 'img-open', alt: "#{photo.description}") %>
+            <div class="truncate photo-desc"><%= photo.description %></div>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
