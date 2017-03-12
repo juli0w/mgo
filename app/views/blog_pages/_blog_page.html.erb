@@ -1,0 +1,43 @@
+<div id="<%= page.slug %>" class="full-padding <%= odd_color(@company, @row_counter) %>">
+  <div class="row">
+    <div class="container">
+      <div class="section">
+        <div class="title-wrapper center no-border">
+          <h5><%= page.title %></h5>
+          <h6><%= page.description %></h6>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="container">
+      <div class="articles">
+        <% @articles.each do |article| %>
+          <div class="col s12">
+            <div class="article card grey-text text-darken-4">
+              <% if article.cover? %>
+                <div class="card-image">
+                  <%= image_tag article.cover, alt: article.title %>
+                </div>
+              <% end %>
+              <div class="card-title">
+                <h5><%= article.title %></h5>
+                <em class="card-description"><i class="material-icons <%=  %>">schedule</i> Postado em <%= article.created_at.strftime("%d/%m/%Y") %></em>
+              </div>
+              <div class="card-content">
+                <p class="article-description"><%= article.description %></p>
+                <%= link_to "Ler mais", "/#{@company.slug}/#{@page.slug}/#{article.slug}", class: "btn-flat btn-large #{color(:primary_color, @company)} #{color(:link_color, @company)}" %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="article-pager center white-text">
+      <%= paginate @articles %>
+    </div>
+  </div>
+</div>

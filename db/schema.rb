@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170311220015) do
+ActiveRecord::Schema.define(version: 20170312022317) do
 
   create_table "album_pages", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -27,10 +27,28 @@ ActiveRecord::Schema.define(version: 20170311220015) do
     t.index ["company_id"], name: "index_albums_on_company_id"
   end
 
+  create_table "articles", force: :cascade do |t|
+    t.integer  "company_id"
+    t.string   "slug"
+    t.string   "title"
+    t.text     "content"
+    t.string   "description"
+    t.string   "cover"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["company_id"], name: "index_articles_on_company_id"
+  end
+
   create_table "blank_pages", force: :cascade do |t|
     t.text     "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "blog_pages", force: :cascade do |t|
+    t.integer  "max",        default: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "categories", force: :cascade do |t|

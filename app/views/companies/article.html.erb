@@ -1,0 +1,32 @@
+<div id="<%= @article.slug %>" class="full-padding">
+  <div class="row">
+    <div class="container">
+      <div class="section">
+        <div class="title-wrapper center no-border">
+          <h5><%= @page.title %></h5>
+          <h6><%= @page.description %></h6>
+        </div>
+      </div>
+
+      <div class="articles">
+        <div class="col s12">
+          <div class="article card">
+            <% if @article.cover? %>
+              <div class="card-image">
+                <%= image_tag @article.cover, alt: @article.title %>
+              </div>
+            <% end %>
+            <div class="card-title">
+              <h5><%= @article.title %></h5>
+              <em class="card-description"><i class="material-icons">schedule</i> Postado em <%= @article.created_at.strftime("%d/%m/%Y") %></em>
+            </div>
+            <div class="card-content">
+              <p class="article-description"><%= @article.description %></p>
+              <span><%= raw @article.content %></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

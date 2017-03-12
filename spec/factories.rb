@@ -1,4 +1,16 @@
 FactoryGirl.define do
+  factory :blog_page do
+    max 1
+    height 1
+  end
+  factory :article do
+    company nil
+    slug "MyString"
+    title "MyString"
+    content "MyText"
+    description "MyString"
+    cover "MyString"
+  end
   factory :font do
     name "MyString"
     url "MyString"

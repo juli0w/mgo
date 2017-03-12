@@ -1,3 +1,4 @@
 <% @pages.each do |page| %>
   <%= render page.pageable, page: page %>
+  <% @row_counter += 1 %>
 <% end %>

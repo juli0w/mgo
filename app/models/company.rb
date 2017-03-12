@@ -36,6 +36,7 @@ class Company < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :subscribes, dependent: :destroy
   has_many :contacts, dependent: :destroy
+  has_many :articles, dependent: :destroy
 
   delegate :color, to: :profile
   delegate :color_sample, to: :profile

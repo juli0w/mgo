@@ -1,0 +1,33 @@
+<% content_for :subnav do %>
+  <%= render "companies/subnav" %>
+<% end %>
+
+<div class="container">
+  <div class="row">
+
+    <%= render "layouts/backstage/profile_header" %>
+    <div class="card-panel">
+      <h5 class="center">Edição de página</h5>
+      <h6 class="center"><%= @page.title %></h6>
+
+      <%= form_for [:backstage, @company, @page, @blog_page]  do |f| %>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <%= f.label :max %>
+            <%= f.number_field :max %>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <button class="btn waves-effect waves-light" type="submit" name="action">Salvar
+              <i class="material-icons right">send</i>
+            </button>
+          </div>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>

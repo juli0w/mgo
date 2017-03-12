@@ -8,6 +8,7 @@ class Page < ApplicationRecord
 
   PAGE_TYPES = [[ "Página em branco", BlankPage ],
                 [ "Formulário de contato", ContactPage ],
+                [ "Blog", BlogPage ],
                 [ "Álbum", AlbumPage ]]
 
   def setup

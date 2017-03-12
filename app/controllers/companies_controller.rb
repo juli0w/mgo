@@ -29,14 +29,16 @@ class CompaniesController < ApplicationController
     @template = @company.profile.template
     @pages = @company.profile.pages.order(:index)
 
-    if params[:page]
-      @page = @pages.find_by_slug(params[:page])
+    if params[:paging]
+      @page = @pages.find_by_slug(params[:paging])
     else
       @page = @pages.first
     end
 
     @contact = Contact.new
     @row_counter = 1
+
+    load_articles
 
     @page_keywords += @company.tag_list.join(",")
     set_meta_tags title: @company.description,
@@ -45,7 +47,28 @@ class CompaniesController < ApplicationController
     render layout: @company.profile.layout
   end
 
+  def article
+    @company = Company.find_by_slug(params[:slug])
+    @template = @company.profile.template
+    @pages = @company.profile.pages.order(:index)
+    @page = @pages.find_by_slug(params[:paging])
+    @article = @company.articles.find_by_slug(params[:article])
+
+    @page_keywords += @company.tag_list.join(",")
+    set_meta_tags title: "#{@company.name} - #{@page.title}",
+                  description: "#{@page.description} - #{@article.title}"
+
+    render layout: @company.profile.layout
+  end
+
 private
+
+  def load_articles
+    blog = @pages.select{|a| a.pageable_type == "BlogPage" }
+    unless blog.blank?
+      @articles = @company.articles.order("id desc").page(params[:page]).per(blog.first.pageable.max)
+    end
+  end
 
   def set_company
     @company = Company.find(params[:id])

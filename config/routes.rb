@@ -43,11 +43,13 @@ Rails.application.routes.draw do
       resources :pages do
         resources :contact_pages
         resources :blank_pages
+        resources :blog_pages
         resources :album_pages do
           resources :photos
         end
       end
 
+      resources :articles
       resources :contacts
 
       resource :profile, except: :show, path_names: { edit: '' } do
@@ -69,5 +71,6 @@ Rails.application.routes.draw do
   post ':slug', to: 'companies#show'
   get  ':slug', to: 'companies#show'
   get  ':slug/review', to: 'reviews#new'
-  get  ':slug/:page', to: 'companies#show'
+  get  ':slug/:paging', to: 'companies#show'
+  get  ':slug/:paging/:article', to: 'companies#article'
 end

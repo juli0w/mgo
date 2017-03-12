@@ -1,0 +1,49 @@
+<%= form_for [:backstage, @company, @article]  do |f| %>
+  <div class="row">
+    <div class="input-field col s6">
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </div>
+
+    <div class="input-field col s6">
+      <%= f.label :slug %>
+      <%= f.text_field :slug %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="input-field col s12">
+      <%= f.label :description %>
+      <%= f.text_field :description %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="input-field col s12">
+      Conteúdo<br><br>
+      <%= f.cktext_area :content, ckeditor: { toolbar: 'Full', toolbarCanCollapse: true } %>
+    </div>
+  </div>
+
+  <div class="row">
+    <%= image_tag(@article.cover.thumb.url) if @article.cover? %>
+    <%= f.hidden_field :cover_cache %>
+    <div class="file-field input-field">
+      <div class="btn">
+        <span>Capa</span>
+        <%= f.file_field :cover %>
+      </div>
+      <div class="file-path-wrapper">
+        <input class="file-path validate" type="text">
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="input-field col s12">
+      <button class="btn waves-effect waves-light" type="submit" name="action">Salvar
+        <i class="material-icons right">send</i>
+      </button>
+    </div>
+  </div>
+<% end %>

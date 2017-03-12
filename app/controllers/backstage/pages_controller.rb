@@ -31,7 +31,7 @@ module Backstage
         flash[:success] = "Página atualizada"
         redirect_to [:edit, :backstage, @company, @page]
       else
-        flash.now[:alert] = @page.errors # "Por favor verifique os campos"
+        flash.now[:alert] = "Por favor verifique os campos"
         render :new
       end
     end
