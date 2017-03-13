@@ -7,8 +7,14 @@ pt-BR:
     text_color_id: Cor dos textos
     logo_color_id: Cor do logo
     description_color_id: Cor da descrição
+    index: Prioridade
+    title: Título
+    name: Nome
+    description: Descrição
   activerecord:
     attributes:
+      blog_page:
+        max: Mostrar quantas notícias
       subscribe:
         company: Empresa
         company_id: Empresa

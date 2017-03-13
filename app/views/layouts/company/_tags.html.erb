@@ -1,0 +1,12 @@
+<div class="col s12 l4">
+  <div class="card">
+    <ul class="collection with-header">
+      <li class="collection-header grey darken-3"><h5 class="white-text">Tags</h5></li>
+      <li class="collection-item" style="padding-left: 10px; padding-bottom: 20px;">
+        <% tags.each do |tag| %>
+          <%= content_tag :span, tag, class: "tag" %>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</div>

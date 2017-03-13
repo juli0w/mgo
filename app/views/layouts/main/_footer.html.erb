@@ -1,8 +1,8 @@
-<footer class="page-footer light-blue darken-2">
+<footer class="page-footer indigo darken-2">
   <div class="container">
     <div class="row">
       <div class="col s12 m4 center-align">
-        <h5 class="yellow-text text-accent-2">MAIS</h5>
+        <span class="red-text">NAVEGAÇÃO</span>
         <ul>
           <li><%= link_to "Principal", root_path, class: "white-text" %></li>
           <!-- <li><%#= link_to "Quem somos", institutional_path, class: "white-text" %></li> -->
@@ -19,7 +19,7 @@
         </ul>
       </div>
       <div class="col s12 m4 center-align">
-        <h5 class="yellow-text text-accent-2">TAG CLOUD</h5>
+        <span class="red-text">TAG CLOUD</span>
         <div id="tag_cloud">
           <% tag_cloud Company.tag_counts_on(:tags), %w[s m l] do |tag, css_class| %>
             <%= link_to tag.name, tag_path(tag.name), class: "white-text #{css_class}" %>
@@ -31,9 +31,9 @@
       </div>
     </div>
   </div>
-  <div class="footer-copyright">
-    <div class="container white-text">
-      <strong><%= link_to "http://www.weekz.com.br", "/", class: "yellow-text text-accent-2" %></strong> - Seu guia na maior avenida do mundo
+  <div class="footer-copyright center">
+    <div class="container">
+      <%= link_to "http://www.weekz.com.br", "/", class: "white-text" %>
     </div>
   </div>
 </footer>

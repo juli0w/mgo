@@ -16,6 +16,7 @@
 //= require rating
 //= require geomap
 //= require slick
+//= require bg
 //= require backstage/plugins
 //= require_self
 

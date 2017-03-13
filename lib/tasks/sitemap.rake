@@ -28,7 +28,7 @@ namespace :custom do
       add contact_path, :priority => 0.75
       add offers_path, :priority => 0.95
       add partner_path, :priority => 0.96
-      add institutional_path, :priority => 0.80
+      # add institutional_path, :priority => 0.80
 
       Company.find_each do |company|
         add "/#{company.slug}", :last_modified => company.updated_at

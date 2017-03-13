@@ -36,6 +36,7 @@ gem "http"
 gem 'search_cop'
 gem 'bugsnag'
 gem 'big_sitemap'
+gem 'social-share-button'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

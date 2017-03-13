@@ -10,7 +10,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script>
+    <script async>
       (adsbygoogle = window.adsbygoogle || []).push({
         google_ad_client: "ca-pub-7349918200482928",
         enable_page_level_ads: true
@@ -36,7 +36,7 @@
     <%= render "layouts/main/content" %>
 
     <% if @map %>
-      <script>
+      <script async>
         $(document).ready(function() {
           $.getScript('https://maps.googleapis.com/maps/api/js?key=AIzaSyCzq1h0fNZETR8Q0VAgVxqui85bPEhb-N0&callback=initMap');
         });

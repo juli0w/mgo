@@ -24,6 +24,20 @@ h1.logo-wrapper {
   color: #ffc107;
 }
 
+.state-card {
+  padding: 10px 20px;
+  span {
+    clear:both; font-size: 34px; font-weight: bold;
+  }
+
+  i {
+    position: absolute;
+    left: -20px;
+    top: -10px;
+    font-size: 130px;
+  }
+}
+
 @font-face {
   font-family: 'Material Icons';
   font-style: normal;

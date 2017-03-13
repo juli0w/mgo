@@ -21,6 +21,8 @@
  *= require custom
  *= require materialize-load
  *= require company-card
+ *= require loader
+ *= require company/photo-grid
  *= require_self
  */
 
@@ -98,7 +100,20 @@ strong {
 
 .row.map  { margin-bottom: 0; }
 
-.page-footer h5 { font-size: 1.3em; font-weight: bold; }
+.page-footer span {
+  font-size: 1.3em;
+  font-weight: bold;
+  display: block;
+  padding: 20px 0;
+}
+
+.page-footer {
+  li { padding: 2px auto; }
+  a { margin-right: 3px; }
+  a:hover {
+    text-decoration: underline;
+  }
+}
 .bolder { font-weight: bold; text-transform: uppercase; }
 
 h1.logo {

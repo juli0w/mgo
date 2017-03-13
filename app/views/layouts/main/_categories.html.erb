@@ -1,4 +1,4 @@
-<nav role="navigation" class="first-nav light-blue">
+<nav role="navigation" class="first-nav indigo darken-2">
   <div class="nav-wrapper container">
     <ul>
       <li><a href="#" data-activates="slide-out" class="open-menu">
@@ -40,13 +40,13 @@
     <ul class="left-align collapsible">
       <% @categories.each do |category| %>
         <li class="main-category">
-          <div class="collapsible-header truncate"><i class="material-icons amber-text">place</i> <%= category.name %></div>
+          <div class="collapsible-header truncate"><i class="material-icons red-text text-darken-2">place</i> <%= category.name %></div>
           <div class="collapsible-body">
             <ul>
               <% category.children.each do |child| %>
                 <% next if child.companies.count <= 0 %>
                 <li><%= link_to child, class: "truncate" do %>
-                    <%= child.name %> <span class="badge white-text light-blue"><%= child.companies.count %></span>
+                    <%= child.name %> <span class="badge white-text indigo"><%= child.companies.count %></span>
                   <% end %>
                 </li>
               <% end %>
