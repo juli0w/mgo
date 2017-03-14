@@ -1,16 +1,16 @@
 class MapsController < ApplicationController
   before_filter :set_noindex, only: [:resources]
 
-  def index
-    set_meta_tags title: 'Procurou, achou!',
-                  description: 'Página inicial'
-
-    @companies = if params[:tag]
-      Company.tagged_with(params[:tag]).page(params[:page])
-    else
-      Company.all.page(params[:page])
-    end
-  end
+  # def index
+  #   set_meta_tags title: 'Procurou, achou!',
+  #                 description: 'Página inicial'
+  #
+  #   @companies = if params[:tag]
+  #     Company.tagged_with(params[:tag]).page(params[:page])
+  #   else
+  #     Company.all.page(params[:page])
+  #   end
+  # end
 
   def resources
     set_map params[:category]
