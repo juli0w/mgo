@@ -99,21 +99,21 @@ nav .nav-wrapper .sub-menu i {
 
 .search-section {
   ::-webkit-input-placeholder {
-      color: #aeaeae;
+      color: #cdcdcd;
       opacity: 1 !important; /* for older chrome versions. may no longer apply. */
   }
 
   :-moz-placeholder { /* Firefox 18- */
-      color: #aeaeae;
+      color: #cdcdcd;
       opacity: 1 !important;
   }
 
   ::-moz-placeholder {  /* Firefox 19+ */
-      color: #aeaeae;
+      color: #cdcdcd;
       opacity: 1 !important;
   }
 
   :-ms-input-placeholder {
-     color: #aeaeae;
+     color: #cdcdcd;
   }
 }

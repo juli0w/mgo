@@ -23,10 +23,13 @@ h1.logo-wrapper {
 }
 
 h5.brand-logo {
+  margin-top: 0;
+}
+h5.brand-logo a {
   font-weight: bold;
   text-shadow: #BDBDBD 1px 1px;
-  margin-top: 0;
-  padding: 10px;
+  font-size: 22px !important;
+  /*padding: 10px;*/
 }
 
 .leftside-navigation .collapsible {

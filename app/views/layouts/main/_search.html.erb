@@ -18,7 +18,11 @@
       </div>
     </div>
     <div class="col s12">
-      <h1 class="weekz center"><span class="red-text">Weekz</span></h1> <h6 class="center white-text discover">Descubra para onde ir</h6>
+      <h1 class="weekz center">
+        <%= link_to root_url do %>
+          <span class="red-text">Weekz</span>
+        <% end %>
+      </h1> <h6 class="center white-text discover">Descubra para onde ir</h6>
       <nav class="search-nav transparent">
         <div class="nav-wrapper">
           <%= form_tag search_path, method: :get, id: "search_form" do %>
