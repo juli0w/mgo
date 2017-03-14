@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require materialize
 //= require ../rating
+//= require social-share-button
 //= require_tree
 
 $(document).ready(function(){

@@ -22,16 +22,26 @@
  *= require materialize-load
  *= require company-card
  *= require loader
- *= require company/photo-grid
+ *= require social-share-button
  *= require_self
  */
 
 @import 'materialize';
 
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Merriweather');
+
+$size: 24px;
+
+.social-share-button {
+  .ssb-icon {
+    background-size: $size $size;
+    height: $size;
+    width: $size;
+  }
+}
 
 body {
-  font-family: 'Open Sans', serif;
+  font-family: 'Merriweather', serif;
   // background-color: color("grey", "lighten-5");
 }
 

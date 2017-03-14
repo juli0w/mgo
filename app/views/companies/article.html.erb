@@ -22,7 +22,8 @@
             </div>
             <div class="card-content">
               <p class="article-description"><%= @article.description %></p>
-              <span><%= raw @article.content %></span>
+              <div style="margin-bottom: 20px;"><%= raw @article.content %></div>
+              Compartilhe: <%= social_share_button_tag(@article.title) %>
             </div>
           </div>
         </div>

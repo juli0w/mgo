@@ -1,4 +1,4 @@
-var i = 1;
+var i = 2;
 var array = ["bg1", "bg2", "bg3"];
 
 function changeBG (){
@@ -12,5 +12,5 @@ function changeBG (){
 
 $(document).ready(function() {
 
-  window.setInterval("changeBG()", 5000);
+  window.setInterval("changeBG()", 10000);
 });

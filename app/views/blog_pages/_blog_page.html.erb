@@ -27,6 +27,7 @@
               </div>
               <div class="card-content">
                 <p class="article-description"><%= article.description %></p>
+                <%= social_share_button_tag(article.title) %>
                 <%= link_to "Ler mais", "/#{@company.slug}/#{@page.slug}/#{article.slug}", class: "btn-flat btn-large #{color(:primary_color, @company)} #{color(:link_color, @company)}" %>
               </div>
             </div>

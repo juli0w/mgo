@@ -18,6 +18,7 @@
 //= require slick
 //= require bg
 //= require backstage/plugins
+//= require social-share-button
 //= require_self
 
 $(document).ready(function(){

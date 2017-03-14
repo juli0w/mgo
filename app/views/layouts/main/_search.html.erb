@@ -1,7 +1,24 @@
-<div class="search-section bg1 row no-bot-margin white">
+<div class="search-section bg2 row no-bot-margin white">
   <div class="container">
     <div class="col s12">
-      <h1 class="weekz center"><span class="red-text text-accent-2">Weekz</span>.com.br</h1>
+      <div class="sub-menu right white-text hide-on-small-only">
+        <% unless user_signed_in? %>
+          <%= link_to new_user_session_path do %>
+            <i class="fa fa-key" aria-hidden="true"></i> Entrar
+          <% end %> ou
+          <%= link_to new_user_registration_path do %>
+            <i class="fa fa-user" aria-hidden="true"></i> Registrar
+          <% end %>
+        <% else %>
+          <%= link_to backstage_dashboard_path do %>
+            <i class="fa fa-gear" aria-hidden="true"></i> Painel
+          <% end %> |
+          <%= link_to 'Sair', destroy_user_session_path, method: :delete %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col s12">
+      <h1 class="weekz center"><span class="red-text">Weekz</span>.com.br</h1>
     </div>
     <div class="col s12">
       <h6 class="center white-text discover">Descubra para onde ir</h6>
