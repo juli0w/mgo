@@ -33,6 +33,15 @@ namespace :custom do
       Company.find_each do |company|
         add "/#{company.slug}", :last_modified => company.updated_at
         add "/#{company.slug}/review"
+
+        blog = company.profile.pages.select {|a| a.pageable_type == "BlogPage" }
+        if blog.any?
+          add "/#{company.slug}/#{blog.first.slug}"
+
+          company.articles.each do |article|
+            add "/#{company.slug}/#{blog.first.slug}/#{article.slug}", priority: 1
+          end
+        end
       end
     end
   end
