@@ -2,5 +2,5 @@ User-agent: *
 
 Disallow: /backstage/
 
-Sitemap: http://www.weekz.com.br/sitemap.xml.gz
-Sitemap: http://www.weekz.com.br/sitemap_index.xml.gz
+Sitemap: http://weekz.com.br/sitemap.xml.gz
+Sitemap: http://weekz.com.br/sitemap_index.xml.gz

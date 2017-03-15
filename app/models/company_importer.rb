@@ -74,7 +74,7 @@ class CompanyImporter
   #                 # 'comercio-de-produtos-e-servicos/empresas-variadas'
   #               ]
 
-  SITE = "http://www.guiamais.com.br"
+  # SITE = "http://www.gudsidadmdais.com.br"
   PLACE = "joinville-sc"
 
   def self.reset!
