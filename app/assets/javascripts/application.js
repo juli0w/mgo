@@ -17,7 +17,6 @@
 //= require geomap
 //= require slick
 //= require bg
-//= require backstage/plugins
 //= require social-share-button
 //= require_self
 
