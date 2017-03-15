@@ -7,7 +7,7 @@ namespace :custom do
 
     sitemap_options = {
       document_root: Rails.root.join('public'),
-      url_options: { host: 'http://weekz.com.br' },
+      url_options: { host: 'weekz.com.br' },
       ping_google: true,
       ping_bing: true,
       gzip: true
