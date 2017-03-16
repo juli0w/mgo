@@ -23,11 +23,15 @@
             <div class="card-content">
               <p class="article-description"><%= @article.description %></p>
               <div style="margin-bottom: 20px;"><%= raw @article.content %></div>
-              Compartilhe: <%= social_share_button_tag(@article.title) %>
+              <span class="right-align">
+                <%= social_share_button_tag(@article.title, "data-title": "Compartilhe") %>
+              </span>
             </div>
           </div>
         </div>
       </div>
+
+      <%= render "comments/comments" %>
     </div>
   </div>
 </div>

@@ -13,9 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require materialize
+//= require slick
 //= require rating
 //= require geomap
-//= require slick
 //= require bg
 //= require social-share-button
 //= require_self

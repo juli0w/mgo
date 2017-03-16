@@ -22,23 +22,13 @@
  *= require materialize-load
  *= require company-card
  *= require loader
- *= require social-share-button
  *= require_self
  */
 
+@import "social-share-button";
 @import 'materialize';
 
 @import url('https://fonts.googleapis.com/css?family=Merriweather');
-
-$size: 24px;
-
-.social-share-button {
-  .ssb-icon {
-    background-size: $size $size;
-    height: $size;
-    width: $size;
-  }
-}
 
 body {
   font-family: 'Merriweather', serif;

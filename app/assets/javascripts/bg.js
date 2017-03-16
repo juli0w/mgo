@@ -11,6 +11,5 @@ function changeBG (){
 }
 
 $(document).ready(function() {
-
   window.setInterval("changeBG()", 10000);
 });

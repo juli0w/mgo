@@ -40,6 +40,7 @@ GEM
       tzinfo (~> 1.1)
     acts-as-taggable-on (4.0.0)
       activerecord (>= 4.0)
+    acts_as_commentable (4.0.2)
     addressable (2.5.0)
       public_suffix (~> 2.0, >= 2.0.2)
     airbrussh (1.1.2)
@@ -288,6 +289,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts-as-taggable-on (~> 4.0)
+  acts_as_commentable
   big_sitemap
   bugsnag
   byebug

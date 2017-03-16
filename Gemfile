@@ -37,6 +37,7 @@ gem 'search_cop'
 gem 'bugsnag'
 gem 'big_sitemap'
 gem 'social-share-button'
+gem 'acts_as_commentable'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

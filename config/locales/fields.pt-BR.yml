@@ -1,5 +1,7 @@
 ---
 pt-BR:
+  social_share_button:
+    share_to:
   attributes:
     primary_color_id: Cor principal
     detail_color_id: Cor dos detalhes
