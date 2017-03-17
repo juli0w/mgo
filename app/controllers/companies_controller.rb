@@ -55,8 +55,8 @@ class CompaniesController < ApplicationController
     @article = @company.articles.find_by_slug(params[:article])
 
     @page_keywords += @company.tag_list.join(",")
-    set_meta_tags title: "#{@company.name} - #{@page.title}",
-                  description: "#{@page.description} - #{@article.title}"
+    set_meta_tags title: "#{@article.title} - #{@page.title}",
+                  description: "#{@article.description}"
 
     render layout: @company.profile.layout
   end

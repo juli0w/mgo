@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/jumph4x/canonical-rails.git
+  revision: d0d558df562de790bd4723da50de35a9fe389ad1
+  specs:
+    canonical-rails (0.1.1)
+      rails (>= 4.1, < 5.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -312,6 +319,7 @@ DEPENDENCIES
   big_sitemap
   bugsnag
   byebug
+  canonical-rails!
   capistrano
   capistrano-rails
   capistrano-rails-collection
