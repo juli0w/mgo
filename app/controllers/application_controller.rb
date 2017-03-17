@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
     return unless request.get?
     if (request.path != "/login" &&
         request.path != "/sign_up" &&
-        request.path != "/users/sign_out" &&
+        request.path != "/logout" &&
         !request.xhr?) # don't store ajax calls
       if request.format == "text/html" || request.content_type == "text/html"
         session[:previous_url] = request.fullpath

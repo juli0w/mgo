@@ -1,19 +1,23 @@
 <div class="row">
 <div class="col s12 m6 l3">
   <div class="right-align light-green lighten-1 light-green-text text-lighten-4 card state-card">
-    <span>
-      <%= @company.contacts.count %>
-    </span><br>mensagens
-    <i class="material-icons light-green-text text-lighten-2">mail</i>
+    <%= link_to backstage_company_contacts_path(@company), class: "white-text" do %>
+      <span>
+        <%= @company.contacts.count %>
+      </span><br>mensagens
+      <i class="material-icons light-green-text text-lighten-2">mail</i>
+    <% end %>
   </div>
 </div>
 
 <div class="col s12 m6 l3">
   <div class="right-align yellow accent-4 yellow-text text-lighten-5 card state-card">
-    <span>
-      <%= @company.reviews.count %>
-    </span><br>avaliações
-    <i class="material-icons yellow-text text-lighten-1">star</i>
+    <%= link_to backstage_company_reviews_path(@company), class: "white-text" do %>
+      <span>
+        <%= @company.reviews.count %>
+      </span><br>avaliações
+      <i class="material-icons yellow-text text-lighten-1">star</i>
+    <% end %>
   </div>
 </div>
 </div>

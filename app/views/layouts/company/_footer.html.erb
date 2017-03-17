@@ -12,18 +12,30 @@
         <%= raw @company.tags.map(&:name).map { |t| link_to t, tag_path(t), class: color(:link_color, @company) }.join(', ') %>
         <% end %>
       </div>
-      <div class="col s12 m4 keep-icon-align">
+      <div class="col s12 m4">
         <h5 class="<%= color(:detail_color, @company) %>">Mais informações</h5>
-        <div class="<%= color(:text_color, @company) %>"><strong>Endereço:</strong><br/> <%= @company.formatted_address %></div><br />
-        <div class="<%= color(:text_color, @company) %>"><strong>Telefone:</strong><br/> <%= @company.shows :phone %></div><br />
-        <div class="<%= color(:text_color, @company) %>"><strong>Email:</strong><br/> <%= @company.shows :mail %></div><br />
+        <div class="company-date <%= color(:text_color, @company) %>">
+          <i class="fa fa-street-view <%= color(:detail_color, @company) %>" aria-hidden="true"></i>
+          <strong>Endereço:</strong><br/>
+          <%= @company.formatted_address %>
+        </div>
+        <div class="company-date <%= color(:text_color, @company) %>">
+          <i class="fa fa-phone <%= color(:detail_color, @company) %>" aria-hidden="true"></i>
+          <strong>Telefone:</strong><br/>
+          <%= @company.shows :phone %>
+        </div>
+        <div class="company-date <%= color(:text_color, @company) %>">
+          <i class="fa fa-rss <%= color(:detail_color, @company) %>" aria-hidden="true"></i>
+          <strong>Email:</strong><br/>
+          <%= @company.shows :mail %>
+        </div>
       </div>
 
     </div>
   </div>
   <div class="footer-copyright">
     <div class="container center <%= color(:text_color, @company) %>">
-      <%= @company.name %> @ <%= link_to 'www.weekz.com.br', root_url, class: color(:link_color, @company) %>
+      <%= link_to @company.name, "/#{@company.slug}", class: color(:link_color, @company) %> @ <%= link_to 'www.weekz.com.br', root_url, class: color(:link_color, @company) %>
     </div>
   </div>
 </footer>
