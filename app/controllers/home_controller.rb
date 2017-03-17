@@ -5,7 +5,7 @@ class HomeController < ApplicationController
 
     @destaque = Company.premium.last(8)
     # @map = true
-    expires_in 5.minutes, public: true
+    # expires_in 5.minutes, public: true
   end
 
   def institutional

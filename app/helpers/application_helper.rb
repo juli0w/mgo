@@ -14,6 +14,11 @@ module ApplicationHelper
     }[title.to_sym] || title.to_s
   end
 
+  def user_avatar user
+    user ||= current_user
+    user.image || "/images/avatar.png"
+  end
+
   def company_layout company
     company.profile.layout
   end

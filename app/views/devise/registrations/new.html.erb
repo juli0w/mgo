@@ -33,6 +33,9 @@
           <%= f.submit "Confirmar", class: "btn waves-effect waves-light col s12" %>
         </div>
         <div class="input-field col s12">
+          <%= link_to "Entrar usando Facebook", user_facebook_omniauth_authorize_path, class: "fb btn waves-effect waves-light col s12" %>
+        </div>
+        <div class="input-field col s12">
           <p class="margin center medium-small sign-up"><%= link_to "Já é cadastrado?", new_user_session_path %></p>
         </div>
       </div>

@@ -11,10 +11,10 @@ Devise.setup do |config|
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
-  # with default "from" parameter.  
+  # with default "from" parameter.
   config.mailer_sender = ENV['GMAIL_USERNAME']
   config.secret_key = '59fd78cbbaa911020b9a4f10e3b6097c637d6144e9688172e5f69d0cd85ccbc673a1b90de1fb5aa2197f16c2f25c86b3d19ef6031bd9233045f78efb3c2dab28'
-
+  config.omniauth :facebook, ENV["FACEBOOK_ID"], ENV["FACEBOOK_SECRET"]
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
 

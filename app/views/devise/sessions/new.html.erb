@@ -4,7 +4,7 @@
       <div class="row">
         <div class="input-field col s12 center">
           <h4>Weekz</h4>
-          <p class="center login-form-text">Acesso para clientes</p>
+          <p class="center login-form-text">Identificação</p>
         </div>
       </div>
       <div class="row margin">
@@ -32,7 +32,10 @@
           <%= f.submit "Login", class: "btn waves-effect waves-light col s12" %>
         </div>
         <div class="input-field col s12">
-          <p class="margin medium-small center"><%= link_to "Ainda não é cadastrado?", new_user_registration_path %></p>
+          <%= link_to "Entrar usando Facebook", user_facebook_omniauth_authorize_path, class: "btn waves-effect waves-light col s12 fb" %>
+        </div>
+        <div class="input-field col s12 center">
+          <%= link_to "Ainda não é cadastrado?", new_user_registration_path %>
         </div>
       </div>
 

@@ -4,7 +4,7 @@
       <div class="row">
         <h5 class="brand-logo center"><%= link_to "Weekz", root_url, class: "indigo white-text" %></h5>
         <div class="col s12 center grey-text text-darken-3">
-          <img src="/images/avatar.png" alt="" class="circle responsive-img profile-image">
+          <%= image_tag user_avatar(current_user), alt: "avatar", class: "circle responsive-img profile-image" %>
           <p style="line-height: 1.66em; margin-top: 0;">
             Bem vindo<br>
             <%= current_user.email %><br>
@@ -55,11 +55,11 @@
           </li>
         </ul>
       </li>
-      <li>
-        <%= link_to destroy_user_session_path, method: :delete, class: "waves-effect waves-cyan" do %>
-          <i class="material-icons">lock_open</i> Sair
-        <% end %>
-      </li>
     <% end %>
+    <li>
+      <%= link_to destroy_user_session_path, method: :delete, class: "waves-effect waves-cyan" do %>
+        <i class="material-icons">lock_open</i> Sair
+      <% end %>
+    </li>
   </ul>
 </aside>
