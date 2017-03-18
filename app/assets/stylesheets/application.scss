@@ -30,10 +30,15 @@
 @import 'materialize';
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Francois+One');
 
 body {
   font-family: 'Open Sans', serif;
   // background-color: color("grey", "lighten-5");
+}
+
+.fredoka {
+  font-family: 'Francois One', cursive;
 }
 
 @media #{$medium-and-down} {
@@ -105,10 +110,13 @@ strong {
   font-size: 1.3em;
   font-weight: bold;
   display: block;
-  padding: 20px 0;
+  margin-top: 20px;
 }
 
 .page-footer {
+  #tag_cloud {
+    margin-top: 10px;
+  }
   li { padding: 2px 0; }
   a { margin-right: 3px; }
   a:hover {
@@ -123,13 +131,10 @@ h1.logo {
   margin: inherit;
 }
 
-#tag_cloud {
-  // width: 400px;
-  // line-height: 1.4em;
-  .s { font-size: 0.6em; }
-  .m { font-size: 0.9em; }
-  .l { font-size: 1.2em; }
-}
+.css1 { font-size: .8em; }
+.css2 { font-size: .9em; }
+.css3 { font-size: 1.0em; }
+.css4 { font-size: 1.1em; }
 
 .rate {
   padding-bottom: 20px;

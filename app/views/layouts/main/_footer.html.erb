@@ -1,4 +1,4 @@
-<footer class="page-footer indigo darken-2">
+<footer class="page-footer grey darken-4">
   <div class="container">
     <div class="row">
       <div class="col s12 m4 center-align">
@@ -9,7 +9,6 @@
           <li><%= link_to "Anuncie sua empresa", partner_path, class: "white-text" %></li>
           <% if user_signed_in? %>
             <li><%= link_to "Painel", backstage_dashboard_path, class: "white-text" %></li>
-            <li><%= link_to "Empresas", backstage_companies_path, class: "white-text" %></li>
             <li><%= link_to "Logout", destroy_user_session_path, class: "white-text", method: :delete %></li>
           <% else %>
             <li><%= link_to "Login", new_user_session_path, class: "white-text" %></li>
@@ -21,8 +20,8 @@
       <div class="col s12 m4 center-align">
         <span class="red-text">TAG CLOUD</span>
         <div id="tag_cloud">
-          <% tag_cloud Company.tag_counts_on(:tags), %w[s m l] do |tag, css_class| %>
-            <%= link_to tag.name, tag_path(tag.name), class: "white-text #{css_class}" %>
+          <% tag_cloud(ActsAsTaggableOn::Tag.most_used(20), %w(css1 css2 css3 css4)) do |tag, css_class| %>
+            <%= link_to tag.name, tag_path(tag.name), :class => "white-text #{css_class}" %>
           <% end %>
         </div>
       </div>
@@ -33,7 +32,7 @@
   </div>
   <div class="footer-copyright center">
     <div class="container">
-      <%= link_to "weekz.com.br", "/", class: "white-text" %>
+      <%= link_to "weekz.com.br", "/", class: "red-text" %>
     </div>
   </div>
 </footer>

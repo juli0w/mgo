@@ -14,8 +14,11 @@ class HomeController < ApplicationController
                   description: 'Portal de empreendimentos para você encontrar o que precisa na sua região e alavancar o seu negócio'
 
     @companies = Company.search(params[:key]).order('premium desc, logotipo desc').page(params[:page])
-    # @companies = SearchFilter.new.filter(Company.all, params[:key]).page(params[:page])
-    # @companies = Company.search(params.permit(:key)).page(params[:page])
+
+    if @companies.empty?
+      not_found
+      return
+    end
   end
 
   def contact

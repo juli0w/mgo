@@ -1,55 +1,7 @@
-<div class="search-section bg2 row no-bot-margin white">
-  <div class="container">
-    <div class="col s12">
-      <div class="sub-menu right white-text hide-on-small-only">
-        <% unless user_signed_in? %>
-          <%= link_to new_user_session_path do %>
-            <i class="fa fa-key" aria-hidden="true"></i> Entrar
-          <% end %> ou
-          <%= link_to new_user_registration_path do %>
-            <i class="fa fa-user" aria-hidden="true"></i> Registrar
-          <% end %>
-        <% else %>
-          <%= link_to backstage_dashboard_path do %>
-            <i class="fa fa-gear" aria-hidden="true"></i> Painel
-          <% end %> |
-          <%= link_to 'Sair', destroy_user_session_path, method: :delete %>
-        <% end %>
-      </div>
-    </div>
-    <div class="col s12">
-      <h1 class="weekz center">
-        <%= link_to root_url do %>
-          <span class="red-text text-lighten-1">Weekz</span>
-        <% end %>
-      </h1> <h6 class="center white-text discover">Descubra para onde ir</h6>
-      <nav class="search-nav transparent">
-        <div class="nav-wrapper">
-          <%= form_tag search_path, method: :get, id: "search_form" do %>
-            <div class="input-field">
-              <input name="key" id="icon_local" type="search" placeholder="Bares, cafés, coisas para fazer">
-              <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-              <i class="material-icons">close</i>
-            </div>
-          <% end %>
-          <div class="main-categories center">
-            <span>
-              <%= link_to Category.find_by_name("Pizzarias") do %>
-                <i class="fa fa-cutlery" aria-hidden="true"></i> Pizzarias
-              <% end %>
-              <%= link_to Category.find_by_name("Shoppings"), class: "hide-on-small-only" do %>
-                <i class="fa fa-shopping-bag" aria-hidden="true"></i> Shoppings
-              <% end %>
-              <%= link_to Category.find_by_name("Parques") do %>
-                <i class="fa fa-tree" aria-hidden="true"></i> Parques
-              <% end %>
-              <%= link_to "#", 'data-activates' => "slide-out", class: "open-menu", style: "display: inline-block;" do %>
-                <i class="fa fa-plus" aria-hidden="true"></i> Tudo
-              <% end %>
-            </span>
-          </div>
-        </div>
-      </nav>
-    </div>
+<%= form_tag search_path, method: :get, id: "search_form" do %>
+  <div class="input-field">
+    <input name="key" id="icon_local" type="search" placeholder="O que está procurando?">
+    <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+    <i class="material-icons">close</i>
   </div>
-</div>
+<% end %>

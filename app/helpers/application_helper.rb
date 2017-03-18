@@ -55,14 +55,6 @@ module ApplicationHelper
     company.logotipo.square.try(:url) || "/images/no-image.gif"
   end
 
-  def tag_cloud(tags, classes)
-    max = tags.sort_by(&:count).last
-    tags.each do |tag|
-      index = tag.count.to_f / max.count * (classes.size - 1)
-      yield(tag, classes[index.round])
-    end
-  end
-
   def get_url company
     company.slug.nil? ? company_path(company) : "#{root_url}#{company.slug}"
   end

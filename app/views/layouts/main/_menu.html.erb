@@ -1,24 +1,19 @@
-<nav role="navigation" class="first-nav indigo darken-2">
-  <div class="nav-wrapper container">
-    <ul>
-      <li><a href="#" data-activates="slide-out" class="open-menu">
-        <i class="material-icons">menu</i></a></li>
-    </ul>
-    <ul class="hide-on-med-and-down">
-      <li><%= link_to root_url do %>
-            Principal
-          <% end %></li>
-
-      <li><%= link_to offers_url do %>
-            Ofertas
-          <% end %></li>
-
-      <li><%= link_to contact_url do %>
-            Contato
-          <% end %></li>
-    </ul>
-  </div>
-</nav>
+<div class="main-categories center">
+  <span>
+    <%= link_to root_url do %>
+      <i class="fa fa-home" aria-hidden="true"></i> Principal
+    <% end %>
+    <%= link_to offers_path, class: "hide-on-small-only" do %>
+      <i class="fa fa-shopping-bag" aria-hidden="true"></i> Ofertas
+    <% end %>
+    <%= link_to contact_path do %>
+      <i class="fa fa-users" aria-hidden="true"></i> Contato
+    <% end %>
+    <%= link_to "#", 'data-activates' => "slide-out", class: "open-menu", style: "display: inline-block;" do %>
+      <i class="fa fa-bars" aria-hidden="true"></i> Menu
+    <% end %>
+  </span>
+</div>
 
 <ul class="side-nav center" id="slide-out">
   <li class="user-details">
@@ -35,7 +30,6 @@
   <li class="sideside"><%= link_to contact_url do %>
         Contato
       <% end %></li>
-  <li class="center header">Categorias</li>
   <li>
     <ul class="left-align collapsible">
       <% @categories.each do |category| %>
@@ -46,7 +40,7 @@
               <% category.children.each do |child| %>
                 <% next if child.companies.count <= 0 %>
                 <li><%= link_to child, class: "truncate" do %>
-                    <%= child.name %> <span class="badge white-text indigo"><%= child.companies.count %></span>
+                    <%= child.name %> <span class="badge white-text blue darken-4"><%= child.companies.count %></span>
                   <% end %>
                 </li>
               <% end %>
