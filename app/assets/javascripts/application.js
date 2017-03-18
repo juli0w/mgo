@@ -18,9 +18,11 @@
 //= require geomap
 //= require bg
 //= require social-share-button
+//= require ahoy
 //= require_self
 
 $(document).ready(function(){
+  ahoy.trackAll();
   $('.window-modal').modal({
       dismissible: true,
       opacity: 55 });

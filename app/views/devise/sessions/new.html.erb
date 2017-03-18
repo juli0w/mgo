@@ -3,7 +3,9 @@
     <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: "login-form") do |f| %>
       <div class="row">
         <div class="input-field col s12 center">
-          <h4>Weekz</h4>
+          <%= link_to root_path do %>
+            <h4>Weekz</h4>
+          <% end %>
           <p class="center login-form-text">Identificação</p>
         </div>
       </div>

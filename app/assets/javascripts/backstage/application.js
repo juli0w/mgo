@@ -14,9 +14,11 @@
 //= require jquery_ujs
 //= require materialize
 //= require ckeditor/loader
+//= require ahoy
 //= require_tree
 
 $(document).ready(function(){
+  ahoy.trackAll();
   $(".button-collapse").sideNav();
   $('select').material_select();
   $('.window-modal').modal({

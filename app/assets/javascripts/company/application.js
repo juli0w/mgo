@@ -15,9 +15,11 @@
 //= require materialize
 //= require ../rating
 //= require social-share-button
+//= require ahoy
 //= require_tree
 
 $(document).ready(function(){
+  ahoy.trackAll();
   $('.star-rating').rating();
   $('.tooltipped').tooltip({delay: 50});
   $( ".tabs" ).tabs();

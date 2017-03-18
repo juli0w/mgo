@@ -3,9 +3,7 @@ class HomeController < ApplicationController
     set_meta_tags title: 'Encontre empreendimentos. Avalanque sua idéia.',
     description: 'Portal de empreendimentos para você encontrar o que precisa na sua região e alavancar o seu negócio'
 
-    @destaque = Company.premium.last(8)
-    # @map = true
-    # expires_in 5.minutes, public: true
+    load_destaques
   end
 
   def institutional

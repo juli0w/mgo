@@ -22,6 +22,19 @@ class ApplicationController < ActionController::Base
     session[:previous_url] || root_path
   end
 
+  def load_destaques
+    @destaque = Company.premium.last(8)
+  end
+
+  def not_found
+    set_meta_tags title: 'Principais locais e eventos da região',
+    description: 'O Weekz reúne diversos locais para quem está buscando algo para fazer na região, seja para lazer ou profissional.'
+
+    load_destaques
+
+    render "companies/not_found", layout: 'application'
+  end
+
 private
 
   def admin_email

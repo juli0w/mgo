@@ -4,10 +4,13 @@ class ReviewsController < ApplicationController
 
   def new
     @company = Company.find_by_slug(params[:slug])
-    @review = @company.reviews.new
-    @row_counter = 1
-
-    @hide_menu = true
+    if @company
+      @pages = @company.profile.pages
+      @review = @company.reviews.new
+      @row_counter = 1
+    else
+      not_found
+    end
   end
 
   def create

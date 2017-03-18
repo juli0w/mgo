@@ -40,6 +40,7 @@ gem 'social-share-button'
 gem 'acts_as_commentable'
 gem 'omniauth-facebook'
 gem 'canonical-rails', github: 'jumph4x/canonical-rails'
+gem 'ahoy_matey'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

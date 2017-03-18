@@ -20,6 +20,7 @@
  *= require plans
  *= require custom
  *= require materialize-load
+ *= require materialize-xlarge
  *= require company-card
  *= require loader
  *= require_self
@@ -28,10 +29,10 @@
 @import "social-share-button";
 @import 'materialize';
 
-@import url('https://fonts.googleapis.com/css?family=Merriweather');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 body {
-  font-family: 'Merriweather', serif;
+  font-family: 'Open Sans', serif;
   // background-color: color("grey", "lighten-5");
 }
 
