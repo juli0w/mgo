@@ -55,7 +55,7 @@ class Company < ApplicationRecord
 
   def formatted_address
     if self.city and self.uf
-      return "#{self.address} - #{self.city.name.humanize}/#{self.uf.name.upcase}"
+      return "#{self.shows(:address)} - #{self.city.name.humanize}/#{self.uf.name.upcase}"
     else
       return self.address
     end

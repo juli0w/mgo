@@ -11,29 +11,30 @@
         <li class="tab col s3"><a href="#mapa"><i class="title-fa red-text fa fa-street-view" aria-hidden="true"></i> Ver no mapa</a></li>
       </ul>
     </div>
+  </div>
 
-    <div id="list" class="col s12">
+  <div id="list" class="col s12">
 
-      <% unless @companies.blank? %>
+    <% unless @companies.blank? %>
 
-        <ul class="collection">
-          <%= render "companies/collection" %>
-        </ul>
+      <ul class="collection company-collection">
+        <%= render "companies/collection" %>
+      </ul>
 
-        <div class='section center'>
-          <%= paginate @companies %>
-        </div>
-
-      <% else %>
-
-        <%= render "layouts/widgets/not_found", message: "Ooops, não conseguimos encontrar nenhum registro para a busca '#{params[:key]}' :(".html_safe %>
-
-      <% end %>
-
+      <div class='section center'>
+        <%= paginate @companies %>
       </div>
-      <div id="mapa" class="bordered-map section col s12">
-        <%= render "layouts/main/map" %>
-      </div>
+
+    <% else %>
+
+      <%= render "layouts/widgets/not_found", message: "Ooops, não conseguimos encontrar nenhum registro para a busca '#{params[:key]}' :(".html_safe %>
+
+    <% end %>
+
+  </div>
+  <div class="container">
+    <div id="mapa" class="bordered-map section col s12">
+      <%= render "layouts/main/map" %>
       <script>
           $(document).ready(function() {
             $.getScript('https://maps.googleapis.com/maps/api/js?key=AIzaSyCzq1h0fNZETR8Q0VAgVxqui85bPEhb-N0&callback=initMapByCat');
