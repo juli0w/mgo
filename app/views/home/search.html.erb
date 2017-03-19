@@ -5,10 +5,12 @@
     </div>
   </div>
 
-  <p class='right-align'>Página <%= "#{@companies.current_page}/#{@companies.total_pages}" %></p>
-  <ul class="collection company-collection">
-    <%= render "companies/collection" %>
-  </ul>
+  <div class="col s12">
+    <p class='right-align'>Página <%= "#{@companies.current_page}/#{@companies.total_pages}" %></p>
+    <ul class="collection company-collection">
+      <%= render "companies/collection" %>
+    </ul>
+  </div>
 
   <div class='section center'>
     <%= paginate @companies %>
