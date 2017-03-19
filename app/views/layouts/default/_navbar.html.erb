@@ -1,19 +1,16 @@
-<% unless @hide_menu %>
-  <nav role="navigation" class="<%= color(:primary_color, @company) %>">
-    <div class="nav-wrapper container">
-      <div class="styling anchorList hide-on-med-and-down">
-        <% @pages.each do |page| %>
-          <%= link_to page.title, "/#{@company.slug}/#{page.slug}", class: "#{color(:primary_color, @company)} #{color(:primary_color, @company)}" %>
-        <% end %>
-      </div>
-
-      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-      <ul class="side-nav anchorList" id="mobile-demo">
-        <% @pages.each do |page| %>
-          <li><%= link_to page.title, "/#{@company.slug}/#{page.slug}" %></li>
-        <% end %>
-      </ul>
-      </div>
+<nav role="navigation" class="<%= color(:primary_color, @company) %>">
+  <div class="nav-wrapper container">
+    <div class="styling anchorList hide-on-med-and-down">
+      <% @pages.each do |page| %>
+        <%= link_to page.title, "/#{@company.slug}/#{page.slug}", class: "#{color(:primary_color, @company)} #{color(:primary_color, @company)}" %>
+      <% end %>
     </div>
-  </nav>
-<% end %>
+
+    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+    <ul class="side-nav anchorList" id="mobile-demo">
+      <% @pages.each do |page| %>
+        <li><%= link_to page.title, "/#{@company.slug}/#{page.slug}" %></li>
+      <% end %>
+    </ul>
+  </div>
+</nav>
