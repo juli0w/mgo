@@ -1,15 +1,20 @@
-<div class="row margin-top">
-  <div class="container">
-    <div class="section">
-      <h5 class="title center"><i class="title-fa red-text fa fa-paper-plane" aria-hidden="true"></i>Locais mais populares</h5>
-    </div>
+<div class="row side-padding full-padding grey darken-4 white-text no-bot-margin">
+  <!-- <div class="container"> -->
+    <h3 class="title-margin no-top-margin center"><i class="title-fa red-text fa fa-paper-plane" aria-hidden="true"></i>ALGUNS PARCEIROS</h3>
 
     <div class="last-companies slick-sliding">
       <% @destaque.each do |company| %>
-        <div style="padding: 0 10px;">
+        <div style="padding: 0 0px;">
           <%= render "companies/company_card", company: company %>
         </div>
       <% end %>
+    </div>
+  <!-- </div> -->
+</div>
+<div class="row grey darken-4 no-bot-margin">
+  <div class="content">
+    <div class="super-padding">
+      <div class="divider grey darken-3"></div>
     </div>
   </div>
 </div>

@@ -4,7 +4,13 @@
 
 .card.company-card {
   box-shadow: none;
-  border: 1px solid #cdcdcd;
+  // border: 1px solid #ffffff;
+  opacity: 0.8;
+  margin-right: 20px;
+
+  &:hover {
+    opacity: 1;
+  }
 }
 
 .avatar p {

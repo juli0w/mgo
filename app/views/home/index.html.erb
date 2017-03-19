@@ -1,4 +1,9 @@
 <%#= render "layouts/main/slideshow" %>
+
+<% unless user_signed_in? %>
+  <%= render "layouts/main/promo" %>
+<% end %>
+
 <%= render "home/populars" %>
 
 <!-- <div class="row indigo no-top-margin no-bot-margin">
