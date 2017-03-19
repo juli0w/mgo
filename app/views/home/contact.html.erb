@@ -1,7 +1,7 @@
-<div class="container">
-  <div id="contact-page" class="margin-top card">
+<div class="container full-padding">
+  <div id="contact-page" class="card">
     <div class="card-content">
-      <div class="row no-bot-margin">
+      <div class="row">
         <h5 class="title center"><i class="title-fa red-text fa fa-envelope-o" aria-hidden="true"></i>Contato</h5>
         <p class="center grey-text text-darken-3">Deixe-nos uma mensagem!</p>
         <%= form_for @contact do |f| %>
@@ -38,7 +38,7 @@
 
           <div class="input-field col s12">
             <%= f.hidden_field :destination %>
-            <%= f.button type: "submit", name: "action", class: "btn-large right" do %>
+            <%= f.button type: "submit", name: "action", class: "blue btn-large right" do %>
               <i class="material-icons right">send</i>Enviar
             <% end %>
           </div>

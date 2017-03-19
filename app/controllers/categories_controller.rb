@@ -9,7 +9,7 @@ class CategoriesController < ApplicationController
     #   @children = @category.children.page params[:page]
     #   render 'categories'
     # else
-    @companies = @category.companies.order('premium desc, logotipo desc').page(params[:page])
+    @companies = @category.companies.search(params[:key]).order('premium desc, logotipo desc').page(params[:page])
     # end
   end
 

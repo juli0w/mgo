@@ -6,7 +6,7 @@ class CompaniesController < ApplicationController
     description: "Resultados da busca por tag #{params[:tag]}"
 
     @tag = ActsAsTaggableOn::Tag.where(name: params[:tag]).first
-    @companies = Company.tagged_with(params[:tag]).order('premium desc, logotipo desc').page(params[:page])
+    @companies = Company.search(params[:key]).tagged_with(params[:tag]).order('premium desc, logotipo desc').page(params[:page])
   end
 
   def show

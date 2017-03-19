@@ -1,58 +1,32 @@
-<div class="row margin-top">
+<div class="row full-padding">
   <div class="container">
     <div class="section">
       <h5 class="title center"><i class="title-fa red-text fa fa-shopping-bag" aria-hidden="true"></i>Confira algumas ofertas</h5>
       <p class="center grey-text text-darken-3">Digite o produto que precisa para buscarmos</p>
     </div>
-    <div class="search-offers center">
-      <%= form_tag offers_path, method: :get do %>
-          <fieldset style="border: none; margin: 0; padding: 0;">
-            <input name="keyword" id="icon_local" type="search" placeholder="Filtrar ofertas" value='<%= params[:keyword] %>'>
-            <button class="btn" type="submit" name="action">
-              Filtrar
-            </button>
-        </fieldset>
+    <%= render "layouts/widgets/search", path: offers_path, placeholder: "Filtre sua busca" %>
+
+    <% if @pages.present? %>
+      <% @offers.each do |offer| %>
+        <div class="col s12 m6 l4">
+          <%= render "offers/offer_card", offer: offer %>
+        </div>
       <% end %>
-    </div>
+
+      <div class="col s12 center">
+        <%= paginate @pages %>
+      </div>
+      <% else %>
+        <% if params[:key].present? %>
+          <%= render "layouts/widgets/not_found", message: "Ooops, não conseguimos encontrar nenhum registro para a busca '#{params[:key]}' :(<br>
+          Mas confira algumas sugestões ;))".html_safe %>
+        <% end %>
+
+        <% @offers.each do |offer| %>
+          <div class="col s12 m6 l4">
+            <%= render "offers/offer_card", offer: offer %>
+          </div>
+      <% end %>
+    <% end %>
   </div>
 </div>
-
-<% if @pages.present? %>
-  <div class="row">
-    <div class="container">
-      <% @offers.each do |offer| %>
-        <div class="col s12 m6 l4">
-          <%= render "offers/offer_card", offer: offer %>
-        </div>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="row no-margin-top">
-      <div class="section center">
-        <%= paginate @pages %>
-    </div>
-  </div>
-<% else %>
-  <% if params[:keyword].present? %>
-  <div class="row">
-    <div class="container">
-      <div class="card">
-        <div class="section center"><p>Não encontramos nenhum resultado para sua busca.<br/>
-        Confira algumas sugestões!</p>
-      </div>
-      </div>
-    </div>
-  </div>
-  <% end %>
-
-  <div class="row">
-    <div class="container">
-      <% @offers.each do |offer| %>
-        <div class="col s12 m6 l4">
-          <%= render "offers/offer_card", offer: offer %>
-        </div>
-      <% end %>
-    </div>
-  </div>
-<% end %>

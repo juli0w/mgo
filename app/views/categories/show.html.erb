@@ -1,22 +1,17 @@
-<div class="row margin-top">
+<div class="row full-padding">
   <div class="container">
     <div class="section">
-      <h5 class="title center"><i class="title-fa red-text fa fa-location-arrow" aria-hidden="true"></i> <%= @category.name %></div>
+      <h5 class="title center"><i class="title-fa red-text fa fa-location-arrow" aria-hidden="true"></i> <%= @category.name %>
     </div>
-  </div>
-</div>
 
-<div class="row">
-  <div class="container cat-tab">
-    <ul class="tabs" id="list-map-tab">
-      <li class="tab col s3 offset-m3"><a href="#list"><i class="title-fa red-text fa fa-th-list" aria-hidden="true"></i> Lista</a></li>
-      <li class="tab col s3"><a href="#mapa"><i class="title-fa red-text fa fa-street-view" aria-hidden="true"></i> Ver no mapa</a></li>
-    </ul>
-  </div>
-</div>
+    <%= render "layouts/widgets/search", path: category_path(@category), placeholder: "Filtre sua pesquisa" %>
+    <div class=" cat-tab">
+      <ul class="tabs" id="list-map-tab">
+        <li class="tab col s3 offset-m3"><a href="#list"><i class="title-fa red-text fa fa-th-list" aria-hidden="true"></i> Lista</a></li>
+        <li class="tab col s3"><a href="#mapa"><i class="title-fa red-text fa fa-street-view" aria-hidden="true"></i> Ver no mapa</a></li>
+      </ul>
+    </div>
 
-<div class="container">
-  <div class="row">
     <div id="list" class="col s12">
 
       <% unless @companies.blank? %>
@@ -31,9 +26,7 @@
 
       <% else %>
 
-        <div class="section center">
-          Sem resultados, <%= link_to "volte para a página inicial", "/" %>.
-        </div>
+        <%= render "layouts/widgets/not_found", message: "Ooops, não conseguimos encontrar nenhum registro para a busca '#{params[:key]}' :(".html_safe %>
 
       <% end %>
 
@@ -49,7 +42,6 @@
             initMap(<%= @category.id %>);
           }
       </script>
-      <br/>
     </div>
   </div>
 </div>
