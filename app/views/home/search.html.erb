@@ -3,15 +3,15 @@
     <div class="section">
       <h5 class="center title"><i class="title-fa red-text fa fa-search" aria-hidden="true"></i>Resultados para: <strong style='text-transform: uppercase;'><%= params[:key] %></strong></h5>
     </div>
-
-    <p class='right-align'>Página <%= "#{@companies.current_page}/#{@companies.total_pages}" %></p>
-    <ul class="collection">
-      <%= render "companies/collection" %>
-    </ul>
-
-    <div class='section center'>
-      <%= paginate @companies %>
-    </div>
-
   </div>
+
+  <p class='right-align'>Página <%= "#{@companies.current_page}/#{@companies.total_pages}" %></p>
+  <ul class="collection company-collection">
+    <%= render "companies/collection" %>
+  </ul>
+
+  <div class='section center'>
+    <%= paginate @companies %>
+  </div>
+
 </div>

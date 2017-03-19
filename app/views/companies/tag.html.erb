@@ -5,25 +5,25 @@
     </div>
 
     <%= render "layouts/widgets/search", path: tag_path, placeholder: "Filtre sua busca" %>
+  </div>
 
-    <div class="section col s12">
+  <div class="col s12">
 
-      <% unless @companies.blank? %>
+    <% unless @companies.blank? %>
 
-        <ul class="collection">
-          <%= render "companies/collection" %>
-        </ul>
+      <ul class="collection company-collection">
+        <%= render "companies/collection" %>
+      </ul>
 
-        <div class='section center'>
-          <%= paginate @companies %>
-        </div>
+      <div class='section center'>
+        <%= paginate @companies %>
+      </div>
 
-      <% else %>
+    <% else %>
 
-        <%= render "layouts/widgets/not_found", message: "Ooops, não conseguimos encontrar nenhum registro para a busca '#{params[:key]}' :(".html_safe %>
+      <%= render "layouts/widgets/not_found", message: "Ooops, não conseguimos encontrar nenhum registro para a busca '#{params[:key]}' :(".html_safe %>
 
-      <% end %>
+    <% end %>
 
-    </div>
   </div>
 </div>
