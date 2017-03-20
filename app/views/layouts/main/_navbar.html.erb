@@ -3,10 +3,10 @@
     <div class="col s12">
       <div class="sub-menu right white-text">
         <% unless user_signed_in? %>
-          <%= link_to new_user_session_path do %>
+          <%= link_to auth_path, remote: true do %>
             <i class="fa fa-key" aria-hidden="true"></i> Entrar
           <% end %> ou
-          <%= link_to new_user_registration_path do %>
+          <%= link_to register_path, remote: true do %>
             <i class="fa fa-user" aria-hidden="true"></i> Registrar
           <% end %>
         <% else %>

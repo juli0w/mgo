@@ -9,6 +9,8 @@ class ApplicationController < ActionController::Base
     return unless request.get?
     if (request.path != "/login" &&
         request.path != "/sign_up" &&
+        request.path != "/auth" &&
+        request.path != "/register" &&
         request.path != "/logout" &&
         !request.xhr?) # don't store ajax calls
       if request.format == "text/html" || request.content_type == "text/html"
@@ -18,9 +20,9 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def after_sign_in_path_for(resource)
-    session[:previous_url] || root_path
-  end
+  # def after_sign_in_path_for(resource)
+  #   session[:previous_url] || root_path
+  # end
 
   def load_destaques
     @destaque = Company.premium.last(8)
@@ -41,13 +43,13 @@ private
     "juli0w@hotmail.com"
   end
 
-  def after_sign_in_path_for(resource)
-    session["user_return_to"] || root_path
-  end
+  # def after_sign_in_path_for(resource)
+  #   session["user_return_to"] || root_path
+  # end
 
   # Or if you need to blacklist for some reason
   def after_sign_in_path_for(resource)
-    blacklist = [new_user_session_path, new_user_registration_path] # etc...
+    blacklist = [auth_path, register_path, new_user_session_path, new_user_registration_path] # etc...
     last_url = session["user_return_to"]
     if blacklist.include?(last_url)
       root_path

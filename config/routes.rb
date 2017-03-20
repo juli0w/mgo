@@ -69,6 +69,9 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
 
+  get "auth", to: "auth#login"
+  get "register", to: "auth#register"
+
   post ':slug', to: 'companies#show'
   get  ':slug', to: 'companies#show'
   get  ':slug/review', to: 'reviews#new'

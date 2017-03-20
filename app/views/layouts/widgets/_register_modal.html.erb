@@ -1,0 +1,27 @@
+<div id="id01" class="modalf">
+
+  <%= form_for(:user, url: registration_path(:user), html: { class: "modalf-content animate" }) do |f| %>
+    <span class="auth-close" onclick="$('.modalf').hide();" title="Fechar">&times;</span>
+    <div class="containerf">
+      <%= link_to user_facebook_omniauth_authorize_path, class: "fb btn waves-effect waves-light" do %>
+        Entrar usando Facebook <i class="fa fa-facebook left" aria-hidden="true"></i>
+      <% end %>
+    <label><b>Email</b></label>
+      <%= f.email_field :email, id: 'email' %>
+
+      <label><b>Senha</b></label>
+      <%= f.password_field :password, id: 'password', autocomplete: "off" %>
+
+      <label><b>Confirmação de senha</b></label>
+      <%= f.password_field :password_confirmation, id: 'password_confirmation', autocomplete: "off" %>
+
+      <div class="divider"></div>
+
+      <%= f.submit "Registrar", class: "btn blue" %>
+
+      <div class="actions">
+        <%= link_to "Já tem cadastro?", auth_path, remote: true, class: '' %>
+      </div>
+    </div>
+  <% end %>
+</div>

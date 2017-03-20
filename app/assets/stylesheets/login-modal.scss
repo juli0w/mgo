@@ -1,0 +1,96 @@
+.modalf {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 99999; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+  padding-top: 60px;
+
+  form {
+      border: 3px solid #f1f1f1;
+  }
+
+  .fb {
+    margin-bottom: 20px;
+  }
+
+  .fb, .btn {
+    width: 100%;
+  }
+
+  .divider {
+    margin: 10px 0 20px 0;
+  }
+
+  .actions {
+    margin-top: 20px;
+  }
+
+  input[type=email], input[type=password] {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+  }
+
+  .containerf {
+      padding: 16px;
+  }
+
+  span.psw {
+      float: right;
+      padding-top: 16px;
+  }
+
+  @media screen and (max-width: 300px) {
+      span.psw {
+          display: block;
+          float: none;
+      }
+  }
+
+  .modalf-content {
+      background-color: #fefefe;
+      margin: 5px auto;
+      border: 1px solid #888;
+      width: 400px;
+      position: relative;
+  }
+
+  .auth-close {
+      position: absolute;
+      right: 0px;
+      top: -70px;
+      color: #ffffff;
+      font-size: 55px;
+      font-weight: bold;
+  }
+
+  .auth-close:hover,
+  .auth-close:focus {
+      color: red;
+      cursor: pointer;
+  }
+
+  .animate {
+      -webkit-animation: animatezoom 0.6s;
+      animation: animatezoom 0.6s
+  }
+
+  @-webkit-keyframes animatezoom {
+      from {-webkit-transform: scale(0)}
+      to {-webkit-transform: scale(1)}
+  }
+
+  @keyframes animatezoom {
+      from {transform: scale(0)}
+      to {transform: scale(1)}
+  }
+}
