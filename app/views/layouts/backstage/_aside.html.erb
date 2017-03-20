@@ -7,7 +7,7 @@
           <%= image_tag user_avatar(current_user), alt: "avatar", class: "circle responsive-img profile-image" %>
           <p style="line-height: 1.66em; margin-top: 0;">
             Bem vindo<br>
-            <%= current_user.email %><br>
+            <%= current_user.name_display %><br>
             <%= current_user.role %></p>
           <div class="divider"></div>
         </div>

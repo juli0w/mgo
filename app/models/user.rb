@@ -8,6 +8,10 @@ class User < ApplicationRecord
          :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
 
+  def name_display
+    self.name || self.email
+  end
+
   def role
     self.admin? ? "Administrador" : "Usuário"
   end
@@ -17,6 +21,9 @@ class User < ApplicationRecord
       return_user = self.where(email: auth.info.email).first
       return_user.provider = auth.provider
       return_user.uid = auth.uid
+      return_user.name = auth.info.name if return_user.name.blank?
+      return_user.image = auth.info.image if return_user.image.blank?
+      return_user.save
     else
       return_user = self.create do |user|
          user.provider = auth.provider
