@@ -20,6 +20,16 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def after_sign_in_path_for(resource)
+    blacklist = [auth_path, register_path, new_user_session_path, new_user_registration_path] # etc...
+    last_url = session["previous_url"]
+    if blacklist.include?(last_url)
+      root_path
+    else
+      last_url
+    end
+  end
+
   # def after_sign_in_path_for(resource)
   #   session[:previous_url] || root_path
   # end
@@ -46,17 +56,6 @@ private
   # def after_sign_in_path_for(resource)
   #   session["user_return_to"] || root_path
   # end
-
-  # Or if you need to blacklist for some reason
-  def after_sign_in_path_for(resource)
-    blacklist = [auth_path, register_path, new_user_session_path, new_user_registration_path] # etc...
-    last_url = session["user_return_to"]
-    if blacklist.include?(last_url)
-      root_path
-    else
-      last_url
-    end
-  end
 
   def store_current_location
     store_location_for(:user, request.url)
