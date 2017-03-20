@@ -1,7 +1,6 @@
 <div id="id01" class="modalf">
 
   <%= form_for(:user, url: session_path(:user), html: { class: "modalf-content animate" }) do |f| %>
-    <span class="auth-close" onclick="$('.modalf').hide();" title="Fechar">&times;</span>
     <div class="containerf">
       <%= link_to user_facebook_omniauth_authorize_path, class: "fb btn waves-effect waves-light" do %>
         Entrar usando Facebook <i class="fa fa-facebook left" aria-hidden="true"></i>
@@ -20,7 +19,7 @@
         <%= f.check_box :remember_me, id: 'remember-me' %>
         <label for="remember-me">Lembrar</label>
 
-        <%= link_to "Ainda não é cadastrado?", register_path, remote: true, class: 'right' %>
+        <%= link_to "Não é cadastrado?", register_path, remote: true, class: 'right' %>
       </div>
     </div>
   <% end %>

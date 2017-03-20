@@ -69,9 +69,12 @@ nav .nav-wrapper .sub-menu i {
 }
 .search-section {
   padding: 20px 0;
-  background-size: cover;
   transition: background 1s linear;
   background-color: #212121;
+}
+
+.bg1, .bg2, .bg3 {
+  background-size: cover !important;
 }
 
 .bg1 {

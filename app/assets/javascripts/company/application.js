@@ -16,6 +16,7 @@
 //= require ../rating
 //= require social-share-button
 //= require ahoy
+//= require ../login-modal
 //= require_tree
 
 $(document).ready(function(){
