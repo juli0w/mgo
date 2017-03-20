@@ -31,8 +31,8 @@ h5.brand-logo {
 }
 h5.brand-logo a {
   font-weight: bold;
-  text-shadow: #BDBDBD 1px 1px;
-  font-size: 22px !important;
+  /*text-shadow: #BDBDBD 1px 1px;*/
+  font-size: 26px !important;
   /*padding: 10px;*/
 }
 

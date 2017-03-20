@@ -10,6 +10,9 @@ pt-BR:
     models:
       user: Usuário
   devise:
+    omniauth_callbacks:
+      user:
+        success: Você foi autorizado com sucesso
     failure:
       already_authenticated: Já está logado
       user:

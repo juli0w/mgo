@@ -35,7 +35,7 @@
             <%= image_tag "/images/avatar.png", class: "avatar", alt: "avatar" %>
             <span>
               <strong>Usuário:</strong>
-              <%= comment.user.try(:email) %>
+              <%= comment.user.try(:display_name) %>
             </span>
             <span>
               <strong>Comentário:</strong>
