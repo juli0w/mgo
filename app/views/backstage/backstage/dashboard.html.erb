@@ -19,7 +19,6 @@
         <thead>
           <tr>
               <th data-field="name">Nome</th>
-              <th data-field="state">Categoria</th>
               <th data-field="actions"></th>
           </tr>
         </thead>
@@ -29,7 +28,6 @@
 
           <tr>
             <td><%= company.name %></td>
-            <td><span class="state blue-grey darken-2 white-text"><%= company.category.name %></span></td>
             <td>
               <%= link_to "Administrar", [:backstage, company] %>
             </td>
