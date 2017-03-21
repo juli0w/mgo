@@ -40,6 +40,8 @@ class Company < ApplicationRecord
 
   delegate :color, to: :profile
   delegate :color_sample, to: :profile
+  delegate :layout_path, to: :profile
+  delegate :layout, to: :profile
 
   def activate!
     update(premium: true)

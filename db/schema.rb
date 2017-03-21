@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170318020050) do
+ActiveRecord::Schema.define(version: 20170321180617) do
 
   create_table "ahoy_events", force: :cascade do |t|
     t.integer  "visit_id"
@@ -157,6 +157,16 @@ ActiveRecord::Schema.define(version: 20170318020050) do
   create_table "fonts", force: :cascade do |t|
     t.string   "name"
     t.string   "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "landing_pages", force: :cascade do |t|
+    t.string   "image"
+    t.text     "content"
+    t.text     "details"
+    t.string   "link_call"
+    t.string   "link"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

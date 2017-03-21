@@ -45,6 +45,7 @@ Rails.application.routes.draw do
         resources :contact_pages
         resources :blank_pages
         resources :blog_pages
+        resources :landing_pages
         resources :album_pages do
           resources :photos
         end

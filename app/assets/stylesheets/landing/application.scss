@@ -10,17 +10,74 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require ../rating
  *= require ../materialize-load
- *= require_tree
- *= require_self
  *= require ../company/shared
  *= require ../company/custom
- *= require ../company/social
  *= require ../company/photo-grid
  *= require ../company/company-page
  *= require ../company/company-nav
  *= require ../font-awesome
- *= require ../login-modal
- *= require social-share-button
+ *= require_self
  */
+
+ @import url('https://fonts.googleapis.com/css?family=Francois+One');
+
+p {
+  line-height: 2em;
+}
+h1, h2 {
+  font-family: 'Francois One', cursive;
+}
+
+h1 {
+  font-size: 45px;
+}
+
+h2 {
+  font-size: 32px;
+}
+
+input[type=email] {
+  border: 1px solid #dedede;
+  width: 350px;
+  padding: 5px 15px;
+}
+
+.page-content {
+  padding: 20px;
+}
+
+.call-to-action {
+  padding: 18px 30px;
+  font-size: 24px;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+.details h3 {
+  font-size: 28px;
+  margin-bottom: 40px;
+}
+.details .col {
+  opacity: 0.7;
+  transition: opacity .35s ease-in-out;
+ -moz-transition: opacity .35s ease-in-out;
+ -webkit-transition: opacity .35s ease-in-out;
+ cursor: pointer;
+  &:hover {
+    opacity: 1;
+  }
+}
+.call-section {
+  margin-top: 20px;
+}
+.title-heading {
+  padding-top: 40px !important;
+  padding-bottom: 20px !important;
+}
+
+.side-padding {
+  padding-left: 40px !important;
+  padding-right: 40px !important;
+}

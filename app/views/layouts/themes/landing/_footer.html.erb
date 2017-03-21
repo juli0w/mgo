@@ -1,0 +1,5 @@
+<footer class="page-footer full-padding <%= "#{color(:primary_color, @company)} #{color(:text_color, @company)}" %> no-top-margin">
+  <div class="container center">
+    <%= link_to @company.name, "/#{@company.slug}", class: color(:link_color, @company) %> @ <%= link_to 'www.weekz.com.br', root_url, class: color(:link_color, @company) %>
+  </div>
+</footer>

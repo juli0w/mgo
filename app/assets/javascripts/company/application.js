@@ -13,10 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require materialize
-//= require ../rating
+// = require ../rating
+//= require ../login-modal
 //= require social-share-button
 //= require ahoy
-//= require ../login-modal
 //= require_tree
 
 $(document).ready(function(){

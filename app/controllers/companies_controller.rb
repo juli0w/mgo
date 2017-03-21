@@ -33,7 +33,7 @@ class CompaniesController < ApplicationController
       set_meta_tags title: @company.description,
                     description: "#{@company.description}. #{@company.tag_list}"
 
-      render layout: @company.profile.layout
+      render layout: @company.profile.layout_path
     end
   end
 
@@ -48,7 +48,7 @@ class CompaniesController < ApplicationController
     set_meta_tags title: "#{@article.title} - #{@page.title}",
                   description: "#{@article.description}"
 
-    render layout: @company.profile.layout
+    render layout: @company.profile.layout_path
   end
 
 private

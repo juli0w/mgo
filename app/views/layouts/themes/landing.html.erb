@@ -5,7 +5,7 @@
     <%= csrf_meta_tag %>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-    <%= stylesheet_link_tag    'full/application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'landing/application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'company/application', 'data-turbolinks-track': 'reload' %>
     <%= canonical_tag %>
     <style>
@@ -15,21 +15,14 @@
 
   <body class="company-layout">
 
-    <%= render "layouts/full/header" %>
+    <%= render @company.layout_path(:navbar) %>
 
-    <%= render "layouts/full/navbar" %>
+    <%= yield %>
 
-    <%= render "layouts/full/content" %>
+    <%= render @company.layout_path(:footer) %>
 
-    <%= render "layouts/company/footer" %>
-
-    <%= render "layouts/analytics" %>
+    <%= render "layouts/widgets/analytics" %>
 
     <%= render "layouts/main/flash" %>
-
-    <% if user_signed_in? %>
-      <%= render "layouts/full/tools" %>
-    <% end %>
-
   </body>
 </html>

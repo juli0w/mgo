@@ -1,4 +1,9 @@
 FactoryGirl.define do
+  factory :landing_page do
+    image "MyString"
+    content "MyText"
+    link "MyString"
+  end
   factory :blog_page do
     max 1
     height 1

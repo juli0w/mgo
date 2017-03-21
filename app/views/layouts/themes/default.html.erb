@@ -5,29 +5,31 @@
     <%= csrf_meta_tag %>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
-    <%= stylesheet_link_tag    'company/application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'default/application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'company/application', 'data-turbolinks-track': 'reload' %>
+    <%= canonical_tag %>
+    <style>
+      <%= render "layouts/company/fonts.css", font: @company.profile.font %>
+    </style>
   </head>
 
   <body class="company-layout">
 
-    <%= render "layouts/company/navbar" %>
+    <%= render @company.layout_path(:header) %>
 
-    <%= render "layouts/company/header" %>
+    <%= render @company.layout_path(:navbar) %>
 
-    <% unless @hide_menu %>
-      <%= render "layouts/company/menu" %>
-    <% end %>
-
-    <%= render "layouts/company/content" %>
+    <%= render @company.layout_path(:content) %>
 
     <%= render "layouts/company/footer" %>
 
-    <%= render "layouts/analytics" %>
+    <%= render "layouts/widgets/analytics" %>
 
     <%= render "layouts/main/flash" %>
 
-    <%= render "layouts/company/modal" %>
+    <% if user_signed_in? %>
+      <%= render "layouts/company/tools" %>
+    <% end %>
+
   </body>
 </html>

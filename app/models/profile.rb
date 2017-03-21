@@ -6,12 +6,19 @@ class Profile < ApplicationRecord
   accepts_nested_attributes_for :template
 
   LAYOUTS = [["Padrão", "default"],
-             ["Full Page", "full"]]
+             ["Full Page", "full"],
+             ["Landing Page", "landing"]]
 
   mount_uploader :cover, CoverUploader
 
   delegate :color, to: :template
   delegate :color_sample, to: :template
+
+  def layout_path path=nil
+    layout = "layouts/themes/#{self.layout}"
+    layout = "#{layout}/#{path.to_s}" if path
+    return layout
+  end
 
   def font
     f = super

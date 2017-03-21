@@ -14,6 +14,7 @@
  *= require ../materialize-load
  *= require_tree
  *= require_self
+ *= require ../company/custom
  *= require ../company/shared
  *= require ../company/social
  *= require ../company/photo-grid
@@ -23,105 +24,3 @@
  *= require ../login-modal
  *= require social-share-button
  */
-
-@import 'materialize';
-
-.state {
-  padding: 5px 10px;
-  border-radius: 5px;
-}
-
-.btn-join-transparent {
-  border: 1px solid white;
-  padding: 10px 30px;
-  color: white;
-  display: inline-block;
-  margin: 20px auto;
-
-  &:hover {
-    background: rgba(255, 255, 255, 0.2);
-  }
-}
-
-.field_with_errors input {
-  border: 1px solid red !important;
-}
-
-strong {
-  font-weight: bold;
-}
-
-.recuo { text-indent: 4em; padding: 0 20px; }
-
-.tools {
-  position: fixed;
-  left: 0;
-  bottom: -20px;
-  padding: 10px;
-  display: inline-block;
-}
-
-#tag_cloud {
-  // width: 400px;
-  // line-height: 1.4em;
-  .s { font-size: 0.6em; }
-  .m { font-size: 0.9em; }
-  .l { font-size: 1.2em; }
-}
-
-.rate {
-  padding-bottom: 20px;
-  border-bottom: 1px dashed color("grey", "lighten-1");
-}
-
-.keep-icon-align span i {
-  margin-right: 10px;
-  margin-left: 10px;
-}
-
-.keep-icon-align span:first-child i {
-  margin-left: 0px;
-}
-
-.keep-icon-align span {
-  display: inline-flex;
-  vertical-align: middle;
-}
-
-.opacity {
-  background-color:rgba(255, 255, 255, 0.3) !important;
-}
-
-@media #{$medium-and-down} {
-  .nav-menu, .nav-menu .tab a, .nav-menu .tabs {
-    line-height: 56px !important;
-    height: 56px !important;
-  }
-}
-
-@media #{$small-and-down} {
-  .header-company {
-    min-height: 60px !important;
-    h2.logo {
-      margin-top: 40px !important;
-      font-size: 1.8em;
-    }
-
-    h5 {
-      padding: 10px 0 40px !important;
-      font-size: 1.5em;
-      line-height: 1.1em;
-    }
-  }
-}
-
-.no-bot-margin {
-  margin-bottom: 0 !important;
-}
-.no-top-margin, .no-top-margin h5 {
-  margin-top: 0 !important;
-}
-
-.no-top-padding, .no-top-padding h5 {
-  padding-top: 0;
-}
