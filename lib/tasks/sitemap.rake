@@ -31,11 +31,17 @@ namespace :custom do
       # add institutional_path, :priority => 0.80
 
       Company.find_each do |company|
-        add "/#{company.slug}", :last_modified => company.updated_at
-        add "/#{company.slug}/review"
-
+        begin
+          add "/#{company.slug}", :last_modified => company.updated_at
+          add "/#{company.slug}/review"
+        rescue
+        end
+        
         company.profile.pages.each do |page|
-          add "/#{company.slug}/#{page.slug}"
+          begin
+            add "/#{company.slug}/#{page.slug}"
+          rescue
+          end
         end
 
         blog = company.profile.pages.select {|a| a.pageable_type == "BlogPage" }
@@ -43,7 +49,10 @@ namespace :custom do
           # add "/#{company.slug}/#{blog.first.slug}"
 
           company.articles.each do |article|
-            add "/#{company.slug}/#{blog.first.slug}/#{article.slug}"
+            begin
+              add "/#{company.slug}/#{blog.first.slug}/#{article.slug}"
+            rescue
+            end
           end
         end
       end
