@@ -23,15 +23,25 @@
             <div class="card-content">
               <p class="article-description"><%= @article.description %></p>
               <div style="margin-bottom: 20px;"><%= raw @article.content %></div>
-              <span class="right-align">
-                <%= social_share_button_tag(@article.title, "data-title": "Compartilhe") %>
-              </span>
+              <div class="fb-like" data-href="<%= "/#{@company.slug}/#{@page.slug}/#{@article.slug}" %>" data-layout="standard" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
             </div>
           </div>
         </div>
       </div>
 
-      <%= render "comments/comments" %>
+      <div class="comments">
+        <div class="col s12">
+          <div class="fb-comments" data-href='<%= "/#{@company.slug}/#{@page.slug}/#{@article.slug}" %>' data-width="100%" data-numposts="5"></div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.8&appId=1375113029226011";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>

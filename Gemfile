@@ -36,7 +36,6 @@ gem "http"
 gem 'search_cop'
 gem 'bugsnag'
 gem 'big_sitemap'
-gem 'social-share-button'
 gem 'acts_as_commentable'
 gem 'omniauth-facebook'
 gem 'canonical-rails', github: 'jumph4x/canonical-rails'

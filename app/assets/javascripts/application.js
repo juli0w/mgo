@@ -17,7 +17,6 @@
 //= require rating
 //= require geomap
 //= require bg
-//= require social-share-button
 //= require ahoy
 //= require login-modal
 //= require_self

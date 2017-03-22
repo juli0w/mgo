@@ -28,11 +28,8 @@
               <div class="card-content">
                 <p class="article-description"><%= article.description %></p>
                 <%= link_to "Ler mais", "/#{@company.slug}/#{@page.slug}/#{article.slug}", class: "btn-flat" %>
-                <span class="right right-align">
-                  <%= link_to "/#{@company.slug}/#{@page.slug}/#{article.slug}#comments" do %>
-                    <%= article.comments.count %> comentários
-                  <% end %>
-                  <%= social_share_button_tag(article.title) %>
+                <span class="right">
+                  <div class="fb-like" data-href='<%= "/#{@company.slug}/#{@page.slug}/#{article.slug}" %>' data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
                 </span>
               </div>
             </div>
@@ -47,3 +44,11 @@
     </div>
   </div>
 </div>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.8&appId=1375113029226011";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>

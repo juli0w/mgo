@@ -15,7 +15,6 @@
 //= require materialize
 // = require ../rating
 //= require ../login-modal
-//= require social-share-button
 //= require ahoy
 //= require_tree
 
