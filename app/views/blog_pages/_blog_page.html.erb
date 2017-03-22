@@ -29,7 +29,7 @@
                 <p class="article-description"><%= article.description %></p>
                 <%= link_to "Ler mais", "/#{@company.slug}/#{@page.slug}/#{article.slug}", class: "btn-flat" %>
                 <span class="right">
-                  <div class="fb-like" data-href='<%= "/#{@company.slug}/#{@page.slug}/#{article.slug}" %>' data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+                  <div class="fb-like" data-href='<%= "#{root_url}/#{@company.slug}/#{@page.slug}/#{article.slug}" %>' data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
                 </span>
               </div>
             </div>
