@@ -31,6 +31,13 @@
                 <span class="right">
                   <div class="fb-like" data-href='<%= "/#{@company.slug}/#{@page.slug}/#{article.slug}" %>' data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
                 </span>
+
+                <%= content_for :og do %>
+                  <meta property="og:title" content='<%= "#{article.title} | #{@company.name}" %>' />
+                  <meta property="og:type" content="website" />
+                  <meta property="og:url" content='<%= "/#{@company.slug}/#{@page.slug}/#{article.slug}" %>' />
+                  <meta property="og:image" content="<%= article.cover %>" />
+                <% end %>
               </div>
             </div>
           </div>

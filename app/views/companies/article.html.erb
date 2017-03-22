@@ -37,6 +37,12 @@
     </div>
   </div>
 </div>
+<%= content_for :og do %>
+  <meta property="og:title" content='<%= "#{@article.title} | #{@company.name}" %>' />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content='<%= "/#{@company.slug}/#{@page.slug}/#{@article.slug}" %>' />
+  <meta property="og:image" content="<%= @article.cover %>" />
+<% end %>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
