@@ -21,8 +21,8 @@
               <em class="card-description"><i class="material-icons">schedule</i> Postado em <%= @article.created_at.strftime("%d/%m/%Y") %></em>
             </div>
             <div class="card-content">
-              <p class="article-description"><%= @article.description %></p>
-              <div style="margin-bottom: 20px;"><%= raw @article.content %></div>
+              <p class="article-description ubuntu"><%= @article.description %></p>
+              <div style="margin-bottom: 20px;" class="ubuntu"><%= raw @article.content %></div>
               <div class="fb-like" data-href="<%= "#{root_url}/#{@company.slug}/#{@page.slug}/#{@article.slug}" %>" data-layout="standard" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
             </div>
           </div>
