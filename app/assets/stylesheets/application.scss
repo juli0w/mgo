@@ -156,6 +156,14 @@ strong {
   border-radius: 5px;
   display: inline-block;
   margin-bottom: 4px;
+  opacity: 0.6;
+  transition: opacity .35s ease-in-out;
+ -moz-transition: opacity .35s ease-in-out;
+ -webkit-transition: opacity .35s ease-in-out;
+  &:hover {
+    opacity: 1;
+    text-decoration: none !important;
+  }
 }
 .bolder { font-weight: bold; text-transform: uppercase; }
 

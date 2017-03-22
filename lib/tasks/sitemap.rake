@@ -24,22 +24,26 @@ namespace :custom do
     end
 
     BigSitemap.generate(sitemap_options) do
-      add root_path, :priority => 1
-      add contact_path, :priority => 0.75
-      add offers_path, :priority => 0.95
-      add partner_path, :priority => 0.96
+      add root_path
+      add contact_path
+      add offers_path
+      # add partner_path, :priority => 0.96
       # add institutional_path, :priority => 0.80
 
       Company.find_each do |company|
         add "/#{company.slug}", :last_modified => company.updated_at
         add "/#{company.slug}/review"
 
+        company.profile.pages.each do |page|
+          add "/#{company.slug}/#{page.slug}"
+        end
+
         blog = company.profile.pages.select {|a| a.pageable_type == "BlogPage" }
         if blog.any?
-          add "/#{company.slug}/#{blog.first.slug}"
+          # add "/#{company.slug}/#{blog.first.slug}"
 
           company.articles.each do |article|
-            add "/#{company.slug}/#{blog.first.slug}/#{article.slug}", priority: 1
+            add "/#{company.slug}/#{blog.first.slug}/#{article.slug}"
           end
         end
       end

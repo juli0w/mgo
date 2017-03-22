@@ -21,7 +21,7 @@
         <span class="red-text">TAG CLOUD</span>
         <div id="tag_cloud">
           <% tag_cloud(ActsAsTaggableOn::Tag.most_used(20), %w(css1 css2 css3 css4)) do |tag, css_class| %>
-            <%= link_to tag.name, tag_path(tag.name), :class => "tag red white-text #{css_class}" %>
+            <%= link_to tag.name, tag_path(tag.name), :class => "tag grey darken-3 white-text #{css_class}" %>
           <% end %>
         </div>
       </div>
