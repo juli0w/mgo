@@ -1,3 +1,16 @@
+h1 {
+  font-size: 42px;
+  margin: 0;
+}
+h3 {
+  font-size: 34px;
+}
+h6 {
+  font-size: 20px;
+}
+p {
+  line-height: 1.3em;
+}
 .btn-flat {
   border: 1px solid #aeaeae;
 }
@@ -34,7 +47,7 @@
     .card-title {
       margin-left: 20px;
       padding-top: 10px;
-      h5 { line-height: 1.5em; }
+      h1 { line-height: 1.5em; }
 
       em {
         i {
@@ -46,6 +59,7 @@
 
     .card-content {
       .article-description {
+        font-size: 20px;
         margin-bottom: 30px;
       }
 

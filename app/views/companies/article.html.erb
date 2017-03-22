@@ -3,8 +3,8 @@
     <div class="container">
       <div class="section">
         <div class="title-wrapper center no-border">
-          <h5><%= @page.title %></h5>
-          <h6><%= @page.description %></h6>
+          <h2><%= @page.title %></h2>
+          <h3><%= @page.description %></h3>
         </div>
       </div>
 
@@ -17,7 +17,7 @@
               </div>
             <% end %>
             <div class="card-title">
-              <h5><strong><%= @article.title %></strong></h5>
+              <h1><strong><%= @article.title %></strong></h1>
               <em class="card-description"><i class="material-icons">schedule</i> Postado em <%= @article.created_at.strftime("%d/%m/%Y") %></em>
             </div>
             <div class="card-content">
