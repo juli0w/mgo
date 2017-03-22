@@ -39,6 +39,7 @@
 </div>
 <%= content_for :og do %>
   <meta property="og:title" content='<%= "#{@article.title} | #{@company.name}" %>' />
+  <meta property="og:description" content="<%= @article.description %>">
   <meta property="og:type" content="website" />
   <meta property="og:image" content="<%= @article.cover.url %>" />
 <% end %>
