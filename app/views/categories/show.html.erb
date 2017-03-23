@@ -13,24 +13,26 @@
     </div>
   </div>
 
-  <div id="list" class="col s12">
+  <div class='large-container'>
+    <div id="list" class="col s12">
 
-    <% unless @companies.blank? %>
+      <% unless @companies.blank? %>
 
-      <ul class="collection company-collection">
-        <%= render "companies/collection" %>
-      </ul>
+        <ul class="collection company-collection">
+          <%= render "companies/collection" %>
+        </ul>
 
-      <div class='section center'>
-        <%= paginate @companies %>
-      </div>
+        <div class='section center'>
+          <%= paginate @companies %>
+        </div>
 
-    <% else %>
+      <% else %>
 
-      <%= render "layouts/widgets/not_found", message: "Ooops, não conseguimos encontrar nenhum registro para a busca '#{params[:key]}' :(".html_safe %>
+        <%= render "layouts/widgets/not_found", message: "Ooops, não conseguimos encontrar nenhum registro para a busca '#{params[:key]}' :(".html_safe %>
 
-    <% end %>
+      <% end %>
 
+    </div>
   </div>
   <div class="container">
     <div id="mapa" class="bordered-map section col s12">

@@ -1,29 +1,35 @@
-<div style="<%= header_image(@company) if @company.profile.cover? %>" class="waves-effect row <%= 'header-company' if @company.profile.cover? %> title-heading side-padding">
-  <div class="section">
-    <div class="title-wrapper no-border">
-      <h1><%= page.title %></h1>
-      <h2><%= page.description %></h2>
-    </div>
-  </div>
-</div>
-
-<div class="row" style="padding: 0 0 0 5px !important;">
-  <div class="col s12 m6">
-    <%= image_tag @page.pageable.image, class: "responsive-img" %>
-  </div>
-  <div class="col s12 m6">
-    <div class="page-content">
-      <%= raw @page.pageable.content %>
-      <div class="section center call-section">
-        <%= render @company.layout_path(:subscribe), landing: @page.pageable, company: @company %>
+<div style="<%= header_image(@company) if @company.profile.cover? %>" class="row <%= 'header-company' if @company.profile.cover? %> title-heading side-padding">
+  <div class="large-container">
+    <div class="section">
+      <div class="title-wrapper no-border">
+        <h1><%= page.title %></h1>
+        <h2><%= page.description %></h2>
       </div>
     </div>
   </div>
 </div>
 
-<div class="row waves-effect side-padding details full-padding <%= odd_color(@company, @row_counter+1) %>">
-  <div class="section">
-    <%= raw @page.pageable.details %>
+<div class="row" style="padding: 0 0 0 5px !important;">
+  <div class="large-container">
+    <div class="col s12 m6">
+      <%= image_tag @page.pageable.image, class: "responsive-img" %>
+    </div>
+    <div class="col s12 m6">
+      <div class="page-content">
+        <%= raw @page.pageable.content %>
+        <div class="section center call-section">
+          <%= render @company.layout_path(:subscribe), landing: @page.pageable, company: @company %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row side-padding details full-padding <%= odd_color(@company, @row_counter+1) %>">
+  <div class="large-container">
+    <div class="section">
+      <%= raw @page.pageable.details %>
+    </div>
   </div>
 </div>
 

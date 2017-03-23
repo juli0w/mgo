@@ -9,7 +9,7 @@
       </div>
 
       <div class="articles">
-        <div class="col s12">
+        <div class="col s12 l10 offset-l1">
           <div class="article card">
             <% if @article.cover? %>
               <div class="card-image">
@@ -30,7 +30,8 @@
       </div>
 
       <div class="comments">
-        <div class="col s12">
+        <div class="col s12 l10 offset-l1">
+          <h5>Deixe seu comentário</h5>
           <div class="fb-comments" data-href='<%= "#{root_url}/#{@company.slug}/#{@page.slug}/#{@article.slug}" %>' data-width="100%" data-numposts="5"></div>
         </div>
       </div>
