@@ -6,9 +6,12 @@
     padding: 60px 0;
   }
 
+  .header-company-cover {
+    background: url(/images/bg-header.jpg) no-repeat center;
+  }
+
   .header-company {
     padding-top: .5em;
-    background: url(/images/bg-header.jpg) no-repeat center;
     color: white;
     min-height: 200px;
     background-size: cover;

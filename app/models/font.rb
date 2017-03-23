@@ -1,4 +1,8 @@
 class Font < ApplicationRecord
+  LAYOUTS = [["Sans-serif", "sans-serif"],
+             ["Serif", "serif"],
+             ["Cursive", "cursive"]]
+
   def self.seed!
     %w(Arvo Merriweather Kurale Ultra).each do |font|
       where(name: font,
