@@ -1,27 +1,32 @@
 <div id="<%= @article.slug %>" class="full-padding">
   <div class="row">
     <div class="container">
-      <div class="section">
+      <!-- <div class="section">
         <div class="title-wrapper center no-border">
-          <h2><%= @page.title %></h2>
-          <h3><%= @page.description %></h3>
+          <h2><%#= @page.title %></h2>
+          <h3><%#= @page.description %></h3>
         </div>
-      </div>
+      </div> -->
 
       <div class="articles">
         <div class="col s12 l10 offset-l1">
           <div class="article card">
+            <div class="card-title">
+              <h1><strong><%= @article.title %></strong></h1>
+              <div class="fb-like" data-href="<%= "#{root_url}/#{@company.slug}/#{@page.slug}/#{@article.slug}" %>" data-layout="standard" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+              <em class="card-description right"><i class="material-icons">schedule</i> Postado em <%= @article.created_at.strftime("%d/%m/%Y") %></em>
+            </div>
+
             <% if @article.cover? %>
               <div class="card-image">
                 <%= image_tag @article.cover, alt: @article.title %>
               </div>
             <% end %>
-            <div class="card-title">
-              <h1><strong><%= @article.title %></strong></h1>
-              <em class="card-description"><i class="material-icons">schedule</i> Postado em <%= @article.created_at.strftime("%d/%m/%Y") %></em>
-            </div>
+
             <div class="card-content">
-              <p class="article-description ubuntu"><%= @article.description %></p>
+              <% if @article.description.present? %>
+                <p class="article-description ubuntu"><%= @article.description %></p>
+              <% end %>
               <div style="margin-bottom: 20px;" class="ubuntu"><%= raw @article.content %></div>
               <div class="fb-like" data-href="<%= "#{root_url}/#{@company.slug}/#{@page.slug}/#{@article.slug}" %>" data-layout="standard" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
             </div>

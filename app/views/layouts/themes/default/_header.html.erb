@@ -1,8 +1,0 @@
-<div class="row header-company <%= 'header-company-cover' if @company.profile.cover? %>" style="<%= header_image(@company) if @company.cover? %>; margin-bottom: 0;">
-  <div class="container">
-    <div class='section'>
-      <h2 class="logo center <%= color(:logo_color, @company) %>"><%= @company.name %></h2>
-      <h5 class="center <%= color(:description_color, @company) %>"><%= @company.description %></h5>
-    </div>
-  </div>
-</div>
