@@ -1,0 +1,13 @@
+<% if @company.facebook.present? %>
+  <div class="col l4 hide-on-med-and-down sidebar">
+    <ul class="collection with-header">
+      <li class="collection-header"><h5 class="<%= color(:text_color, @company) %> <%= color(:primary_color, @company) %>">Facebook</h5></li>
+    </ul>
+    <div class="fb-page facebook-widget"
+      data-href="<%= @company.facebook %>"
+      data-width="340"
+      data-hide-cover="false"
+      data-show-facepile="false"
+      data-show-posts="false"></div>
+  </div>
+<% end %>

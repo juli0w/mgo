@@ -50,6 +50,54 @@ p {
 .articles {
   display: block;
 
+  .sidebar {
+    overflow: hidden;
+    .facebook-widget {
+      padding-left: 10px;
+    }
+    .avatar {
+      padding-left: 105px !important;
+    }
+    ul {
+      margin-top: 20px;
+      padding-left: 10px;
+      border: none;
+
+      .square {
+        position: absolute;
+        width: 80px;
+        height: 70px;
+        overflow: hidden;
+        left: 10px;
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      .title {
+
+      }
+    }
+    li:not(.collection-header) {
+      padding: 15px;
+      opacity: 0.7;
+      height: 99px;
+      &:hover {
+        opacity: 1;
+      }
+    }
+    li.collection-header {
+      padding: 0;
+      margin: 0;
+      opacity: 1;
+    }
+    h5 {
+      display: inline-block;
+      padding: 10px;
+      font-size: 18px;
+      margin: 0;
+    }
+  }
+
   .article {
     overflow: hidden;
     .card-image {
@@ -66,6 +114,7 @@ p {
         margin-bottom: 10px;
         line-height: 1.5em;
         font-size: 34px;
+        margin-top: 0;
       }
 
       em {
