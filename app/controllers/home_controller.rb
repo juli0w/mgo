@@ -9,6 +9,22 @@ class HomeController < ApplicationController
   def institutional
   end
 
+  def sitemap
+    @companies = Company.all
+    headers['Content-Type'] = 'application/xml'
+    respond_to do |format|
+      format.xml { render layout: nil }
+    end
+  end
+
+  def sitemap_index
+    @companies = Company.all
+    headers['Content-Type'] = 'application/xml'
+    respond_to do |format|
+      format.xml { render layout: nil }
+    end
+  end
+
   def search
     set_meta_tags title: "Busca de empreendimentos: #{params[:key]}",
                   description: 'Portal de empreendimentos para você encontrar o que precisa na sua região e alavancar o seu negócio'
