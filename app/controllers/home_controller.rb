@@ -26,4 +26,10 @@ class HomeController < ApplicationController
                   description: 'Deixe-nos uma mensagem! Queremos expandir seu negócio'
     @contact = Contact.new(destination: admin_email)
   end
+
+  def robots
+    @companies = Company.all
+
+    render 'robots.txt.erb', layout: false, content_type: 'text/plain'
+  end
 end

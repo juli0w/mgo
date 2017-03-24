@@ -73,6 +73,8 @@ Rails.application.routes.draw do
   get "auth", to: "auth#login"
   get "register", to: "auth#register"
 
+  get 'robots.txt' => 'home#robots'
+
   post ':slug', to: 'companies#show'
   get  ':slug', to: 'companies#show'
   get  ':slug/sitemap.xml', :to => 'companies#sitemap', :defaults => {:format => 'xml'}
