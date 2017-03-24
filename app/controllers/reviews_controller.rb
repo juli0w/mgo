@@ -1,6 +1,5 @@
 class ReviewsController < ApplicationController
   before_action :set_company, only: [:create]
-  layout 'full'
 
   def new
     @company = Company.find_by_slug(params[:slug])
@@ -8,6 +7,8 @@ class ReviewsController < ApplicationController
       @pages = @company.profile.pages
       @review = @company.reviews.new
       @row_counter = 1
+
+      render layout: @company.profile.layout_path
     else
       not_found
     end
@@ -23,7 +24,7 @@ class ReviewsController < ApplicationController
       flash.now[:alert] = "Por favor verifique os campos."
       @hide_menu = true
       @row_counter = 1
-      render :new
+      render :new, layout: @company.profile.layout_path
     end
   end
 
