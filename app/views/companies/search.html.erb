@@ -19,7 +19,7 @@
               <div class="article card grey-text text-darken-4">
                 <% if article.cover? %>
                   <div class="card-image">
-                    <%= image_tag article.cover, alt: article.title %>
+                    <%= image_tag article.cover.article, alt: article.title %>
                   </div>
                 <% end %>
                 <div class="card-title">

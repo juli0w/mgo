@@ -75,6 +75,7 @@ Rails.application.routes.draw do
 
   post ':slug', to: 'companies#show'
   get  ':slug', to: 'companies#show'
+  get  ':slug/sitemap.xml', :to => 'companies#sitemap', :defaults => {:format => 'xml'}
   get  ':slug/review', to: 'reviews#new'
   get  ':slug/:paging', to: 'companies#show'
   get  ':slug/:paging/search', to: 'companies#search'

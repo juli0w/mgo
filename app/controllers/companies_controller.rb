@@ -9,6 +9,14 @@ class CompaniesController < ApplicationController
     @companies = Company.search(params[:key]).tagged_with(params[:tag]).order('premium desc, logotipo desc').page(params[:page])
   end
 
+  def sitemap
+    @company = Company.find_by_slug(params[:slug])
+    headers['Content-Type'] = 'application/xml'
+    respond_to do |format|
+      format.xml { render layout: nil }
+    end
+  end
+
   def show
     @company = Company.find_by_slug(params[:slug])
 

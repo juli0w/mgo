@@ -19,7 +19,7 @@
 
             <% if @article.cover? %>
               <div class="card-image">
-                <%= image_tag @article.cover, alt: @article.title %>
+                <%= image_tag @article.cover.article, alt: @article.title %>
               </div>
             <% end %>
 
