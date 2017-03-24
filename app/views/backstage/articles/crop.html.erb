@@ -1,0 +1,40 @@
+<div id="breadcrumbs-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col s12 m12 l12">
+        <h5 class="breadcrumbs-title">Capa - Redimensionar</h5>
+        <ol class="breadcrumbs">
+          <li><%= link_to @company.name, [:backstage, @company] %></li>
+          <li>Blog</li>
+          <li><%= link_to "Artigos", backstage_company_articles_path(@company) %></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row no-bot-margin">
+    <div class="col s12">
+      <%= image_tag @article.cover.large, id: "article_cropbox" %>
+    </div>
+    <div class="col s12">
+      <h4>Preview</h4>
+
+      <div style="width: 246px; height: 116px; overflow: hidden;">
+        <%= image_tag @article.cover.large, id: "article_preview", width: '246px', height: '116px' %>
+      </div>
+    </div>
+    <div class="col s12">
+      <%= form_for [:backstage, @company, @article] do |f| %>
+        <% %w[x y w h].each do |attribute| %>
+          <%= f.hidden_field "crop_#{attribute}" %>
+        <% end %>
+
+        <div class="row">
+          <%= f.submit "Cortar", class: "btn btn-large" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -4,7 +4,7 @@
     <% @company.articles.last(5).each do |article| %>
       <li class="collection-item avatar">
         <%= link_to "/#{@company.slug}/#{@page.slug}/#{article.slug}" do %>
-          <%= image_tag(article.cover, class: 'square') %>
+          <%= image_tag(article.cover.thumb, class: 'square') %>
           <span class="title">
             <%= link_to article.title, "/#{@company.slug}/#{@page.slug}/#{article.slug}", class: "grey-text text-darken-4" %>
             <br><span class="datetime"><%= article.created_at.strftime("%d/%m/%Y") %></span>

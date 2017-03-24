@@ -15,8 +15,12 @@ module Backstage
       @article = @company.articles.new(article_params)
 
       if @article.save
-        flash[:success] = "Artigo criado!"
-        redirect_to backstage_company_articles_path(@company)
+        if params[:article][:cover].present?
+          render :crop
+        else
+          flash[:success] = "Artigo criado!"
+          redirect_to backstage_company_articles_path(@company)
+        end
       else
         flash.now[:alert] = "Por favor verifique os campos"
         render :new
@@ -28,8 +32,12 @@ module Backstage
 
     def update
       if @article.update(article_params)
-        flash[:success] = "Artigo atualizado"
-        redirect_to [:edit, :backstage, @company, @article]
+        if params[:article][:cover].present?
+          render :crop
+        else
+          flash[:success] = "Artigo atualizado"
+          redirect_to [:edit, :backstage, @company, @article]
+        end
       else
         flash.now[:alert] = "Por favor verifique os campos"
         render :new
@@ -54,7 +62,8 @@ module Backstage
     end
 
     def article_params
-      params.require(:article).permit(:title, :cover, :description, :slug, :content)
+      params.require(:article).permit(:title, :crop_x, :crop_y, :crop_w, :crop_h,
+                                      :cover, :cover_cache, :description, :slug, :content)
     end
   end
 end

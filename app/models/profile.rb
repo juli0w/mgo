@@ -8,7 +8,8 @@ class Profile < ApplicationRecord
   LAYOUTS = [["Padrão", "default"],
              ["Full Page", "full"],
              ["Landing Page", "landing"]]
-
+             
+  attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
   mount_uploader :cover, CoverUploader
 
   delegate :color, to: :template

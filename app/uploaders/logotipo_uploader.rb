@@ -1,5 +1,6 @@
 class LogotipoUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
+  include CarrierWave::ImageOptimizer
 
   storage :file
 
@@ -8,14 +9,17 @@ class LogotipoUploader < CarrierWave::Uploader::Base
   end
 
   version :thumb do
+    process :optimize
     process resize_to_fit: [70, 70]
   end
 
   version :large do
+    process :optimize
     process resize_to_limit: [600, 600]
   end
 
   version :square do
+    process :optimize
     process :crop
     process resize_to_fill: [280, 280]
   end
