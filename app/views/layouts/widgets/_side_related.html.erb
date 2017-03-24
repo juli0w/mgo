@@ -7,6 +7,7 @@
           <%= image_tag(article.cover, class: 'square') %>
           <span class="title">
             <%= link_to article.title, "/#{@company.slug}/#{@page.slug}/#{article.slug}", class: "grey-text text-darken-4" %>
+            <br><span class="datetime"><%= article.created_at.strftime("%d/%m/%Y") %></span>
           </span>
         <% end %>
       </li>

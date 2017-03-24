@@ -14,7 +14,7 @@
             <div class="card-title">
               <h1><strong><%= @article.title %></strong></h1>
               <div class="fb-like" data-href="<%= "#{root_url}/#{@company.slug}/#{@page.slug}/#{@article.slug}" %>" data-layout="button" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
-              <em class="card-description right"><i class="material-icons">schedule</i> Postado em <%= @article.created_at.strftime("%d/%m/%Y") %></em>
+              <em class="card-description right"><i class="material-icons">schedule</i> <%= @article.created_at.strftime("%d/%m/%Y") %></em>
             </div>
 
             <% if @article.cover? %>

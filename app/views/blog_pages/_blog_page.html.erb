@@ -24,7 +24,7 @@
                 <% end %>
                 <div class="card-title">
                   <h1><strong><%= article.title %></strong></h1>
-                  <em class="card-description"><i class="material-icons <%=  %>">schedule</i> Postado em <%= article.created_at.strftime("%d/%m/%Y") %></em>
+                  <em class="card-description"><i class="material-icons <%=  %>">schedule</i> <%= article.created_at.strftime("%d/%m/%Y") %></em>
                 </div>
                 <div class="card-content">
                   <p class="article-description ubuntu"><%= article.description %></p>

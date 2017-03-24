@@ -59,6 +59,10 @@ p {
     background-color: #232323;
   }
 }
+.datetime {
+  font-size: 9px;
+  color: #212121;
+}
 .contact-page .container {
   min-width: inherit;
   max-width: 700px;
@@ -104,6 +108,7 @@ p {
     li.collection-header {
       padding: 0;
       margin: 0;
+      background-color: transparent;
       opacity: 1;
     }
     h5 {
@@ -203,26 +208,35 @@ p {
     .card-content {
       padding-top: 0;
     }
+
+    .card-title, .card-content {
+      padding-left: 20px;
+    }
   }
 }
 
 .side-search {
   fieldset {
     border: none; margin: 0;
-    padding: 15px;
-    padding-bottom: 0;
+    padding: 0;
+    padding-top: 15px;
   }
   input#icon_local {
-    width: calc(100% - 50px);
+    border: 1px solid #dedede;
+    padding-left: 10px;
+    width: calc(100% - 62px);
     display: inline-block;
+    background-color: white;
+    color: #212121;
   }
   button {
     border: none;
+    border: 1px solid white;
     float: right;
     // display: block;
     width: 40px;
-    height: 40px;
-    padding-top: 4px;
+    height: 45px;
+    padding-top: 8px;
     // padding: 5px;
   }
 }
