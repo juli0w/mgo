@@ -17,6 +17,11 @@ class CompaniesController < ApplicationController
     end
   end
 
+  def robots
+    @company = Company.find_by_slug(params[:slug])
+    render 'robots.txt.erb', layout: false, content_type: 'text/plain'
+  end
+
   def show
     @company = Company.find_by_slug(params[:slug])
 

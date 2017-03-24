@@ -4,8 +4,3 @@ Disallow: /backstage/
 
 Sitemap: http://weekz.com.br/sitemap.xml.gz
 Sitemap: http://weekz.com.br/sitemap_index.xml.gz
-<% @companies.each do |company| %>
-<% if company.profile.pages.any? %>
-Sitemap: <%= "#{root_url}#{company.slug}/sitemap.xml" %>
-<% end %>
-<% end %>
