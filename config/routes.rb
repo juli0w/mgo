@@ -77,6 +77,7 @@ Rails.application.routes.draw do
   get  ':slug', to: 'companies#show'
   get  ':slug/review', to: 'reviews#new'
   get  ':slug/:paging', to: 'companies#show'
+  get  ':slug/:paging/search', to: 'companies#search'
   get  ':slug/:paging/:article', to: 'companies#article'
   post ':slug/:paging/:article/comment', to: 'comments#create', as: :company_article_comments
   delete ':slug/:paging/:article/comment/:id', to: 'comments#destroy', as: :destroy_company_article_comments

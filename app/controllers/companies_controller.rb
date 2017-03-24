@@ -51,6 +51,20 @@ class CompaniesController < ApplicationController
     render layout: @company.profile.layout_path
   end
 
+  def search
+    @company = Company.find_by_slug(params[:slug])
+    @template = @company.profile.template
+    @pages = @company.profile.pages.order(:index)
+    @page = @pages.find_by_slug(params[:paging])
+    @articles = @company.articles.search(params[:key]).page(params[:page])
+
+    @page_keywords += @company.tag_list.join(",")
+    set_meta_tags title: "#{@page.title} - #{@page.description}",
+                  description: "Termos de busca de artigos: #{params[:key]}"
+
+    render layout: @company.profile.layout_path
+  end
+
 private
 
   def load_articles

@@ -1,10 +1,10 @@
-<div id="<%= page.slug %>" class="blog-page full-padding <%= odd_color(@company, @row_counter) %>">
+<div id="<%= @page.slug %>" class="blog-page full-padding">
   <div class="row">
     <div class="container">
       <div class="section">
         <div class="title-wrapper center no-border">
-          <h5><%= page.title %></h5>
-          <h6><%= page.description %></h6>
+          <h5><%= @page.title %></h5>
+          <h6>Pesquisa: <%= params[:key] %></h6>
         </div>
       </div>
     </div>

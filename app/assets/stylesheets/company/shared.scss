@@ -32,7 +32,7 @@ h3 {
   font-size: 26px;
 }
 h6 {
-  font-size: 20px;
+  font-size: 22px !important;
 }
 p {
   line-height: 2 !important;
@@ -125,7 +125,7 @@ p {
         margin-bottom: 10px;
         line-height: 1.5em;
         font-size: 34px;
-        margin-top: 0;
+        margin-top: 10px;
       }
 
       em {
@@ -188,7 +188,7 @@ p {
   }
   .article {
     h1 {
-      font-size: 30px !important;
+      font-size: 26px !important;
     }
     .article-description {
       padding: 20px 0;
@@ -199,5 +199,26 @@ p {
     .card-content {
       padding-top: 0;
     }
+  }
+}
+
+.side-search {
+  fieldset {
+    border: none; margin: 0;
+    padding: 15px;
+    padding-bottom: 0;
+  }
+  input#icon_local {
+    width: calc(100% - 50px);
+    display: inline-block;
+  }
+  button {
+    border: none;
+    float: right;
+    // display: block;
+    width: 40px;
+    height: 40px;
+    padding-top: 4px;
+    // padding: 5px;
   }
 }
