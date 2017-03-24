@@ -20,6 +20,7 @@
           </div>
       </div>
       <div class="col s12 l7">
+        <h5 class="<%= color(:detail_color, @company) %>">Curta nossa página</h5>
         <% if @company.facebook.present? %>
           <div class="fb-page"
             data-href="<%= @company.facebook %>"

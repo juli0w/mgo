@@ -97,7 +97,6 @@ p {
       margin: 0;
     }
   }
-
   .article {
     overflow: hidden;
     .card-image {
@@ -169,5 +168,24 @@ p {
     padding-top: 5px;
     float: left;
     margin-right: 10px;
+  }
+}
+.blog-page {
+  .article {
+    border-bottom: 1px solid #dedede;
+  }
+  .article {
+    h1 {
+      font-size: 30px !important;
+    }
+    .article-description {
+      padding: 20px 0;
+    }
+    .card-title {
+      margin-bottom: 0;
+    }
+    .card-content {
+      padding-top: 0;
+    }
   }
 }

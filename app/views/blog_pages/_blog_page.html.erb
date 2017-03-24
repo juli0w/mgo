@@ -1,4 +1,4 @@
-<div id="<%= page.slug %>" class="full-padding <%= odd_color(@company, @row_counter) %>">
+<div id="<%= page.slug %>" class="blog-page full-padding <%= odd_color(@company, @row_counter) %>">
   <div class="row">
     <div class="container">
       <div class="section">
@@ -28,7 +28,7 @@
                 </div>
                 <div class="card-content">
                   <p class="article-description ubuntu"><%= article.description %></p>
-                  <%= link_to "Ler mais", "/#{@company.slug}/#{@page.slug}/#{article.slug}", class: "btn-flat" %>
+                  <%= link_to "Ler mais", "/#{@company.slug}/#{@page.slug}/#{article.slug}", class: "btn btn-read-more #{color(:primary_color, @company)} #{color(:link_color, @company)}" %>
                   <span class="right">
                     <div class="fb-like" data-href='<%= "#{root_url}/#{@company.slug}/#{@page.slug}/#{article.slug}" %>' data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
                   </span>

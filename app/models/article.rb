@@ -4,4 +4,9 @@ class Article < ApplicationRecord
   belongs_to :company
 
   mount_uploader :cover, CoverUploader
+
+  include SearchCop
+  search_scope :search do
+    attributes :title, :description, :slug, :content
+  end
 end
