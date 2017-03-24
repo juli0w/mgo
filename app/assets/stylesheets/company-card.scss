@@ -19,7 +19,6 @@ ul.company-collection {
 
 .card.company-card {
   box-shadow: none;
-  // border: 1px solid #ffffff;
   opacity: 0.7;
   margin-right: 20px;
   transition: opacity .35s ease-in-out;
@@ -27,6 +26,22 @@ ul.company-collection {
  -webkit-transition: opacity .35s ease-in-out;
   &:hover {
     opacity: 1;
+  }
+  position: relative;
+
+  .content {
+    width: 100%;
+    z-index: 999;
+    position: absolute;
+    .card-title {
+      width: 100%;
+      background-color: black;
+      background-color: rgba(0,0,0,0.5);
+      h1 {
+        font-size: 18px;
+        margin: 0;
+      }
+    }
   }
 }
 .avatar-bigger {

@@ -4,16 +4,10 @@
        link_to(
          image_tag(logotipo_square(company), class: "valign", alt: "#{company.name}"), get_url(company))
      %>
-   </div>
-   <div class="card-content">
-     <span class="card-title activator grey-text text-darken-4">
-       <%= link_to company.name, get_url(company), class: "truncate grey-text text-darken-4" %>
-     </span>
-     <%= link_to rate_for(company), "/#{company.slug}/review", class: "rating" %>
-     <br>
-     <br>
-     <div class='truncate'>
-       <%= link_to company.category.name, company.category, class: "state amber white-text" %>
+     <div class="content">
+       <span class="card-title activator grey-text text-darken-4">
+         <h1><%= link_to company.name, get_url(company), class: "truncate white-text" %></h1>
+       </span>
      </div>
    </div>
  </div>
