@@ -59,6 +59,10 @@ p {
     background-color: #232323;
   }
 }
+.contact-page .container {
+  min-width: inherit;
+  max-width: 700px;
+}
 .articles {
   display: block;
 
