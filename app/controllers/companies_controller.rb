@@ -2,8 +2,8 @@ class CompaniesController < ApplicationController
   before_action :set_company, only: [:edit, :update]
 
   def tag
-    set_meta_tags title: 'Principais locais e eventos da região',
-    description: "Resultados da busca por tag #{params[:tag]}"
+    set_meta_tags title: 'Coloque suas idéias em prática!',
+    description: "Resultados da busca de IDÉIAS por tag #{params[:tag]}"
 
     @tag = ActsAsTaggableOn::Tag.where(name: params[:tag]).first
     @companies = Company.search(params[:key]).tagged_with(params[:tag]).order('premium desc, logotipo desc').page(params[:page])
@@ -43,8 +43,7 @@ class CompaniesController < ApplicationController
       load_articles
 
       @page_keywords += @company.tag_list.join(",")
-      set_meta_tags title: @company.description,
-                    description: "#{@company.description}. #{@company.tag_list}"
+      set_meta_tags description: @company.description
 
       render layout: @company.profile.layout_path
     end

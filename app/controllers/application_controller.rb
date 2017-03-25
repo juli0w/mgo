@@ -39,8 +39,8 @@ class ApplicationController < ActionController::Base
   end
 
   def not_found
-    set_meta_tags title: 'Principais locais e eventos da região',
-    description: 'O Weekz reúne diversos locais para quem está buscando algo para fazer na região, seja para lazer ou profissional.'
+    set_meta_tags title: 'Coloque sua IDÉIA em prática!',
+    description: 'O Weekz reúne diversas idéias para te ajudar a encontrar o que você está procurando.'
 
     load_destaques
 

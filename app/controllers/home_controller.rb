@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   def index
-    set_meta_tags title: 'Encontre empreendimentos. Avalanque sua idéia.',
-    description: 'Portal de empreendimentos para você encontrar o que precisa na sua região e alavancar o seu negócio'
+    set_meta_tags title: 'Coloque suas idéias em prática!',
+    description: 'O Weekz reúne diversas idéias para te ajudar a encontrar o que você está procurando ou para alavancar sua idéia na internet.'
 
     load_destaques
   end
@@ -26,8 +26,8 @@ class HomeController < ApplicationController
   end
 
   def search
-    set_meta_tags title: "Busca de empreendimentos: #{params[:key]}",
-                  description: 'Portal de empreendimentos para você encontrar o que precisa na sua região e alavancar o seu negócio'
+    set_meta_tags title: "Busca de IDÉIAS: #{params[:key]}",
+    description: 'O Weekz reúne diversas idéias para te ajudar a encontrar o que você está procurando ou para alavancar sua idéia na internet.'
 
     @companies = Company.search(params[:key]).order('premium desc, logotipo desc').page(params[:page])
 
@@ -38,8 +38,8 @@ class HomeController < ApplicationController
   end
 
   def contact
-    set_meta_tags title: 'Área de contato',
-                  description: 'Deixe-nos uma mensagem! Queremos expandir seu negócio'
+    set_meta_tags title: 'Coloque suas idéias em prática!',
+                  description: 'Deixe-nos uma mensagem! Queremos te ajudar com as suas idéias.'
     @contact = Contact.new(destination: admin_email)
   end
 
