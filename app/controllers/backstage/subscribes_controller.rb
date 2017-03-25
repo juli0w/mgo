@@ -9,7 +9,7 @@ module Backstage
       @subscribe.state = 0
 
       if @subscribe.save
-        flash[:success] = "Sua empresa será ativada assim que o pagamento for confirmado!"
+        flash[:success] = "Sua IDÉIA será ativada assim que o pagamento for confirmado!"
         redirect_to backstage_subscribe_path(@subscribe)
       else
         @companies = current_user.companies

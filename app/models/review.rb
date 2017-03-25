@@ -12,7 +12,7 @@ private
 
   def email_in_use
     if Review.where(company_id: company_id, email: email).first
-      errors.add(:email, "Você já avaliou essa empresa")
+      errors.add(:email, "Você já avaliou essa IDÉIA")
     end
   end
 end

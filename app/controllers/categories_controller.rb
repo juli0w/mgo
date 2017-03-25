@@ -3,7 +3,7 @@ class CategoriesController < ApplicationController
 
   def show
     set_meta_tags title: @category.name,
-                  description: 'Lista de empresas por categoria'
+                  description: 'Lista de IDÉIAS por categoria'
 
     # if @category.root?
     #   @children = @category.children.page params[:page]

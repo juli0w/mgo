@@ -17,7 +17,7 @@
       <div class="search-offers">
         <%= form_tag backstage_companies_path, method: :get do %>
             <fieldset style="border: none; margin: 0; padding: 0;">
-              <input name="keyword" id="icon_local" style="display: inline;" type="search" placeholder="Filtrar empresas" value=<%= params[:keyword] %>>
+              <input name="keyword" id="icon_local" style="display: inline;" type="search" placeholder="Filtrar Idéias" value=<%= params[:keyword] %>>
               <button class="btn" type="submit" name="action">
                 Filtrar
               </button>
@@ -60,7 +60,7 @@
     </div>
 
     <div class="card-panel">
-        <%= link_to "Nova empresa", new_backstage_company_path, class: "btn large" %>
+        <%= link_to "Nova IDÉIA", new_backstage_company_path, class: "btn large" %>
     </div>
   </div>
 </div>

@@ -6,7 +6,7 @@
         <ul>
           <li><%= link_to "Principal", root_path, class: "white-text" %></li>
           <!-- <li><%#= link_to "Quem somos", institutional_path, class: "white-text" %></li> -->
-          <li><%= link_to "Anuncie sua empresa", partner_path, class: "white-text" %></li>
+          <li><%= link_to "Anuncie sua idéia", partner_path, class: "white-text" %></li>
           <% if user_signed_in? %>
             <li><%= link_to "Painel", backstage_dashboard_path, class: "white-text" %></li>
             <li><%= link_to "Logout", destroy_user_session_path, class: "white-text", method: :delete %></li>
