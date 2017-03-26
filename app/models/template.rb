@@ -17,7 +17,7 @@ class Template < ApplicationRecord
                     link_color: Color.find_by_name("amber"),
                     text_color: Color.find_by_name("white"),
                     logo_color: Color.find_by_name("grey darken-3"),
-                    description_color: Color.find_by_name("white") }
+                    description_color: Color.find_by_name("grey darken-3") }
 
   def set_default
     self.primary_color ||= DEFAULT_COLOR[:primary_color]
