@@ -4,9 +4,7 @@
 
     <div class="last-companies slick-sliding">
       <% @destaque.each do |company| %>
-        <div style="padding: 0 0px;">
-          <%= render "companies/company_card", company: company %>
-        </div>
+        <%= render "companies/company_card", company: company %>
       <% end %>
     </div>
   </div>

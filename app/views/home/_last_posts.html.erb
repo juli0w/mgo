@@ -1,0 +1,27 @@
+<div class="row side-padding full-padding">
+  <div class="large-container">
+    <h3 class="title-margin no-top-margin center">
+    <i class="title-fa red-text fa fa-newspaper-o" aria-hidden="true"></i>AS ÚLTIMAS</h3>
+
+    <% @last_articles.each do |article| %>
+
+      <div class="col s12 m6">
+        <%= link_to article.link, class: "article grey-text text-darken-4" do %>
+        <div class="card article-card">
+           <div class="card-image waves-effect waves-block waves-light">
+             <%= image_tag article.cover.article, alt: article.title %>
+           </div>
+           <div class="card-stacked">
+              <div class="card-content">
+                <span class="article-company"><%= article.company.name %></span>
+                <h1 class="truncate"><%= article.title %></h1>
+                <p class="article-desc truncate"><%= article.description %></p>
+              </div>
+            </div>
+         </div>
+         <% end %>
+       </div>
+
+    <% end %>
+  </div>
+</div>

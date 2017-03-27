@@ -3,6 +3,7 @@ class HomeController < ApplicationController
     set_meta_tags title: 'Coloque suas idéias em prática!',
     description: 'O Weekz reúne diversas idéias para te ajudar a encontrar o que você está procurando ou para alavancar sua idéia na internet.'
 
+    @last_articles = Article.last(6)
     load_destaques
   end
 

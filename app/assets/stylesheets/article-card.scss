@@ -1,0 +1,42 @@
+.article {
+  &:hover h1 {
+    color: #F44336 !important;
+  }
+
+  &:hover img {
+    opacity: 1 !important;
+  }
+
+.article-card {
+  .article-company {
+    text-transform: uppercase;
+  }
+  h1 {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 5px 0 10px 0px;
+    line-height: 33px;
+  }
+  .card-image {
+    overflow: hidden;
+
+    img {
+      display: block;
+      font-size: 0;
+      opacity: 0.7;
+    }
+  }
+
+  .article-desc {
+    padding-left: 0px;
+  }
+}
+.card.article-card {
+  box-shadow: none;
+  margin: 10px 0 20px 0;
+}
+
+.card .card-content {
+  padding: 10px 0 !important;
+}
+}

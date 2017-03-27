@@ -15,4 +15,11 @@ class Article < ApplicationRecord
   search_scope :search do
     attributes :title, :description, :slug, :content
   end
+
+  def link
+    blog = company.profile.pages.select {|p| p.pageable_type == "BlogPage" }.first
+    return "/#{company.slug}" unless blog
+
+    "#{company.slug}/#{blog.slug}/#{self.slug}"
+  end
 end
