@@ -23,6 +23,7 @@
  *= require company-card
  *= require article-card
  *= require signup
+ *= require promo
  *= require login-modal
  *= require_self
  *= require materialize-xlarge
@@ -82,8 +83,9 @@ h3 { font-size: 1.6em; }
 h4 { font-size: 1.4em; }
 
 .full-padding {
-  padding-top: 80px;
-  padding-bottom: 80px;
+  margin: 0;
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
 .mid-padding {
   padding-top: 40px;

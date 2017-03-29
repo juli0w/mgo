@@ -1,4 +1,8 @@
 FactoryGirl.define do
+  factory :quote do
+    phrase "MyString"
+    author "MyString"
+  end
   factory :landing_page do
     image "MyString"
     content "MyText"

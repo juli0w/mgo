@@ -3,7 +3,7 @@ $(document).ready(function() {
     id = $(this).val();
     if (id == '') { return false; }
 
-    $.get('/backstage/sample_templates/'+id).always(function(data) {
+    $.get('/backstage/admin/sample_templates/'+id).always(function(data) {
 
       fields = ['primary_color', 'detail_color', 'link_color', 'text_color', 'logo_color', 'description_color'];
 

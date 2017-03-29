@@ -4,6 +4,9 @@ class HomeController < ApplicationController
     description: 'O Weekz reúne diversas idéias para te ajudar a encontrar o que você está procurando ou para alavancar sua idéia na internet.'
 
     @last_articles = Article.last(6)
+
+    @callaction = user_signed_in? ? backstage_companies_path : register_path
+
     load_destaques
   end
 

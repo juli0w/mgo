@@ -1,9 +1,58 @@
 <%#= render "layouts/main/slideshow" %>
 
-<% unless user_signed_in? %>
-  <%= render "layouts/main/promo" %>
-<% end %>
+<div class="home">
+  <div class="row full-padding grey-text text-darken-4">
+    <div class="col s12 center">
+      <%= image_tag "/images/internet2.png", style: "max-width: 100%; max-height: 100%;" %>
+      <h1 class="fredoka"><strong>FAÇA SUA <span class="red-text">IDÉIA</span> DECOLAR</strong></h1>
+      <h4 class="grey-text text-darken-3">Nós te ajudamos a conquistar seu espaço na internet</h4>
+      <%= link_to "COMECE GRATUITAMENTE", @callaction, class: "btn btn-large red btn-action", remote: !user_signed_in? %>
+    </div>
+  </div>
 
-<%= render "home/last_posts" %>
+  <div class="row full-padding grey darken-4 white-text advanges">
+    <div class="container">
+      <div class="col s12 m6 center">
+        <%= image_tag "stratt.png" %>
+      </div>
+      <div class="col s12 m6">
+        <h1 class="fredoka">QUAIS AS ESTRATÉGIAS</h1>
+        <h4>O Weekz é uma ferramenta digital que visa automatizar a aplicação de inbound marketing da sua idéia ou negócio na internet</h4>
+        <p><i class="fa fa-check light-green-text" aria-hidden="true"></i> Crie uma página adaptável para todos os dispositivos</p>
+        <p><i class="fa fa-check light-green-text" aria-hidden="true"></i> Receba tráfego orgânico com técnicas de SEO</p>
+        <p><i class="fa fa-check light-green-text" aria-hidden="true"></i> Ganhe AUTORIDADE com seu público</p>
+        <p><i class="fa fa-check light-green-text" aria-hidden="true"></i> Direcione seu público para páginas de captura</p>
+        <p><i class="fa fa-check light-green-text" aria-hidden="true"></i> Administre sua lista de interessados e faça sua oferta!</p>
+      </div>
+    </div>
+  </div>
+  <div class="row full-padding advanges">
+    <div class="container">
+      <div class="col s12 m4 center">
+        <%= image_tag "/images/icon4.png" %>
+        <h3>Você tem uma idéia</h3>
+      </div>
+      <div class="col s12 m4 center">
+        <%= image_tag "/images/icon6.png" %>
+        <h3>Cria um website gratuitamente através do nosso assistente</h3>
+      </div>
+      <div class="col s12 m4 center">
+        <%= image_tag "/images/icon5.png" %>
+        <h3>Nós te ajudamos com a estratégia</h3>
+      </div>
+    </div>
+  </div>
 
-<%= render "home/populars" %>
+  <%# unless user_signed_in? %>
+    <%#= render "layouts/main/promo" %>
+  <%# end %>
+
+  <div class="row full-padding grey darken-4">
+    <div class="container">
+      <%= render "home/newsletter" %>
+      <%= render "home/last_posts" %>
+    </div>
+  </div>
+
+  <%= render "home/populars" %>
+</div>

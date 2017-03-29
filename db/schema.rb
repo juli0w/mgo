@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170323215018) do
+ActiveRecord::Schema.define(version: 20170329214704) do
 
   create_table "ahoy_events", force: :cascade do |t|
     t.integer  "visit_id"
@@ -232,6 +232,13 @@ ActiveRecord::Schema.define(version: 20170323215018) do
     t.integer  "font_id"
     t.index ["company_id"], name: "index_profiles_on_company_id"
     t.index ["font_id"], name: "index_profiles_on_font_id"
+  end
+
+  create_table "quotes", force: :cascade do |t|
+    t.string   "phrase"
+    t.string   "author"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "reviews", force: :cascade do |t|

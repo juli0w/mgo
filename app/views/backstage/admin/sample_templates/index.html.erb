@@ -1,0 +1,47 @@
+<div id="breadcrumbs-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col s12 m12 l12">
+        <h5 class="breadcrumbs-title">Templates</h5>
+        <ol class="breadcrumbs">
+            <li>Administrativo</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="card-panel">
+      <table class="striped bordered">
+        <thead>
+          <tr>
+              <th data-field="id"></th>
+              <th data-field="name">Nome</th>
+              <th data-field="actions"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @sample_templates.each do |sample_template| %>
+
+          <tr>
+            <td>#<%= sample_template.id %></td>
+            <td><%= sample_template.name %></td>
+            <td>
+              <%= link_to "Editar", [:edit, :backstage, :admin, sample_template] %>
+            | <%= link_to "Apagar", [:backstage, :admin, sample_template], method: :delete, data: { confirm: "Confirma exclusão?" } %>
+            </td>
+          </tr>
+
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card-panel">
+      <%= link_to "Novo template", new_backstage_admin_sample_template_path, class: "btn large" %>
+    </div>
+  </div>
+</div>

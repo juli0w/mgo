@@ -1,7 +1,18 @@
+<div id="breadcrumbs-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col s12 m12 l12">
+        <h5 class="breadcrumbs-title">Mensagens</h5>
+        <ol class="breadcrumbs">
+            <li>Administrativo</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="container">
   <div class="row">
-
-    <%= render "layouts/backstage/profile_header" %>
 
     <div id="mail-app" class="section">
       <div class="row no-bot-margin">
@@ -32,7 +43,7 @@
             <ul class="collection">
               <% @contacts.each do |contact| %>
                 <li class="collection-item avatar <%= 'selected' if @contact and (contact == @contact) %>">
-                  <%= link_to backstage_company_contact_path(@company, contact, page: params[:page], filter: params[:filter]) do %>
+                  <%= link_to backstage_admin_contact_path(contact, page: params[:page], filter: params[:filter]) do %>
                     <span class="circle grey darken-1"><%= contact.name.chars.first %></span>
                     <span class="email-title"><%= contact.name %></span>
                     <p class="truncate grey-text ultra-small"><%= contact.subject %></p>
@@ -41,9 +52,7 @@
               <% end %>
             </ul>
 
-            <!-- <div class="container center"> -->
-              <%= paginate @contacts %>
-            <!-- </div> -->
+            <%= paginate @contacts %>
           </div>
           <div id="email-details" class="col s12 m8 l8 card-panel">
             <% if @contact.present? %>
@@ -57,13 +66,13 @@
                       <li class="collection-item avatar">
                         <span class="circle grey darken-1"><%= @contact.name.chars.first %></span>
                         <span class="email-title"><%= @contact.name %></span>
-                        <p class="truncate grey-text ultra-small">Para: <%= @company.name %></p>
+                        <p class="truncate grey-text ultra-small">Para: <%= @contact.company.try(:name) %></p>
                         <p class="grey-text ultra-small"><%= l(@contact.created_at) %></p>
                       </li>
                     </ul>
                   </div>
                   <div class="col s2 m2 l2 email-actions">
-                    <%= link_to backstage_company_contact_path(@company, @contact, filter: params[:filter]), method: :delete, data: { confirm: "Confirma exclusão permanente?" } do %>
+                    <%= link_to backstage_admin_contact_path(@contact, filter: params[:filter]), method: :delete, data: { confirm: "Confirma exclusão permanente?" } do %>
                       <span><i class="material-icons">delete</i></span>
                     <% end %>
                   </div>

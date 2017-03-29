@@ -1,27 +1,16 @@
-<div class="row side-padding full-padding">
-  <div class="container">
-    <h3 class="title-margin no-top-margin center">
-    <i class="title-fa red-text fa fa-newspaper-o" aria-hidden="true"></i>AS ÚLTIMAS</h3>
-
+<div class="col s12 l6 sidebar">
+  <ul class="collection with-header">
+    <li class="collection-header"><h5><i class="title-fa red-text fa fa-newspaper-o" aria-hidden="true"></i>AS ÚLTIMAS</h5></li>
     <% @last_articles.each do |article| %>
-
-      <div class="col s12 m6">
-        <%= link_to article.link, class: "article grey-text text-darken-4" do %>
-        <div class="card article-card">
-           <div class="card-image waves-effect waves-block waves-light">
-             <%= image_tag article.cover.article, alt: article.title %>
-           </div>
-           <div class="card-stacked">
-              <div class="card-content">
-                <span class="article-company"><%= article.company.name %></span>
-                <h1 class="truncate"><%= article.title %></h1>
-                <p class="article-desc truncate"><%= article.description %></p>
-              </div>
-            </div>
-         </div>
-         <% end %>
-       </div>
-
+      <li class="collection-item avatar">
+        <%= link_to article.link do %>
+          <%= image_tag(article.cover.thumb, class: 'square') %>
+        <% end %>
+        <div class="title">
+          <strong><%= link_to article.title, article.link, class: "article-title grey-text text-darken-4" %></strong>
+        </div>
+        <%= link_to article.company.name, "/#{article.company.slug}", class: "grey-text text-darken-2" %>
+      </li>
     <% end %>
-  </div>
+  </ul>
 </div>

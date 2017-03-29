@@ -23,17 +23,20 @@ Rails.application.routes.draw do
   end
 
   namespace :backstage do
-    resources :subscribes
-    resources :fonts
-    get 'dashboard', to: 'backstage#dashboard'
-    root to: 'backstage#dashboard'
-    resources :users do
-      member do
-        post :become
+    namespace :admin do
+      resources :contacts
+      resources :fonts
+      resources :categories, except: :show
+      resources :sample_templates
+      resources :users do
+        member do
+          post :become
+        end
       end
     end
-    resources :categories, except: :show
-    resources :sample_templates
+    resources :subscribes
+    get 'dashboard', to: 'backstage#dashboard'
+    root to: 'backstage#dashboard'
 
     resources :companies do
       member do

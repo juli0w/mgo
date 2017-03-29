@@ -2,7 +2,7 @@
   <ul class="leftside-navigation">
     <li>
       <div class="row">
-        <h5 class="brand-logo center fredoka"><%= link_to "WEEKZ", root_url, class: "blue-grey darken-4 white-text" %></h5>
+        <h5 class="brand-logo center fredoka"><strong><%= link_to "WEEKZ", root_url, class: "blue-grey darken-3 white-text" %></strong></h5>
         <div class="col s12 center grey-text text-darken-3">
           <%= image_tag user_avatar(current_user), alt: "avatar", class: "circle responsive-img profile-image" %>
           <p style="line-height: 1.66em; margin-top: 0;">
@@ -21,7 +21,7 @@
 
     <li>
       <ul class="collapsible collapsible-accordion">
-        <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="material-icons">business</i> Empreendimentos</a>
+        <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="material-icons">business</i> Idéias</a>
           <div class="collapsible-body">
             <ul>
               <li><%= link_to "Listar", backstage_companies_path %>
@@ -45,10 +45,11 @@
             <i class="material-icons">vpn_key</i> Adminstrativo</a>
             <div class="collapsible-body">
               <ul>
-                <li><%= link_to 'Categorias', backstage_categories_path %></li>
-                <li><%= link_to 'Usuários', backstage_users_path %></li>
-                <li><%= link_to 'Templates', backstage_sample_templates_path %></li>
-                <li><%= link_to 'Fontes', backstage_fonts_path %></li>
+                <li><%= link_to 'Categorias', backstage_admin_categories_path %></li>
+                <li><%= link_to 'Fontes', backstage_admin_fonts_path %></li>
+                <li><%= link_to 'Mensagens', backstage_admin_contacts_path %></li>
+                <li><%= link_to 'Templates', backstage_admin_sample_templates_path %></li>
+                <li><%= link_to 'Usuários', backstage_admin_users_path %></li>
                 <li><div class="divider"></div></li>
               </ul>
             </div>
