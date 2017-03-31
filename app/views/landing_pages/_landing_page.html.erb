@@ -1,19 +1,19 @@
-<div style="<%= header_image(@company) if @company.profile.cover? %>" class="row <%= 'header-company' if @company.profile.cover? %> title-heading side-padding">
+<header style="<%= header_image(@company) if @company.profile.cover? %>" class="row <%= 'header-company' if @company.profile.cover? %> title-heading side-padding">
   <div class="large-container">
     <div class="section">
       <div class="title-wrapper no-border">
-        <h1><%= page.title %></h1>
-        <h2><%= page.description %></h2>
+        <h1 class="<%= color(:logo_color, @company) %>"><%= page.title %></h1>
+        <h2 class="<%= color(:description_color, @company) %>"><%= page.description %></h2>
       </div>
     </div>
   </div>
-</div>
+</header>
 
-<div class="row" style="padding: 0 0 0 5px !important;">
+<section class="row" style="padding: 0 0 0 5px !important;">
   <div class="large-container">
-    <div class="col s12 m6">
+    <picture class="col s12 m6">
       <%= image_tag @page.pageable.image, class: "responsive-img" %>
-    </div>
+    </picture>
     <div class="col s12 m6">
       <div class="page-content">
         <%= raw @page.pageable.content %>
@@ -23,18 +23,18 @@
       </div>
     </div>
   </div>
-</div>
+</section>
 
-<div class="row side-padding details full-padding <%= odd_color(@company, @row_counter+1) %>">
+<section class="row side-padding details full-padding <%= odd_color(@company, @row_counter+1) %>">
   <div class="large-container">
     <div class="section">
       <%= raw @page.pageable.details %>
     </div>
   </div>
-</div>
+</section>
 
-<div class="row full-padding">
+<section class="row full-padding">
   <div class="col s12 center">
     <%= render @company.layout_path(:subscribe), landing: @page.pageable, company: @company %>
   </div>
-</div>
+</section>

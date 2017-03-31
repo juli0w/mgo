@@ -3,25 +3,26 @@
     <div class="container">
       <div class="articles">
         <div class="col s12 l8">
+          <% if @page.title.present? %>
+            <h4 class="page-title"><%= @page.title %></h4>
+          <% end %>
           <% @articles.each do |article| %>
-            <div class="col s12">
-              <article class="article card grey-text text-darken-4">
-                <% if article.cover? %>
-                  <picture class="card-image">
-                    <%= image_tag article.cover.article, alt: article.title %>
-                  </picture>
-                <% end %>
-                <div class="card-title">
-                  <h2><strong><%= link_to article.title, article.link, class: "grey-text text-darken-4" %></strong></h2>
-                  <em class="card-description"><%= article.created_at.strftime("%d/%m/%Y") %></em>
-                </div>
-                <div class="card-content">
-                  <p class="article-description ubuntu"><%= article.description %></p>
-                  <%= link_to "Ler mais", article.link, class: "btn-read-more" %>
-                  <div class="fb-like" data-href="<%= "#{root_url}/#{@company.slug}/#{@page.slug}/#{article.slug}" %>" data-layout="button" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
-                </div>
-              </article>
-            </div>
+            <article class="article card grey-text text-darken-4">
+              <% if article.cover? %>
+                <picture class="card-image">
+                  <%= image_tag article.cover.article, alt: article.title %>
+                </picture>
+              <% end %>
+              <div class="card-title">
+                <h2><strong><%= link_to article.title, article.link, class: "grey-text text-darken-4" %></strong></h2>
+                <em class="card-description"><%= article.created_at.strftime("%d/%m/%Y") %></em>
+              </div>
+              <div class="card-content">
+                <p class="article-description ubuntu"><%= article.description %></p>
+                <%= link_to "Ler mais", article.link, class: "btn-read-more" %>
+                <div class="fb-like" data-href="<%= "#{root_url}/#{@company.slug}/#{@page.slug}/#{article.slug}" %>" data-layout="button" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+              </div>
+            </article>
           <% end %>
         </div>
 

@@ -3,9 +3,6 @@
     <%= link_to root_url do %>
       <i class="fa fa-home" aria-hidden="true"></i> Principal
     <% end %>
-    <%= link_to offers_path, class: "hide-on-small-only" do %>
-      <i class="fa fa-shopping-bag" aria-hidden="true"></i> Ofertas
-    <% end %>
     <%= link_to contact_path do %>
       <i class="fa fa-users" aria-hidden="true"></i> Contato
     <% end %>
@@ -22,10 +19,6 @@
     </li>
     <li class="sideside"><%= link_to root_url do %>
           Principal
-        <% end %></li>
-
-    <li class="sideside"><%= link_to offers_url do %>
-          Ofertas
         <% end %></li>
 
     <li class="sideside"><%= link_to contact_url do %>

@@ -72,6 +72,10 @@ nav .nav-wrapper .sub-menu i {
   padding: 20px 0;
   transition: background 1s linear;
   background-color: #212121;
+
+  i {
+    padding-left: 5px;
+  }
 }
 
 .bg1, .bg2, .bg3 {

@@ -3,10 +3,10 @@
     <li class="collection-header"><h5 class="<%= color(:text_color, @company) %> <%= color(:primary_color, @company) %>">Relacionados</h5></li>
     <% @company.articles.last(5).each do |article| %>
       <li class="collection-item avatar">
-        <%= link_to "/#{@company.slug}/#{@page.slug}/#{article.slug}" do %>
+        <%= link_to article.link, class: "grey-text text-darken-4" do %>
           <%= image_tag(article.cover.thumb, class: 'square') %>
           <span class="title">
-            <%= link_to article.title, "/#{@company.slug}/#{@page.slug}/#{article.slug}", class: "grey-text text-darken-4" %>
+            <%= article.title %>
             <br><span class="datetime"><%= article.created_at.strftime("%d/%m/%Y") %></span>
           </span>
         <% end %>
