@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170329214704) do
+ActiveRecord::Schema.define(version: 20170331164645) do
 
   create_table "ahoy_events", force: :cascade do |t|
     t.integer  "visit_id"
@@ -131,6 +131,7 @@ ActiveRecord::Schema.define(version: 20170329214704) do
     t.integer  "city_id"
     t.integer  "uf_id"
     t.string   "address"
+    t.string   "domain"
     t.index ["category_id"], name: "index_companies_on_category_id"
     t.index ["slug"], name: "index_companies_on_slug", unique: true
   end

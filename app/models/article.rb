@@ -16,10 +16,10 @@ class Article < ApplicationRecord
     attributes :title, :description, :slug, :content
   end
 
-  def link
+  def link root_url=nil
     blog = company.profile.pages.select {|p| p.pageable_type == "BlogPage" }.first
-    return "/#{company.slug}" unless blog
+    return company.link unless blog
 
-    "/#{company.slug}/#{blog.slug}/#{self.slug}"
+    "#{company.link(root_url)}/#{blog.slug}/#{self.slug}"
   end
 end

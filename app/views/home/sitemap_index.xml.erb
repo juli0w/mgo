@@ -5,7 +5,7 @@
  </sitemap>
 <% @companies.each do |company| %>
  <sitemap>
-    <loc><%= "#{root_url}#{company.slug}/sitemap.xml" %></loc>
+    <loc><%= "#{company.link(root_url)}/sitemap.xml" %></loc>
  </sitemap>
 <% end %>
 </sitemapindex>

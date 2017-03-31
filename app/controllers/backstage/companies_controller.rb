@@ -81,7 +81,7 @@ module Backstage
     end
 
     def company_params
-      params.require(:company).permit(:name,
+      params.require(:company).permit(:name, :domain,
         :description, :crop_x, :crop_y, :crop_w, :crop_h, :category_id,
         :logotipo, :slug, :tag_list, :facebook, :twitter, :instagram,
         :phone, :mail, :city_id, :uf_id, :address)

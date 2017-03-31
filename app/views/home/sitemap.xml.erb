@@ -8,13 +8,9 @@
   <loc>http://weekz.com.br/contact</loc>
   <changefreq>monthly</changefreq>
 </url>
-<url>
-  <loc>http://weekz.com.br/offers</loc>
-  <changefreq>weekly</changefreq>
-</url>
 <% @companies.each do |company| %>
   <url>
-    <loc><%= "#{root_url}#{company.slug}" %></loc>
+    <loc><%= company.link(root_url) %></loc>
     <changefreq>weekly</changefreq>
   </url>
 <% end %>

@@ -3,13 +3,13 @@
     <li class="collection-header"><h5><i class="title-fa red-text fa fa-newspaper-o" aria-hidden="true"></i>AS ÚLTIMAS</h5></li>
     <% @last_articles.each do |article| %>
       <li class="collection-item avatar">
-        <%= link_to article.link do %>
+        <%= link_to article.link(root_url) do %>
           <%= image_tag(article.cover.thumb, class: 'square') %>
         <% end %>
         <div class="title">
-          <strong><%= link_to article.title, article.link, class: "article-title grey-text text-darken-4" %></strong>
+          <strong><%= link_to article.title, article.link(root_url), class: "article-title grey-text text-darken-4" %></strong>
         </div>
-        <%= link_to article.company.name, "/#{article.company.slug}", class: "grey-text text-darken-2" %>
+        <%= link_to article.company.name, article.company.link(root_url), class: "grey-text text-darken-2" %>
       </li>
     <% end %>
   </ul>

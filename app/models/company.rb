@@ -51,6 +51,14 @@ class Company < ApplicationRecord
     update(premium: false)
   end
 
+  def link root_url=nil
+    path = self.domain.present? ? "#{self.domain}/" : root_url
+    unless path[/\Ahttp:\/\//] || path[/\Ahttps:\/\//]
+      path = "http://#{path}"
+    end
+    "#{path}#{self.slug}"
+  end
+
   def city_uf
     "#{city.try(:name)}/#{uf.try(:name)}" if city and uf
   end

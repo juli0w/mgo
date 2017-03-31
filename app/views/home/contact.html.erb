@@ -1,49 +1,47 @@
-<div class="container full-padding">
-  <div id="contact-page" class="card">
-    <div class="card-content">
-      <div class="row">
-        <h5 class="title center"><i class="title-fa red-text fa fa-envelope-o" aria-hidden="true"></i>Contato</h5>
-        <p class="center grey-text text-darken-3">Deixe-nos uma mensagem!</p>
-        <%= form_for @contact do |f| %>
+<div id="contact-page" class="row full-padding">
+  <div class="row">
+    <div class="container">
+      <h5 class="title center"><i class="title-fa red-text fa fa-envelope-o" aria-hidden="true"></i>Contato</h5>
+      <p class="center grey-text text-darken-3">Deixe-nos uma mensagem!</p>
+      <%= form_for @contact do |f| %>
 
-            <% @contact.errors.full_messages.each do |msg| %>
-              <div class="input-field red-text">
-                <%= msg %>
-              </div>
-           <% end %>
+          <% @contact.errors.full_messages.each do |msg| %>
+            <div class="input-field red-text">
+              <%= msg %>
+            </div>
+         <% end %>
 
-           <div class="input-field col s12">
-             <%= f.label :name %>
-             <%= f.text_field :name, class: "round full-width-input", autofocus: true, maxlength: 220 %>
-           </div>
+         <div class="input-field col s12">
+           <%= f.label :name %>
+           <%= f.text_field :name, class: "round full-width-input", autofocus: true, maxlength: 220 %>
+         </div>
 
-           <div class="input-field col s6">
-             <%= f.label :email %>
-             <%= f.text_field :email, class: "round full-width-input", maxlength: 220 %>
-           </div>
-           <div class="input-field col s6">
-             <%= f.label :phone %>
-             <%= f.text_field :phone, class: "round full-width-input", maxlength: 220 %>
-           </div>
+         <div class="input-field col s6">
+           <%= f.label :email %>
+           <%= f.text_field :email, class: "round full-width-input", maxlength: 220 %>
+         </div>
+         <div class="input-field col s6">
+           <%= f.label :phone %>
+           <%= f.text_field :phone, class: "round full-width-input", maxlength: 220 %>
+         </div>
 
-           <div class="input-field col s12">
-             <%= f.label :subject %>
-             <%= f.text_field :subject, class: "round full-width-input", maxlength: 220 %>
-           </div>
+         <div class="input-field col s12">
+           <%= f.label :subject %>
+           <%= f.text_field :subject, class: "round full-width-input", maxlength: 220 %>
+         </div>
 
-           <div class="input-field col s12">
-             <%= f.text_area :message, class: "materialize-textarea round full-width-input" %>
-             <%= f.label :message %>
-           </div>
+         <div class="input-field col s12">
+           <%= f.text_area :message, class: "materialize-textarea round full-width-input" %>
+           <%= f.label :message %>
+         </div>
 
-          <div class="input-field col s12">
-            <%= f.hidden_field :destination %>
-            <%= f.button type: "submit", name: "action", class: "blue btn-large right" do %>
-              <i class="material-icons right">send</i>Enviar
-            <% end %>
-          </div>
-        <% end %>
-      </div>
+        <div class="input-field col s12">
+          <%= f.hidden_field :destination %>
+          <%= f.button type: "submit", name: "action", class: "blue btn-large right" do %>
+            <i class="material-icons right">send</i>Enviar
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

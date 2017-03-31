@@ -14,7 +14,7 @@ class HomeController < ApplicationController
   end
 
   def sitemap
-    @companies = Company.all
+    @companies = Company.premium
     headers['Content-Type'] = 'application/xml'
     respond_to do |format|
       format.xml { render layout: nil }
@@ -22,7 +22,7 @@ class HomeController < ApplicationController
   end
 
   def sitemap_index
-    @companies = Company.all
+    @companies = Company.premium
     headers['Content-Type'] = 'application/xml'
     respond_to do |format|
       format.xml { render layout: nil }

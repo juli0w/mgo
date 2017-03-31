@@ -56,7 +56,7 @@ module ApplicationHelper
   end
 
   def get_url company
-    company.slug.nil? ? company_path(company) : "#{root_url}#{company.slug}"
+    company.link(root_url)
   end
 
   def rate_for company

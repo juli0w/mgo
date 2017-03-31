@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc><%= "#{root_url}#{@company.slug}" %></loc>
+    <loc><%= @company.link(root_url) %></loc>
     <changefreq>weekly</changefreq>
   </url>
   <% @company.profile.pages.each do |page| %>
     <url>
-      <loc><%= "#{root_url}#{@company.slug}/#{page.slug}" %></loc>
+      <loc><%= "#{@company.link(root_url)}/#{page.slug}" %></loc>
       <changefreq>weekly</changefreq>
     </url>
   <% end %>
@@ -15,7 +15,7 @@
   <% if @blog.any? %>
     <% @company.articles.each do |article| %>
       <url>
-        <loc><%= "#{root_url}#{@company.slug}/#{@blog.first.slug}/#{article.slug}" %></loc>
+        <loc><%= article.link(root_url) %></loc>
         <changefreq>weekly</changefreq>
       </url>
     <% end %>

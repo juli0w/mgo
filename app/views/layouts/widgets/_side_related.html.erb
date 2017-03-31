@@ -3,7 +3,7 @@
     <li class="collection-header"><h5 class="<%= color(:text_color, @company) %> <%= color(:primary_color, @company) %>">Relacionados</h5></li>
     <% @company.articles.last(5).each do |article| %>
       <li class="collection-item avatar">
-        <%= link_to article.link, class: "grey-text text-darken-4" do %>
+        <%= link_to article.link(root_url), class: "grey-text text-darken-4" do %>
           <%= image_tag(article.cover.thumb, class: 'square') %>
           <span class="title">
             <%= article.title %>
