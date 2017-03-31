@@ -70,6 +70,6 @@ module ApplicationHelper
 
   def header_image company
     image = company.profile.cover.url || 'http://weekz.com.br/images/bg-header.jpg'
-    "background-image: url('#{image}');"
+    "background-image: url('http://weekz.com.br#{image}');"
   end
 end
