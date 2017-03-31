@@ -8,10 +8,12 @@
   <loc>http://weekz.com.br/contact</loc>
   <changefreq>monthly</changefreq>
 </url>
-<% @companies.where(domain: "").each do |company| %>
+<% @companies.each do |company| %>
+<% unless company.domain.present? %>
   <url>
     <loc><%= company.link(root_url) %></loc>
     <changefreq>weekly</changefreq>
   </url>
+<% end %>
 <% end %>
 </urlset>

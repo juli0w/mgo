@@ -3,9 +3,11 @@
  <sitemap>
    <loc><%= "#{root_url}sitemap.xml" %></loc>
  </sitemap>
-<% @companies.where(domain: "").each do |company| %>
+<% @companies.each do |company| %>
+<% unless company.domain.present? %>
  <sitemap>
     <loc><%= "#{company.link(root_url)}/sitemap.xml" %></loc>
  </sitemap>
+<% end %>
 <% end %>
 </sitemapindex>
