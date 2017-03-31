@@ -111,7 +111,7 @@ p {
     li:not(.collection-header) {
       padding: 15px;
       opacity: 0.7;
-      height: 99px;
+      min-height: 99px;
       transition: opacity .35s ease-in-out;
       -moz-transition: opacity .35s ease-in-out;
       -webkit-transition: opacity .35s ease-in-out;

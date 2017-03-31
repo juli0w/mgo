@@ -3,7 +3,7 @@
  <sitemap>
    <loc><%= "#{root_url}sitemap.xml" %></loc>
  </sitemap>
-<% @companies.each do |company| %>
+<% @companies.where(domain: "").each do |company| %>
  <sitemap>
     <loc><%= "#{company.link(root_url)}/sitemap.xml" %></loc>
  </sitemap>
