@@ -20,6 +20,6 @@ class Article < ApplicationRecord
     blog = company.profile.pages.select {|p| p.pageable_type == "BlogPage" }.first
     return "/#{company.slug}" unless blog
 
-    "#{company.slug}/#{blog.slug}/#{self.slug}"
+    "/#{company.slug}/#{blog.slug}/#{self.slug}"
   end
 end

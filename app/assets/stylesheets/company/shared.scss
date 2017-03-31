@@ -59,8 +59,13 @@ p {
     background-color: #232323;
   }
 }
+.btn-read-more {
+  color: #212121;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
 .btn-read-more:hover {
-  opacity: 0.7;
+  opacity: 0.85;
 }
 .datetime {
   font-size: 9px;
@@ -136,17 +141,20 @@ p {
     .card-title {
       margin-bottom: 20px;
       padding-top: 10px;
-      h1 {
+      h2 {
         margin-bottom: 10px;
-        line-height: 1.5em;
+        line-height: 1.1 !important;
         font-size: 34px;
-        margin-top: 10px;
+        margin-top: 20px;
+      }
+      h1 {
+        margin-top: 0;
+        font-size: 34px;
+        line-height: 1.5em;
       }
 
       em {
-        i {
-          font-size: .85em;
-        }
+        margin-left: 3px;
         font-size: .5em;
       }
     }

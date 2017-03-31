@@ -45,8 +45,9 @@ nav .nav-wrapper .sub-menu i {
 .main-categories {
   margin-top: 40px;
 }
-.main-categories > span {
+.main-categories > div {
   padding: 10px;
+  display: inline-block;
   // background-color: #303f9f;
   background-color: rgba(0,0,0, 0.4);
   border-radius: 10px;

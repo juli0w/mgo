@@ -3,7 +3,7 @@
   <head>
     <%= display_meta_tags site: @company.name %>
     <%= csrf_meta_tag %>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
     <%= stylesheet_link_tag    'full/application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'company/application', 'data-turbolinks-track': 'reload' %>
@@ -32,6 +32,8 @@
     <% if user_signed_in? %>
       <%= render "layouts/company/tools" %>
     <% end %>
+
+    <%= yield :fbroot %>
 
   </body>
 </html>

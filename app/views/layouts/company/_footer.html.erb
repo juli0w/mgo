@@ -6,7 +6,7 @@
           <div class="company-date <%= color(:text_color, @company) %>">
             <i class="fa fa-street-view <%= color(:detail_color, @company) %>" aria-hidden="true"></i>
             <strong>Endereço:</strong><br/>
-            <%= @company.formatted_address %>
+            <address><%= @company.formatted_address %></address>
           </div>
           <div class="company-date <%= color(:text_color, @company) %>">
             <i class="fa fa-phone <%= color(:detail_color, @company) %>" aria-hidden="true"></i>

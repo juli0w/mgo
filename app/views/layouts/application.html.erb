@@ -1,20 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
+    <meta charset="utf-8"/>
+    <meta name="author" content="Weekz Idéias">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <meta name="robots" content="index,follow">
+
     <%= display_meta_tags site: 'Weekz' %>
     <%= csrf_meta_tags %>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
     <%= canonical_tag %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({
-        google_ad_client: "ca-pub-9559839103167564",
-        enable_page_level_ads: true
-      });
-    </script>
   </head>
 
   <body>
@@ -36,5 +32,13 @@
     <%= render "layouts/main/footer" %>
 
     <%= render "layouts/widgets/analytics" %>
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-9559839103167564",
+        enable_page_level_ads: true
+      });
+    </script>
   </body>
 </html>

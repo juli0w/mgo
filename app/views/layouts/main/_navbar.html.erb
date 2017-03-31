@@ -17,11 +17,9 @@
         <% end %>
       </div>
     </div>
-    <div class="col s12 m10 offset-m1 l8 offset-l2 search-pad">
-      <h1 class="weekz center">
-        <%= link_to root_url do %>
-          <span class="white-text fredoka">WEEKZ</span>
-        <% end %>
+    <section class="col s12 m10 offset-m1 l8 offset-l2 search-pad">
+      <h1 role="logo" class="weekz center fredoka">
+        <%= link_to "WEEKZ", root_url, class: "white-text" %>
       </h1>
       <h6 class="center white-text discover">DESCUBRA</h6>
       <nav class="search-nav transparent">
@@ -31,6 +29,6 @@
       </nav>
 
       <%= render "layouts/main/menu" %>
-    </div>
+    </section>
   </div>
 </div>

@@ -1,39 +1,26 @@
-<div id="<%= page.slug %>" class="blog-page full-padding <%= odd_color(@company, @row_counter) %>">
-  <!-- <div class="row">
-    <div class="container">
-      <div class="section">
-        <div class="title-wrapper center no-border">
-          <h5><%#= page.title %></h5>
-          <h6><%#= page.description %></h6>
-        </div>
-      </div>
-    </div>
-  </div> -->
-
+<section id="<%= page.slug %>" class="blog-page full-padding <%= odd_color(@company, @row_counter) %>">
   <div class="row">
     <div class="container">
       <div class="articles">
         <div class="col s12 l8">
           <% @articles.each do |article| %>
             <div class="col s12">
-              <div class="article card grey-text text-darken-4">
+              <article class="article card grey-text text-darken-4">
                 <% if article.cover? %>
-                  <div class="card-image">
+                  <picture class="card-image">
                     <%= image_tag article.cover.article, alt: article.title %>
-                  </div>
+                  </picture>
                 <% end %>
                 <div class="card-title">
-                  <h1><strong><%= article.title %></strong></h1>
-                  <em class="card-description"><i class="material-icons <%=  %>">schedule</i> <%= article.created_at.strftime("%d/%m/%Y") %></em>
+                  <h2><strong><%= link_to article.title, article.link, class: "grey-text text-darken-4" %></strong></h2>
+                  <em class="card-description"><%= article.created_at.strftime("%d/%m/%Y") %></em>
                 </div>
                 <div class="card-content">
                   <p class="article-description ubuntu"><%= article.description %></p>
-                  <%= link_to "Ler mais", "/#{@company.slug}/#{@page.slug}/#{article.slug}", class: "btn btn-read-more #{color(:primary_color, @company)} #{color(:link_color, @company)}" %>
-                  <span class="right">
-                    <div class="fb-like" data-href="<%= "#{root_url}/#{@company.slug}/#{@page.slug}/#{article.slug}" %>" data-layout="button" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
-                  </span>
+                  <%= link_to "Ler mais", article.link, class: "btn-read-more" %>
+                  <div class="fb-like" data-href="<%= "#{root_url}/#{@company.slug}/#{@page.slug}/#{article.slug}" %>" data-layout="button" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
                 </div>
-              </div>
+              </article>
             </div>
           <% end %>
         </div>
@@ -51,12 +38,14 @@
       <%= paginate @articles %>
     </div>
   </div>
-</div>
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.8&appId=1375113029226011";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+</section>
+<%= content_for :fbroot do %>
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.8&appId=1375113029226011";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+<% end %>
