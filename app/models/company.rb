@@ -52,7 +52,7 @@ class Company < ApplicationRecord
   end
 
   def link root_url=nil
-    path = self.domain.present? ? "#{self.domain}/" : root_url
+    path = self.domain.present? ? "#{self.domain}" : "#{root_url}#{self.slug}"
     unless path[/\Ahttp:\/\//] || path[/\Ahttps:\/\//]
       path = "http://#{path}"
     end

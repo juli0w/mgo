@@ -34,7 +34,7 @@
   </div>
   <div class="footer-copyright">
     <div class="container center <%= color(:text_color, @company) %>">
-      <%= link_to @company.name, "/#{@company.slug}", class: color(:link_color, @company) %> @ <%= link_to 'www.weekz.com.br', root_url, class: color(:link_color, @company) %>
+      <%= link_to @company.name, @company.link(root_url), class: color(:link_color, @company) %> @ <%= link_to 'weekz.com.br', "http://weekz.com.br", class: color(:link_color, @company) %>
     </div>
   </div>
 </footer>
