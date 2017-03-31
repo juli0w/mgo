@@ -56,7 +56,8 @@ class Company < ApplicationRecord
     unless path[/\Ahttp:\/\//] || path[/\Ahttps:\/\//]
       path = "http://#{path}"
     end
-    "#{path}#{self.slug}"
+
+    return path
   end
 
   def city_uf
