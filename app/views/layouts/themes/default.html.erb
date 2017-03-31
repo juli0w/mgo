@@ -8,6 +8,12 @@
     <%= stylesheet_link_tag    'default/application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'company/application', 'data-turbolinks-track': 'reload' %>
     <%= canonical_tag %>
+
+    <link rel="icon" href="/favicon.png" sizes="32x32">
+    <link rel="apple-touch-icon-precomposed" href="/favicon.png">
+    <meta name="msapplication-TileColor" content="#00bcd4">
+    <meta name="msapplication-TileImage" content="/favicon.png">
+
     <style>
       <%= render "layouts/company/fonts.css", font: @company.profile.font %>
     </style>
