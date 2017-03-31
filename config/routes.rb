@@ -82,6 +82,10 @@ Rails.application.routes.draw do
 
   post ':slug', to: 'companies#show'
   get  ':slug', to: 'companies#show'
+
+  post ':slug/ahoy/events', to: redirect("http://weekz.com.br/ahoy/events")
+  put  ':slug/ahoy/events', to: redirect("http://weekz.com.br/ahoy/events")
+
   get  ':slug/robots.txt', :to => 'companies#robots'
   get  ':slug/sitemap.xml', :to => 'companies#sitemap', :defaults => {:format => 'xml'}
   get  ':slug/review', to: 'reviews#new'
