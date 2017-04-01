@@ -19,11 +19,15 @@
               </div>
               <div class="card-content">
                 <p class="article-description ubuntu"><%= article.description %></p>
-                <%= link_to "Ler mais", article.link(root_url), class: "btn-read-more" %>
+                <%= link_to "Ler mais", article.link(root_url), class: "btn #{color(:link_color, @company)} #{color(:primary_color, @company)} white-text btn-read-more" %>
                 <div class="fb-like" data-href="<%= article.link(root_url) %>" data-layout="button" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
               </div>
             </article>
           <% end %>
+
+          <div class="article-pager center white-text">
+            <%= paginate @articles %>
+          </div>
         </div>
 
         <%= render "layouts/widgets/side_search" %>
@@ -32,11 +36,6 @@
 
         <%= render "layouts/widgets/side_facebook" %>
       </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="article-pager center white-text">
-      <%= paginate @articles %>
     </div>
   </div>
 </section>

@@ -14,28 +14,31 @@
     <div class="container">
       <div class="articles">
         <div class="col s12 l8">
-          <% @articles.each do |article| %>
-            <div class="col s12">
-              <div class="article card grey-text text-darken-4">
-                <% if article.cover? %>
-                  <div class="card-image">
-                    <%= image_tag article.cover.article, alt: article.title %>
-                  </div>
-                <% end %>
-                <div class="card-title">
-                  <h1><strong><%= article.title %></strong></h1>
-                  <em class="card-description"><i class="material-icons <%=  %>">schedule</i> Postado em <%= article.created_at.strftime("%d/%m/%Y") %></em>
-                </div>
-                <div class="card-content">
-                  <p class="article-description ubuntu"><%= article.description %></p>
-                  <%= link_to "Ler mais", "/#{@company.slug}/#{@page.slug}/#{article.slug}", class: "btn btn-read-more #{color(:primary_color, @company)} #{color(:link_color, @company)}" %>
-                  <span class="right">
-                    <div class="fb-like" data-href="<%= "#{root_url}/#{@company.slug}/#{@page.slug}/#{article.slug}" %>" data-layout="button" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
-                  </span>
-                </div>
-              </div>
-            </div>
+          <% if @page.title.present? %>
+            <h4 class="page-title"><%= @page.title %></h4>
           <% end %>
+          <% @articles.each do |article| %>
+            <article class="article card grey-text text-darken-4">
+              <% if article.cover? %>
+                <picture class="card-image">
+                  <%= image_tag article.cover.article, alt: article.title %>
+                </picture>
+              <% end %>
+              <div class="card-title">
+                <h2><strong><%= link_to article.title, article.link(root_url), class: "grey-text text-darken-4" %></strong></h2>
+                <em class="card-description"><%= article.created_at.strftime("%d/%m/%Y") %></em>
+              </div>
+              <div class="card-content">
+                <p class="article-description ubuntu"><%= article.description %></p>
+                <%= link_to "Ler mais", article.link(root_url), class: "btn #{color(:link_color, @company)} #{color(:primary_color, @company)} white-text btn-read-more" %>
+                <div class="fb-like" data-href="<%= article.link(root_url) %>" data-layout="button" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+              </div>
+            </article>
+          <% end %>
+
+          <div class="article-pager center white-text">
+            <%= paginate @articles %>
+          </div>
         </div>
 
         <%= render "layouts/widgets/side_search" %>
@@ -46,12 +49,8 @@
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="article-pager center white-text">
-      <%= paginate @articles %>
-    </div>
-  </div>
 </div>
+<%= content_for :fbroot do %>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -60,3 +59,4 @@
   js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.8&appId=1375113029226011";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
+<% end %>

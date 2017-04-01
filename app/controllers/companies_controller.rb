@@ -82,7 +82,8 @@ private
   def load_articles
     blog = @pages.select{|a| a.pageable_type == "BlogPage" }
     unless blog.blank?
-      @articles = @company.articles.search(params[:key]).order("id desc").page(params[:page]).per(blog.first.pageable.max)
+      # @articles = @company.articles.search(params[:key]).order("id desc").page(params[:page]).per(blog.first.pageable.max)
+      @articles = Kaminari.paginate_array(@company.articles.search(params[:key]).order("id desc").to_a).page(params[:page]).per(blog.first.pageable.max)
     end
   end
 
