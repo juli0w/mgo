@@ -33,16 +33,12 @@ class CompaniesController < ApplicationController
       load_pages
       load_articles
 
-      if @page.nil? || @article.nil?
-        not_found
-      else
-        @page_keywords += @company.tag_list.join(",")
-        set_meta_tags description: @company.description
-        @contact = Contact.new
-        @row_counter = 1
-        
-        render layout: @company.profile.layout_path
-      end
+      @page_keywords += @company.tag_list.join(",")
+      set_meta_tags description: @company.description
+      @contact = Contact.new
+      @row_counter = 1
+
+      render layout: @company.profile.layout_path
     end
   end
 
