@@ -33,7 +33,7 @@ class Template < ApplicationRecord
     c.name
   end
 
-  def color field, force=false
+  def color field, force=true #false
     c = send(field)
 
     if (company.premium? or force)

@@ -29,38 +29,40 @@ class CompaniesController < ApplicationController
       not_found
     else
       @template = @company.profile.template
-      @pages = @company.profile.pages.order(:index)
 
-      if params[:paging]
-        @page = @pages.find_by_slug(params[:paging])
-      else
-        @page = @pages.first
-      end
-
-      @contact = Contact.new
-      @row_counter = 1
-
+      load_pages
       load_articles
 
-      @page_keywords += @company.tag_list.join(",")
-      set_meta_tags description: @company.description
-
-      render layout: @company.profile.layout_path
+      if @page.nil? || @article.nil?
+        not_found
+      else
+        @page_keywords += @company.tag_list.join(",")
+        set_meta_tags description: @company.description
+        @contact = Contact.new
+        @row_counter = 1
+        
+        render layout: @company.profile.layout_path
+      end
     end
   end
 
   def article
     @company = Company.find_by_slug(params[:slug])
-    @template = @company.profile.template
     @pages = @company.profile.pages.order(:index)
     @page = @pages.find_by_slug(params[:paging])
-    @article = @company.articles.find_by_slug(params[:article])
 
-    @page_keywords += @company.tag_list.join(",")
-    set_meta_tags title: "#{@article.title} - #{@page.title}",
-                  description: "#{@article.description}"
+    if @company.nil? || @page.nil?
+      not_found
+    else
+      @template = @company.profile.template
+      @article = @company.articles.find_by_slug(params[:article])
 
-    render layout: @company.profile.layout_path
+      @page_keywords += @company.tag_list.join(",")
+      set_meta_tags title: "#{@article.title} - #{@page.title}",
+                    description: "#{@article.description}"
+
+      render layout: @company.profile.layout_path
+    end
   end
 
   def search
@@ -78,6 +80,16 @@ class CompaniesController < ApplicationController
   end
 
 private
+
+  def load_pages
+    @pages = @company.profile.pages.order(:index)
+
+    if params[:paging]
+      @page = @pages.find_by_slug(params[:paging])
+    else
+      @page = @pages.first
+    end
+  end
 
   def load_articles
     blog = @pages.select{|a| a.pageable_type == "BlogPage" }

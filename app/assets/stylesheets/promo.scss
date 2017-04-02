@@ -51,7 +51,7 @@
       width: 100px;
       height: 90px;
       overflow: hidden;
-      left: 10px;
+      left: 12px;
       display: inline-block;
       vertical-align: middle;
     }
@@ -63,7 +63,7 @@
   li:not(.collection-header) {
     padding: 15px;
     opacity: 1;
-    height: 119px;
+    min-height: 119px !important;
     transition: opacity .35s ease-in-out;
     -moz-transition: opacity .35s ease-in-out;
     -webkit-transition: opacity .35s ease-in-out;

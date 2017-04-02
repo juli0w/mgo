@@ -8,7 +8,7 @@ class Profile < ApplicationRecord
   LAYOUTS = [["Padrão", "default"],
              ["Full Page", "full"],
              ["Landing Page", "landing"]]
-             
+
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
   mount_uploader :cover, CoverUploader
 
@@ -25,11 +25,4 @@ class Profile < ApplicationRecord
     f = super
     f.blank? ? Font.first : f
   end
-
-  [:primary_color, :detail_color, :link_color,
-   :text_color, :logo_color, :description_color].each do |method|
-     define_method(method) do
-
-     end
-   end
 end
