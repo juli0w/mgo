@@ -39,7 +39,7 @@ class ApplicationController < ActionController::Base
   end
 
   def not_found
-    redirect_to controller: :home, action: :not_found
+    redirect_to "http://weekz.com.br/not_found"
   end
 
 private
