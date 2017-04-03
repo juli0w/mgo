@@ -80,6 +80,8 @@ Rails.application.routes.draw do
   get  'sitemap.xml', :to => 'home#sitemap', :defaults => {:format => 'xml'}
   get  'sitemap_index.xml', :to => 'home#sitemap_index', :defaults => {:format => 'xml'}
 
+  get 'not_found', to: 'home#not_found'
+
   post ':slug', to: 'companies#show'
   get  ':slug', to: 'companies#show'
 
@@ -89,7 +91,7 @@ Rails.application.routes.draw do
   get  ':slug/robots.txt', :to => 'companies#robots'
   get  ':slug/sitemap.xml', :to => 'companies#sitemap', :defaults => {:format => 'xml'}
   get  ':slug/review', to: 'reviews#new'
-  get  ':slug/:paging', to: 'companies#show'
+  get  ':slug/:paging', to: 'companies#paging'
   get  ':slug/:paging/search', to: 'companies#search'
   get  ':slug/:paging/:article', to: 'companies#article'
   post ':slug/:paging/:article/comment', to: 'comments#create', as: :company_article_comments

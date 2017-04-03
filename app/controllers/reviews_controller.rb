@@ -6,7 +6,6 @@ class ReviewsController < ApplicationController
     if @company
       @pages = @company.profile.pages
       @review = @company.reviews.new
-      @row_counter = 1
 
       render layout: @company.profile.layout_path
     else
@@ -23,7 +22,6 @@ class ReviewsController < ApplicationController
     else
       flash.now[:alert] = "Por favor verifique os campos."
       @hide_menu = true
-      @row_counter = 1
       render :new, layout: @company.profile.layout_path
     end
   end

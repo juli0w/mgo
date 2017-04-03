@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-  before_action :set_company, only: [:edit, :update]
+  before_action :set_company_by_slug, only: [:show, :sitemap, :paging, :article, :search]
 
   def tag
     set_meta_tags title: 'Coloque suas idéias em prática!',
@@ -10,7 +10,6 @@ class CompaniesController < ApplicationController
   end
 
   def sitemap
-    @company = Company.find_by_slug(params[:slug])
     headers['Content-Type'] = 'application/xml'
     respond_to do |format|
       format.xml { render layout: nil }
@@ -23,34 +22,38 @@ class CompaniesController < ApplicationController
   end
 
   def show
-    @company = Company.find_by_slug(params[:slug])
+    load_pages
+    load_articles
 
-    if @company.nil?
+    @page_keywords += @company.tag_list.join(",")
+    set_meta_tags description: @company.description
+    @contact = Contact.new
+
+    render layout: @company.profile.layout_path
+  end
+
+  def paging
+    load_pages
+
+    if @page.nil?
       not_found
     else
-      @template = @company.profile.template
-
-      load_pages
       load_articles
-
       @page_keywords += @company.tag_list.join(",")
       set_meta_tags description: @company.description
       @contact = Contact.new
-      @row_counter = 1
 
-      render layout: @company.profile.layout_path
+      render :show, layout: @company.profile.layout_path
     end
   end
 
   def article
-    @company = Company.find_by_slug(params[:slug])
     @pages = @company.profile.pages.order(:index)
     @page = @pages.find_by_slug(params[:paging])
 
-    if @company.nil? || @page.nil?
+    if @page.nil?
       not_found
     else
-      @template = @company.profile.template
       @article = @company.articles.find_by_slug(params[:article])
 
       @page_keywords += @company.tag_list.join(",")
@@ -62,8 +65,6 @@ class CompaniesController < ApplicationController
   end
 
   def search
-    @company = Company.find_by_slug(params[:slug])
-    @template = @company.profile.template
     @pages = @company.profile.pages.order(:index)
     @page = @pages.find_by_slug(params[:paging])
     @articles = @company.articles.search(params[:key]).page(params[:page])
@@ -76,6 +77,16 @@ class CompaniesController < ApplicationController
   end
 
 private
+
+  def set_company_by_slug
+    @company = Company.find_by_slug(params[:slug])
+
+    if @company.nil?
+      not_found
+    else
+      @template = @company.profile.template
+    end
+  end
 
   def load_pages
     @pages = @company.profile.pages.order(:index)
@@ -93,9 +104,5 @@ private
       # @articles = @company.articles.search(params[:key]).order("id desc").page(params[:page]).per(blog.first.pageable.max)
       @articles = Kaminari.paginate_array(@company.articles.search(params[:key]).order("id desc").to_a).page(params[:page]).per(blog.first.pageable.max)
     end
-  end
-
-  def set_company
-    @company = Company.find(params[:id])
   end
 end

@@ -39,12 +39,7 @@ class ApplicationController < ActionController::Base
   end
 
   def not_found
-    set_meta_tags title: 'Coloque sua IDÉIA em prática!',
-    description: 'O Weekz reúne diversas idéias para te ajudar a encontrar o que você está procurando.'
-
-    load_destaques
-
-    render "companies/not_found", layout: 'application'
+    redirect_to controller: :home, action: :not_found
   end
 
 private

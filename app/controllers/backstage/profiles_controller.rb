@@ -25,7 +25,6 @@ module Backstage
       @pages = @company.profile.pages.order(:index)
       @page = @pages.first
       @contact = Contact.new
-      @row_counter = 1
 
       render layout: @company.profile.layout
     end
