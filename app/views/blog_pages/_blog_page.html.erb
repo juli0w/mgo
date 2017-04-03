@@ -1,4 +1,4 @@
-<section id="<%= page.slug %>" class="blog-page full-padding <%= odd_color(@company, row_counter) %>">
+<section id="<%= page.slug %>" class="blog-page full-padding">
   <div class="row">
     <div class="container">
       <div class="articles">
@@ -39,13 +39,5 @@
     </div>
   </div>
 </section>
-<%= content_for :fbroot do %>
-  <div id="fb-root"></div>
-  <script>(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.8&appId=1375113029226011";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));</script>
-<% end %>
+
+<%= render "layouts/widgets/fb_root" %>

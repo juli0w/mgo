@@ -50,12 +50,11 @@ class CompaniesController < ApplicationController
   def article
     @pages = @company.profile.pages.order(:index)
     @page = @pages.find_by_slug(params[:paging])
+    @article = @company.articles.find_by_slug(params[:article])
 
-    if @page.nil?
+    if @article.nil? || @page.nil?
       not_found
     else
-      @article = @company.articles.find_by_slug(params[:article])
-
       @page_keywords += @company.tag_list.join(",")
       set_meta_tags title: "#{@article.title} - #{@page.title}",
                     description: "#{@article.description}"
