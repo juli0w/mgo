@@ -1,5 +1,6 @@
 class CompaniesController < ApplicationController
   before_action :set_company_by_slug, only: [:show, :sitemap, :paging, :article, :search]
+  before_action :load_pages, only: [:show, :paging, :article, :search]
 
   def tag
     set_meta_tags title: 'Coloque suas idéias em prática!',
@@ -22,10 +23,8 @@ class CompaniesController < ApplicationController
   end
 
   def show
-    load_pages
     load_articles
 
-    @page_keywords += @company.tag_list.join(",")
     set_meta_tags description: @company.description
     @contact = Contact.new
 
@@ -33,13 +32,10 @@ class CompaniesController < ApplicationController
   end
 
   def paging
-    load_pages
-
     if @page.nil?
       not_found
     else
       load_articles
-      @page_keywords += @company.tag_list.join(",")
       set_meta_tags description: @company.description
       @contact = Contact.new
 
@@ -48,14 +44,12 @@ class CompaniesController < ApplicationController
   end
 
   def article
-    @pages = @company.profile.pages.order(:index)
     @page = @pages.find_by_slug(params[:paging])
     @article = @company.articles.find_by_slug(params[:article])
 
     if @article.nil? || @page.nil?
       not_found
     else
-      @page_keywords += @company.tag_list.join(",")
       set_meta_tags title: "#{@article.title} - #{@page.title}",
                     description: "#{@article.description}"
 
@@ -64,11 +58,9 @@ class CompaniesController < ApplicationController
   end
 
   def search
-    @pages = @company.profile.pages.order(:index)
     @page = @pages.find_by_slug(params[:paging])
     @articles = @company.articles.search(params[:key]).page(params[:page])
 
-    @page_keywords += @company.tag_list.join(",")
     set_meta_tags title: "#{@page.title} - #{@page.description}",
                   description: "Termos de busca de artigos: #{params[:key]}"
 

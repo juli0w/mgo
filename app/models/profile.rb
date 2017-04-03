@@ -9,6 +9,9 @@ class Profile < ApplicationRecord
              ["Full Page", "full"],
              ["Landing Page", "landing"]]
 
+  # LAYOUTS = [["Website", "website"],
+  #            ["Landing Page", "landing"]]
+
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
   mount_uploader :cover, CoverUploader
 

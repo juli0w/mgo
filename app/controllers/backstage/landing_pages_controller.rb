@@ -9,7 +9,7 @@ module Backstage
     def update
       if @landing_page.update(landing_page_params)
         flash[:success] = "Página modificada com sucesso!"
-        redirect_to [:backstage, @company, :pages]
+        redirect_to polymorphic_path([:edit, :backstage, @company, @page, @landing_page])
       else
         flash.now[:alert] = "Por favor verifique os campos"
         render :new

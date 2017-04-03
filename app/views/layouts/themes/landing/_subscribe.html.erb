@@ -1,4 +1,4 @@
 <%= form_tag url: landing.link do %>
-  <%= email_field_tag :email, '', placeholder: "Email", required: true %><br>
+  <%= email_field_tag :email, '', placeholder: "Email", class: "call-to-action", required: true %><br>
   <%= submit_tag landing.link_call, class: "waves-effect call-to-action #{color(:primary_color, company)} #{color(:text_color, company)}" %>
 <% end %>

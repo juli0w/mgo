@@ -70,6 +70,7 @@ module ApplicationHelper
 
   def header_image company
     image = company.profile.cover.url || 'http://weekz.com.br/images/bg-header.jpg'
-    "background-image: url('http://weekz.com.br#{image}');"
+    domain = Rails.env == "production" ? "http://weekz.com.br/" : ""
+    "background-image: url('#{domain}#{image}');"
   end
 end

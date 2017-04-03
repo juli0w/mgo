@@ -26,5 +26,9 @@
     <%= render "layouts/widgets/analytics" %>
 
     <%= render "layouts/main/flash" %>
+
+    <% if user_signed_in? %>
+      <%= render "layouts/company/tools" %>
+    <% end %>
   </body>
 </html>
