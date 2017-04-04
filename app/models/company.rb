@@ -51,8 +51,8 @@ class Company < ApplicationRecord
     update(premium: false)
   end
 
-  def link root_url=nil
-    path = self.domain.present? ? "#{self.domain}" : "#{root_url}#{self.slug}"
+  def link root=nil
+    path = self.domain.present? ? "#{self.domain}" : "#{root}#{self.slug}"
     unless path[/\Ahttp:\/\//] || path[/\Ahttps:\/\//]
       path = "http://#{path}"
     end

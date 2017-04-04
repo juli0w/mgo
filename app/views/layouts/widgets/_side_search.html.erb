@@ -2,7 +2,7 @@
   <ul class="collection with-header side-search">
     <li class="collection-header"><h5 class="<%= color(:text_color, @company) %> <%= color(:primary_color, @company) %>">Pesquisa</h5></li>
     <!-- <li class="collection-item"> -->
-      <%= form_tag "#{@company.link(root_path)}/#{@page.slug}/search", method: :get do %>
+      <%= form_tag "#{@company.link(root_url)}/#{@page.slug}/search", method: :get do %>
           <fieldset>
             <input name="key" id="icon_local" type="search" placeholder="Palavra-chave" value='<%= params[:key] %>'>
             <button class="<%= color(:text_color, @company) %> <%= color(:primary_color, @company) %>" type="submit" name="action">
