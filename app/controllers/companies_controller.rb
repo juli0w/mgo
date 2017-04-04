@@ -24,6 +24,7 @@ class CompaniesController < ApplicationController
 
   def show
     load_articles
+    filter_pages
 
     set_meta_tags description: @company.description
     @contact = Contact.new
@@ -86,6 +87,12 @@ private
       @page = @pages.find_by_slug(params[:paging])
     else
       @page = @pages.first
+    end
+  end
+
+  def filter_pages
+    if @company.profile.layout != "landing"
+      @pages = @pages.reject { |p| p.pageable_type == "LandingPage" }
     end
   end
 

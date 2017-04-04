@@ -1,4 +1,4 @@
-<div id="<%= @article.slug %>" class="full-padding">
+<div id="<%= @article.slug %>" class="article-page full-padding">
   <div class="row">
     <div class="container">
       <section class="articles">
@@ -6,6 +6,9 @@
           <article class="article card">
             <header class="card-title">
               <h1><strong><%= @article.title %></strong></h1>
+              <% if @article.description.present? %>
+                <h2 class="article-description ubuntu"><%= @article.description %></h2>
+              <% end %>
               <div class="fb-like" data-href="<%= @article.link(root_url) %>" data-layout="button" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
               <em class="card-description right"><%= @article.created_at.strftime("%d/%m/%Y") %></em>
             </header>
@@ -19,9 +22,6 @@
             <% end %>
 
             <div class="card-content">
-              <% if @article.description.present? %>
-                <p class="article-description ubuntu"><%= @article.description %></p>
-              <% end %>
               <div style="margin-bottom: 20px;" class="ubuntu"><%= raw @article.content %></div>
               <div class="fb-like" data-href="<%= @article.link(root_url) %>" data-layout="button" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
             </div>

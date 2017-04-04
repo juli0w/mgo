@@ -21,19 +21,6 @@
   box-shadow: none !important;
 }
 
-h1 {
-  font-size: 42px;
-  margin: 0;
-}
-h2 {
-  font-size: 36px;
-}
-h3 {
-  font-size: 26px;
-}
-h6 {
-  font-size: 22px !important;
-}
 p {
   line-height: 2 !important;
 }
@@ -78,6 +65,7 @@ p {
   min-width: inherit;
   max-width: 700px;
 }
+
 .articles {
   display: block;
 
@@ -132,75 +120,6 @@ p {
       margin: 0;
     }
   }
-  .article {
-    overflow: hidden;
-    .card-image {
-      img {
-        max-height: 350px;
-        width: 100%;
-      }
-    }
-
-    .card-title {
-      margin-bottom: 20px;
-      padding-top: 10px;
-      h2 {
-        margin-bottom: 0px;
-        line-height: 1.4 !important;
-        font-size: 26px;
-        margin-top: 20px;
-      }
-      h1 {
-        margin-top: 0;
-        font-size: 34px;
-        line-height: 1.5em;
-
-        strong {
-          margin-bottom: 20px;
-        }
-      }
-
-      em {
-        margin-left: 3px;
-        font-size: .5em;
-        font-style: normal;
-      }
-    }
-
-    .card-content {
-      padding-left: 0;
-      .article-description {
-        font-size: 20px;
-        margin-bottom: 10px;
-      }
-
-      .btn-flat:hover {
-        opacity: 0.8;
-      }
-    }
-  }
-}
-
-.blog-page article {
-  padding: 20px 0;
-}
-
-.comments {
-  .card-content {
-    padding: 20px 0px;
-    span {
-      display: block;
-      clear: right;
-    }
-  }
-
-  .avatar {
-    width: 80px;
-    height: 80px;
-    float: left;
-    margin-right: 20px;
-    border: 1px solid #aeaeae;
-  }
 }
 
 .page-footer {
@@ -218,28 +137,130 @@ p {
   }
 }
 .blog-page {
-  .article {
-    border-bottom: 1px solid #dedede;
+  h4 {
+    font-size: 20px;
+    margin: 0;
+    margin-bottom: 10px;
+  }
+  h5 {
+    margin: 0;
+    margin-bottom: 20px;
+    font-size: 16px;
   }
   .article {
-    h1 {
-      font-size: 26px !important;
+    &:hover {
+      transition: opacity .35s ease-in-out;
+      -moz-transition: opacity .35s ease-in-out;
+      -webkit-transition: opacity .35s ease-in-out;
+      opacity: 0.8;
     }
-    .article-description {
-      padding: 20px 0;
-    }
-    .card-title {
-      margin-bottom: 0;
-    }
-    .card-content {
-      padding-top: 0;
+    padding: 10px 0 20px 0;
+
+    em {
+      font-size: 11px;
+      font-style: normal;
     }
 
-    .card-title, .card-content {
-      // padding-left: 20px;
+    h2 {
+      margin: 0;
+      margin-bottom: 10px;
+      font-size: 22px;
+      line-height: 1.4;
+    }
+
+    border-bottom: 1px solid #dedede;
+    overflow: hidden;
+
+    picture {
+      padding: 0;
+      img {
+        max-width: 100%;
+      }
+    }
+    h3.article-description {
+      font-size: 16px;
+      line-height: 1.4;
+      margin: 10px 0 20px 0;
+    }
+    .card-content {
+      padding: 0;
+    }
+
+    .article-content {
+      margin-top: 0px;
+      padding-left: 20px;
     }
   }
 }
+@media only screen and (max-width: 600px) {
+  .blog-page .article .article-content {
+    padding-left: 0px;
+    margin-top: 10px;
+  }
+}
+
+.article-page {
+  .article {
+    overflow: hidden;
+
+    h2 {
+      margin: 0;
+      margin-bottom: 20px;
+      font-size: 22px;
+      line-height: 1.4;
+    }
+
+    .card-content {
+      padding: 0;
+      margin-top: 20px;
+    }
+
+    .card-title {
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      margin: 0;
+      margin-bottom: 10px;
+      font-size: 24px;
+      line-height: 1.4;
+    }
+
+    em {
+      font-size: 10px;
+      font-style: normal;
+    }
+  }
+
+  h5 {
+    margin-top: 40px;
+    font-size: 20px;
+  }
+}
+// .article {
+//   overflow: hidden;
+//   picture {
+//     img {
+//       // max-height: 350px;
+//       max-width: 100%;
+//     }
+//   }
+//
+//   .card-title {
+//     margin-bottom: 20px;
+//     padding-top: 10px;
+//     h2 {
+//       margin-bottom: 0px;
+//       line-height: 1.4 !important;
+//       font-size: 16px;
+//       margin-top: 20px;
+//     }
+//     h1 {
+//       margin-bottom: 10px;
+//       font-size: 24px;
+//       line-height: 1.5em;
+//
+
 
 .side-search {
   fieldset {
@@ -266,3 +287,18 @@ p {
     // padding: 5px;
   }
 }
+
+
+// h1 {
+//   font-size: 42px;
+//   margin: 0;
+// }
+// h2 {
+//   font-size: 36px;
+// }
+// h3 {
+//   font-size: 26px;
+// }
+// h6 {
+//   font-size: 22px !important;
+// }
