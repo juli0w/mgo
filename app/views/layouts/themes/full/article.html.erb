@@ -3,9 +3,9 @@
     <div class="container">
       <section class="articles">
         <div class="col s12 l8">
-          <h1><%= @article.title %></h1>
-          <h2><%= @article.description %></h2>
           <article class="article card">
+            <h1><%= @article.title %></h1>
+            <h2><%= @article.description %></h2>
             <header class="card-title">
               <div class="fb-like" data-href="<%= @article.link(root_url) %>" data-layout="button" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
               <em class="card-description right"><%= @article.created_at.strftime("%d/%m/%Y") %></em>
