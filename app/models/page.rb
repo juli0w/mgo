@@ -22,4 +22,9 @@ class Page < ApplicationRecord
   def link root_url=nil
     "#{self.company.link(root_url)}/#{self.slug}"
   end
+
+  def partial_link
+    partial = self.pageable.class.to_s.underscore
+    "layouts/themes/#{self.profile.layout}/#{partial.pluralize}/#{partial}"
+  end
 end

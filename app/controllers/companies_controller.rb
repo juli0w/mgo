@@ -1,7 +1,6 @@
 class CompaniesController < ApplicationController
   before_action :set_company_by_slug, only: [:show, :sitemap, :paging, :article, :search]
   before_action :load_pages, only: [:show, :paging, :article, :search]
-  before_action :add_views_path, only: [:show, :paging, :article, :search]
 
   def tag
     set_meta_tags title: 'Coloque suas idéias em prática!',
@@ -55,7 +54,7 @@ class CompaniesController < ApplicationController
       set_meta_tags title: "#{@article.title} - #{@page.title}",
                     description: "#{@article.description}"
 
-      render "#{@company.profile.layout_path(:article)}", format: :html, layout: @company.profile.layout_path
+      render @company.profile.layout_path(:article), format: :html, layout: @company.profile.layout_path
     end
   end
 
@@ -66,20 +65,10 @@ class CompaniesController < ApplicationController
     set_meta_tags title: "#{@page.title} - #{@page.description}",
                   description: "Termos de busca de artigos: #{params[:key]}"
 
-    render layout: @company.profile.layout_path
+    render @company.profile.layout_path(:search), layout: @company.profile.layout_path
   end
 
 private
-
-  def add_views_path
-    self._view_paths.paths.reject! do |path|
-      Profile.layout_list.map{|p| "app/views/layouts/themes/#{p}"}.include? path
-    end
-
-    new_path = "app/views/#{@company.profile.layout_path}"
-    self._view_paths.paths << new_path
-    self._view_paths.paths.uniq!
-  end
 
   def set_company_by_slug
     @company = Company.find_by_slug(params[:slug])
