@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170331164645) do
+ActiveRecord::Schema.define(version: 20170405223052) do
 
   create_table "ahoy_events", force: :cascade do |t|
     t.integer  "visit_id"
@@ -113,8 +113,8 @@ ActiveRecord::Schema.define(version: 20170331164645) do
     t.string   "name"
     t.integer  "category_id"
     t.string   "description"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.string   "logotipo"
     t.         "photos"
     t.string   "slug"
@@ -125,13 +125,14 @@ ActiveRecord::Schema.define(version: 20170331164645) do
     t.string   "code"
     t.string   "lat"
     t.string   "lng"
-    t.boolean  "premium",     default: false
+    t.boolean  "premium",      default: false
     t.string   "phone"
     t.string   "mail"
     t.integer  "city_id"
     t.integer  "uf_id"
     t.string   "address"
     t.string   "domain"
+    t.string   "analytics_id"
     t.index ["category_id"], name: "index_companies_on_category_id"
     t.index ["slug"], name: "index_companies_on_slug", unique: true
   end

@@ -61,9 +61,13 @@
   </div>
 
   <div class="row">
-    <div class="input-field col s12">
+    <div class="input-field col s6">
       <%= f.text_field :domain, maxlength: 80 %>
       <%= f.label :domain %>
+    </div>
+    <div class="input-field col s6">
+      <%= f.text_field :analytics_id, maxlength: 20 %>
+      <%= f.label :analytics_id %>
     </div>
   </div>
 

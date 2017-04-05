@@ -14,6 +14,14 @@ module ApplicationHelper
     }[title.to_sym] || title.to_s
   end
 
+  def analytics_id company=nil
+    if company and company.analytics_id.present?
+      company.analytics_id
+    else
+      'UA-23676248-2'
+    end
+  end
+
   def user_avatar user
     user ||= current_user
     user.image || "/images/avatar.png"

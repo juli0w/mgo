@@ -46,11 +46,24 @@ h2 {
   line-height: 1.3;
 }
 
-input[type=email].call-to-action {
+#mc-embedded-subscribe-form {
+  text-align: center;
+  div.mc-field-group input {
+    border: 1px solid #dedede;
+    width: 350px;
+    padding: 5px 15px;
+  }
+
+  input.button {
+    @extend .call-to-action;
+  }
+}
+input.call-to-action {
   border: 1px solid #dedede;
-  width: 350px;
+  max-width: 350px;
   padding: 5px 15px;
 }
+
 .title-wrapper {
   margin-left: 20px;
 }
