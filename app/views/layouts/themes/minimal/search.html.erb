@@ -1,0 +1,32 @@
+<div class="row header-company <%= 'header-company-cover' if @company.profile.cover? %>" style="<%= header_image(@company) if @company.profile.cover? %>;">
+  <div class="container">
+    <div class="<%= color(:description_color, @company) %> title-wrapper no-border">
+      <h1><%= @page.title %></h1>
+      <h2>Pesquisa: <%= params[:key] %></h2>
+    </div>
+  </div>
+</div>
+
+<div id="<%= @page.slug %>" class="blog-page full-padding">
+  <div class="row">
+    <div class="container">
+      <div class="articles">
+        <div class="col s12 l8">
+          <% @articles.each do |article| %>
+            <%= render "blog_pages/article", article: article %>
+          <% end %>
+
+          <div class="article-pager center white-text">
+            <%= paginate @articles %>
+          </div>
+        </div>
+
+        <%= render "layouts/widgets/side_search" %>
+
+        <%= render "layouts/widgets/side_related" %>
+
+        <%= render "layouts/widgets/side_facebook" %>
+      </div>
+    </div>
+  </div>
+</div>
