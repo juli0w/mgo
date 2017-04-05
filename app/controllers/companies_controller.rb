@@ -73,7 +73,7 @@ private
 
   def add_views_path
     self._view_paths.paths.reject! do |path|
-      Profile.layout_list.map{|p| "app/views/themes/#{p}"}.include? path
+      Profile.layout_list.map{|p| "app/views/layouts/themes/#{p}"}.include? path
     end
 
     new_path = "app/views/#{@company.profile.layout_path}"
