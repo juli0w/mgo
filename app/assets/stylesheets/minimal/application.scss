@@ -25,14 +25,29 @@
  */
 
 nav .brand-logo {
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .company-layout {
   .header-company {
-    padding: 40px 0;
+    padding: 50px 0;
     background-size: cover;
-     margin-top: 0;
+    background-position: 50%;
+    margin-top: 0;
+
+    h1 {
+      margin: 0;
+      font-size: 30px;
+      font-weight: bold;
+      line-height: 1.4;
+    }
+
+    h2 {
+      line-height: 1.4;
+      font-size: 18px;
+      margin: 0;
+      margin-top: 10px;
+    }
   }
 
   .title-wrapper {
