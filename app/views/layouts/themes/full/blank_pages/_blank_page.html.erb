@@ -1,0 +1,18 @@
+<div id="<%= page.slug %>" class="full-padding <%= odd_color(@company, row_counter) %>">
+  <div class="row">
+    <div class="container">
+      <div class="section">
+        <div class="title-wrapper center no-border">
+          <h5><%= page.title %></h5>
+          <% if page.description.present? %>
+            <h6><%= page.description %></h6>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="company-profile ubuntu">
+        <%= raw page.pageable.content %>
+      </div>
+    </div>
+  </div>
+</div>

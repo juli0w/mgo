@@ -22,7 +22,7 @@
 //= require_self
 
 $(document).ready(function(){
-  ahoy.trackAll();
+  // ahoy.trackAll();
   $('.window-modal').modal({
       dismissible: true,
       opacity: 55 });

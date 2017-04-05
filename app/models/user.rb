@@ -3,6 +3,7 @@ class User < ApplicationRecord
 
   has_many :companies
   has_many :subscribes
+  has_many :visits
 
   devise :database_authenticatable, :registerable,
          :rememberable, :trackable, :validatable,

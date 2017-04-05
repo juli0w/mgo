@@ -1,0 +1,10 @@
+<div class="row header-company <%= 'header-company-cover' if @company.profile.cover? %>" style="<%= header_image(@company) if @company.profile.cover? %>;">
+  <div class="container">
+    <div class="<%= color(:description_color, @company) %> title-wrapper no-border">
+      <h5><%= page.title %></h5>
+      <% if page.description.present? %>
+        <h6><%= page.description %></h6>
+      <% end %>
+    </div>
+  </div>
+</div>

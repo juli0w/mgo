@@ -1,0 +1,21 @@
+<div id="<%= page.slug %>" class="full-padding <%= odd_color(@company, row_counter) %>">
+  <div class="row">
+    <div class="container">
+      <div class="section">
+        <div class="title-wrapper center no-border">
+          <h5><%= page.title %></h5>
+          <h6><%= page.description %></h6>
+        </div>
+      </div>
+
+      <div class="no-top-margin photo-grid">
+        <% page.pageable.photos.each do |photo| %>
+          <div class="grid photo center-align" style="overflow: hidden;" desc="<%= photo.description %>" img-full="<%= photo.photo.url %>">
+            <%= image_tag(photo.photo.slider.url, class: 'img-open', alt: "#{photo.description}") %>
+            <div class="truncate photo-desc"><%= photo.description %></div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

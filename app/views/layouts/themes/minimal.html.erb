@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <%= display_meta_tags site: @company.name %>
+    <%= csrf_meta_tag %>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <%= stylesheet_link_tag    'minimal/application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'company/application', 'data-turbolinks-track': 'reload' %>
+
+    <link rel="icon" href="http://weekz.com.br/favicon.png" sizes="32x32">
+    <link rel="apple-touch-icon-precomposed" href="http://weekz.com.br/favicon.png">
+    <meta name="msapplication-TileColor" content="#00bcd4">
+    <meta name="msapplication-TileImage" content="http://weekz.com.br/favicon.png">
+
+    <%= canonical_tag %>
+    <style>
+      <%= render "layouts/company/fonts.css", font: @company.profile.font %>
+    </style>
+
+    <%= render "layouts/widgets/og" %>
+  </head>
+
+  <body class="company-layout">
+
+    <%= render @company.layout_path(:navbar) %>
+
+    <%= render @company.layout_path(:content) %>
+
+    <%= render "layouts/company/footer" %>
+
+    <%= render "layouts/widgets/analytics" %>
+
+    <%= render "layouts/main/flash" %>
+
+    <% if user_signed_in? %>
+      <%= render "layouts/company/tools" %>
+    <% end %>
+
+    <%= render "layouts/widgets/fb_root" %>
+  </body>
+</html>

@@ -1,0 +1,9 @@
+<%= render @company.layout_path(:heading), page: page %>
+
+<div class="row full-padding">
+  <div class="container">
+    <div class="company-profile ubuntu">
+      <%= raw page.pageable.content %>
+    </div>
+  </div>
+</div>

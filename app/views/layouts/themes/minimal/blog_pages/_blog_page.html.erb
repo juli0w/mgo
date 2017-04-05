@@ -1,0 +1,25 @@
+<%= render @company.layout_path(:heading), page: page %>
+
+<section id="<%= page.slug %>" class="blog-page full-padding">
+  <div class="row">
+    <div class="container">
+      <div class="articles">
+        <div class="col s12 l8">
+          <% @articles.each do |article| %>
+            <%= render "blog_pages/article", article: article %>
+          <% end %>
+
+          <div class="article-pager center white-text">
+            <%= paginate @articles %>
+          </div>
+        </div>
+
+        <%= render "layouts/widgets/side_search" %>
+
+        <%= render "layouts/widgets/side_related" %>
+
+        <%= render "layouts/widgets/side_facebook" %>
+      </div>
+    </div>
+  </div>
+</section>

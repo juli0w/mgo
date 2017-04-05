@@ -18,7 +18,7 @@
 //= require_tree
 
 $(document).ready(function(){
-  ahoy.trackAll();
+  // ahoy.trackAll();
   $(".button-collapse").sideNav();
   $('select').material_select();
   $('.window-modal').modal({

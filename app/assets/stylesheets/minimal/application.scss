@@ -1,0 +1,41 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require ../rating
+ *= require ../materialize-load
+ *= require_tree
+ *= require ../company/custom
+ *= require ../company/shared
+ *= require ../company/social
+ *= require ../company/photo-grid
+ *= require ../company/company-page
+ *= require ../company/company-nav
+ *= require ../font-awesome
+ *= require ../login-modal
+ *= require_self
+ */
+
+nav .brand-logo {
+  font-size: 18px;
+}
+
+.company-layout {
+  .header-company {
+    padding: 40px 0;
+    background-size: cover;
+     margin-top: 0;
+  }
+
+  .title-wrapper {
+    margin-bottom: 0;
+  }
+}

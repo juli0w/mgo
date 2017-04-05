@@ -11,9 +11,20 @@ class Profile < ApplicationRecord
 
   LAYOUTS = {
     Website: [["Full Page", "full"],
-              ["Default", "default"]],
+              ["Default", "default"],
+              ["Minimalista", "minimal"]],
     Landing: [["Squeeze", "landing"]]
   }
+
+  def self.layout_list
+    ar = []
+    LAYOUTS.each do |k, v|
+      LAYOUTS[k].each do |l|
+        ar << l[1]
+      end
+    end
+    return ar
+  end
 
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
   mount_uploader :cover, CoverUploader
