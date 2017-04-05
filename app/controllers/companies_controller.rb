@@ -55,7 +55,7 @@ class CompaniesController < ApplicationController
       set_meta_tags title: "#{@article.title} - #{@page.title}",
                     description: "#{@article.description}"
 
-      render "#{@company.profile.layout_path}/article", layout: @company.profile.layout_path
+      render html: "#{@company.profile.layout_path}/article", layout: @company.profile.layout_path
     end
   end
 
