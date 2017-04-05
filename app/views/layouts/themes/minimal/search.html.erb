@@ -13,7 +13,7 @@
       <div class="articles">
         <div class="col s12 l8">
           <% @articles.each do |article| %>
-            <%= render "blog_pages/article", article: article %>
+            <%= render "#{@company.profile.layout_path}/blog_pages/article", article: article %>
           <% end %>
 
           <div class="article-pager center white-text">
