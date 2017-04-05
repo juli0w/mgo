@@ -1,0 +1,50 @@
+<div class="article-page full-padding">
+  <div class="row">
+    <div class="container">
+      <section class="articles">
+        <div class="col s12 l8">
+          <article class="article card">
+            <h1><%= @article.title %></h1>
+            <h2><%= @article.description %></h2>
+            <header class="card-title">
+              <div class="fb-like" data-href="<%= @article.link(root_url) %>" data-layout="button" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+              <em class="card-description right"><%= @article.created_at.strftime("%d/%m/%Y") %></em>
+            </header>
+
+            <% if @article.cover? %>
+              <section>
+                <picture class="card-image">
+                  <%= image_tag @article.cover.article, alt: @article.title %>
+                </picture>
+              </section>
+            <% end %>
+
+            <div class="card-content">
+              <div style="margin-bottom: 20px;" class="ubuntu"><%= raw @article.content %></div>
+              <div class="fb-like" data-href="<%= @article.link(root_url) %>" data-layout="button" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+            </div>
+          </article>
+        </div>
+
+        <%= render "layouts/widgets/side_search" %>
+
+        <%= render "layouts/widgets/side_related" %>
+
+        <%= render "layouts/widgets/side_facebook" %>
+      </section>
+
+      <div class="comments">
+        <div class="col s12">
+          <h5>Deixe seu comentário</h5>
+          <div class="fb-comments" data-href='<%= @article.link(root_url) %>' data-width="100%" data-numposts="5"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= content_for :og do %>
+  <meta property="og:title" content='<%= "#{@article.title} | #{@company.name}" %>' />
+  <meta property="og:description" content="<%= @article.description %>">
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="http://weekz.com.br<%= @article.cover.url %>" />
+<% end %>

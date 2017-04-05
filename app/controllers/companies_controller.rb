@@ -1,7 +1,7 @@
 class CompaniesController < ApplicationController
   before_action :set_company_by_slug, only: [:show, :sitemap, :paging, :article, :search]
   before_action :load_pages, only: [:show, :paging, :article, :search]
-  before_action :add_views_path, only: [:show, :paging, :article, :search]
+  # before_action :add_views_path, only: [:show, :paging, :article, :search]
 
   def tag
     set_meta_tags title: 'Coloque suas idéias em prática!',
@@ -55,7 +55,7 @@ class CompaniesController < ApplicationController
       set_meta_tags title: "#{@article.title} - #{@page.title}",
                     description: "#{@article.description}"
 
-      render "#{@company.profile.layout_path}/article", format: :html, layout: @company.profile.layout_path
+      render "#{@company.profile.layout_path(:article)}", format: :html, layout: @company.profile.layout_path
     end
   end
 
@@ -73,11 +73,11 @@ private
 
   def add_views_path
     self._view_paths.paths.reject! do |path|
-      Profile.layout_list.map{|p| "app/views/layouts/themes/#{p}"}.include? path
+      Profile.layout_list.map{|p| "app/views/themes/#{p}"}.include? path
     end
 
     new_path = "app/views/#{@company.profile.layout_path}"
-    self._view_paths.paths << new_path
+    # self._view_paths.paths << new_path
     self._view_paths.paths.uniq!
   end
 
