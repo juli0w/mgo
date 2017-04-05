@@ -1,7 +1,7 @@
 class CompaniesController < ApplicationController
   before_action :set_company_by_slug, only: [:show, :sitemap, :paging, :article, :search]
   before_action :load_pages, only: [:show, :paging, :article, :search]
-  # before_action :add_views_path, only: [:show, :paging, :article, :search]
+  before_action :add_views_path, only: [:show, :paging, :article, :search]
 
   def tag
     set_meta_tags title: 'Coloque suas idéias em prática!',
@@ -77,7 +77,7 @@ private
     end
 
     new_path = "app/views/#{@company.profile.layout_path}"
-    # self._view_paths.paths << new_path
+    self._view_paths.paths << new_path
     self._view_paths.paths.uniq!
   end
 
