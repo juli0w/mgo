@@ -9,8 +9,6 @@ module Backstage
     def show
       @contact = @company.contacts.find(params[:id])
       @contact.mark_as_read!
-
-      render :index
     end
 
     def destroy
@@ -18,7 +16,7 @@ module Backstage
       @contact.delete
 
       flash[:success] = "Removido com sucesso!"
-      redirect_to backstage_company_contacts_path(@company)
+      redirect_to backstage_company_contacts_path(@company, filter: params[:filter])
     end
 
   private

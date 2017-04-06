@@ -29,26 +29,12 @@
       <div class="loader-section section-right"></div>
   </div>
 
-  <%#= render "layouts/backstage/header" %>
-
   <a class="hide-on-small-only btn-floating fs-btn waves-effect waves-light amber"><i class="material-icons">aspect_ratio</i></a>
 
-  <div class="row">
+  <%= render "layouts/backstage/aside" %>
 
-    <div class="col s12 l3" style="padding: 0; margin: 0;">
-      <%= render "layouts/backstage/aside" %>
-    </div>
+  <%= yield %>
 
-    <div class="col s12 l9" style="padding: 0; margin: 0;">
-      <section id="content">
-
-        <%= yield %>
-
-      </section>
-    </div>
-  </div>
-
-  <%= render "layouts/backstage/footer" %>
   <%= render "layouts/main/flash" %>
 
   <%= render "layouts/widgets/analytics" %>

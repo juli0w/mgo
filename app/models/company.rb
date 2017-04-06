@@ -29,7 +29,7 @@ class Company < ApplicationRecord
   validates :category_id, presence: true
 
   belongs_to :user, optional: true
-  belongs_to :category
+  belongs_to :category, optional: true
   belongs_to :city, optional: true
   belongs_to :uf, optional: true
   has_one :profile, dependent: :destroy

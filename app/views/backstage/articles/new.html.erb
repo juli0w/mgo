@@ -1,22 +1,8 @@
-<div id="breadcrumbs-wrapper">
-  <div class="container">
-    <div class="row">
-      <div class="col s12 m12 l12">
-        <h5 class="breadcrumbs-title">Escrever artigo</h5>
-        <ol class="breadcrumbs">
-          <li><%= link_to @company.name, [:backstage, @company] %></li>
-          <li>Blog</li>
-          <li><%= link_to "Artigos", backstage_company_articles_path(@company) %></li>
-        </ol>
-      </div>
-    </div>
-  </div>
-</div>
+<%= render "layouts/backstage/profile_header" %>
 
-<div class="container">
-  <div class="row">
-    <div class="card-panel">
-      <%= render "form" %>
-    </div>
+<div class="row">
+  <div class="col s12">
+    <h5>Escrever Artigo</h5>
+    <%= render "form" %>
   </div>
 </div>

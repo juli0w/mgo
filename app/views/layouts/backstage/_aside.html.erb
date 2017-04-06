@@ -1,66 +1,71 @@
-<aside class="card no-top-margin">
-  <ul class="leftside-navigation">
-    <li>
-      <div class="row">
-        <h5 class="brand-logo center fredoka"><strong><%= link_to "WEEKZ", root_url, class: "blue-grey darken-3 white-text" %></strong></h5>
-        <div class="col s12 center grey-text text-darken-3">
-          <%= image_tag user_avatar(current_user), alt: "avatar", class: "circle responsive-img profile-image" %>
-          <p style="line-height: 1.66em; margin-top: 0;">
-            Bem vindo<br>
-            <%= current_user.name_display %><br>
-            <%= current_user.role %></p>
-          <div class="divider"></div>
-        </div>
-      </div>
-    </li>
-    <li>
-      <%= link_to backstage_dashboard_path, class: "waves-effect waves-cyan" do %>
-        <i class="material-icons">dashboard</i> Dashboard
-      <% end %>
-    </li>
+<nav class="top-nav grey darken-2">
+  <div class="nav-wrapper">
+    <a href="#" data-activates="main-menu" class="button-collapse"><i class="material-icons">menu</i></a>
 
-    <li>
-      <ul class="collapsible collapsible-accordion">
-        <li class="bold"><a class="collapsible-header waves-effect waves-cyan"><i class="material-icons">business</i> Idéias</a>
-          <div class="collapsible-body">
-            <ul>
-              <li><%= link_to "Listar", backstage_companies_path %>
-              </li>
-              <li><%= link_to "Adicionar", new_backstage_company_path %></li>
-              <li><div class="divider"></div></li>
-            </ul>
-          </div>
-        </li>
-      </ul>
-    </li>
-    <li>
-      <%= link_to backstage_subscribes_path, class: "waves-effect waves-cyan" do %>
-        <i class="material-icons">view_list</i> Pedidos
-      <% end %>
-    </li>
-    <% if current_user.admin? %>
-      <li class="no-padding">
-        <ul class="collapsible collapsible-accordion">
-          <li class="bold"><a class="collapsible-header waves-effect waves-cyan">
-            <i class="material-icons">vpn_key</i> Adminstrativo</a>
-            <div class="collapsible-body">
-              <ul>
-                <li><%= link_to 'Categorias', backstage_admin_categories_path %></li>
-                <li><%= link_to 'Fontes', backstage_admin_fonts_path %></li>
-                <li><%= link_to 'Mensagens', backstage_admin_contacts_path %></li>
-                <li><%= link_to 'Templates', backstage_admin_sample_templates_path %></li>
-                <li><%= link_to 'Usuários', backstage_admin_users_path %></li>
-                <li><div class="divider"></div></li>
-              </ul>
-            </div>
-          </li>
-        </ul>
+    <%= link_to "Weekz | Escritório Virtual", root_url, class: "brand-logo" %>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <!-- <li>
+        <%#= link_to backstage_dashboard_path, class: "waves-effect waves-cyan" do %>
+          <i class="material-icons left">dashboard</i> Dashboard
+        <%# end %>
+      </li> -->
+      <li>
+        <%= link_to backstage_companies_path, class: "waves-effect waves-cyan" do %>
+          <i class="material-icons left">business</i> Páginas
+        <% end %>
       </li>
-    <% end %>
-    <li>
-      <%= link_to destroy_user_session_path, method: :delete, class: "waves-effect waves-cyan" do %>
-        <i class="material-icons">lock_open</i> Sair
+      <!-- <li>
+        <%#= link_to backstage_subscribes_path, class: "waves-effect waves-cyan" do %>
+          <i class="material-icons left">view_list</i> Pedidos
+        <%# end %>
+      </li> -->
+      <li>
+        <%= link_to destroy_user_session_path, method: :delete, class: "waves-effect waves-cyan" do %>
+          <i class="material-icons left">lock_open</i> Sair
+        <% end %>
+      </li>
+      <% if current_user.admin? %>
+      <li><a class="dropdown-button" href="#!" data-activates="admin-content">
+        <i class="material-icons left">vpn_key</i> Administrativo<i class="material-icons right">arrow_drop_down</i></a></li>
       <% end %>
-    </li>
-  </ul>
-</aside>
+    </ul>
+
+    <ul id="main-menu" class="side-nav grey">
+      <!-- <li>
+        <%#= link_to backstage_dashboard_path, class: "waves-effect waves-cyan" do %>
+          <i class="material-icons left">dashboard</i> Dashboard
+        <%# end %>
+      </li> -->
+      <li>
+        <%= link_to backstage_companies_path, class: "waves-effect waves-cyan" do %>
+          <i class="material-icons left">business</i> Páginas
+        <% end %>
+      </li>
+      <!-- <li>
+        <%#= link_to backstage_subscribes_path, class: "waves-effect waves-cyan" do %>
+          <i class="material-icons left">view_list</i> Pedidos
+        <%# end %>
+      </li> -->
+      <li>
+        <%= link_to destroy_user_session_path, method: :delete, class: "waves-effect waves-cyan" do %>
+          <i class="material-icons left">lock_open</i> Sair
+        <% end %>
+      </li>
+      <% if current_user.admin? %>
+        <li><%= link_to 'Fontes', backstage_admin_fonts_path %></li>
+        <li><%= link_to 'Mensagens', backstage_admin_contacts_path %></li>
+        <li><%= link_to 'Templates', backstage_admin_sample_templates_path %></li>
+        <li><%= link_to 'Usuários', backstage_admin_users_path %></li>
+      <% end %>
+    </ul>
+
+    <% if current_user.admin? %>
+      <ul id="admin-content" class="dropdown-content">
+        <li><%= link_to 'Fontes', backstage_admin_fonts_path %></li>
+        <li><%= link_to 'Mensagens', backstage_admin_contacts_path %></li>
+        <li><%= link_to 'Templates', backstage_admin_sample_templates_path %></li>
+        <li><%= link_to 'Usuários', backstage_admin_users_path %></li>
+      </ul>
+    <% end %>
+  </div>
+</nav>

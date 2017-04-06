@@ -1,14 +1,17 @@
-<% content_for :subnav do %>
-  <%= render "companies/subnav" %>
-<% end %>
-
-<div class="container">
-  <div class="row">
-
-    <%= render "layouts/backstage/profile_header" %>
-
-    <div class="card-panel">
-      <h5 class="center">Páginas</h5>
+<%= render "layouts/backstage/profile_header" %>
+<nav class="sub-menu grey darken-3">
+  <div class="nav-wrapper">
+    <ul class="right hide-on-med-and-down">
+      <li><%= link_to new_backstage_company_page_path(@company) do %>
+        <i class="material-icons left">note_add</i> Nova Página</li>
+      <% end %></li>
+    </ul>
+  </div>
+</nav>
+<div class="row">
+  <div class="col s12">
+    <h5>Páginas</h5>
+    <div class="card">
       <table class="striped bordered">
         <thead>
           <tr>
@@ -27,19 +30,14 @@
             <td><%= page.title %></td>
             <td><%= page.pageable_type %></td>
             <td>
-              <%= link_to "Editar", polymorphic_path([:edit, :backstage, @company, page]) %>
-            |  <%= link_to "Página", polymorphic_path([:edit, :backstage, @company, page, page.pageable]) %>
-            | <%= link_to "Excluir", backstage_company_page_path(@company, page), method: :delete, data: { confirm: 'Excluir o álbum?' } %>
+              <%= link_to "Editar", polymorphic_path([:edit, :backstage, @company, page, page.pageable]) %><br>
+              <%= link_to "Excluir", backstage_company_page_path(@company, page), method: :delete, data: { confirm: 'Excluir o álbum?' } %>
             </td>
           </tr>
 
           <% end %>
         </tbody>
       </table>
-    </div>
-
-    <div class="card-panel">
-      <%= link_to "Nova página", new_backstage_company_page_path(@company), class: "btn large" %>
     </div>
   </div>
 </div>

@@ -29,7 +29,7 @@
     <%= image_tag(@article.cover.thumb.url) if @article.cover? %>
     <%= f.hidden_field :cover_cache %>
     <div class="file-field input-field">
-      <div class="btn">
+      <div class="btn red">
         <span>Capa (740x350)</span>
         <%= f.file_field :cover %>
       </div>
@@ -41,7 +41,7 @@
 
   <div class="row">
     <div class="input-field col s12">
-      <button class="btn waves-effect waves-light" type="submit" name="action">Salvar
+      <button class="btn waves-effect waves-light red" type="submit" name="action">Salvar
         <i class="material-icons right">send</i>
       </button>
     </div>

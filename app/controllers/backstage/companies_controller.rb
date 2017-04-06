@@ -4,11 +4,7 @@ module Backstage
     before_action :authenticate_admin!, only: [:active, :unactive]
 
     def index
-      if params[:keyword].present?
-        @companies = current_user.companies.where("name LIKE ?", "%#{params[:keyword]}%").page(params[:page])
-      else
-        @companies = current_user.companies.page params[:page]
-      end
+      @companies = current_user.companies.search(params[:key]).page(params[:page])
     end
 
     def active
@@ -82,7 +78,7 @@ module Backstage
 
     def company_params
       params.require(:company).permit(:name, :domain, :analytics_id,
-        :description, :crop_x, :crop_y, :crop_w, :crop_h, :category_id,
+        :description, :crop_x, :crop_y, :crop_w, :crop_h,
         :logotipo, :slug, :tag_list, :facebook, :twitter, :instagram,
         :phone, :mail, :city_id, :uf_id, :address)
     end

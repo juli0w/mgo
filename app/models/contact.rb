@@ -12,6 +12,11 @@ class Contact < ApplicationRecord
     update(read: true)
   end
 
+  include SearchCop
+  search_scope :search do
+    attributes :name, :email, :phone, :message
+  end
+
   def deliver
     if save
       ContactMailer.contact_email(self).deliver_now  unless self.destination.empty?

@@ -4,7 +4,7 @@ module Backstage
     before_filter :set_article, only: [:edit, :update, :destroy]
 
     def index
-      @articles = @company.articles.order('ID desc').page(params[:page])
+      @articles = @company.articles.search(params[:key]).order('ID desc').page(params[:page])
     end
 
     def new

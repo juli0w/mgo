@@ -1,58 +1,57 @@
-<% content_for :subnav do %>
-  <%= render "companies/subnav" %>
-<% end %>
+<%= render "layouts/backstage/profile_header" %>
 
-<div class="container">
-  <div class="row">
+<div class="row">
+  <div class="col s6">
+    <h5>Landing Page</h5>
 
-    <%= render "layouts/backstage/profile_header" %>
-    <div class="card-panel">
-      <h5 class="center">Edição de página</h5>
-      <h6 class="center"><%= @page.title %></h6>
+    <%= form_for [:backstage, @company, @page, @landing_page]  do |f| %>
 
-      <%= form_for [:backstage, @company, @page, @landing_page]  do |f| %>
-
-        <div class="row">
-          <div class="input-field col s12">
-            Descrição
-            <%= f.cktext_area :content, ckeditor: { toolbarCanCollapse: true } %>
-          </div>
+      <div class="row">
+        <div class="input-field col s12">
+          Descrição
+          <%= f.cktext_area :content, ckeditor: { toolbarCanCollapse: true } %>
         </div>
+      </div>
 
-        <div class="row">
-          <div class="input-field col s6">
-            <%= f.label :link %>
-            <%= f.text_field :link %>
-          </div>
-          <div class="input-field col s6">
-            <%= f.label :link_call %>
-            <%= f.text_field :link_call %>
-          </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <%= f.label :link %>
+          <%= f.text_field :link %>
         </div>
-
-        <div class="row">
-          <div class="input-field col s12">
-            <%= f.label :image %>
-            <%= f.text_field :image %>
-          </div>
+        <div class="input-field col s6">
+          <%= f.label :link_call %>
+          <%= f.text_field :link_call %>
         </div>
+      </div>
 
-        <div class="row">
-          <div class="input-field col s12">
-            Detalhes
-            <%= f.cktext_area :details, ckeditor: { toolbarCanCollapse: true } %>
-          </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <%= f.label :image %>
+          <%= f.text_field :image %>
         </div>
+      </div>
 
-        <div class="row">
-          <div class="input-field col s12">
-            <button class="btn waves-effect waves-light" type="submit" name="action">Salvar
-              <i class="material-icons right">send</i>
-            </button>
-          </div>
+      <div class="row">
+        <div class="input-field col s12">
+          Detalhes
+          <%= f.cktext_area :details, ckeditor: { toolbarCanCollapse: true } %>
         </div>
-      <% end %>
+      </div>
 
-    </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <button class="btn waves-effect waves-light red" type="submit" name="action">Salvar
+            <i class="material-icons right">send</i>
+          </button>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="col s6">
+    <h5>Dados da Página</h5>
+
+    <%= render "backstage/pages/form" %>
+
   </div>
 </div>

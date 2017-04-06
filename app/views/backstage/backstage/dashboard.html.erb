@@ -1,75 +1,13 @@
-<div id="breadcrumbs-wrapper">
-  <div class="container">
-    <div class="row">
-      <div class="col s12 m12 l12">
-        <h5 class="breadcrumbs-title">Dashboard</h5>
-        <ol class="breadcrumbs">
-            <li>Início</li>
-        </ol>
-      </div>
-    </div>
+<div id="breadcrumbs-wrapper" class="row grey darken-3 no-bot-margin white-text">
+  <div class="col s12">
+    <h5 class="breadcrumbs-title">Dashboard</h5>
+    <ol class="breadcrumbs">
+        <li>Início</li>
+    </ol>
   </div>
 </div>
 
 <div class="row">
-  <div class="col s12 m7">
-    <div class="card-panel">
-      <h5>Idéias</h5>
-      <table class="striped bordered">
-        <thead>
-          <tr>
-              <th data-field="name">Nome</th>
-              <th data-field="actions"></th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <% @companies.each do |company| %>
-
-          <tr>
-            <td><%= company.name %></td>
-            <td>
-              <%= link_to "Administrar", [:backstage, company] %>
-            </td>
-          </tr>
-
-          <% end %>
-        </tbody>
-      </table>
-      <br/>
-      <%= link_to "Nova IDÉIA", new_backstage_company_path, class: "btn" %>
-    </div>
-  </div>
-  <div class="col s12 m5">
-    <div class="card-panel">
-      <h5>Últimos pedidos</h5>
-      <table class="striped bordered">
-        <thead>
-          <tr>
-              <th data-field="id"></th>
-              <th data-field="name">Empresa</th>
-              <th data-field="state">Status</th>
-              <th data-field="actions"></th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <% @subscribes.each do |subscribe| %>
-
-          <tr>
-            <td>#<%= subscribe.code %></td>
-            <td><%= subscribe.company.name %></td>
-            <td><span class="state light-green darken-2 white-text"><%= subscribe.state_value %></span></td>
-            <td>
-              <%= link_to "Visualizar", [:backstage, subscribe] %>
-            </td>
-          </tr>
-
-          <% end %>
-        </tbody>
-      </table>
-      <br/>
-      <%= link_to "Upgrade", new_backstage_subscribe_path, class: "btn" %>
-    </div>
+  <div class="col s12">
   </div>
 </div>

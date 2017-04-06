@@ -4,11 +4,7 @@ module Backstage
       before_filter :set_user, only: [:edit, :update, :destroy]
 
       def index
-        if params[:keyword].present?
-          @users = User.where("email LIKE ?", "%#{params[:keyword]}%").page(params[:page])
-        else
-          @users = User.page params[:page]
-        end
+        @users = User.all.search(params[:key]).page(params[:page])
       end
 
       def become

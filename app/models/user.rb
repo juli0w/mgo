@@ -5,6 +5,11 @@ class User < ApplicationRecord
   has_many :subscribes
   has_many :visits
 
+  include SearchCop
+  search_scope :search do
+    attributes :name, :email
+  end
+
   devise :database_authenticatable, :registerable,
          :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]

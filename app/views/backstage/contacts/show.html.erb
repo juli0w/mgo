@@ -1,0 +1,29 @@
+<%= render "layouts/backstage/profile_header" %>
+
+<nav class="sub-menu grey darken-3">
+  <div class="nav-wrapper">
+    <ul class="right hide-on-med-and-down">
+      <li><%= link_to backstage_company_contact_path(@company, @contact, filter: params[:filter]), method: :delete, data: { confirm: "Confirma exclusão permanente?" } do %>
+        <i class="material-icons left">delete</i> Excluir</li>
+      <% end %></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="row">
+  <div class="col s12">
+    <h5><%= @contact.subject %></h5>
+    <div class="email-content-wrap" style="margin-left: 10px;">
+      <h6>Remetente: <%= @contact.name %></h6>
+      <p class="grey-text">Para: <%= @company.name %><br>
+      <%= l(@contact.created_at) %></p>
+
+      <div class="email-content">
+        <p>
+          <%= @contact.message %>
+        </p>
+      </div>
+    </div>
+
+  </div>
+</div>

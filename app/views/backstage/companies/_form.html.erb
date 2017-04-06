@@ -1,108 +1,110 @@
 <%= form_for [:backstage, @company], html: { multipart: true }  do |f| %>
   <div class="row">
-    <div class="input-field col s12 m6">
-      <%= f.text_field :name, required: true, maxlength: 220 %>
-      <%= f.label :name %>
-    </div>
+    <div class="col s12 m6">
+      <h5>Corporativo</h5>
 
-    <div class="input-field col s12 m6 tooltipped" data-tooltip="Link da sua página. Só aceita letras, números e separador (-)">
-      <%= link_to "?", '#!', class: "btn-help" %>
-      <%= f.text_field :slug,
-        required: true, maxlength: 220,
-        style: "padding-left: 30px;" %>
-      <%= f.label :slug %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="input-field col s12">
-      <%= f.text_field :description, maxlength: 220 %>
-      <%= f.label :description %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="input-field col s12 m6">
-      <%= f.collection_select :category_id, Category.except_root, :id, :name, prompt: false %>
-      <%= f.label :category_id %>
-    </div>
-
-    <div class="input-field col s12 m6 tooltipped" data-tooltip="Só aceita letras e números, separe as tags com vírgulas (ex: loja, roupas)">
-      <%= link_to "?", '#!', class: "btn-help" %>
-      <%= f.text_field :tag_list, value: @company.tag_list.join(", "), maxlength: 120,
-            style: "padding-left: 30px;" %>
-      <%= f.label :tag_list %>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="input-field col s12 m6">
-      <%= f.text_field :phone, maxlength: 220 %>
-      <%= f.label :phone %>
-    </div>
-    <div class="input-field col s12 m6">
-      <%= f.text_field :mail, maxlength: 220 %>
-      <%= f.label :mail %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="input-field col s8">
-      <%= f.collection_select :city_id, City.all, :id, :name, prompt: false, required: true %>
-      <%= f.label :city_id %>
-    </div>
-    <div class="input-field col s4">
-      <%= f.collection_select :uf_id, Uf.all, :id, :name, prompt: false, required: true %>
-      <%= f.label :uf_id %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="input-field col s12">
-      <%= f.text_field :address, maxlength: 220 %>
-      <%= f.label :address %>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="input-field col s6">
-      <%= f.text_field :domain, maxlength: 80 %>
-      <%= f.label :domain %>
-    </div>
-    <div class="input-field col s6">
-      <%= f.text_field :analytics_id, maxlength: 20 %>
-      <%= f.label :analytics_id %>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="input-field col s12 m4">
-      <%= f.text_field :facebook, maxlength: 220 %>
-      <%= f.label :facebook %>
-    </div>
-    <div class="input-field col s12 m4">
-      <%= f.text_field :instagram, maxlength: 20 %>
-      <%= f.label :instagram %>
-    </div>
-    <div class="input-field col s12 m4">
-      <%= f.text_field :twitter, maxlength: 220 %>
-      <%= f.label :twitter %>
-    </div>
-  </div>
-
-  <div class="row">
-    <%= image_tag(@company.logotipo.thumb.url) if @company.logotipo? %>
-    <%= f.hidden_field :logotipo_cache %>
-    <div class="file-field input-field">
-      <div class="btn">
-        <span>Logotipo</span>
-        <%= f.file_field :logotipo %>
+      <div class="row">
+        <div class="input-field col s12">
+          <%= f.text_field :name, required: true, maxlength: 220 %>
+          <%= f.label :name %>
+        </div>
       </div>
-      <div class="file-path-wrapper">
-        <input class="file-path validate" type="text">
+
+      <div class="row">
+        <div class="input-field col s12">
+          <%= f.text_field :description, maxlength: 220 %>
+          <%= f.label :description %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12 m6">
+          <%= f.text_field :phone, maxlength: 220 %>
+          <%= f.label :phone %>
+        </div>
+        <div class="input-field col s12 m6">
+          <%= f.text_field :mail, maxlength: 220 %>
+          <%= f.label :mail %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s8">
+          <%= f.collection_select :city_id, City.all, :id, :name, prompt: false, required: true %>
+          <%= f.label :city_id %>
+        </div>
+        <div class="input-field col s4">
+          <%= f.collection_select :uf_id, Uf.all, :id, :name, prompt: false, required: true %>
+          <%= f.label :uf_id %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <%= f.text_field :address, maxlength: 220 %>
+          <%= f.label :address %>
+        </div>
       </div>
     </div>
+
+    <div class="col s12 m6">
+      <h5>Técnico</h5>
+
+      <div class="row">
+        <div class="input-field col s12 m6">
+          <%= f.text_field :slug, required: true, maxlength: 220 %>
+          <%= f.label :slug %>
+        </div>
+
+        <div class="input-field col s6">
+          <%= f.text_field :tag_list, value: @company.tag_list.join(", "), maxlength: 120 %>
+          <%= f.label :tag_list %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s6">
+          <%= f.text_field :domain, maxlength: 80 %>
+          <%= f.label :domain %>
+        </div>
+        <div class="input-field col s6">
+          <%= f.text_field :analytics_id, maxlength: 20 %>
+          <%= f.label :analytics_id %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12 m4">
+          <%= f.text_field :facebook, maxlength: 220 %>
+          <%= f.label :facebook %>
+        </div>
+        <div class="input-field col s12 m4">
+          <%= f.text_field :instagram, maxlength: 20 %>
+          <%= f.label :instagram %>
+        </div>
+        <div class="input-field col s12 m4">
+          <%= f.text_field :twitter, maxlength: 220 %>
+          <%= f.label :twitter %>
+        </div>
+      </div>
+
+      <div class="row">
+        <%= image_tag(@company.logotipo.thumb.url) if @company.logotipo? %>
+        <%= f.hidden_field :logotipo_cache %>
+        <div class="file-field input-field">
+          <div class="btn red">
+            <span>Logotipo</span>
+            <%= f.file_field :logotipo %>
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text">
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="row">
     <div class="input-field col s12">
-      <button id="submit" class="btn waves-effect waves-light" type="submit" name="action">Salvar
+      <button id="submit" class="btn waves-effect waves-light red" type="submit" name="action">Salvar
         <i class="material-icons right">send</i>
       </button>
     </div>

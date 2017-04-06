@@ -1,20 +1,15 @@
-<% content_for :subnav do %>
-  <%= render "companies/subnav" %>
-<% end %>
+<%= render "layouts/backstage/profile_header" %>
 
-<div class="container">
-  <div class="row">
+<div class="row">
+  <div class="col s6">
+    <h5>Fotos</h5>
 
-    <%= render "layouts/backstage/profile_header" %>
-
-    <div class="card-panel">
-      <h5 class="center">Nova foto</h5>
     <%= form_for @photo, url: [:backstage, @company, @page, @album_page, @photo], method: :post do |f| %>
 
 
       <div class="row">
         <div class="file-field input-field">
-          <div class="btn">
+          <div class="btn red">
             <span>Foto</span>
             <%= f.file_field :photo %>
           </div>
@@ -33,36 +28,42 @@
 
       <div class="row">
         <div class="input-field col s12">
-          <button class="btn waves-effect waves-light" type="submit" name="action">Salvar
+          <button class="btn waves-effect waves-light red" type="submit" name="action">Salvar
             <i class="material-icons right">send</i>
           </button>
 
-          <%#= link_to "Visitar", "#{company_path(@company)}#tab-fotos", class: 'btn' %>
-          <%= link_to "Visitar", get_url(@company), class: 'btn' %>
+          <%= link_to "Visitar", @company.link, class: 'btn red' %>
         </div>
       </div>
     <% end %>
   </div>
 
-  <div class="row">
-    <% @album_page.photos.each do |photo| %>
-      <% if photo.persisted? %>
-        <div class="col s12 m6" style="padding-bottom: 30px;">
-          <div class="card horizontal">
-            <div class="card-image">
-              <%= image_tag photo.photo.slider.url, width: "200px" %>
+  <div class="col s6">
+    <h5>Dados da Página</h5>
+
+    <%= render "backstage/pages/form" %>
+
+  </div>
+</div>
+
+<div class="row">
+  <% @album_page.photos.each do |photo| %>
+    <% if photo.persisted? %>
+      <div class="col s12 m6" style="padding-bottom: 30px;">
+        <div class="card horizontal">
+          <div class="card-image">
+            <%= image_tag photo.photo.slider.url, width: "200px" %>
+          </div>
+          <div class="card-stacked">
+            <div class="card-content">
+              <p><%= photo.description %></p>
             </div>
-            <div class="card-stacked">
-              <div class="card-content">
-                <p><%= photo.description %></p>
-              </div>
-              <div class="card-action">
-                <%= link_to "Remover", [:backstage, @company, @page, @album_page, photo], :method => :delete, data: { confirm: "Tem certeza?" } %>
-              </div>
+            <div class="card-action">
+              <%= link_to "Remover", [:backstage, @company, @page, @album_page, photo], class: "red-text", :method => :delete, data: { confirm: "Tem certeza?" } %>
             </div>
           </div>
         </div>
-      <% end %>
+      </div>
     <% end %>
-  </div>
+  <% end %>
 </div>

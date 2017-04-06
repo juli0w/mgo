@@ -4,16 +4,12 @@ module Backstage
       before_action :set_contacts, only: [:index, :show, :destroy]
 
       def index
-        filter_contacts
+        @contacts = @contacts.search(params[:key]).page(params[:page]).per(10).order("id desc")
       end
 
       def show
         @contact = @contacts.find(params[:id])
         @contact.mark_as_read!
-
-        filter_contacts
-
-        render :index
       end
 
       def destroy
@@ -28,16 +24,6 @@ module Backstage
 
       def set_contacts
         @contacts = Contact.all
-      end
-
-      def filter_contacts
-        if params[:filter] == "read"
-          @contacts = @contacts.read
-        else
-          @contacts = @contacts.unread
-        end
-
-        @contacts = @contacts.page(params[:page]).per(10).order("id desc")
       end
     end
   end

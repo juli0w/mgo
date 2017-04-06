@@ -1,33 +1,21 @@
-<div id="breadcrumbs-wrapper">
-  <div class="container">
-    <div class="row">
-      <div class="col s12 m12 l12">
-        <h5 class="breadcrumbs-title">Artigos</h5>
-        <ol class="breadcrumbs">
-            <li><%= link_to @company.name, [:backstage, @company] %></li>
-            <li>Blog</li>
-        </ol>
-      </div>
+<%= render "layouts/backstage/profile_header" %>
+<nav class="sub-menu grey darken-3">
+  <div class="nav-wrapper">
+    <div class="filter-widget left">
+      <%= render "layouts/widgets/search", path: backstage_company_articles_path(@company), placeholder: "Filtrar" %>
     </div>
+
+    <ul class="right hide-on-med-and-down">
+      <li><%= link_to new_backstage_company_article_path(@company) do %>
+        <i class="material-icons left">note_add</i> Escrever Artigo</li>
+      <% end %></li>
+    </ul>
   </div>
-</div>
-
-<div class="container">
-  <div class="row">
-    <div class="card-panel">
-      <div class="search-offers">
-        <%= form_tag backstage_company_articles_path(@company), method: :get do %>
-            <fieldset style="border: none; margin: 0; padding: 0;">
-              <input name="keyword" id="icon_local" style="display: inline;" type="search" placeholder="Filtrar artigos" value=<%= params[:keyword] %>>
-              <button class="btn" type="submit" name="action">
-                Filtrar
-              </button>
-          </fieldset>
-        <% end %>
-      </div>
-    </div>
-
-    <div class="card-panel">
+</nav>
+<div class="row">
+  <div class="col s12">
+    <h5>Artigos</h5>
+    <div class="card">
       <table class="striped bordered">
         <thead>
           <tr>
@@ -54,11 +42,6 @@
       </table>
 
       <%= paginate @articles %>
-
-    </div>
-
-    <div class="card-panel">
-      <%= link_to "Escrever artigo", new_backstage_company_article_path(@company), class: "btn large" %>
     </div>
   </div>
 </div>
