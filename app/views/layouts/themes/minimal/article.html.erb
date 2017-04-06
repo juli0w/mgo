@@ -5,21 +5,21 @@
     <div class="container">
       <section class="articles">
         <div class="col s12 l8">
-          <article class="article card">
-            <header class="card-title">
+          <article class="article card post">
+            <header class="card-title post-title">
               <div class="fb-like" data-href="<%= @article.link(root_url) %>" data-layout="button" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
               <em class="card-description right"><%= @article.created_at.strftime("%d/%m/%Y") %></em>
             </header>
 
             <% if @article.cover? %>
               <section>
-                <picture class="card-image">
+                <picture class="card-image post-image">
                   <%= image_tag @article.cover.article, alt: @article.title %>
                 </picture>
               </section>
             <% end %>
 
-            <div class="card-content">
+            <div class="card-content post-content">
               <div style="margin-bottom: 20px;" class="ubuntu"><%= raw @article.content %></div>
               <div class="fb-like" data-href="<%= @article.link(root_url) %>" data-layout="button" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
             </div>
