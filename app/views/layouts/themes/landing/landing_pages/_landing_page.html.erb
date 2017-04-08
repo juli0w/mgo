@@ -3,19 +3,19 @@
     <div class="section">
       <div class="title-wrapper no-border">
         <h1 class="<%= color(:logo_color, @company) %>"><%= page.title %></h1>
-        <h2 class="<%= color(:description_color, @company) %>"><%= page.description %></h2>
       </div>
     </div>
   </div>
 </header>
 
 <section class="row" style="padding: 20px 0 20px 5px !important;">
-  <div class="large-container">
-    <picture class="col s12 m6">
-      <%= image_tag @page.pageable.image, class: "responsive-img" %>
+  <div class="large-container valign-wrapper">
+    <picture class="col s12 m6 valign">
+      <%= image_tag @page.pageable.image, class: "valign responsive-img" %>
     </picture>
     <div class="col s12 m6">
       <div class="page-content">
+        <h2 class="<%= color(:description_color, @company) %>"><%= page.description %></h2>
         <%= raw @page.pageable.content %>
         <div class="section center call-section">
           <%= render @company.layout_path(:subscribe), landing: @page.pageable, company: @company %>
