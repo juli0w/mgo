@@ -23,7 +23,7 @@
           <%= image_tag @subscribe.company.logotipo.square, class: "circle card-profile-image activator responsive-img" %>
 
           <span class="card-title activator grey-text text-darken-4"><%= @subscribe.company.name %></span>
-          <p><i class="mdi-action-perm-identity"></i> <%= @subscribe.company.category.name %></p>
+          <p><i class="mdi-action-perm-identity"></i> <%#= @subscribe.company.category.name %></p>
           <p><i class="mdi-action-perm-phone-msg"></i> <%= @subscribe.company.shows :phone %></p>
           <p><i class="mdi-communication-email"></i> <%= @subscribe.company.shows :mail %></p>
 

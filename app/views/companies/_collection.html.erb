@@ -7,7 +7,7 @@
     <div class='content'>
       <h1 class="truncate"><%= link_to company.name, get_url(company), class: "grey-text text-darken-4" %></h1>
       <p>
-        <%= link_to company.category.name, company.category, class: "state red white-text" %>
+        <%= company.description %>
         <%= link_to rate_for(company), "/#{company.slug}/review", class: "rating" %>
         <br><%= company.formatted_address %>
       </p>
