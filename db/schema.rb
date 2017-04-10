@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170405223052) do
+ActiveRecord::Schema.define(version: 20170410121529) do
 
   create_table "ahoy_events", force: :cascade do |t|
     t.integer  "visit_id"
@@ -323,6 +323,15 @@ ActiveRecord::Schema.define(version: 20170405223052) do
 
   create_table "ufs", force: :cascade do |t|
     t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "upsell_pages", force: :cascade do |t|
+    t.string   "image"
+    t.string   "content"
+    t.string   "link"
+    t.string   "link_call"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

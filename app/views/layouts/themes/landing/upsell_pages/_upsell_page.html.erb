@@ -18,23 +18,15 @@
         <h2 class="<%= color(:description_color, @company) %>"><%= page.description %></h2>
         <%= raw @page.pageable.content %>
         <div class="section center call-section">
-          <%= render @company.layout_path(:subscribe), landing: @page.pageable, company: @company %>
+          <%= link_to @page.pageable.link_call, @page.pageable.link, class: "waves-effect call-to-action #{color(:primary_color, @company)} #{color(:text_color, @company)}" %>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="row side-padding details full-padding <%= odd_color(@company, 1) %>">
-  <div class="large-container">
-    <div class="section">
-      <%= raw @page.pageable.details %>
-    </div>
-  </div>
-</section>
-
 <section class="row full-padding">
   <div class="col s12 center">
-    <%= render @company.layout_path(:subscribe), landing: @page.pageable, company: @company %>
+    <%= link_to @page.pageable.link_call, @page.pageable.link, class: "waves-effect call-to-action #{color(:primary_color, @company)} #{color(:text_color, @company)}" %>
   </div>
 </section>

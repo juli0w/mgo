@@ -43,7 +43,8 @@ module Backstage
           redirect_to edit_backstage_company_profile_path(@company)
         end
       else
-        flash.now[:alert] = "Por favor verifique os campos."
+        errors = @company.errors.map { |name, msg| "#{name} #{msg}" }.first
+        flash.now[:alert] = "Por favor verifique os campos: <br>#{errors}".html_safe
         render :new
       end
     end
@@ -60,7 +61,8 @@ module Backstage
           redirect_to edit_backstage_company_profile_path(@company)
         end
       else
-        flash.now[:alert] = "Por favor verifique os campos."
+        errors = @company.errors.map { |name, msg| "#{name} #{msg}" }.first
+        flash.now[:alert] = "Por favor verifique os campos: <br>#{errors}".html_safe
         render :edit
       end
     end

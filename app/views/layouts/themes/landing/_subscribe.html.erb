@@ -1,5 +1,6 @@
-<%= form_tag landing.link, method: :post, target: "_blank", novalidate: true do %>
+<%= form_tag landing.link, method: :post, novalidate: true do %>
   <%= text_field_tag :FNAME, '', placeholder: "Nome", class: "call-to-action", required: true %><br>
   <%= email_field_tag :EMAIL, '', placeholder: "Email", class: "call-to-action", required: true %><br>
+  <%= email_field_tag :PHONE, '', placeholder: "Telefone", class: "call-to-action", required: true %><br>
   <%= submit_tag landing.link_call, class: "waves-effect call-to-action #{color(:primary_color, company)} #{color(:text_color, company)}" %>
 <% end %>

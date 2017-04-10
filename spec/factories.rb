@@ -1,4 +1,10 @@
 FactoryGirl.define do
+  factory :upsell_page do
+    image "MyString"
+    content "MyString"
+    link "MyString"
+    link_call "MyString"
+  end
   factory :quote do
     phrase "MyString"
     author "MyString"

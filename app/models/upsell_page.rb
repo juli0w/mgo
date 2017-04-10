@@ -1,0 +1,2 @@
+class UpsellPage < ApplicationRecord
+end

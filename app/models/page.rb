@@ -12,6 +12,7 @@ class Page < ApplicationRecord
                 [ "Formulário de contato", ContactPage ],
                 [ "Blog", BlogPage ],
                 [ "Promocional", LandingPage ],
+                [ "Upsell", UpsellPage ],
                 [ "Álbum", AlbumPage ]]
 
   def setup
