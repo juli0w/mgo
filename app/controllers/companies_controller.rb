@@ -24,6 +24,7 @@ class CompaniesController < ApplicationController
 
   def show
     load_articles
+    filter_pages
 
     set_meta_tags description: @company.description
     @contact = Contact.new
@@ -81,7 +82,7 @@ private
 
   def load_pages
     @pages = @company.profile.pages.order(:index)
-    filter_pages
+    # filter_pages
 
     if params[:paging]
       @page = @pages.find_by_slug(params[:paging])
