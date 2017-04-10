@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170410121529) do
+ActiveRecord::Schema.define(version: 20170410160711) do
 
   create_table "ahoy_events", force: :cascade do |t|
     t.integer  "visit_id"
@@ -232,6 +232,7 @@ ActiveRecord::Schema.define(version: 20170410121529) do
     t.string   "cover"
     t.string   "layout",            default: "default"
     t.integer  "font_id"
+    t.string   "footer",            default: "default"
     t.index ["company_id"], name: "index_profiles_on_company_id"
     t.index ["font_id"], name: "index_profiles_on_font_id"
   end

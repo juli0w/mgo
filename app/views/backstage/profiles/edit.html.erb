@@ -27,12 +27,17 @@
     </div>
 
     <div class="row">
-      <div class="input-field col s6">
+      <div class="input-field col s4">
         Modelo<br>
         <%= f.select :layout, Profile::LAYOUTS, required: true %>
       </div>
 
-      <div class="input-field col s6">
+      <div class="input-field col s4">
+        Rodapé<br>
+        <%= f.select :layout, Profile::FOOTERS, required: true %>
+      </div>
+
+      <div class="input-field col s4">
         Tipografia<br>
         <%= f.collection_select :font_id, Font.all, :id, :name, required: true %>
       </div>

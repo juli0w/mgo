@@ -16,6 +16,8 @@ class Profile < ApplicationRecord
     Landing: [["Squeeze", "landing"]]
   }
 
+  FOOTERS = [["Padrão", "default"], ["Simples", "simple"]]
+
   def self.layout_list
     ar = []
     LAYOUTS.each do |k, v|

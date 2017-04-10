@@ -8,12 +8,14 @@ class Page < ApplicationRecord
   validates :slug, presence: true,
                    format: {with: Regexp.new('\A' + FORMAT.source + '\z')}
 
-  PAGE_TYPES = [[ "Página em branco", BlankPage ],
-                [ "Formulário de contato", ContactPage ],
-                [ "Blog", BlogPage ],
-                [ "Promocional", LandingPage ],
-                [ "Upsell", UpsellPage ],
-                [ "Álbum", AlbumPage ]]
+  PAGE_TYPES = { 'Módulos' => [
+                  [ "Álbum", AlbumPage ],
+                  [ "Formulário de contato", ContactPage ],
+                  [ "Blog", BlogPage ],
+                  [ "Página em branco", BlankPage ]],
+                 'Promocional' => [
+                  [ "Landing", LandingPage ],
+                  [ "Upsell", UpsellPage ]] }
 
   def setup
     self.pageable = self.pageable_type.constantize.create

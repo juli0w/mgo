@@ -24,7 +24,6 @@ class CompaniesController < ApplicationController
 
   def show
     load_articles
-    filter_pages
 
     set_meta_tags description: @company.description
     @contact = Contact.new
