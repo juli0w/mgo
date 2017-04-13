@@ -42,6 +42,9 @@ gem 'omniauth-facebook'
 gem 'canonical-rails', github: 'jumph4x/canonical-rails'
 gem 'ahoy_matey'
 
+# gem 'wkhtmltopdf-binary'
+# gem 'pdfkit'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks

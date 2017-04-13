@@ -24,6 +24,16 @@ module Backstage
     end
 
     def show
+      # respond_to do |format|
+      #   format.html { }
+      #   format.pdf do
+      #     kit = PDFKit.new(<<-HTML)
+      #     <p>Hello Envato!</p>
+      #     HTML
+      #
+      #     send_file kit.to_file("public/hello.pdf")
+      #   end
+      # end
     end
 
     def new
