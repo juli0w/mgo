@@ -22,6 +22,9 @@
 //= require_self
 
 $(document).ready(function(){
+  $('.btn-action').on('click', function() {
+    ga('send', 'event', 'link','click', 'CTA Clicado');
+  })
   // ahoy.trackAll();
   $('.window-modal').modal({
       dismissible: true,

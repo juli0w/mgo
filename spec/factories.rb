@@ -1,4 +1,8 @@
 FactoryGirl.define do
+  factory :subscribe_page do
+    link "MyString"
+    link_call "MyString"
+  end
   factory :upsell_page do
     image "MyString"
     content "MyString"

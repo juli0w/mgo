@@ -10,31 +10,31 @@
 
 <section class="row" style="padding: 20px 0 20px 5px !important;">
   <div class="large-container valign-wrapper">
-    <picture class="col s12 m6 valign">
-      <%= image_tag @page.pageable.image, class: "valign responsive-img" %>
-    </picture>
-    <div class="col s12 m6">
+    <% if page.pageable.image? %>
+      <picture class="col s12 m6 valign">
+        <%= image_tag page.pageable.image, class: "valign responsive-img" %>
+      </picture>
+      <div class="col s12 m6">
+    <% else %>
+      <div class="col s12 center">
+    <% end %>
       <div class="page-content">
-        <h2 class="<%= color(:description_color, @company) %>"><%= page.description %></h2>
-        <%= raw @page.pageable.content %>
+        <h2 class="center <%= color(:description_color, @company) %>"><%= page.description %></h2>
+        <%= raw page.pageable.content %>
         <div class="section center call-section">
-          <%= render @company.layout_path(:subscribe), landing: @page.pageable, company: @company %>
+          <%= render @company.layout_path(:subscribe), landing: page.pageable, company: @company %>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="row side-padding details full-padding <%= odd_color(@company, 1) %>">
-  <div class="large-container">
-    <div class="section">
-      <%= raw @page.pageable.details %>
+<% if page.pageable.details.present? %>
+  <section class="row side-padding no-bot-margin details full-padding <%= odd_color(@company, 1) %>">
+    <div class="large-container">
+      <div class="section">
+        <%= raw page.pageable.details %>
+      </div>
     </div>
-  </div>
-</section>
-
-<section class="row full-padding">
-  <div class="col s12 center">
-    <%= render @company.layout_path(:subscribe), landing: @page.pageable, company: @company %>
-  </div>
-</section>
+  </section>
+<% end %>

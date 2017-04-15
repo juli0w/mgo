@@ -1,0 +1,2 @@
+class SubscribePage < ApplicationRecord
+end

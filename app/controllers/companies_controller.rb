@@ -93,7 +93,7 @@ private
 
   def filter_pages
     if @company.profile.layout != "landing"
-      @pages = @pages.reject { |p| ["UpsellPage", "LandingPage"].include?(p.pageable_type) }
+      @pages = @pages.reject { |p| ["UpsellPage", "LandingPage", "SubscribePage"].include?(p.pageable_type) }
     end
   end
 

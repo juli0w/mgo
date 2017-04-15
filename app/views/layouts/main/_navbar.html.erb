@@ -1,4 +1,4 @@
-<div class="search-section bg2 row no-bot-margin">
+<div class="search-section bg3 row no-bot-margin">
   <div class="container">
     <div class="col s12">
       <div class="sub-menu right white-text">
@@ -15,20 +15,25 @@
           <% end %> |
           <%= link_to 'Sair', destroy_user_session_path, method: :delete %>
         <% end %>
+        
+        <%= link_to contact_path do %>
+          <i class="fa fa-users" aria-hidden="true"></i> Contato
+        <% end %>
       </div>
     </div>
-    <section class="col s12 m8 offset-m2 l6 offset-l3 search-pad">
+    <section class="center col s12 m8 offset-m2 l6 offset-l3 search-pad">
       <h1 role="logo" class="weekz center fredoka">
         <%= link_to "WEEKZ", root_url, class: "white-text" %>
       </h1>
       <h6 class="center white-text discover">DESCUBRA</h6>
-      <nav class="search-nav transparent">
-        <div class="nav-wrapper">
-          <%= render "layouts/main/search" %>
-        </div>
-      </nav>
 
-      <%= render "layouts/main/menu" %>
+      <%= link_to "COMECE GRATUITAMENTE", @callaction, class: "btn btn-large red btn-action", remote: !user_signed_in? %>
+
+      <!-- <nav class="search-nav transparent">
+        <div class="nav-wrapper">
+          <%#= render "layouts/main/search" %>
+        </div>
+      </nav> -->
     </section>
   </div>
 </div>

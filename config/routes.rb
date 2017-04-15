@@ -46,6 +46,7 @@ Rails.application.routes.draw do
 
       resources :pages do
         resources :contact_pages
+        resources :subscribe_pages
         resources :blank_pages
         resources :blog_pages
         resources :landing_pages

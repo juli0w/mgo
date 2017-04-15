@@ -1,14 +1,14 @@
 <%= render "layouts/backstage/profile_header" %>
-<nav class="sub-menu grey darken-3">
+<nav class="sub-menu blue-grey darken-4">
   <div class="nav-wrapper">
     <ul class="right hide-on-med-and-down">
       <li>
-        <%= link_to url_for(filter: "unread"), class: "tooltipped #{'grey darken-2' if params[:filter] != 'read'}", 'data-tooltip': 'Não lidos' do %>
+        <%= link_to url_for(filter: "unread"), class: "tooltipped #{'blue-grey darken-3' if params[:filter] != 'read'}", 'data-tooltip': 'Não lidos' do %>
           <i class="material-icons orange-text left">tab_unselected</i> Não Lidos
         <% end %>
       </li>
       <li>
-        <%= link_to url_for(filter: "read"), class: "tooltipped #{'grey darken-2' if params[:filter] == 'read'}", 'data-tooltip': 'Lidos' do %>
+        <%= link_to url_for(filter: "read"), class: "tooltipped #{'blue-grey darken-3' if params[:filter] == 'read'}", 'data-tooltip': 'Lidos' do %>
           <i class="material-icons orange-text left">tab</i> Lidos
         <% end %>
       </li>

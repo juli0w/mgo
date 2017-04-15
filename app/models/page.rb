@@ -15,6 +15,7 @@ class Page < ApplicationRecord
                   [ "Página em branco", BlankPage ]],
                  'Promocional' => [
                   [ "Landing", LandingPage ],
+                  [ "Formulário", SubscribePage ],
                   [ "Upsell", UpsellPage ]] }
 
   def setup

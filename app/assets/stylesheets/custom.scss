@@ -7,6 +7,12 @@
   margin-right: 0 !important;
 }
 
+.btn-action {
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
 .title-fa {
   margin-right: 10px;
 }
