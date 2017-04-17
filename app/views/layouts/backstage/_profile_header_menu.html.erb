@@ -8,6 +8,12 @@
       </li>
 
       <li>
+        <%= link_to backstage_company_newsletter_path(@company) do %>
+          <i class="material-icons left">markunread_mailbox</i> Newsletter
+        <% end %>
+      </li>
+
+      <li>
         <%= link_to backstage_company_contacts_path(@company) do %>
           <i class="material-icons left">mail</i> Mensagens
         <% end %>
@@ -40,6 +46,18 @@
 
     <ul id="slide-out" class="side-nav">
       <li>
+        <%= link_to backstage_company_articles_path(@company) do %>
+          <i class="material-icons left">textsms</i> Artigos
+        <% end %>
+      </li>
+
+      <li>
+        <%= link_to backstage_company_newsletter_path(@company) do %>
+          <i class="material-icons left">markunread_mailbox</i> Newsletter
+        <% end %>
+      </li>
+
+      <li>
         <%= link_to backstage_company_pages_path(@company), class: "grey-text text-darken-3" do %>
           <i class="material-icons left">perm_media</i> Páginas
         <% end %>
@@ -60,12 +78,6 @@
       <li>
         <%= link_to backstage_company_contacts_path(@company), class: "grey-text text-darken-3" do %>
           <i class="material-icons left">mail</i> Mensagens
-        <% end %>
-      </li>
-
-      <li>
-        <%= link_to backstage_company_reviews_path(@company), class: "grey-text text-darken-3" do %>
-          <i class="material-icons left">star</i> Avaliações
         <% end %>
       </li>
     </ul>

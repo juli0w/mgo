@@ -1,4 +1,15 @@
 FactoryGirl.define do
+  factory :lead do
+    company nil
+    email "MyString"
+  end
+  factory :newsletter do
+    company nil
+    top false
+    bottom false
+    message "MyString"
+    action "MyString"
+  end
   factory :subscribe_page do
     link "MyString"
     link_call "MyString"

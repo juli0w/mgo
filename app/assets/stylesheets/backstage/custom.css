@@ -12,7 +12,11 @@
 }
 
 .top-nav i, .sub-menu i, .subnav i {
-  color: #ff7300;
+  color: #c6ff00;
+}
+
+.profile-edit-cover {
+  margin-right: 20px;
 }
 
 .sub-menu, nav.subnav {

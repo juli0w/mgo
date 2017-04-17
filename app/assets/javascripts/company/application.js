@@ -24,6 +24,10 @@ $(document).ready(function(){
   $('.tooltipped').tooltip({delay: 50});
   $( ".tabs" ).tabs();
   $(".button-collapse").sideNav();
+  $('.window-modal').modal({
+      dismissible: true,
+      opacity: 55 });
+  $('#modal1').modal('open');
 
   $('.photo').click(function() {
     $('.img-modal').fadeIn(200);

@@ -1,0 +1,7 @@
+<section class="row full-padding no-bot-margin">
+  <div class="col s12 center">
+    <%= content_tag(:h2, page.title) if page.title.present? %>
+    <%= content_tag(:p, page.description, style: "margin-bottom: 40px;") if page.title.present? %>
+    <%= render @company.layout_path(:subscribe), landing: page.pageable, company: @company %>
+  </div>
+</section>

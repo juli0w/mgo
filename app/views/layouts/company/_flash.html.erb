@@ -1,0 +1,7 @@
+<% flash.each do |name, msg| %>
+<div class="row <%= alert_for(name) %> white-text">
+  <div class="col s12 center">
+    <p class="truncate"><strong><%= title_for(name) %></strong> <%= msg %></h4>
+  </div>
+</div>
+<% end %>

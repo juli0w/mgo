@@ -1,6 +1,8 @@
 class Template < ApplicationRecord
   belongs_to :profile, optional: :true
   belongs_to :sample_template, optional: :true
+  belongs_to :newsletter, optional: :true
+
   belongs_to :primary_color, class_name: "Color", optional: true#, :foreign_key => 'primary_color'
   belongs_to :description_color, class_name: "Color", optional: true#, :foreign_key => 'primary_color'
   belongs_to :detail_color, class_name: "Color", optional: true#, :foreign_key => 'detail_color'
@@ -36,16 +38,16 @@ class Template < ApplicationRecord
   def color field, force=true #false
     c = send(field)
 
-    if (company.premium? or force)
+    if (c.present?)
       result = c.name
     else
       result = DEFAULT_COLOR[field].name
     end
 
-    text_field?(field) ? textilize(result) : result
+    text_field?(field, force) ? textilize(result) : result
   end
 
-  def text_field? field
+  def text_field? field, force
     field.to_s != "primary_color"
   end
 

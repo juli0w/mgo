@@ -1,9 +1,9 @@
 module ApplicationHelper
   def alert_for(title)
-    { success: 'alert-success',
-      error: 'alert-danger',
-      alert: 'alert-warning',
-      notice: 'alert-info'
+    { success: 'green',
+      error: 'red',
+      alert: 'yellow accent-2',
+      notice: 'blue'
     }[title.to_sym] || title.to_s
   end
   def title_for(title)

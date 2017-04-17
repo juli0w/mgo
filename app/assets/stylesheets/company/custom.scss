@@ -1,5 +1,39 @@
 @import 'materialize';
 
+.newsletter {
+  p {
+    padding: 10px 0;
+    display: inline;
+    i {
+      margin-right: 5px;
+      vertical-align: middle;
+    }
+  }
+  input[type=email] {
+    width: 200px;
+    background-color: white;
+    height: 35px;
+    padding-left: 10px;
+    border-radius: 3px;
+    margin: 10px 10px;
+    margin-bottom: 0;
+    // padding: 20px 0;
+  }
+
+  padding: 10px 0;
+
+  margin-bottom: 0;
+
+  .btn {
+    margin: 10px 0;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: none;
+    border-radius: 10px;
+    padding: 0 18px;
+  }
+}
+
 .state {
   padding: 5px 10px;
   border-radius: 5px;

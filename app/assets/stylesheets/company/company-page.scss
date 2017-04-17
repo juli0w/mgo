@@ -26,6 +26,23 @@
   footer {
     margin-top: 10px;
   }
+
+  input.call-to-action {
+    border: 1px solid #dedede;
+    max-width: 350px;
+    padding: 5px 15px;
+  }
+  .call-to-action {
+    padding: 18px 30px;
+    // font-size: 16px;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+  .call-section {
+    margin-top: 20px;
+  }
 }
 
 .company-profile img {

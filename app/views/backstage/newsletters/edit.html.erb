@@ -1,0 +1,99 @@
+<%= render "layouts/backstage/profile_header" %>
+
+<div id="profile-page" class="row">
+  <div class="col s12 m6">
+    <h5>Newsletter</h5>
+    <div class="divider"></div>
+
+    <%= form_for [:edit, :backstage, @company, @newsletter], html: { multipart: true } do |f| %>
+
+      <%= f.fields_for :template, @template do |fields| %>
+        <div class="row">
+          <% [:primary_color, :text_color, :link_color, :detail_color].each do |field| %>
+            <div class="input-field col s12 m6 color-wrapper">
+              <%= fields.hidden_field "#{field}_id", id: "hf_#{field}" %>
+              <%= color_sample(field, @newsletter) %>
+              <%= fields.label "#{field}_id", class: "open-color-group", input: field %>
+              <%= render "layouts/widgets/color_group", field: field %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+
+      <div class="row">
+        <div class="section">
+          <div class="divider">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <%= f.label :action %>
+          <%= f.text_field :action %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <%= f.label :message %>
+          <%= f.text_field :message %>
+        </div>
+      </div>
+
+      <div class="row no-top-margin">
+        <div class="input-field col s12">
+          Mostrar:<br>
+          <%= f.check_box :top %>
+          <%= f.label :top, "Cima" %><br>
+          <%= f.check_box :bottom %>
+          <%= f.label :bottom, "Baixo" %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="section">
+          <div class="divider">
+          </div>
+        </div>
+      </div>
+
+      <div class="row no-bot-margin">
+        <div class="input-field col s12">
+          <button class="btn waves-effect waves-light red" type="submit" name="action">Salvar
+            <i class="material-icons right">send</i>
+          </button>
+        </div>
+      </div>
+    <% end %>
+
+  </div>
+
+  <div class="col s12 m6">
+    <h5>Leads</h5>
+    <div class="divider"></div>
+    <table class="striped bordered">
+      <thead>
+        <tr>
+            <th data-field="name">Email</th>
+            <th data-field="actions"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @leads.each do |lead| %>
+
+        <tr>
+          <td><%= lead.email %></td>
+          <td>
+            <%= link_to "Remover", [:backstage, @company, :newsletter, id: lead.id], method: :delete, data: { confirm: "Tem certeza?" } %>
+          </td>
+        </tr>
+
+        <% end %>
+      </tbody>
+    </table>
+
+    <%= paginate @leads %>
+  </div>
+</div>

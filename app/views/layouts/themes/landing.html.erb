@@ -19,15 +19,23 @@
 
     <%= render @company.layout_path(:navbar) %>
 
+    <% if @company.newsletter and @company.newsletter.top? %>
+      <%= render "layouts/widgets/newsletter" %>
+    <% end %>
+
+    <%= render "layouts/company/flash" %>
+
     <%= yield %>
+
+    <% if @company.newsletter and @company.newsletter.bottom? %>
+      <%= render "layouts/widgets/newsletter" %>
+    <% end %>
 
     <%= render "layouts/company/footer" %>
 
     <%= render "layouts/widgets/hubspot" %>
 
     <%= render "layouts/widgets/analytics", company: @company %>
-
-    <%= render "layouts/main/flash" %>
 
     <% if user_signed_in? %>
       <%= render "layouts/company/tools" %>

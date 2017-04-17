@@ -22,8 +22,8 @@ class Company < ApplicationRecord
 
   FORMAT = /([[:lower:]]|[0-9]+-?[[:lower:]])(-[[:lower:]0-9]+|[[:lower:]0-9])*/
   validates :slug, presence: true,
-                   uniqueness: {case_sensitive: false},
-                   format: {with: Regexp.new('\A' + FORMAT.source + '\z')}
+                   uniqueness: { case_sensitive: false },
+                   format: { with: Regexp.new('\A' + FORMAT.source + '\z') }
 
   validates :name, presence: true
 
@@ -32,10 +32,12 @@ class Company < ApplicationRecord
   belongs_to :city, optional: true
   belongs_to :uf, optional: true
   has_one :profile, dependent: :destroy
+  has_one :newsletter, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_many :subscribes, dependent: :destroy
   has_many :contacts, dependent: :destroy
   has_many :articles, dependent: :destroy
+  has_many :leads, dependent: :destroy
 
   delegate :color, to: :profile
   delegate :color_sample, to: :profile

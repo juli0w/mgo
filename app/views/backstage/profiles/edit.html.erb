@@ -44,8 +44,12 @@
     </div>
 
     <div class="row">
-      <%= image_tag(@profile.cover.thumb.url) if @profile.cover? %>
+      <%= image_tag(@profile.cover.thumb.url, class: "profile-edit-cover") if @profile.cover? %>
       <%= f.hidden_field :cover_cache %>
+      <% if @profile.cover? %>
+        <%= f.check_box :remove_cover %>
+        <%= f.label :remove_cover, "Deletar cover?" %>
+      <% end %>
       <div class="file-field input-field">
         <div class="btn red">
           <span>Capa</span>

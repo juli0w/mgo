@@ -3,6 +3,8 @@ pt-BR:
   social_share_button:
     share_to:
   attributes:
+    action: Ação do botão
+    message: Mensagem
     pageable_type: Tipo de Página
     comment: Comentário
     primary_color_id: Cor principal

@@ -1,0 +1,16 @@
+<div class="row newsletter <%= color(:primary_color, @company.newsletter) %>">
+  <div class="container valign-wrapper">
+    <div class="col s12 center valign">
+      <%= form_for [@company, Lead.new] do |f| %>
+        <p class="<%= color(:text_color, @company.newsletter) %>">
+          <i class="material-icons <%= color(:link_color, @company.newsletter) %>">mail</i>
+          <%= @company.newsletter.message %>
+        </p>
+        <%= f.email_field :email, required: true, placeholder: "Digite seu email" %>
+        <button class="btn <%= "#{@company.newsletter.template.link_color.name} #{color(:detail_color, @company.newsletter)}" %>" type="submit" name="action"><%= @company.newsletter.action %>
+          <i class="material-icons right">send</i>
+        </button>
+      <% end %>
+    </div>
+  </div>
+</div>

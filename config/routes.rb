@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   resources :subscribes
 
   resources :companies, only: :show do
-    resources :reviews, only: [:new, :create]
+   resources :leads
   end
 
   namespace :backstage do
@@ -58,6 +58,8 @@ Rails.application.routes.draw do
 
       resources :articles
       resources :contacts
+
+      resource :newsletter, except: :show, path_names: { edit: '' }
 
       resource :profile, except: :show, path_names: { edit: '' } do
         member do

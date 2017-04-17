@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170413181300) do
+ActiveRecord::Schema.define(version: 20170417161850) do
 
   create_table "ahoy_events", force: :cascade do |t|
     t.integer  "visit_id"
@@ -174,6 +174,14 @@ ActiveRecord::Schema.define(version: 20170413181300) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "leads", force: :cascade do |t|
+    t.integer  "company_id"
+    t.string   "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_leads_on_company_id"
+  end
+
   create_table "maps", force: :cascade do |t|
     t.integer  "company_id"
     t.string   "lat"
@@ -181,6 +189,17 @@ ActiveRecord::Schema.define(version: 20170413181300) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["company_id"], name: "index_maps_on_company_id"
+  end
+
+  create_table "newsletters", force: :cascade do |t|
+    t.integer  "company_id"
+    t.boolean  "top",        default: false
+    t.boolean  "bottom",     default: true
+    t.string   "message",    default: "Receba nossas novidades por email"
+    t.string   "action",     default: "Assine agora!"
+    t.datetime "created_at",                                               null: false
+    t.datetime "updated_at",                                               null: false
+    t.index ["company_id"], name: "index_newsletters_on_company_id"
   end
 
   create_table "offers", force: :cascade do |t|
@@ -325,6 +344,8 @@ ActiveRecord::Schema.define(version: 20170413181300) do
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
     t.integer  "sample_template_id"
+    t.integer  "newsletter_id"
+    t.index ["newsletter_id"], name: "index_templates_on_newsletter_id"
     t.index ["profile_id"], name: "index_templates_on_profile_id"
     t.index ["sample_template_id"], name: "index_templates_on_sample_template_id"
   end

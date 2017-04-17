@@ -45,6 +45,7 @@ module Backstage
 
       if @company.save
         @company.create_profile
+        @company.create_newsletter
 
         if params[:company][:logotipo].present?
           render :crop
