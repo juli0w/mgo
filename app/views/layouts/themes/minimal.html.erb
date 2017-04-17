@@ -28,14 +28,14 @@
     <% if @company.newsletter and @company.newsletter.top? %>
       <%= render "layouts/widgets/newsletter" %>
     <% end %>
+    
+    <%= render "layouts/company/flash" %>
 
     <%= render @company.layout_path(:content) %>
 
     <% if @company.newsletter and @company.newsletter.bottom? %>
       <%= render "layouts/widgets/newsletter" %>
     <% end %>
-
-    <%= render "layouts/company/flash" %>
 
     <%= render "layouts/company/footer" %>
 

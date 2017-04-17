@@ -5,9 +5,9 @@ class LeadsController < ApplicationController
     @lead = @company.leads.new(lead_params)
 
     if @lead.save
-      flash.now[:success] = "Você está inscrito na nossa lista! Adicione nosso email na sua lista de contatos"
+      flash[:success] = "Você está inscrito na nossa lista! Adicione nosso email na sua lista de contatos"
     else
-      flash.now[:alert] = "Não conseguimos salvar seu email"
+      flash[:alert] = "Não conseguimos salvar seu email"
     end
 
     redirect_to (session["previous_url"] || @company.link(root_path))
