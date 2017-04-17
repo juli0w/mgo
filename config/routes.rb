@@ -7,13 +7,13 @@ Rails.application.routes.draw do
               :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   get 'home', to: 'home#index'
-  get 'institutional', to: 'home#institutional'
   get 'search', to: 'home#search'
   get 'contact', to: 'home#contact'
   get 'map', to: 'maps#resources'
-  get 'offers', to: 'offers#index'
-  get 'offers/search', to: 'offers#search', as: :search_offer
-  get 'partner', to: 'subscribes#new'
+  # get 'institutional', to: 'home#institutional'
+  # get 'offers', to: 'offers#index'
+  # get 'offers/search', to: 'offers#search', as: :search_offer
+  # get 'partner', to: 'subscribes#new'
 
   resources :categories, only: :show
   resources :subscribes
@@ -94,7 +94,8 @@ Rails.application.routes.draw do
 
   get  ':slug/robots.txt', :to => 'companies#robots'
   get  ':slug/sitemap.xml', :to => 'companies#sitemap', :defaults => {:format => 'xml'}
-  get  ':slug/review', to: 'reviews#new'
+  # get  ':slug/review', to: 'reviews#new'
+  post ':slug/lead', to: 'leads#create'
   get  ':slug/:paging', to: 'companies#paging'
   get  ':slug/:paging/search', to: 'companies#search'
   get  ':slug/:paging/:article', to: 'companies#article'

@@ -16,7 +16,7 @@ class LeadsController < ApplicationController
 private
 
   def set_company
-    @company = Company.find(params[:company_id])
+    @company = Company.find_by_slug(params[:slug])
   end
 
   def lead_params

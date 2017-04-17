@@ -1,7 +1,7 @@
 <div class="row newsletter <%= color(:primary_color, @company.newsletter) %>">
   <div class="container valign-wrapper">
     <div class="col s12 center valign">
-      <%= form_for [@company, Lead.new] do |f| %>
+      <%= form_for Lead.new, url: "#{@company.link(root_url)}/lead" do |f| %>
         <p class="<%= color(:text_color, @company.newsletter) %>">
           <i class="material-icons <%= color(:link_color, @company.newsletter) %>">mail</i>
           <%= @company.newsletter.message %>
