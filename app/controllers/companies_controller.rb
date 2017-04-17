@@ -82,19 +82,20 @@ private
 
   def load_pages
     @pages = @company.profile.pages.order(:index)
+    filter_pages
 
     if params[:paging]
       @page = @pages.find_by_slug(params[:paging])
-      filter_pages
     else
-      filter_pages
       @page = @pages.first
     end
   end
 
   def filter_pages
     if @company.profile.layout != "landing"
-      @pages = @pages.reject { |p| ["UpsellPage", "LandingPage"].include?(p.pageable_type) }
+      @pages = @pages.where.not(pageable_type: "UpsellPage")
+      @pages = @pages.where.not(pageable_type: "LandingPage")
+      # @pages = @pages.reject { |p| ["UpsellPage", "LandingPage"].include?(p.pageable_type) }
     end
   end
 
