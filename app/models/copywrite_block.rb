@@ -20,7 +20,9 @@ class CopywriteBlock < ApplicationRecord
 
   def self.import(file)
     CSV.foreach(file.path, headers: true) do |row|
-      CopywriteBlock.first_or_create row.to_hash
+      block = find_by_name(row["name"]) || new
+      block.attributes = row.to_hash
+      block.save!
     end
   end
 end
