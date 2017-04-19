@@ -9,7 +9,7 @@ module Backstage
         respond_to do |format|
           format.html
           format.csv do
-            send_data @copywrite_blocks.to_csv
+            send_data CopywriteBlock.all.to_csv
           end
         end
       end
