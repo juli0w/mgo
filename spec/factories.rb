@@ -1,4 +1,15 @@
 FactoryGirl.define do
+  factory :copywriting do
+    copywrite nil
+    copywrite_block nil
+  end
+  factory :copywrite do
+    name "MyString"
+  end
+  factory :copywrite_block do
+    name "MyString"
+    template "MyText"
+  end
   factory :lead do
     company nil
     email "MyString"

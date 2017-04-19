@@ -1,0 +1,52 @@
+<script>
+$(document).ready(function(){
+  $("#template").characterCounter();
+  $("#Atenção").show();
+  $('.template-block').on('click', function() {
+    $.get($(this).attr('url'));
+  });
+
+  $("#category-blocks").on('change', function() {
+    $(".copywrite-block").slideUp();
+    $("#"+$(this).val()).slideDown();
+  });
+});
+</script>
+<div class="col s4">
+  <%= select_tag :category, options_for_select(CopywriteBlock::CATEGORIES), id: "category-blocks" %>
+  <% CopywriteBlock::CATEGORIES.each do |category| %>
+    <ul class="copywrite-block" id="<%= category %>" style="display: none;">
+      <% CopywriteBlock.where(category: category).each do |block| %>
+        <%= link_to "#!", class: "template-block", url: "#{backstage_admin_copywrite_block_path(block)}" do %>
+          <li><strong><%= block.name %></strong><br>
+          <%= raw block.template[0, 300] %></li>
+        <% end %>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
+<div class="col s8">
+  <%= form_for [:backstage, :admin, @copywrite]  do |f| %>
+    <div class="row">
+      <div class="input-field col s12">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s12">
+        Template<br><br>
+        <%= f.text_area :template, class: "materialize-textarea", id: "template", 'data-length': "6000" %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s12">
+        <button class="btn waves-effect waves-light red" type="submit" name="action">Salvar
+          <i class="material-icons right">send</i>
+        </button>
+      </div>
+    </div>
+  <% end %>
+</div>

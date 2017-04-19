@@ -1,0 +1,81 @@
+<div id="breadcrumbs-wrapper" class="row blue-grey darken-4 no-bot-margin white-text">
+  <div class="col s12">
+    <h4 class="breadcrumbs-title">Blocos de Copywrite</h4>
+    <ol class="breadcrumbs">
+      <li>Administrativo</li>
+    </ol>
+  </div>
+</div>
+
+<nav class="sub-menu blue-grey darken-4">
+  <div class="nav-wrapper">
+    <div class="filter-widget left">
+      <%= render "layouts/widgets/search", path: backstage_admin_copywrite_blocks_path, placeholder: "Filtrar" %>
+    </div>
+
+    <ul class="right hide-on-med-and-down">
+      <li>
+        <%= link_to backstage_admin_copywrite_blocks_path(format: 'csv') do %>
+          <i class="material-icons left">note_add</i> Exportar
+        <% end %>
+      </li>
+      <li>
+        <%= link_to new_backstage_admin_copywrite_block_path do %>
+          <i class="material-icons left">note_add</i> Novo Bloco
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="row">
+  <div class="col s12">
+    <div class="card">
+      <table class="striped bordered">
+        <thead>
+          <tr>
+              <th data-field="id"></th>
+              <th data-field="name">Nome</th>
+              <th data-field="name">Categoria</th>
+              <th data-field="actions"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @copywrite_blocks.order("category").each do |copywrite_block| %>
+
+          <tr>
+            <td>#<%= copywrite_block.id %></td>
+            <td><%= copywrite_block.name %></td>
+            <td><%= copywrite_block.category %></td>
+            <td>
+              <%= link_to "Editar", [:edit, :backstage, :admin, copywrite_block] %>
+              <br><%= link_to "Remover", [:backstage, :admin, copywrite_block], method: :delete, data: { confirm: "Tem certeza?" } %>
+            </td>
+          </tr>
+
+          <% end %>
+        </tbody>
+      </table>
+
+      <%= paginate @copywrite_blocks %>
+
+    </div>
+
+    <div class="col s12 section">
+      <%= form_tag import_backstage_admin_copywrite_blocks_path, multipart: true do %>
+        <div class="file-field input-field">
+          <div class="btn red">
+            <span>Importar CSV</span>
+            <%= file_field_tag :file %>
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path validate" type="text">
+          </div>
+        </div>
+
+        <%= submit_tag "Importar", class: "btn red" %>
+      <% end %>
+    </div>
+  </div>
+</div>

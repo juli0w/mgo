@@ -28,6 +28,12 @@ Rails.application.routes.draw do
       resources :fonts
       resources :categories, except: :show
       resources :sample_templates
+      resources :copywrites
+      resources :copywrite_blocks do
+        collection do
+          post :import
+        end
+      end
       resources :users do
         member do
           post :become

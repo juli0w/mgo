@@ -1,0 +1,30 @@
+<%= form_for [:backstage, :admin, @copywrite_block]  do |f| %>
+  <div class="row">
+    <div class="input-field col s12">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="input-field col s12">
+      Template<br><br>
+      <%= f.text_area :template, class: "materialize-textarea" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="input-field col s12">
+      Categoria<br>
+      <%= f.select :category, CopywriteBlock::CATEGORIES, required: true %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="input-field col s12">
+      <button class="btn waves-effect waves-light red" type="submit" name="action">Salvar
+        <i class="material-icons right">send</i>
+      </button>
+    </div>
+  </div>
+<% end %>

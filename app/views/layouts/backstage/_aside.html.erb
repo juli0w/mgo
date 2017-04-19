@@ -52,6 +52,8 @@
         <% end %>
       </li>
       <% if current_user.admin? %>
+        <li><%= link_to 'Blocos Copywrite', backstage_admin_copywrite_blocks_path %></li>
+        <li><%= link_to 'Copywrites', backstage_admin_copywrites_path %></li>
         <li><%= link_to 'Fontes', backstage_admin_fonts_path %></li>
         <li><%= link_to 'Mensagens', backstage_admin_contacts_path %></li>
         <li><%= link_to 'Templates', backstage_admin_sample_templates_path %></li>
@@ -61,6 +63,8 @@
 
     <% if current_user.admin? %>
       <ul id="admin-content" class="dropdown-content">
+        <li><%= link_to 'Blocos Copywrite', backstage_admin_copywrite_blocks_path %></li>
+        <li><%= link_to 'Copywrites', backstage_admin_copywrites_path %></li>
         <li><%= link_to 'Fontes', backstage_admin_fonts_path %></li>
         <li><%= link_to 'Mensagens', backstage_admin_contacts_path %></li>
         <li><%= link_to 'Templates', backstage_admin_sample_templates_path %></li>

@@ -1,0 +1,8 @@
+<%# encoding: utf-8 %>
+var cursorPos = $('#template').prop('selectionStart');
+var v = $('#template').val();
+var textBefore = v.substring(0,  cursorPos);
+var textAfter  = v.substring(cursorPos, v.length);
+
+$("#template").val(textBefore + '<%= j(@template) %>' + textAfter);
+$("#template").focus().trigger('autoresize');

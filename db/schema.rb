@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170417161850) do
+ActiveRecord::Schema.define(version: 20170418215002) do
 
   create_table "ahoy_events", force: :cascade do |t|
     t.integer  "visit_id"
@@ -154,6 +154,30 @@ ActiveRecord::Schema.define(version: 20170417161850) do
     t.string   "destination"
     t.integer  "company_id"
     t.boolean  "read",        default: false
+  end
+
+  create_table "copywrite_blocks", force: :cascade do |t|
+    t.string   "name"
+    t.text     "template"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "category"
+  end
+
+  create_table "copywrites", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text     "template"
+  end
+
+  create_table "copywritings", force: :cascade do |t|
+    t.integer  "copywrite_id"
+    t.integer  "copywrite_block_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["copywrite_block_id"], name: "index_copywritings_on_copywrite_block_id"
+    t.index ["copywrite_id"], name: "index_copywritings_on_copywrite_id"
   end
 
   create_table "fonts", force: :cascade do |t|
